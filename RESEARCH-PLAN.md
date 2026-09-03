@@ -11,7 +11,7 @@ If they are, it follows that readers of other standard varieties encounter
 generated prose as regionally foreign before they encounter it as machine-made,
 and that "this reads as AI" is partly a judgement about national register.
 
-## Why this is a paper and not a blog post
+## Why it is worth doing properly
 
 Three findings already exist separately and nobody appears to have joined them.
 
@@ -96,9 +96,9 @@ publishing. Equality would be a real result too, and a duller one.
 ### Deliberately out of scope
 
 Whether readers of different varieties actually judge texts differently. That
-needs human subjects, ethics approval and an institution, and it is a separate
-paper. Study 1 and 2 together support the register claim; they do not establish
-the perception claim, and the write-up must not imply otherwise.
+needs human subjects and an ethics process, which an unaffiliated project does
+not have. Study 1 and 2 together support the register claim; they do not
+establish the perception claim, and the write-up must not imply otherwise.
 
 ## Threats to validity
 
@@ -122,54 +122,50 @@ the perception claim, and the write-up must not imply otherwise.
   cost of measuring a model with little real-world readership, and the
   generalisation from OLMo to GPT or Claude is an argument rather than a result.
 
-## What it costs
+## Output, and what "properly" means without a journal
 
-This is a personal project with no budget, so the design has to stay inside one.
+The aim is a reproducible public analysis and an article, not a submission. That
+removes the venue, the article processing charge and a review cycle that would
+have run six to eighteen months, over which the models being measured would have
+been replaced.
+
+It removes none of the rigour. Every reason for pre-registering, freezing the
+frames, reporting intervals and stating the threats holds regardless of who
+publishes it. The reader is the constraint, not a reviewer.
+
+What ships:
+
+- This repository, public, with the counts, the code and the frozen frame list,
+  so anyone can rerun it.
+- An OSF pre-registration, made before the data is collected. Free, open to
+  unaffiliated researchers, and it is most of what makes a frame set chosen from
+  intuition credible.
+- The article, on the blog.
+- A preprint only if the result warrants being citable. Optional, free, and a
+  decision for after there is a result.
+
+## What it costs
 
 | Item | Cost |
 |---|---|
 | GloWbE queries | free account; rate-limited, so Study 1 spreads over days |
-| Study 2 generation, cheap-tier models | cents to a few pounds per million output tokens |
-| Study 2 generation, frontier models | one to two orders of magnitude more |
-| Dolma sample | free; stream from Hugging Face rather than downloading 3T tokens |
-| OLMo inference | free on Colab's T4, which is already in use for other work |
-| OSF pre-registration | free, and open to unaffiliated researchers |
-| arXiv or OSF preprint | free |
-| Submission and publication | free at a hybrid journal on the subscription route |
-| Gold open access | €1,500-3,000 at Benjamins with no institutional agreement |
+| Dolma sample | free; stream from Hugging Face rather than pulling 3T tokens |
+| Dolma frame counting | Modal, CPU fan-out over shards; cheap enough to be noise |
+| OLMo inference for Study 2 and 3 | Modal GPU, batch, a few hours at most |
+| Closed-model generation | the only line that scales; optional |
+| OSF pre-registration, preprint | free |
 
-**Skip gold open access.** John Benjamins journals are hybrid: subscription
-revenue with optional paid OA. Publishing on the subscription route costs
-nothing. Without an institution there is no Read & Publish agreement, so the
-full APC would apply, and it buys reach that a free preprint buys anyway.
+Modal's monthly free credits cover the compute comfortably, and it suits this
+better than Colab: the work is batch rather than interactive, and a Dolma pass
+is a fan-out over shards rather than something to babysit in a notebook session.
 
-Post the preprint to arXiv or OSF at submission. Free, immediate, citable, and
-it removes the only real argument for paying.
+Sizing: a frame at roughly 50 occurrences per million words needs about two
+million words to accumulate a hundred hits, which is where the interval gets
+tight enough to report. That is under three million output tokens per model.
+Open-weight models on Modal make it free; closed models turn it into a real if
+small bill. Check current per-token pricing rather than trusting a figure here.
 
-Sizing Study 2: a frame at roughly 50 occurrences per million words needs about
-two million words to accumulate a hundred hits, which is where the Poisson
-interval gets tight enough to be worth reporting. Two million words is under
-three million output tokens. On cheap-tier models that is a rounding error; on
-frontier models it is a real if survivable amount. Check current per-token
-pricing rather than trusting any figure written down here.
-
-The genuine cost is time. The literature review is the largest single item and
-does not compress. Peer review then runs six to eighteen months, during which
-the models being measured will have been replaced.
-
-## Venue candidates
-
-| Venue | Fit | Note |
-|---|---|---|
-| *Corpus Pragmatics* (Springer) | high | published GloWbE marker work |
-| *English World-Wide* (Benjamins) | high | published the GloWbE description paper |
-| *Register Studies* (Benjamins) | medium | register-first framing |
-| *ICAME Journal* | medium | corpus linguistics, open access |
-| ACL/EMNLP workshop | medium | if Study 2 leads; faster turnaround |
-
-Unaffiliated submission is accepted at all of these. Check article processing
-charges before committing — some are substantial and not all are waivable
-without an institution.
+The remaining cost is time, and the literature review is the largest item.
 
 ## Before any more code
 
@@ -185,8 +181,8 @@ without an institution.
 
 ## Open decisions
 
-- Does Study 2 go in the first paper, or does Study 1 stand alone?
-- Study 3 needs Dolma sampling infrastructure and OLMo inference. Both are
-  tractable and neither is free of effort. Is that in the first paper?
+- Does Study 2 ship with Study 1, or does the baseline stand alone first?
+- Study 3 needs Dolma sampling and OLMo inference on Modal. Tractable, and the
+  most interesting result in the design. Does it ship with the first article?
 - Which venue, and therefore which format and length?
 - Is the blog article written before, alongside, or after submission?

@@ -1,0 +1,231 @@
+---
+title: "Literature notes: register frames across national varieties of English"
+subtitle: "englishRegisterStudy — reading for gating item 1"
+author: "Cesaire Tobias"
+date: "2026-09-03"
+format:
+  pdf:
+    date-format: "DD MMMM, YYYY"
+    toc: true
+    toc-depth: 2
+    number-sections: true
+    colorlinks: true
+    documentclass: article
+    geometry: margin=1in
+    fontsize: 11pt
+    linestretch: 1.5
+    cite-method: citeproc
+    bibliography: ../references.bib
+    csl: ../harvard-cite-them-right.csl
+    link-citations: true
+    fig-pos: 'H'
+    tbl-pos: 'H'
+    include-in-header:
+      text: |
+        \usepackage{float}
+        \usepackage{booktabs}
+        \floatplacement{table}{H}
+---
+
+# What has been read
+
+Source PDFs are in `readings/`, which is not committed. The bibliography carries
+the DOIs.
+
+| Source | Status |
+|--------|--------|
+| @westphal2024eh | Read in full, 22 pp. |
+| @murphy2025please | Read in full, 24 pp. |
+| @liang2023gpt | Read in full, 6 pp. |
+| @davies2020tour | Read in part: the corpus table and the sections on dialectal variation and virtual corpora. |
+| @biber2015exploring | Not read. Paywalled, no open copy located. |
+| @davies2015expanding | Not read. Known only through the two papers that cite it. |
+
+Every claim below about @biber2015exploring and @davies2015expanding is a
+second-hand report taken from @murphy2025please or @westphal2024eh. Section 6
+says what turns on getting the originals.
+
+@westphal2024eh appeared online in November 2023 under a 2023 copyright line.
+The version of record sits in volume 8, dated 2024, which is the year used here
+and in the bibliography.
+
+# Prior art: the operationalisation is not already done
+
+Both GloWbE papers count a fixed lexical item across national components, which
+is the shape of Study 1. Neither does what Study 1 does.
+
+@murphy2025please covers GB and US only. She draws 1,000 random concordance
+contexts per variety, codes 800 of them into twelve act-types, and tests the
+resulting proportions with Pearson chi-square. Her corpus-wide frequencies are
+93,356 instances of *please* in GB against 91,948 in US, or 240.85 against
+237.71 per million words, a difference she treats as immaterial.
+
+@westphal2024eh covers GB, US, CA, NZ, IN, PH, SG, NG and JM. He reports
+normalised rates per million words for sentence-final *eh*, splits them by
+punctuation and by text type, and reserves regression for the coding of
+pragmatic function rather than for the frequency comparison.
+
+Three gaps follow.
+
+Neither study includes Australia, Ireland or South Africa. Three of this study's
+five varieties are untouched by both.
+
+Neither puts an interval on a cross-variety rate comparison. @murphy2025please
+tests proportions within a coded sample; @westphal2024eh reports point estimates
+and describes the differences qualitatively, noting himself that variety
+differences in GloWbE need to be interpreted with caution. The exact Poisson
+intervals and the quasi-Poisson composite already fixed in `R/analyse.R` are
+more cautious about the comparison than the practice in either paper.
+
+Neither measures anything about generated text. The link from national register
+to LLM output is unmade in this literature.
+
+# The genre control is weaker than the design assumed
+
+The blog/general split is real and queryable. @westphal2024eh reports
+sentence-final *eh* separately for blogs and general websites in all nine of his
+components, and his Table 1 gives word counts for both sections of each. Gating
+item 3 is answered: the interface exposes the split per variety.
+
+The split does not separate genres cleanly. @murphy2025please states that GloWbE
+has General and Blog subcategories but that @biber2015exploring found the
+categories overlap too much to be useful, and on that basis she abandoned an
+initial effort to balance her sample across them. @westphal2024eh keeps the
+split while citing @davies2015expanding as holding that a clear distinction
+between general and blog texts is not possible.
+
+One published user of the corpus abandoned the split; the other used it with the
+corpus authors' own caveat attached.
+
+The consequence is a wording change rather than a modelling change. The
+`variety:section` term and the F test stand. What the section term cannot
+support is the inference that a difference between varieties is therefore not a
+difference between genres. Built on overlapping categories, it reduces genre
+confounding without eliminating it, and anything written from these results has
+to say the weaker thing.
+
+# Corpus composition: two different blog figures
+
+Two quantities invite conflation here. The figure of roughly 60 per cent
+informal blogs is @davies2015expanding on the provenance of the texts. The
+corpus's own Blog *section* is smaller, on the word counts in @westphal2024eh:
+
+| Component | Blog | General | Total | Blog share |
+|-----------|-----------:|-----------:|-----------:|-----:|
+| GB | 131,671,002 | 255,672,390 | 387,343,392 | 34.0% |
+| US | 133,061,093 | 253,536,242 | 386,597,335 | 34.4% |
+
+A third of the words sit in the section labelled Blog. The gap between that and
+60 per cent is the overlap problem of section 3 seen from the other side:
+blog-like text is spread across both sections rather than confined to one.
+
+These totals also disagree slightly with the interface's own figures, which
+@davies2020tour gives as 387.6 million words for GB and 386.8 million for US.
+The discrepancy is small but it is larger than rounding, so the offsets in the
+model should use section word counts read off the interface at query time, and
+those figures should be recorded with the counts rather than reconstructed
+later.
+
+# Method worth adopting
+
+**A precision check on the loose frames.** @westphal2024eh samples thirty
+concordance lines per component, codes them, and reports what survives: 96.5 per
+cent of his sentence-final hits were genuine pragmatic markers rather than
+onomatopoeia. `data/frames.csv` marks F10 and F13 as `partial` because they will
+admit false positives. They need the same treatment, and it costs queries the
+plan has not budgeted.
+
+**An exclusion list.** @murphy2025please removes duplicates, biblical, literary
+and song-lyric quotation, and writers who signal a non-target dialect through
+spelling or explicit reference to another nationality. Directly reusable.
+
+**A number for the country-assignment threat.** From a spelling test on *color*,
+*tumor* and *neighbor*, @murphy2025please estimates that 10–15 per cent of
+writers in the GB and US subcorpora are non-nationals. That biases toward the
+null: real between-variety differences are understated rather than manufactured.
+
+**Punctuation is a searchable token.** @westphal2024eh searched *eh* followed by
+a full stop, an exclamation point or a question mark. F06 and F10 depend on
+matching a comma, and this confirms the interface will do it.
+
+**Do not add part-of-speech frames.** @murphy2025please found many verb uses of
+*please* mis-tagged as adverbs and abandoned the tagging. The frozen frames are
+all string and wildcard patterns, so this does not bite; it is a reason not to
+relax that later.
+
+# What the detector literature establishes, and what it does not
+
+@liang2023gpt evaluate seven detectors on 91 TOEFL essays by non-native writers
+and 88 US eighth-grade essays. The average false-positive rate on the TOEFL
+essays is 62.22 per cent against near zero on the eighth-grade essays; 18 of the
+91 TOEFL essays are unanimously misclassified and 89 of 91 are flagged by at
+least one detector. Prompting a model to enrich the word choices drops the
+average false-positive rate to 11.77 per cent, and simplifying the word choices
+in the American essays raises their misclassification from 5.19 to 56.65 per
+cent. Perplexity is doing the work.
+
+Two limits, both stated by the authors: they call it a pilot with relatively
+small samples, and most detectors assessed use GPT-2 as the underlying model.
+Anything written from this repository should carry both.
+
+The comparison is non-native writers against American schoolchildren, never
+native standard variety against native standard variety. The gap this study
+claims is real.
+
+# The interface, and what it costs
+
+@davies2020tour settles the query budget. A single search in GloWbE returns
+frequency, section size and rate per million for all twenty countries at once,
+displayed as one row each for `FREQ`, `WORDS (M)` and `PER MIL`. The grid is
+therefore priced per frame rather than per frame per variety.
+
+Component sizes for the five varieties in this study, as the interface reports
+them:
+
+| Variety | Words (M) |
+|---------|----------:|
+| GB | 387.6 |
+| US | 386.8 |
+| AU | 148.2 |
+| IE | 101.0 |
+| ZA | 45.4 |
+
+South Africa is the constraint. At 45.4 million words a frame occurring at 50
+per million yields on the order of two thousand hits, which is ample, but the
+rarer frames in the frozen set will be thin there and the intervals will show
+it. Ireland is the next smallest at roughly a quarter of the GB component.
+
+Restriction to blog or general is applied through the `Sections` control on the
+search screen rather than through a separate query language, and virtual corpora
+are available if a finer restriction is ever needed.
+
+Full-text GloWbE is sold to anyone through corpusdata.org, as 95 per cent of the
+text with the remainder withheld for copyright. Working from it would lift the
+lexicalisation ceiling, allow the blog and general sections to be inspected
+rather than trusted, and let Study 3 apply one counting routine to both corpora.
+This study forgoes all of that to stay free to run and free to replicate. The
+consequence is that the frozen frame set stays lexical and the density claim
+stays a proxy. Neither the exact click
+path for holding a section constant across all twenty countries nor the
+per-account daily query limit has been verified against a live session; both
+need confirming before the counting starts, because they set how many days
+Study 1 takes.
+
+# What is still outstanding
+
+@biber2015exploring is the paper behind the overlap finding in section 3, and it
+reaches this study through a single footnote in @murphy2025please. Whether the
+genre control is worth reporting at all, and in what language, depends on what
+it actually says: how the register categories were assigned, how far coders
+agreed, and whether blog is a category that failed or one that behaved like the
+rest. It is paywalled with no open copy located. Get it through a library or
+from the authors before the OSF registration is written, because the wording of
+the control goes into the registration.
+
+@davies2015expanding should be read alongside it, for the provenance figure in
+section 4 and for the corpus authors' own account of the country mapping.
+
+# References
+
+::: {#refs}
+:::

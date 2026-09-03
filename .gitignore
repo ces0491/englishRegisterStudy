@@ -11,3 +11,13 @@ figures/
 .Rhistory
 .RData
 .Ruserdata
+
+# Source PDFs for the literature review, and the guided tour saved from
+# english-corpora.org. Third-party copyright, and the bibliography carries the
+# DOIs, so the reading list is reproducible without them.
+readings/
+docs/*.pdf
+
+# Quarto
+/.quarto/
+docs/*_files/

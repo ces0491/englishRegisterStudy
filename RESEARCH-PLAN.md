@@ -57,6 +57,42 @@ Do LLM outputs use those frames at rates resembling the American end of Study 1?
 - Report per model and per version. This is a moving target and a result about
   one model at one date is all it can be.
 
+### Study 3 — input against output, which is the actual test
+
+A model producing American register proves nothing on its own. If the training
+data was overwhelmingly American, a model reproducing that is a model working
+correctly, and "American register" is a fact about the corpus rather than about
+the model. Volume is the explanation to beat, and beating it needs the input
+measured on the same scale as the output.
+
+**The measurement needed is not the training data's dialect composition. It is
+the training data's frame rate.** Composition would have to be inferred from
+domain TLDs, where `.com` is ambiguous and dominant. The frame rate is directly
+countable with the same fifteen patterns used everywhere else, which makes input
+and output comparable without anyone having to classify a single document.
+
+- **Primary: OLMo on Dolma.** Ai2 publishes the weights, the training code and
+  the pretraining corpus. Frame rates can be counted in Dolma and in OLMo's
+  output and set against each other exactly. No other model family allows this.
+- Sample Dolma rather than processing it whole. At these rates a few million
+  words gives intervals tight enough, and the sampling frame gets recorded.
+- **Secondary: the closed models.** GPT, Claude and Gemini output can be
+  measured; their inputs cannot. For those the volume confound stays open and
+  the write-up says so rather than implying otherwise.
+
+The prediction that distinguishes the two explanations:
+
+| | Output frame rate vs Dolma frame rate |
+|---|---|
+| Volume alone | approximately equal |
+| Amplification | output materially higher |
+
+Amplification is the claim in *The Average Human Problem* — that a model writes
+like the centroid of its training data rather than a sample from it, so the
+majority register is over-produced rather than reproduced in proportion. Study 3
+is what turns that from an assertion into a number, and it is the finding worth
+publishing. Equality would be a real result too, and a duller one.
+
 ### Deliberately out of scope
 
 Whether readers of different varieties actually judge texts differently. That
@@ -79,6 +115,12 @@ the perception claim, and the write-up must not imply otherwise.
   proxy for author nationality rather than a measure of it.
 - **Study 2 has no ground truth** for what "American-like" means beyond Study 1
   itself, so the two studies are not independent.
+- **Training data volume** is the confound that would otherwise sink the whole
+  argument, and Study 3 exists to answer it. It remains unanswered for every
+  closed model, which is a limit on how far the secondary results can be pushed.
+- **OLMo is not the model anyone reads.** Study 3 buys a clean comparison at the
+  cost of measuring a model with little real-world readership, and the
+  generalisation from OLMo to GPT or Claude is an argument rather than a result.
 
 ## Venue candidates
 
@@ -109,5 +151,7 @@ without an institution.
 ## Open decisions
 
 - Does Study 2 go in the first paper, or does Study 1 stand alone?
+- Study 3 needs Dolma sampling infrastructure and OLMo inference. Both are
+  tractable and neither is free of effort. Is that in the first paper?
 - Which venue, and therefore which format and length?
 - Is the blog article written before, alongside, or after submission?

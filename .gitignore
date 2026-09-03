@@ -1,0 +1,12 @@
+# Derived from data/counts.csv + data/corpus-sizes.csv by R/analyse.R.
+# Reproducible, so not committed - and this way a test run against synthetic
+# fixtures can never leave invented numbers behind in the repo.
+data/rates.csv
+data/composite.csv
+data/ratios-vs-us.csv
+figures/
+
+.Rproj.user/
+.Rhistory
+.RData
+.Ruserdata

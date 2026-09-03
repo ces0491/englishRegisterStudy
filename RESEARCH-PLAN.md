@@ -50,7 +50,10 @@ human-written web English?
   Poisson would be overconfident about the one comparison the study rests on.
 - Genre control: the same model with `variety:section` added, compared by F
   test. If the variety effect differs between sections, the per-section ratios
-  are what gets reported and the common effect is set aside.
+  are what gets reported and the common effect is set aside. The split is a
+  partial control — see the register confound under Threats — so a common effect
+  across sections is evidence against a pure genre explanation rather than proof
+  of its absence.
 - All of the above is fixed here before any count exists, and goes into the OSF
   registration as written.
 
@@ -120,13 +123,25 @@ establish the perception claim, and the write-up must not imply otherwise.
   overproduce. Freezing them before querying controls for post-hoc selection,
   not for the possibility that they were the wrong frames. Pre-register.
 - **Register confound.** "American vs British" could be "blogs vs broadsheets".
-  The blog/general split within variety is the control; verify it is exposed in
-  the interface before relying on it.
+  The blog/general split within variety is the control, and it is exposed in the
+  interface — Westphal (2024) reports rates by section for nine components. It is
+  also a weak control: Biber, Egbert & Davies (2015) found the two categories
+  overlap too much to be useful, Murphy (2025) abandoned the split on that basis,
+  and Davies & Fuchs (2015) themselves hold that a clean distinction is not
+  possible. Report the section term as reducing genre confounding, never as
+  eliminating it.
 - **Lexicalisation ceiling.** Only fixed frames are countable. The stronger
   claim is about density and near-obligatory use, and the composite rate is a
-  weak proxy for it. Do not overstate what the composite shows.
+  weak proxy for it. Do not overstate what the composite shows. This ceiling is
+  a consequence of working through the web interface, which exposes no sentence
+  or document structure. Buying the full-text release would lift it and widen
+  the frame set; the study is costed at zero instead, and this is the main thing
+  that buys.
 - **GloWbE country assignment** is by web domain and site location, which is a
-  proxy for author nationality rather than a measure of it.
+  proxy for author nationality rather than a measure of it. Murphy (2025)
+  estimates from a spelling test on `color`, `tumor` and `neighbor` that 10-15%
+  of writers in the GB and US components are non-nationals. That biases toward
+  the null, so a difference found here is understated rather than manufactured.
 - **Study 2 has no ground truth** for what "American-like" means beyond Study 1
   itself, so the two studies are not independent.
 - **Training data volume** is the confound that would otherwise sink the whole
@@ -163,6 +178,7 @@ What ships:
 | Item | Cost |
 |---|---|
 | GloWbE queries | free account; rate-limited, so Study 1 spreads over days |
+| GloWbE full text | not bought: a few hundred dollars from corpusdata.org, academic or non-academic licence. Would lift the lexicalisation ceiling |
 | Dolma sample | free; stream from Hugging Face rather than pulling 3T tokens |
 | Dolma frame counting | Modal, CPU fan-out over shards; cheap enough to be noise |
 | OLMo inference for Study 2 and 3 | Modal GPU, batch, a few hours at most |
@@ -183,15 +199,19 @@ The remaining cost is time, and the literature review is the largest item.
 
 ## Before any more code
 
-1. **Read the literature properly.** The searches so far returned abstracts.
-   At minimum: Liang et al. (2023); the GloWbE `please` and `eh` papers; Davies
-   & Fuchs (2015); and whatever the citation graph of the first three surfaces.
-   The `please` and `eh` papers may already have done part of the
-   operationalisation.
+1. **Read the literature properly.** Done for Liang et al. (2023), Murphy (2025)
+   on `please` and Westphal (2024) on `eh`. Neither GloWbE paper pre-empts the
+   operationalisation: between them they omit AU, IE and ZA, and neither puts an
+   interval on a cross-variety rate comparison. Outstanding: Biber, Egbert &
+   Davies (2015), which decides how the genre control is worded, and Davies &
+   Fuchs (2015). Notes and full citations in `docs/literature-notes.qmd`.
 2. **Pre-register.** OSF takes registrations from unaffiliated researchers at no
    cost. Frames, varieties, sections and analysis fixed in advance is most of
    what makes this credible given the author picked the frames from intuition.
-3. **Confirm the blog/general split** is queryable per variety.
+3. **Confirm the blog/general split** is queryable per variety. Answered: it is,
+   and Westphal (2024) reports section word counts for nine components. What
+   remains is the click path for holding a section constant across all twenty
+   countries, and the daily query limit on the account tier being used.
 
 ## Open decisions
 

@@ -27,10 +27,19 @@ of anyone else's.
 pattern that the GloWbE interface can match without syntactic parsing.
 
 **Over what population?** GloWbE: 1.9 billion words across 1.8 million web pages
-from 20 countries, roughly 60% informal blogs and 40% other genres. Five
-varieties are used here: US, GB, IE, AU, ZA. Each is split into the corpus's
-blog and general-web sections and analysed separately, so a difference between
-varieties cannot be a difference between genres.
+from 20 countries, collected in December 2012. Five varieties are used here —
+US, GB, IE, AU, ZA — with components ranging from 387.6 million words for GB
+down to 45.4 million for ZA. Each is split into the corpus's blog and
+general-web sections and analysed separately.
+
+That split is a partial genre control. Davies and Fuchs describe roughly 60% of
+the corpus as coming from informal blogs, while the section labelled Blog holds
+about a third of the words in the GB and US components, so blog-like text sits
+on both sides of the line. Biber, Egbert and Davies (2015) found the categories
+overlap too much to be useful, and Murphy (2025) abandoned balancing a GloWbE
+sample across them on that basis. Analysing sections separately reduces the risk
+that a difference between varieties is a difference between genres without
+removing it.
 
 **Weighted how?** No frame is weighted above another. No defensible reason
 exists to do it, and an index that invents weights is the failure this study is
@@ -62,6 +71,8 @@ Corpus (GloWbE)", *English World-Wide* 36(1).
 
 **Cannot:** sentence-initial position, one-sentence paragraphs, or a closing
 epigram. Each needs sentence or document structure the interface does not expose.
+The purchasable full-text release does expose it; see Method for why this study
+does not use it.
 
 So the study tests the lexicalised end of the claim. The sharper version — that
 what distinguishes the register is the *density* and near-obligatory quality of
@@ -70,9 +81,16 @@ rate, which is a weak proxy. Say so in anything written from these results.
 
 ## Method
 
-GloWbE has no API and its downloadable form is restricted to researchers at
-member institutions, so counts are entered by hand from the web interface at
+GloWbE has no API, so counts are entered by hand from the web interface at
 <https://www.english-corpora.org/glowbe/>.
+
+Full-text GloWbE data is purchasable from <https://www.corpusdata.org/> under an
+academic or non-academic licence, at a few hundred dollars for a single corpus.
+It is deliberately not used here. That keeps the study free to run and free to
+replicate — anyone with a no-cost account can rerun every count in this
+repository — at the price of the ceiling described above. Buying the data later
+stays open; widening the frozen frame set after seeing results does not, so the
+decision is recorded here.
 
 1. Copy `data/counts-template.csv` to `data/counts.csv` and
    `data/corpus-sizes-template.csv` to `data/corpus-sizes.csv`.
@@ -101,7 +119,7 @@ with frame as a factor and `log(words)` as an offset, because fifteen frames
 with base rates orders of magnitude apart are overdispersed and a plain Poisson
 interval on the comparison would be too narrow. The same model with a
 `variety:section` term tests whether the variety effect survives the genre
-split, which is the control the design leans on.
+split, subject to the caveat above about how much that split can carry.
 
 ## Adding a frame
 

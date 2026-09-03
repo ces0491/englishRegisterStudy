@@ -38,7 +38,19 @@ human-written web English?
 - Instrument: GloWbE, blog and general sections held separate.
 - Varieties: US, GB, IE, AU, ZA. Others if the frames survive.
 - Frames: frozen in `data/frames.csv` before querying.
-- Outcome: rate per million with exact Poisson intervals; US as reference.
+- Outcome: rate per million with exact Poisson intervals, US as reference.
+- Per-frame comparison: exact conditional Poisson intervals on each rate ratio
+  against US, within section.
+- Composite: quasi-Poisson GLM, `hits ~ frame_id + variety + section` with
+  `offset(log(words))`. Frame enters as a factor because fifteen frames whose
+  base rates differ by orders of magnitude are overdispersed by construction,
+  and the estimated dispersion carries that into the variety intervals. A plain
+  Poisson would be overconfident about the one comparison the study rests on.
+- Genre control: the same model with `variety:section` added, compared by F
+  test. If the variety effect differs between sections, the per-section ratios
+  are what gets reported and the common effect is set aside.
+- All of the above is fixed here before any count exists, and goes into the OSF
+  registration as written.
 
 **GloWbE's 2012 collection date is the reason to use it.** Any corpus collected
 after 2022 contains generated text in unknown proportion, so a "human baseline"

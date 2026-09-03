@@ -4,6 +4,7 @@
 data/rates.csv
 data/composite.csv
 data/ratios-vs-us.csv
+data/composite-ratios.csv
 figures/
 
 .Rproj.user/

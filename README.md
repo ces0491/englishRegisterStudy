@@ -72,13 +72,27 @@ member institutions, so counts are entered by hand from the web interface at
    figure, so the normalisation can be recomputed and checked.
 3. `Rscript R/analyse.R`
 
-Outputs — `data/rates.csv`, `data/composite.csv`, `data/ratios-vs-us.csv` and
-`figures/frame-rates.png` — are all derived and are not committed. Everything
-needed to reproduce them is.
+The script refuses a partial grid. All 15 frames across 5 varieties and 2
+sections have to be present, entered once each, with a whole-number hit count,
+and every variety/section pair needs its word count. A cell left out would lower
+that variety's composite and nothing in the output would show it, so a gap is an
+error rather than a warning.
+
+Outputs — `data/rates.csv`, `data/composite.csv`, `data/ratios-vs-us.csv`,
+`data/composite-ratios.csv` and `figures/frame-rates.png` — are all derived and
+are not committed. Everything needed to reproduce them is.
 
 Rates carry exact Poisson intervals on the underlying count, because a frame
 seen four times and a frame seen four thousand times are not equally well
 measured and a bare per-million figure hides the difference.
+
+Every ratio against US carries an interval too. Per frame those are exact
+conditional Poisson intervals; the composite comes from a quasi-Poisson model
+with frame as a factor and `log(words)` as an offset, because fifteen frames
+with base rates orders of magnitude apart are overdispersed and a plain Poisson
+interval on the comparison would be too narrow. The same model with a
+`variety:section` term tests whether the variety effect survives the genre
+split, which is the control the design leans on.
 
 ## Adding a frame
 

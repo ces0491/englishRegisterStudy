@@ -12,6 +12,10 @@ Australian or South African ear before it reads as machine-written.
 Neither the hypothesis nor its opposite has any evidence behind it at the time of
 writing. That is the point of measuring.
 
+Scope and design are in [RESEARCH-PLAN.md](RESEARCH-PLAN.md). This is aimed at a
+paper, with anything written for the blog as a by-product, so the frames are
+pre-registered and the analysis is fixed before the data is collected.
+
 ## The four questions
 
 A study that produces an index has to answer the same four questions it would ask

@@ -12,9 +12,10 @@ Australian or South African ear before it reads as machine-written.
 Neither the hypothesis nor its opposite has any evidence behind it at the time of
 writing. That is the point of measuring.
 
-Scope and design are in [RESEARCH-PLAN.md](RESEARCH-PLAN.md). This is aimed at a
-paper, with anything written for the blog as a by-product, so the frames are
-pre-registered and the analysis is fixed before the data is collected.
+Scope and design are in [RESEARCH-PLAN.md](RESEARCH-PLAN.md). The output is this
+repository and an article, not a journal submission. The frames are still
+pre-registered and the analysis still fixed before any data is collected,
+because both are for a reader rather than for a reviewer.
 
 ## The four questions
 
@@ -31,10 +32,18 @@ varieties are used here: US, GB, IE, AU, ZA. Each is split into the corpus's
 blog and general-web sections and analysed separately, so a difference between
 varieties cannot be a difference between genres.
 
-**Weighted how?** Not weighted. Frame rates are reported individually. The
-composite is a plain sum of hits over the same word base, because no defensible
-reason exists to weight one frame above another, and an index that invents
-weights is the failure this study is partly a response to.
+**Weighted how?** No frame is weighted above another. No defensible reason
+exists to do it, and an index that invents weights is the failure this study is
+partly a response to.
+
+The composite is a model rather than a total. Fifteen frames whose base rates
+differ by orders of magnitude would let the commonest of them dominate a raw
+sum, so the composite is a quasi-Poisson GLM: `hits ~ frame_id + variety +
+section` with `offset(log(words))`. Frame as a factor absorbs the base-rate
+spread without anyone choosing a number for it, and the estimated dispersion
+carries what is left into the variety intervals. On structureless fixtures the
+dispersion came out above a thousand, so a plain Poisson would have been badly
+overconfident about the one comparison the study rests on.
 
 **Covering what dates?** GloWbE's pages were collected in December 2012. Every result is a
 statement about web English at that date and about nothing since. This is the

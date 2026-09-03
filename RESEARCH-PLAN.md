@@ -1,6 +1,8 @@
 # Research plan
 
-Status: draft for discussion. Nothing below is settled.
+Status: the design and the analysis are settled and frozen, and go into the OSF
+registration as written. The literature review is not done. That is the next
+step, and the one thing that could still change the frame list.
 
 ## The question
 

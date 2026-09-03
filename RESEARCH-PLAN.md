@@ -122,6 +122,41 @@ the perception claim, and the write-up must not imply otherwise.
   cost of measuring a model with little real-world readership, and the
   generalisation from OLMo to GPT or Claude is an argument rather than a result.
 
+## What it costs
+
+This is a personal project with no budget, so the design has to stay inside one.
+
+| Item | Cost |
+|---|---|
+| GloWbE queries | free account; rate-limited, so Study 1 spreads over days |
+| Study 2 generation, cheap-tier models | cents to a few pounds per million output tokens |
+| Study 2 generation, frontier models | one to two orders of magnitude more |
+| Dolma sample | free; stream from Hugging Face rather than downloading 3T tokens |
+| OLMo inference | free on Colab's T4, which is already in use for other work |
+| OSF pre-registration | free, and open to unaffiliated researchers |
+| arXiv or OSF preprint | free |
+| Submission and publication | free at a hybrid journal on the subscription route |
+| Gold open access | €1,500-3,000 at Benjamins with no institutional agreement |
+
+**Skip gold open access.** John Benjamins journals are hybrid: subscription
+revenue with optional paid OA. Publishing on the subscription route costs
+nothing. Without an institution there is no Read & Publish agreement, so the
+full APC would apply, and it buys reach that a free preprint buys anyway.
+
+Post the preprint to arXiv or OSF at submission. Free, immediate, citable, and
+it removes the only real argument for paying.
+
+Sizing Study 2: a frame at roughly 50 occurrences per million words needs about
+two million words to accumulate a hundred hits, which is where the Poisson
+interval gets tight enough to be worth reporting. Two million words is under
+three million output tokens. On cheap-tier models that is a rounding error; on
+frontier models it is a real if survivable amount. Check current per-token
+pricing rather than trusting any figure written down here.
+
+The genuine cost is time. The literature review is the largest single item and
+does not compress. Peer review then runs six to eighteen months, during which
+the models being measured will have been replaced.
+
 ## Venue candidates
 
 | Venue | Fit | Note |

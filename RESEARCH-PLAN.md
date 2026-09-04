@@ -101,8 +101,16 @@ and output comparable without anyone having to classify a single document.
 - **Primary: OLMo on Dolma.** Ai2 publishes the weights, the training code and
   the pretraining corpus. Frame rates can be counted in Dolma and in OLMo's
   output and set against each other exactly. No other model family allows this.
+- **This is cheaper than it looks, because OLMo is one of Study 2's models.**
+  The generation run produces Study 2's open-model output and Study 3's output
+  side at once, and both count through the same frame-to-raw-text mapping. What
+  Study 3 adds over Study 2 is the Dolma sample and the pass that counts it.
+  That is the argument for running them as one phase rather than two.
 - Sample Dolma rather than processing it whole. At these rates a few million
-  words gives intervals tight enough, and the sampling frame gets recorded.
+  words gives intervals tight enough. **The sampling frame has to be specified
+  before the draw and registered with it** — version, subsets, how shards are
+  drawn, how much text, and the seed. "A few million words" is a target, not a
+  sampling frame, and the study cannot be registered on it.
 - **Secondary: the closed models.** GPT, Claude and Gemini output can be
   measured; their inputs cannot. For those the volume confound stays open and
   the write-up says so rather than implying otherwise.
@@ -227,7 +235,11 @@ The remaining cost is time, and the literature review is the largest item.
    Study 2 ships with Study 1, so the registration also carries its generation
    protocol — models and versions, prompts, temperature and sampling, the topic
    and genre matching, and the frame-to-raw-text mapping above — fixed before
-   any text is generated.
+   any text is generated. Study 3 registers separately and later, before the
+   Dolma sample is drawn, because its sampling frame is not decided yet and
+   waiting on it would hold up Study 1 for no gain. What pre-registration
+   protects is each study's design being fixed before that study's own data
+   exists, which staging preserves.
 3. **Confirm the blog/general split** is queryable per variety. Answered: it is,
    and Westphal (2024) reports section word counts for nine components. What
    remains is one live session to check the click path for holding a section
@@ -239,12 +251,11 @@ The remaining cost is time, and the literature review is the largest item.
 
 ## Open decisions
 
-Study 2 ships with Study 1, decided 4 September 2026 and recorded in
-`SCOPE.md`. Study 3 is the next phase, which leaves the training-volume
-confound open in this pass; the write-up has to say so rather than let a
-register result stand in for an answer.
+All three studies ship, decided 4 September 2026. `SCOPE.md` sequences them as
+gated phases: Study 1 alone, then the counting layer, then Studies 2 and 3
+together on OLMo, then the closed models as an optional widening.
 
-- Study 3 needs Dolma sampling and OLMo inference on Modal. Tractable, and the
-  most interesting result in the design. What triggers starting it?
-- Which venue, and therefore which format and length?
-- Is the blog article written before, alongside, or after submission?
+- The Dolma sampling frame. Blocks Study 3's registration and nothing else, so
+  it can be decided while Study 1 is being collected.
+- Whether a preprint follows the article. Free, and worth it only if the result
+  is one people will want to cite. Decided after there is a result.

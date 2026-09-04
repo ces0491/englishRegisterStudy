@@ -38,12 +38,12 @@ the DOIs.
 | @murphy2025please | Read in full, 24 pp. |
 | @liang2023gpt | Read in full, 6 pp. |
 | @davies2020tour | Read in part: the corpus table and the sections on dialectal variation and virtual corpora. |
-| @biber2015exploring | Not read. Paywalled, no open copy located. |
+| @biber2015exploring | Not read, and will not be. Abstract only; closed access with no reachable copy. |
 | @davies2015expanding | Not read. Known only through the two papers that cite it. |
 
 Every claim below about @biber2015exploring and @davies2015expanding is a
-second-hand report taken from @murphy2025please or @westphal2024eh. Section 6
-says what turns on getting the originals.
+second-hand report taken from @murphy2025please or @westphal2024eh. The final
+section says what follows from not having them.
 
 @westphal2024eh appeared online in November 2023 under a 2023 copyright line.
 The version of record sits in volume 8, dated 2024, which is the year used here
@@ -207,23 +207,59 @@ This study forgoes all of that to stay free to run and free to replicate. The
 consequence is that the frozen frame set stays lexical and the density claim
 stays a proxy. Neither the exact click
 path for holding a section constant across all twenty countries nor the
-per-account daily query limit has been verified against a live session; both
-need confirming before the counting starts, because they set how many days
-Study 1 takes.
+per-account daily query limit has been verified against a live session, and the
+guided tour in @davies2020tour documents neither.
 
-# What is still outstanding
+The limits page on english-corpora.org sits behind the same Cloudflare challenge
+as the corpus, so the free-tier figure is unverified. The one allowance
+traceable to a readable source is institutional: UW-Madison states 400 searches
+per faculty member and 200 per student each day under its academic licence,
+which says nothing about a free account. The grid is fifteen searches if a
+section can be held constant inside the one search that returns all twenty
+countries, and thirty if blog and general need separate passes, so a daily limit
+would have to be very low to bind. Confirm it in a live session before the
+counting starts.
+
+# What cannot be obtained, and what stands instead
 
 @biber2015exploring is the paper behind the overlap finding in section 3, and it
 reaches this study through a single footnote in @murphy2025please. Whether the
 genre control is worth reporting at all, and in what language, depends on what
 it actually says: how the register categories were assigned, how far coders
 agreed, and whether blog is a category that failed or one that behaved like the
-rest. It is paywalled with no open copy located. Get it through a library or
-from the authors before the OSF registration is written, because the wording of
-the control goes into the registration.
+rest.
 
-@davies2015expanding should be read alongside it, for the provenance figure in
-section 4 and for the corpus authors' own account of the country mapping.
+The abstract settles part of that and sharpens the question. The study codes
+48,571 web documents drawn by random sampling from the searchable web, with each
+document rated by four ordinary web users rather than by expert coders, working
+down a hierarchical decision tree to a general register category and then to a
+sub-register. It reports the register composition of the web and identifies
+hybrid documents that combine categories. So it is a taxonomy of web registers
+at large, not an audit of GloWbE's two sections, and @murphy2025please cites it
+twice: at pp. 16-17 for how GloWbE was built, and in footnote 3 for the overlap.
+Whether the second citation reflects a statement about GloWbE's own Blog and
+General labels or her reading of the taxonomy cannot be settled without the
+paper.
+
+The paper is closed access and this study will not get it. OpenAlex records no
+open location, the Northern Arizona University repository holds a record without
+a deposited file, no author copy was found, and no institutional route is
+available here.
+
+So the question stays open permanently, and the wording of the genre control is
+settled by decision rather than by reading. What stands: the overlap claim is
+reported as @murphy2025please's account of a paper this study has not read, the
+section term is described as reducing genre confounding without eliminating it,
+and @westphal2024eh's own counts — both *eh* and *huh* commoner in the blog
+section than the general one — are the evidence that the split separates
+something real. That wording goes into the OSF registration and does not change
+afterwards.
+
+@davies2015expanding is also out of reach: the publisher paywalls it, the
+academia.edu copy refuses automated access, and the author's own publications
+page needs a login. It would have supplied the provenance figure in section 4
+first-hand and the corpus authors' account of the country mapping. Both remain
+second-hand through @westphal2024eh.
 
 # References
 

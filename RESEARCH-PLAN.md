@@ -1,8 +1,10 @@
 # Research plan
 
 Status: the design and the analysis are settled and frozen, and go into the OSF
-registration as written. The literature review is not done. That is the next
-step, and the one thing that could still change the frame list.
+registration as written. The literature review is as complete as it will get —
+two of the cited papers cannot be obtained, and the wording that depended on
+them is settled by decision rather than by reading. Pre-registration is the next
+step. Completion criteria are in `SCOPE.md`.
 
 ## The question
 
@@ -125,11 +127,14 @@ establish the perception claim, and the write-up must not imply otherwise.
 - **Register confound.** "American vs British" could be "blogs vs broadsheets".
   The blog/general split within variety is the control, and it is exposed in the
   interface — Westphal (2024) reports rates by section for nine components. It is
-  also a weak control: Biber, Egbert & Davies (2015) found the two categories
-  overlap too much to be useful, Murphy (2025) abandoned the split on that basis,
-  and Davies & Fuchs (2015) themselves hold that a clean distinction is not
-  possible. Report the section term as reducing genre confounding, never as
-  eliminating it.
+  also a weak control: Murphy (2025) abandoned the split, reporting that Biber,
+  Egbert & Davies (2015) found the two categories overlap too much to be useful,
+  and Westphal (2024) cites Davies & Fuchs (2015) as holding that a clean
+  distinction is not possible. Neither original has been read, so the overlap
+  finding is held as Murphy's report of it. Westphal's own counts nonetheless
+  put both eh and huh higher in the blog section than the general one, so the
+  split carries signal even if the categories are impure. Report the section
+  term as reducing genre confounding, never as eliminating it.
 - **Lexicalisation ceiling.** Only fixed frames are countable. The stronger
   claim is about density and near-obligatory use, and the composite rate is a
   weak proxy for it. Do not overstate what the composite shows. This ceiling is
@@ -202,18 +207,28 @@ The remaining cost is time, and the literature review is the largest item.
 1. **Read the literature properly.** Done for Liang et al. (2023), Murphy (2025)
    on `please` and Westphal (2024) on `eh`. Neither GloWbE paper pre-empts the
    operationalisation: between them they omit AU, IE and ZA, and neither puts an
-   interval on a cross-variety rate comparison. Outstanding: Biber, Egbert &
-   Davies (2015), which decides how the genre control is worded, and Davies &
-   Fuchs (2015). Notes and full citations in `docs/literature-notes.qmd`.
+   interval on a cross-variety rate comparison. Biber, Egbert & Davies (2015)
+   and Davies & Fuchs (2015) are both out of reach — paywalled, with no
+   institutional route and no reachable copy — so what they say reaches this
+   study only through the two papers that cite them, and the write-up says so
+   wherever it matters. Notes and full citations in
+   `docs/literature-notes.qmd`.
 2. **Pre-register.** OSF takes registrations from unaffiliated researchers at no
    cost. Frames, varieties, sections and analysis fixed in advance is most of
    what makes this credible given the author picked the frames from intuition.
 3. **Confirm the blog/general split** is queryable per variety. Answered: it is,
    and Westphal (2024) reports section word counts for nine components. What
-   remains is the click path for holding a section constant across all twenty
-   countries, and the daily query limit on the account tier being used.
+   remains is one live session to check the click path for holding a section
+   constant across all twenty countries, and to read the limit off the account.
+   The limit is unlikely to bind either way: the grid is fifteen searches, or
+   thirty if the two sections need separate passes. The free-tier figure is not
+   published anywhere reachable — english-corpora.org blocks automated access —
+   so it has to come from the account itself.
 
 ## Open decisions
+
+`SCOPE.md` answers the first two provisionally: Study 1 ships alone, and
+Studies 2 and 3 are a separate phase. Changing that is a revision to `SCOPE.md`.
 
 - Does Study 2 ship with Study 1, or does the baseline stand alone first?
 - Study 3 needs Dolma sampling and OLMo inference on Modal. Tractable, and the

@@ -12,10 +12,11 @@ Australian or South African ear before it reads as machine-written.
 Neither the hypothesis nor its opposite has any evidence behind it at the time of
 writing. That is the point of measuring.
 
-Scope and design are in [RESEARCH-PLAN.md](RESEARCH-PLAN.md). The output is this
-repository and an article, not a journal submission. The frames are still
-pre-registered and the analysis still fixed before any data is collected,
-because both are for a reader rather than for a reviewer.
+The design is in [RESEARCH-PLAN.md](RESEARCH-PLAN.md) and the completion
+criteria in [SCOPE.md](SCOPE.md). The output is this repository and an article,
+not a journal submission. The frames are still pre-registered and the analysis
+still fixed before any data is collected, because both are for a reader rather
+than for a reviewer.
 
 ## The four questions
 
@@ -35,11 +36,12 @@ general-web sections and analysed separately.
 That split is a partial genre control. Davies and Fuchs describe roughly 60% of
 the corpus as coming from informal blogs, while the section labelled Blog holds
 about a third of the words in the GB and US components, so blog-like text sits
-on both sides of the line. Biber, Egbert and Davies (2015) found the categories
-overlap too much to be useful, and Murphy (2025) abandoned balancing a GloWbE
-sample across them on that basis. Analysing sections separately reduces the risk
-that a difference between varieties is a difference between genres without
-removing it.
+on both sides of the line. Murphy (2025) abandoned balancing a GloWbE sample
+across them, reporting that Biber, Egbert and Davies (2015) found the categories
+overlap too much to be useful. That paper is paywalled and reaches this study
+only through her footnote, so the strength of the finding rests on her account
+of it. Analysing sections separately reduces the risk that a difference between
+varieties is a difference between genres without removing it.
 
 **Weighted how?** No frame is weighted above another. No defensible reason
 exists to do it, and an index that invents weights is the failure this study is

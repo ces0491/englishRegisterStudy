@@ -8,9 +8,9 @@ English, using a corpus collected before generated text existed.
 
 ## What this covers
 
-Study 1 — the pre-LLM baseline — through to a published article. Studies 2 and
-3 in `RESEARCH-PLAN.md` are the next phase and are scoped separately, because a
-document that covers all three has no stop condition.
+Studies 1 and 2 — the pre-LLM baseline and the generated comparison — through
+to a published article. Study 3, which sets OLMo's output against the Dolma
+training data, is the next phase and is scoped separately.
 
 ## Done
 
@@ -25,14 +25,30 @@ document that covers all three has no stop condition.
 - [ ] Every reported comparison carries an interval
 - [ ] A stranger with a free english-corpora.org account can reproduce every
       count from what is in the repository
+- [ ] Study 2's generation protocol pre-registered alongside Study 1's
+      analysis and before any text is generated: models and versions, prompts,
+      temperature and sampling, and how topic and genre are matched to the
+      GloWbE blog section
+- [ ] Generated corpus reproducible from what is committed — prompts,
+      parameters and seeds — and large enough per model that the frames carry
+      usable intervals
+- [ ] The frames counted equivalently in both studies. The queries in
+      `data/frames.csv` are in GloWbE's tokenised form, so the mapping to raw
+      generated text is written down and frozen with the frames rather than
+      improvised at counting time
+- [ ] Study 2 rates reported per model and per version, with intervals, set
+      against the Study 1 variety rates
 - [ ] Article published on blog.sheetsolved.com, stating the lexicalisation
-      ceiling, the December 2012 collection date and what the genre control
-      does and does not do
+      ceiling, the December 2012 collection date, what the genre control does
+      and does not do, and that Study 2 has no ground truth for "American-like"
+      beyond Study 1 itself
 - [ ] `README.md` and `RESEARCH-PLAN.md` describe what was actually done
 
 ## Out of scope
 
-- Studies 2 and 3 — the generated comparison, and Dolma against OLMo output.
+- Study 3 — Dolma frame rates against OLMo output. The training-volume
+  confound therefore stays open in this pass, and the write-up says so instead
+  of implying that a register result settles it.
 - Whether readers actually judge texts differently. Needs human subjects and an
   ethics process this project does not have.
 - Journal submission. A preprint stays optional and is decided after there is a
@@ -69,4 +85,7 @@ clone.
 
 ## Revision history
 
-- 2026-09-04: initial scope
+- 2026-09-04: initial scope.
+- 2026-09-04: Study 2 brought in alongside Study 1. Study 3 stays the next
+  phase, so the training-volume confound is stated as open rather than
+  answered.

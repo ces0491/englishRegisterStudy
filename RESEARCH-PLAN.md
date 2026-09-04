@@ -72,7 +72,15 @@ Do LLM outputs use those frames at rates resembling the American end of Study 1?
   several models, temperature and prompt held constant and recorded.
 - Prompts must not name a variety or mention style. Asking for "British English"
   measures instruction-following instead of default register.
-- Same frames, same counting, same intervals.
+- Same frames and same intervals. "Same counting" takes work rather than
+  assertion: the queries in `data/frames.csv` are in GloWbE's tokenised form,
+  with clitics split off (`here 's the thing`, `is n't just`) and punctuation as
+  its own token (`it 's not * , it 's`). Counting them in raw generated text
+  means either tokenising that text the same way or translating each frame into
+  a pattern over raw text. Whichever is chosen is written down and frozen with
+  the frames and goes into the registration. An ad hoc mapping would leave the
+  two studies measuring different things while appearing to measure the same
+  one, and the comparison between them is the study.
 - Report per model and per version. This is a moving target and a result about
   one model at one date is all it can be.
 
@@ -216,6 +224,10 @@ The remaining cost is time, and the literature review is the largest item.
 2. **Pre-register.** OSF takes registrations from unaffiliated researchers at no
    cost. Frames, varieties, sections and analysis fixed in advance is most of
    what makes this credible given the author picked the frames from intuition.
+   Study 2 ships with Study 1, so the registration also carries its generation
+   protocol — models and versions, prompts, temperature and sampling, the topic
+   and genre matching, and the frame-to-raw-text mapping above — fixed before
+   any text is generated.
 3. **Confirm the blog/general split** is queryable per variety. Answered: it is,
    and Westphal (2024) reports section word counts for nine components. What
    remains is one live session to check the click path for holding a section
@@ -227,11 +239,12 @@ The remaining cost is time, and the literature review is the largest item.
 
 ## Open decisions
 
-`SCOPE.md` answers the first two provisionally: Study 1 ships alone, and
-Studies 2 and 3 are a separate phase. Changing that is a revision to `SCOPE.md`.
+Study 2 ships with Study 1, decided 4 September 2026 and recorded in
+`SCOPE.md`. Study 3 is the next phase, which leaves the training-volume
+confound open in this pass; the write-up has to say so rather than let a
+register result stand in for an answer.
 
-- Does Study 2 ship with Study 1, or does the baseline stand alone first?
 - Study 3 needs Dolma sampling and OLMo inference on Modal. Tractable, and the
-  most interesting result in the design. Does it ship with the first article?
+  most interesting result in the design. What triggers starting it?
 - Which venue, and therefore which format and length?
 - Is the blog article written before, alongside, or after submission?

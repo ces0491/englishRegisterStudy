@@ -229,17 +229,23 @@ The remaining cost is time, and the literature review is the largest item.
    study only through the two papers that cite them, and the write-up says so
    wherever it matters. Notes and full citations in
    `docs/literature-notes.qmd`.
-2. **Pre-register.** OSF takes registrations from unaffiliated researchers at no
-   cost. Frames, varieties, sections and analysis fixed in advance is most of
-   what makes this credible given the author picked the frames from intuition.
-   Study 2 ships with Study 1, so the registration also carries its generation
-   protocol — models and versions, prompts, temperature and sampling, the topic
-   and genre matching, and the frame-to-raw-text mapping above — fixed before
-   any text is generated. Study 3 registers separately and later, before the
-   Dolma sample is drawn, because its sampling frame is not decided yet and
-   waiting on it would hold up Study 1 for no gain. What pre-registration
-   protects is each study's design being fixed before that study's own data
-   exists, which staging preserves.
+2. **Pre-register, once per study.** OSF takes registrations from unaffiliated
+   researchers at no cost. Frames, varieties, sections and analysis fixed in
+   advance is most of what makes this credible given the author picked the
+   frames from intuition.
+
+   What pre-registration protects is each study's design being fixed before
+   that study's own data exists, so three registrations serve it better than
+   one. Study 1 registers now, on the Secondary Data template — GloWbE was
+   collected in 2012 and no count from it has been looked at. Study 2 registers
+   before any text is generated, carrying the generation protocol and the
+   frame-to-raw-text mapping. Study 3 registers before the Dolma sample is
+   drawn, carrying the sampling frame.
+
+   Combining them would hold Study 1 behind decisions only the later studies
+   need, and the mapping in particular is better written after the grid has
+   been collected by hand, because that is how the interface's matching
+   behaviour is learned.
 3. **Confirm the blog/general split** is queryable per variety. Answered: it is,
    and Westphal (2024) reports section word counts for nine components. What
    remains is one live session to check the click path for holding a section

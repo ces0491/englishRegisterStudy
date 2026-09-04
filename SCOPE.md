@@ -16,12 +16,17 @@ no phase starts before the one it depends on is finished and frozen.
 
 ## Phases
 
+Each study registers before its own data exists, which is what pre-registration
+protects. That is three registrations rather than one, and it is what lets
+Study 1 start now instead of waiting on decisions only Studies 2 and 3 need.
+
 **A — Study 1, the baseline.** Self-contained. No compute, no infrastructure,
 nothing downstream depends on its results.
 
-- [ ] OSF registration for Studies 1 and 2 submitted before any count is
-      recorded, carrying the frozen frames, varieties, sections, the analysis
-      as written, and Study 2's generation protocol
+- [ ] OSF registration for Study 1 submitted before any count is recorded,
+      carrying the frozen frames, varieties, sections and the analysis as
+      written. The Secondary Data template fits: GloWbE was collected in 2012
+      and no count from it has been looked at
 - [ ] Full grid collected by hand from GloWbE: 15 frames x 5 varieties x 2
       sections, plus the 10 section word counts, committed as `data/counts.csv`
       and `data/corpus-sizes.csv`
@@ -31,9 +36,14 @@ nothing downstream depends on its results.
 - [ ] A stranger with a free english-corpora.org account can reproduce every
       count from what is in the repository
 
-**B — the counting layer.** The gate for everything after it. Studies 2 and 3
-both count the frozen frames in raw text, and they have to count them the same
-way or the comparisons between the three studies mean nothing.
+**B — the counting layer, and Study 2's registration.** The gate for everything
+after it. Studies 2 and 3 both count the frozen frames in raw text, and they
+have to count them the same way or the comparisons between the three studies
+mean nothing.
+
+It comes after phase A on purpose. The mapping has to reproduce what GloWbE's
+interface actually matches, and collecting the grid by hand is how that is
+learned.
 
 - [ ] The frame-to-raw-text mapping written down and frozen with the frames.
       The queries in `data/frames.csv` are in GloWbE's tokenised form, with
@@ -41,16 +51,18 @@ way or the comparisons between the three studies mean nothing.
       survives contact with raw model output
 - [ ] Verified against a passage counted by hand, so the mapping is known to
       reproduce the interface's own matching rather than assumed to
-- [ ] Frozen before any generated or sampled text is counted
+- [ ] OSF registration for Study 2 submitted before any text is generated,
+      carrying the generation protocol — models and versions, prompts,
+      temperature and sampling, the topic and genre matching — and the mapping
 
 **C — Studies 2 and 3 on OLMo.** One phase, not two. The OLMo generation run
 produces Study 2's open-model output and Study 3's output side at once, so the
 marginal cost of Study 3 over Study 2 is the Dolma sample and the pass that
 counts it. Everything else is already required by Study 2.
 
-- [ ] Dolma sampling frame decided and registered before the sample is drawn:
-      version, subsets, how shards are drawn, how much text, and the seed
-- [ ] OSF registration for Study 3 filed before that draw
+- [ ] Dolma sampling frame decided: version, subsets, how shards are drawn, how
+      much text, and the seed
+- [ ] OSF registration for Study 3 submitted before the sample is drawn
 - [ ] OLMo generation run: prompts, parameters and seeds committed, and enough
       text that the frames carry usable intervals
 - [ ] Frame rates counted in the Dolma sample and in OLMo's output with the
@@ -118,3 +130,6 @@ clone.
 - 2026-09-04: Study 3 brought in, and the whole thing restructured into gated
   phases. With all three in, scope size is no longer the stop condition and the
   gates are.
+- 2026-09-04: split into one registration per study. A single registration for
+  Studies 1 and 2 would have held Study 1 behind the frame-to-raw-text mapping,
+  which is better written after the grid has been collected by hand.

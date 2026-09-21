@@ -36,26 +36,46 @@ register mismatch between fluent varieties.
 
 ### Study 1 — the pre-LLM baseline
 
-Do the target frames occur at different rates across national varieties of
-human-written web English?
+Do the target frames occur less often in other national varieties of
+human-written web English than in American?
 
 - Instrument: GloWbE, blog and general sections held separate.
-- Varieties: US, GB, IE, AU, ZA. Others if the frames survive.
+- Varieties: US, GB, IE, AU, ZA. Any other variety is exploratory.
 - Frames: frozen in `data/frames.csv` before querying.
 - Outcome: rate per million with exact Poisson intervals, US as reference.
+- Hypothesis: directional. Each of GB, IE, AU and ZA has a composite rate below
+  US, so a ratio against US below 1.
 - Per-frame comparison: exact conditional Poisson intervals on each rate ratio
-  against US, within section.
-- Composite: quasi-Poisson GLM, `hits ~ frame_id + variety + section` with
-  `offset(log(words))`. Frame enters as a factor because fifteen frames whose
-  base rates differ by orders of magnitude are overdispersed by construction,
-  and the estimated dispersion carries that into the variety intervals. A plain
-  Poisson would be overconfident about the one comparison the study rests on.
-- Genre control: the same model with `variety:section` added, compared by F
-  test. If the variety effect differs between sections, the per-section ratios
-  are what gets reported and the common effect is set aside. The split is a
-  partial control — see the register confound under Threats — so a common effect
-  across sections is evidence against a pure genre explanation rather than proof
-  of its absence.
+  against US, within section. Descriptive: 120 ratios, uncorrected, and no
+  claim rests on any one of them.
+- Composite: Poisson GLMM, `hits ~ frame_id + variety + section +
+  (1 | frame:variety) + (1 | cell)` with `offset(log(words))`. Frame is a fixed
+  factor because base rates differ by orders of magnitude. The frame-by-variety
+  random effect carries each frame's own preference for a variety, shared across
+  sections, and the cell-level effect carries the remaining overdispersion. The
+  variety ratio is therefore an average over frames of this kind, and its
+  interval reflects how much frames disagree.
+- Why this model: quasi-Poisson and negative binomial were both run against
+  synthetic data with a known ratio first. With frame preferences shared across
+  sections, quasi-Poisson's 95% intervals covered the truth 15–16% of the time
+  and negative binomial's 77–79%; this model's 93%. With independent noise in
+  each cell, all but quasi-Poisson reached 88–91%.
+- Inference: Wald intervals and two-sided p-values at 0.05, Holm-corrected
+  across the confirmatory set. A variety supports the hypothesis when its ratio
+  is below 1 and its Holm-adjusted p is under 0.05.
+- Genre control: the same model with `variety:section` added, compared by
+  likelihood-ratio test. If p < 0.05, the eight per-section ratios from the
+  interaction model are the confirmatory set, and the four common ratios are set
+  aside. The split is a partial control — see the register confound under
+  Threats — so a common effect across sections is evidence against a pure genre
+  explanation rather than proof of its absence. The test ran slightly liberal
+  on synthetic data, at 6–12% against a nominal 5%.
+- A frame with no hits in any of its ten cells leaves the model and is reported.
+- Convergence: bobyqa, then Nelder-Mead. If both fail the analysis stops, and
+  anything done instead is a declared deviation. A singular fit is reported
+  and kept.
+- Robustness: the whole analysis rerun without the two frames marked partial in
+  `data/frames.csv` (F10, F13), reported beside the primary result.
 - All of the above is fixed here before any count exists, and goes into the OSF
   registration as written.
 

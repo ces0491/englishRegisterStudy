@@ -49,12 +49,19 @@ partly a response to.
 
 The composite is a model rather than a total. Fifteen frames whose base rates
 differ by orders of magnitude would let the commonest of them dominate a raw
-sum, so the composite is a quasi-Poisson GLM: `hits ~ frame_id + variety +
-section` with `offset(log(words))`. Frame as a factor absorbs the base-rate
-spread without anyone choosing a number for it, and the estimated dispersion
-carries what is left into the variety intervals. On structureless fixtures the
-dispersion came out above a thousand, so a plain Poisson would have been badly
-overconfident about the one comparison the study rests on.
+sum, so the composite is a Poisson GLMM: `hits ~ frame_id + variety + section +
+(1 | frame:variety) + (1 | cell)` with `offset(log(words))`. Frame as a factor
+absorbs the base-rate spread without anyone choosing a number for it. The
+frame-by-variety random effect carries each frame's own preference for a
+variety, and the cell-level effect carries the remaining overdispersion, so the
+variety ratio is an average over frames and its interval widens when frames
+disagree.
+
+Two simpler models were run against synthetic data with a known ratio first.
+When a frame's preference for a variety holds across both sections, which is the
+plausible case, quasi-Poisson's 95% intervals covered the true ratio 15–16% of
+the time and negative binomial's 77–79%. This model covered it 93%.
+`Rscript R/calibrate-composite.R` reruns the comparison.
 
 **Covering what dates?** GloWbE's pages were collected in December 2012. Every result is a
 statement about web English at that date and about nothing since. This is the
@@ -99,7 +106,8 @@ decision is recorded here.
 2. Record the raw hit count for each frame in each variety and section, and the
    section word counts. Raw counts rather than the interface's per-million
    figure, so the normalisation can be recomputed and checked.
-3. `Rscript R/analyse.R`
+3. `Rscript R/analyse.R`, which needs the R packages dplyr, ggplot2, readr,
+   tidyr and lme4.
 
 The script refuses a partial grid. All 15 frames across 5 varieties and 2
 sections have to be present, entered once each, with a whole-number hit count,
@@ -108,20 +116,29 @@ that variety's composite and nothing in the output would show it, so a gap is an
 error rather than a warning.
 
 Outputs — `data/rates.csv`, `data/composite.csv`, `data/ratios-vs-us.csv`,
-`data/composite-ratios.csv` and `figures/frame-rates.png` — are all derived and
-are not committed. Everything needed to reproduce them is.
+`data/composite-ratios.csv`, `data/composite-ratios-by-section.csv`,
+`data/composite-ratios-sensitivity.csv` and `figures/frame-rates.png` — are all
+derived and are not committed. Everything needed to reproduce them is.
 
 Rates carry exact Poisson intervals on the underlying count, because a frame
 seen four times and a frame seen four thousand times are not equally well
 measured and a bare per-million figure hides the difference.
 
 Every ratio against US carries an interval too. Per frame those are exact
-conditional Poisson intervals; the composite comes from a quasi-Poisson model
-with frame as a factor and `log(words)` as an offset, because fifteen frames
-with base rates orders of magnitude apart are overdispersed and a plain Poisson
-interval on the comparison would be too narrow. The same model with a
-`variety:section` term tests whether the variety effect survives the genre
-split, subject to the caveat above about how much that split can carry.
+conditional Poisson intervals, reported as description. The confirmatory result
+is the composite from the GLMM above. The hypothesis is directional (each other
+variety below US), tested two-sided at 0.05 with Holm's correction across the
+four variety ratios. The same model with a `variety:section` term tests by
+likelihood ratio whether the variety effect survives the genre split. If it
+does not, the eight per-section ratios replace the four common ones as the
+confirmatory set, subject to the caveat above about how much that split can
+carry.
+
+A frame with no hits anywhere leaves the model and the output names it. The
+whole composite analysis is also rerun without the two frames marked `partial`
+in `data/frames.csv`, as a check that the result does not rest on what those
+two patterns really match. The OSF registration for this analysis is drafted in
+[docs/osf-study1-registration.md](docs/osf-study1-registration.md).
 
 ## Adding a frame
 

@@ -74,7 +74,7 @@ Neither puts an interval on a cross-variety rate comparison. @murphy2025please
 tests proportions within a coded sample; @westphal2024eh reports point estimates
 and describes the differences qualitatively, noting himself that variety
 differences in GloWbE need to be interpreted with caution. The exact Poisson
-intervals and the quasi-Poisson composite already fixed in `R/analyse.R` are
+intervals and the mixed-model composite fixed in `R/analyse.R` are
 more cautious about the comparison than the practice in either paper.
 
 Neither measures anything about generated text. The link from national register
@@ -98,7 +98,7 @@ One published user of the corpus abandoned the split; the other used it with the
 corpus authors' own caveat attached.
 
 The consequence is a wording change rather than a modelling change. The
-`variety:section` term and the F test stand. What the section term cannot
+`variety:section` term and its test stand. What the section term cannot
 support is the inference that a difference between varieties is therefore not a
 difference between genres. Built on overlapping categories, it reduces genre
 confounding without eliminating it, and anything written from these results has

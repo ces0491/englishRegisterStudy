@@ -131,7 +131,8 @@ dat <- counts %>%
   inner_join(frames, by = "frame_id") %>%
   inner_join(select(sizes, -any_of("notes")), by = c("variety", "section")) %>%
   bind_cols(poisson_ci(.$hits, .$words)) %>%
-  mutate(variety = factor(variety, levels = VARIETIES))
+  mutate(variety = factor(variety, levels = VARIETIES),
+         section = factor(section, levels = SECTIONS))
 
 # --- the composite: the claim is about density, not any single frame --------
 #
@@ -147,7 +148,8 @@ composite <- dat %>%
 # A point ratio says nothing about whether a difference is real, and the
 # variety comparison is the study's headline. These are exact conditional
 # Poisson intervals on the rate ratio, so the comparison is held to the same
-# standard as the rates rather than reported bare beside them.
+# standard as the rates rather than reported bare beside them. They are
+# registered as descriptive: 120 of them, uncorrected, and no claim rests on one.
 rate_ratio <- function(hits, words, hits_ref, words_ref) {
   out <- vapply(seq_along(hits), function(i) {
     # Both counts zero leaves the ratio undefined; say so rather than
@@ -175,36 +177,127 @@ ratios <- dat %>%
 #
 # The composite claim is that a variety reaches for these frames more overall.
 # The sum above answers it descriptively, and comparing those sums across
-# varieties on a Poisson interval would be overconfident: fifteen frames whose
-# base rates differ by two orders of magnitude are overdispersed by
-# construction, and the frames a variety happens to favour vary too. Frame
-# enters as a factor to absorb the first, and the quasi-Poisson dispersion
-# carries what is left into the variety intervals.
-fit <- stats::glm(hits ~ frame_id + variety + section,
-                  family = stats::quasipoisson(), offset = log(words),
-                  data = dat)
+# varieties on a Poisson interval would be overconfident. Fifteen frames with
+# base rates orders of magnitude apart need frame as a factor, and the frames a
+# variety happens to favour vary too - a frame Irish writers avoid is likely
+# avoided in blogs and general pages alike. That preference is a
+# frame-by-variety random effect, shared across sections, and a cell-level
+# random effect takes whatever noise is left in each count. So the variety
+# ratio is an average over frames of this kind, not a count-weighted total
+# dominated by the commonest frame.
+#
+# Quasi-Poisson and negative binomial were both tried against synthetic data
+# first. With frame preferences shared across sections, quasi-Poisson intervals
+# covered a known ratio 15-16% of the time and negative binomial 77-79%; this
+# model covered it 93%.
+#
+# The hypothesis is directional: each other variety uses the frames less than
+# US, so a ratio below 1. Tests are two-sided at 0.05 with Holm's correction
+# across the confirmatory set, and a variety supports the hypothesis only when
+# its ratio is below 1 and its Holm-adjusted p is under 0.05.
 
-dispersion <- summary(fit)$dispersion
+# A frame with no hits in any cell says nothing about varieties, and left in the
+# model its coefficient runs off to minus infinity. It leaves the model and is
+# reported; it stays in the rates above.
+empty_frames <- dat %>%
+  group_by(frame_id) %>%
+  summarise(hits = sum(hits), .groups = "drop") %>%
+  filter(hits == 0) %>%
+  pull(frame_id)
+modelled <- dat %>% filter(!frame_id %in% empty_frames)
 
-coefs <- summary(fit)$coefficients
-variety_rows <- grep("^variety", rownames(coefs))
-z <- stats::qnorm(0.975)
-composite_ratios <- tibble(
-  variety = sub("^variety", "", rownames(coefs)[variety_rows]),
-  ratio = exp(coefs[variety_rows, "Estimate"]),
-  ratio_lower = exp(coefs[variety_rows, "Estimate"] - z * coefs[variety_rows, "Std. Error"]),
-  ratio_upper = exp(coefs[variety_rows, "Estimate"] + z * coefs[variety_rows, "Std. Error"]),
-  p_value = coefs[variety_rows, "Pr(>|t|)"],
-  dispersion = dispersion,
-  reference = "US"
-)
+# Variety-vs-US ratios from a fitted model: one per variety for the common
+# effect, or one per variety and section from the interaction model. Wald
+# intervals and p-values on the same normal reference, so an interval that
+# excludes 1 and p < 0.05 always agree.
+variety_ratios <- function(model, by_section) {
+  b <- lme4::fixef(model)
+  v <- as.matrix(stats::vcov(model))
+  grid <- tidyr::expand_grid(
+    variety = setdiff(VARIETIES, "US"),
+    section = if (by_section) SECTIONS else NA_character_
+  )
+  est <- se <- numeric(nrow(grid))
+  for (i in seq_len(nrow(grid))) {
+    # Treatment contrasts with blog as the reference section: the general-
+    # section effect is the main effect plus the interaction term.
+    terms <- paste0("variety", grid$variety[i])
+    if (by_section && grid$section[i] != SECTIONS[1]) {
+      terms <- c(terms, paste0(terms, ":section", grid$section[i]))
+    }
+    stopifnot(all(terms %in% names(b)))
+    L <- as.numeric(names(b) %in% terms)
+    est[i] <- sum(L * b)
+    se[i] <- sqrt(drop(L %*% v %*% L))
+  }
+  z <- stats::qnorm(0.975)
+  p <- 2 * stats::pnorm(-abs(est / se))
+  sds <- as.data.frame(lme4::VarCorr(model))
+  out <- grid %>%
+    mutate(
+      ratio = exp(est),
+      ratio_lower = exp(est - z * se),
+      ratio_upper = exp(est + z * se),
+      p_value = p,
+      p_holm = stats::p.adjust(p, method = "holm"),
+      supports_hypothesis = ratio < 1 & p_holm < 0.05,
+      sd_frame_variety = sds$sdcor[sds$grp == "frame_variety"],
+      sd_cell = sds$sdcor[sds$grp == "cell"],
+      reference = "US"
+    )
+  if (by_section) out else select(out, -section)
+}
+
+# Fit with bobyqa, and if lme4 reports a convergence failure, refit with
+# Nelder-Mead. If both fail the script stops rather than reporting estimates
+# from a model that did not converge; working around that is a declared
+# deviation. A singular fit, where a random-effect variance is estimated at
+# zero, is a legitimate answer rather than a failure: it means that source of
+# variation is not detectable, and the model reduces to the simpler one.
+fit_glmm <- function(formula, d) {
+  for (opt in c("bobyqa", "Nelder_Mead")) {
+    m <- lme4::glmer(formula, data = d, family = stats::poisson(),
+                     offset = log(words),
+                     control = lme4::glmerControl(
+                       optimizer = opt, check.conv.singular = "ignore"))
+    if (length(m@optinfo$conv$lme4$messages) == 0) return(m)
+  }
+  fail("the composite model did not converge with bobyqa or Nelder-Mead:\n  %s",
+       paste(m@optinfo$conv$lme4$messages, collapse = "\n  "))
+}
 
 # The genre control the design leans on: if the variety effect differs between
-# the blog and general sections, the common effect above hides it and the
-# per-section ratios are what to report. F rather than chi-squared, because
-# the dispersion is estimated.
-fit_interaction <- stats::update(fit, . ~ . + variety:section)
-genre_test <- stats::anova(fit, fit_interaction, test = "F")
+# the blog and general sections, the common effect hides it, and the
+# per-section ratios from the interaction model become the confirmatory set.
+# A likelihood-ratio test, since both models are fitted by maximum likelihood.
+composite_analysis <- function(d) {
+  d <- d %>%
+    mutate(frame_variety = interaction(frame_id, variety, drop = TRUE),
+           cell = factor(seq_len(n())))
+  fit <- fit_glmm(hits ~ frame_id + variety + section +
+                    (1 | frame_variety) + (1 | cell), d)
+  fit_interaction <- fit_glmm(hits ~ frame_id + variety * section +
+                                (1 | frame_variety) + (1 | cell), d)
+  list(
+    common = variety_ratios(fit, by_section = FALSE),
+    by_section = variety_ratios(fit_interaction, by_section = TRUE),
+    genre_test = stats::anova(fit, fit_interaction),
+    singular = lme4::isSingular(fit) || lme4::isSingular(fit_interaction)
+  )
+}
+
+primary <- composite_analysis(modelled)
+genre_test <- primary$genre_test
+split_by_section <- isTRUE(genre_test$`Pr(>Chisq)`[2] < 0.05)
+confirmatory <- if (split_by_section) primary$by_section else primary$common
+
+# Robustness: the same analysis without the frames marked partial in
+# frames.csv. A partial frame such as "and that 's" matches far more than the
+# construction it stands for, so this checks the result does not rest on what
+# those two frames are really counting. It follows the primary analysis's
+# choice of common or per-section effect rather than making its own.
+sensitivity <- composite_analysis(filter(modelled, measurable == "yes"))
+sensitivity_set <- if (split_by_section) sensitivity$by_section else sensitivity$common
 
 dir.create("figures", showWarnings = FALSE)
 
@@ -225,23 +318,46 @@ ggsave("figures/frame-rates.png", p, width = 10, height = 7, dpi = 150)
 write_csv(dat, "data/rates.csv")
 write_csv(composite, "data/composite.csv")
 write_csv(ratios, "data/ratios-vs-us.csv")
-write_csv(composite_ratios, "data/composite-ratios.csv")
+write_csv(primary$common, "data/composite-ratios.csv")
+write_csv(primary$by_section, "data/composite-ratios-by-section.csv")
+write_csv(bind_rows(common = sensitivity$common,
+                    by_section = sensitivity$by_section, .id = "model"),
+          "data/composite-ratios-sensitivity.csv")
 
 message(sprintf("%d cells: %d frames x %d varieties x %d sections",
                 nrow(dat), n_distinct(dat$frame_id), n_distinct(dat$variety),
                 n_distinct(dat$section)))
-message("wrote figures/frame-rates.png, data/rates.csv, data/composite.csv,\n  data/ratios-vs-us.csv, data/composite-ratios.csv")
+message(paste("wrote figures/frame-rates.png, data/rates.csv, data/composite.csv,",
+              "\n  data/ratios-vs-us.csv, data/composite-ratios.csv,",
+              "\n  data/composite-ratios-by-section.csv,",
+              "data/composite-ratios-sensitivity.csv"))
 
-message(sprintf("\nquasi-Poisson dispersion %.1f. A value near 1 would have meant the\nplain Poisson interval was adequate after all.", dispersion))
-print(composite_ratios)
+if (length(empty_frames) > 0) {
+  message(sprintf("\nno hits in any cell, so left out of the composite model: %s",
+                  paste(empty_frames, collapse = ", ")))
+}
+
+if (primary$singular) {
+  message(paste("\nsingular fit: a random-effect variance was estimated at zero.",
+                "That source of\nvariation is not detectable here; see",
+                "sd_frame_variety and sd_cell below."))
+}
 
 message(sprintf(
-  "\nvariety x section interaction: F = %.2f on %d and %d df, p = %.3f.\n%s",
-  genre_test$F[2], genre_test$Df[2], genre_test$`Resid. Df`[2],
-  genre_test$`Pr(>F)`[2],
-  if (isTRUE(genre_test$`Pr(>F)`[2] < 0.05)) {
-    "The variety effect differs by section, so report the per-section ratios\nin data/ratios-vs-us.csv rather than the common effect above."
+  "\nvariety x section interaction: likelihood ratio %.2f on %d df, p = %.3f.\n%s",
+  genre_test$Chisq[2], genre_test$Df[2], genre_test$`Pr(>Chisq)`[2],
+  if (split_by_section) {
+    "The variety effect differs by section, so the per-section ratios are the\nconfirmatory result and the common effect is set aside."
   } else {
-    "No evidence the variety effect differs between blog and general."
+    "No evidence the variety effect differs between blog and general, so the\ncommon effect is the confirmatory result."
   }
 ))
+
+message(sprintf(paste("\nconfirmatory set, Holm across %d ratios. Random-effect SDs on the",
+                      "log scale:\nframe x variety %.3f, cell %.3f."),
+                nrow(confirmatory), confirmatory$sd_frame_variety[1],
+                confirmatory$sd_cell[1]))
+print(confirmatory, width = Inf)
+
+message("\nrobustness: the same, without the frames marked partial in frames.csv")
+print(sensitivity_set, width = Inf)

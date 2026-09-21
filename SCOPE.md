@@ -32,7 +32,8 @@ nothing downstream depends on its results.
       and `data/corpus-sizes.csv`
 - [ ] `Rscript R/analyse.R` runs end to end on the real counts and produces the
       rates, the per-frame ratios against US, the composite and the
-      `variety:section` F test
+      `variety:section` likelihood-ratio test, and the partial-frame
+      sensitivity rerun
 - [ ] A stranger with a free english-corpora.org account can reproduce every
       count from what is in the repository
 

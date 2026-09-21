@@ -5,6 +5,8 @@ data/rates.csv
 data/composite.csv
 data/ratios-vs-us.csv
 data/composite-ratios.csv
+data/composite-ratios-by-section.csv
+data/composite-ratios-sensitivity.csv
 figures/
 
 .Rproj.user/

@@ -16,7 +16,8 @@ The design is in [RESEARCH-PLAN.md](RESEARCH-PLAN.md) and the completion
 criteria in [SCOPE.md](SCOPE.md). The output is this repository and an article,
 not a journal submission. The frames are still pre-registered and the analysis
 still fixed before any data is collected, because both are for a reader rather
-than for a reviewer.
+than for a reviewer. Study 1 is registered on OSF at <https://osf.io/48wjn>,
+submitted on 21 September 2026 before any count was retrieved.
 
 ## The four questions
 
@@ -112,7 +113,7 @@ decision is recorded here.
 The script refuses a partial grid. All 15 frames across 5 varieties and 2
 sections have to be present, entered once each, with a whole-number hit count,
 and every variety/section pair needs its word count. A cell left out would lower
-that variety's composite and nothing in the output would show it, so a gap is an
+that variety's summed rate and nothing in the output would show it, so a gap is an
 error rather than a warning.
 
 Outputs — `data/rates.csv`, `data/composite.csv`, `data/ratios-vs-us.csv`,
@@ -137,8 +138,8 @@ carry.
 A frame with no hits anywhere leaves the model and the output names it. The
 whole composite analysis is also rerun without the two frames marked `partial`
 in `data/frames.csv`, as a check that the result does not rest on what those
-two patterns really match. The OSF registration for this analysis is drafted in
-[docs/osf-study1-registration.md](docs/osf-study1-registration.md).
+two patterns really match. The analysis is registered at <https://osf.io/48wjn>, and the text as
+submitted is in [docs/osf-study1-registration.md](docs/osf-study1-registration.md).
 
 ## Adding a frame
 

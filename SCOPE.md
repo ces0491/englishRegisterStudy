@@ -23,7 +23,7 @@ Study 1 start now instead of waiting on decisions only Studies 2 and 3 need.
 **A — Study 1, the baseline.** Self-contained. No compute, no infrastructure,
 nothing downstream depends on its results.
 
-- [ ] OSF registration for Study 1 submitted before any count is recorded,
+- [x] OSF registration for Study 1 submitted before any count is recorded,
       carrying the frozen frames, varieties, sections and the analysis as
       written. The Secondary Data template fits: GloWbE was collected in 2012
       and no count from it has been looked at

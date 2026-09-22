@@ -1,10 +1,12 @@
 # Research plan
 
-Status: the design and the analysis are settled and frozen, and go into the OSF
-registration as written. The literature review is as complete as it will get —
-two of the cited papers cannot be obtained, and the wording that depended on
-them is settled by decision rather than by reading. Pre-registration is the next
-step. Completion criteria are in `SCOPE.md`.
+Status: Study 1 is registered on OSF at <https://osf.io/48wjn>, submitted on
+21 September 2026 before any count was retrieved. Its design and analysis are
+now pre-registered, and any change is a declared deviation. The literature
+review is as complete as it will get — two of the cited papers cannot be
+obtained, and the wording that depended on them is settled by decision rather
+than by reading. Collecting the Study 1 grid is the next step. Completion
+criteria are in `SCOPE.md`.
 
 ## The question
 
@@ -76,8 +78,8 @@ human-written web English than in American?
   and kept.
 - Robustness: the whole analysis rerun without the two frames marked partial in
   `data/frames.csv` (F10, F13), reported beside the primary result.
-- All of the above is fixed here before any count exists, and goes into the OSF
-  registration as written.
+- All of the above was fixed before any count existed, and is registered at
+  <https://osf.io/48wjn>.
 
 **GloWbE's 2012 collection date is the reason to use it.** Any corpus collected
 after 2022 contains generated text in unknown proportion, so a "human baseline"
@@ -256,8 +258,9 @@ The remaining cost is time, and the literature review is the largest item.
 
    What pre-registration protects is each study's design being fixed before
    that study's own data exists, so three registrations serve it better than
-   one. Study 1 registers now, on the Secondary Data template — GloWbE was
-   collected in 2012 and no count from it has been looked at. Study 2 registers
+   one. Study 1 registered on 21 September 2026 at <https://osf.io/48wjn>, on
+   the Secondary Data template — GloWbE was collected in 2012 and no count
+   from it had been looked at. Study 2 registers
    before any text is generated, carrying the generation protocol and the
    frame-to-raw-text mapping. Study 3 registers before the Dolma sample is
    drawn, carrying the sampling frame.

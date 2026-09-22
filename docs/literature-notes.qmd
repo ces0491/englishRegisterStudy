@@ -119,12 +119,19 @@ A third of the words sit in the section labelled Blog. The gap between that and
 60 per cent is the overlap problem of section 3 seen from the other side:
 blog-like text is spread across both sections rather than confined to one.
 
-These totals also disagree slightly with the interface's own figures, which
-@davies2020tour gives as 387.6 million words for GB and 386.8 million for US.
-The discrepancy is small but it is larger than rounding, so the offsets in the
-model should use section word counts read off the interface at query time, and
-those figures should be recorded with the counts rather than reconstructed
-later.
+Westphal's figures come from the corpus's own composition table, the TEXTS page
+of the GloWbE interface, and match it to the word for GB and US. That table
+also explains why they fall short of the interface's component sizes (387.6
+million for GB and 386.8 million for US, as @davies2020tour gives them). Its
+Total column is 0.055–0.088% larger than General plus Blog in each of the five
+varieties here, apparently words assigned to neither section. Section-restricted
+hit counts sum exactly to the unrestricted count, so the section columns are the
+right denominators. The Chart display does not show section sizes at all, which
+is deviation D1 in `docs/deviations.md`.
+
+The same table heads its General column "General (may also include blogs)". The
+corpus states the overlap caveat itself, so it no longer rests only on
+@murphy2025please's account of @biber2015exploring.
 
 # Method worth adopting
 

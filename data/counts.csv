@@ -1,0 +1,11 @@
+frame_id,variety,section,hits,notes
+F01,US,general,583,"2026-09-22; Chart, section General; general + blog = 1109 all-sections"
+F01,US,blog,526,"2026-09-22; Chart, section Blog"
+F01,GB,general,268,"2026-09-22; Chart, section General; general + blog = 440 all-sections"
+F01,GB,blog,172,"2026-09-22; Chart, section Blog"
+F01,IE,general,102,"2026-09-22; Chart, section General; general + blog = 134 all-sections"
+F01,IE,blog,32,"2026-09-22; Chart, section Blog"
+F01,AU,general,129,"2026-09-22; Chart, section General; general + blog = 211 all-sections"
+F01,AU,blog,82,"2026-09-22; Chart, section Blog"
+F01,ZA,general,38,"2026-09-22; Chart, section General; general + blog = 62 all-sections"
+F01,ZA,blog,24,"2026-09-22; Chart, section Blog"

@@ -104,9 +104,16 @@ decision is recorded here.
 
 1. Copy `data/counts-template.csv` to `data/counts.csv` and
    `data/corpus-sizes-template.csv` to `data/corpus-sizes.csv`.
-2. Record the raw hit count for each frame in each variety and section, and the
-   section word counts. Raw counts rather than the interface's per-million
-   figure, so the normalisation can be recomputed and checked.
+2. Record the raw hit count for each frame in each variety and section from
+   the Chart display, with the section chosen in the Sections list, and the
+   section word counts from the General and (Only) Blogs Words columns of the
+   TEXTS page. The Chart display's own WORDS (M) row is the whole component
+   whatever section is chosen, so it cannot be used.
+   `Rscript R/check-corpus-sizes.R path/to/glowbe_sources.txt` recomputes the
+   section sizes from the metadata download on the same page, and fails if
+   `data/corpus-sizes.csv` disagrees. Raw counts rather than the
+   interface's per-million figure, so the normalisation can be recomputed and
+   checked.
 3. `Rscript R/analyse.R`, which needs the R packages dplyr, ggplot2, readr,
    tidyr and lme4.
 
@@ -140,6 +147,7 @@ whole composite analysis is also rerun without the two frames marked `partial`
 in `data/frames.csv`, as a check that the result does not rest on what those
 two patterns really match. The analysis is registered at <https://osf.io/48wjn>, and the text as
 submitted is in [docs/osf-study1-registration.md](docs/osf-study1-registration.md).
+Departures from it are recorded in [docs/deviations.md](docs/deviations.md).
 
 ## Adding a frame
 

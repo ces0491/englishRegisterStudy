@@ -1,16 +1,16 @@
-frame_id,query,gloss,family,measurable
-F01,"here 's the thing","announce-the-point, bare",announce,yes
-F02,"here 's the * part","announce-the-point, qualified",announce,yes
-F03,"here 's what","announce-the-point, cataphoric",announce,yes
-F04,"the thing is","announce-the-point, inverted",announce,yes
-F05,"what 's interesting is","announce-the-point, evaluative",announce,yes
-F06,"it 's not * , it 's","contrastive frame, full",contrastive,yes
-F07,"it 's not just","contrastive frame, additive",contrastive,yes
-F08,"not just * but","contrastive frame, correlative",contrastive,yes
-F09,"is n't just","contrastive frame, negated",contrastive,yes
-F10,"not * , but *","contrastive frame, bare antithesis",contrastive,partial
-F11,"that 's the whole point","epigrammatic assertion",epigram,yes
-F12,"which is the point","epigrammatic assertion, relative",epigram,yes
-F13,"and that 's","epigrammatic closer, opener only",epigram,partial
-F14,"turns out","reveal marker",reveal,yes
-F15,"the real question is","announce-the-point, interrogative",announce,yes
+frame_id,query,gloss,family,measurable,interface
+F01,"here 's the thing","announce-the-point, bare",announce,yes,split
+F02,"here 's the * part","announce-the-point, qualified",announce,yes,split
+F03,"here 's what","announce-the-point, cataphoric",announce,yes,combined_only
+F04,"the thing is","announce-the-point, inverted",announce,yes,split
+F05,"what 's interesting is","announce-the-point, evaluative",announce,yes,split
+F06,"it 's not * , it 's","contrastive frame, full",contrastive,yes,uncountable
+F07,"it 's not just","contrastive frame, additive",contrastive,yes,combined_only
+F08,"not just * but","contrastive frame, correlative",contrastive,yes,combined_only
+F09,"is n't just","contrastive frame, negated",contrastive,yes,combined_only
+F10,"not * , but *","contrastive frame, bare antithesis",contrastive,partial,combined_only
+F11,"that 's the whole point","epigrammatic assertion",epigram,yes,split
+F12,"which is the point","epigrammatic assertion, relative",epigram,yes,split
+F13,"and that 's","epigrammatic closer, opener only",epigram,partial,combined_only
+F14,"turns out","reveal marker",reveal,yes,split
+F15,"the real question is","announce-the-point, interrogative",announce,yes,split

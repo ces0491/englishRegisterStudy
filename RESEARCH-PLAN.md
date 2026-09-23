@@ -80,6 +80,14 @@ human-written web English than in American?
   `data/frames.csv` (F10, F13), reported beside the primary result.
 - All of the above was fixed before any count existed, and is registered at
   <https://osf.io/48wjn>.
+- **What collection changed.** The interface will not split six of the frames
+  by section, and will not count F06 at all on a free account, so the
+  confirmatory analysis runs on the fourteen countable frames with the sections
+  combined, and the registered per-section model becomes a secondary analysis
+  on the eight frames that split, and the combined model's intervals use a t
+  reference with one degree of freedom per frame less one. Deviation D2 in
+  `docs/deviations.md`, filed on OSF. The genre control is the casualty: it now covers eight frames rather
+  than fifteen, and not the contrastive family.
 
 **GloWbE's 2012 collection date is the reason to use it.** Any corpus collected
 after 2022 contains generated text in unknown proportion, so a "human baseline"

@@ -28,6 +28,12 @@ of anyone else's.
 `data/frames.csv` and frozen before any querying. Each is a string or wildcard
 pattern that the GloWbE interface can match without syntactic parsing.
 
+Fourteen of them can actually be counted. A free account caps a search at five
+tokens, and F06, `it 's not * , it 's`, is seven. Six more can be counted only
+with the sections combined, because the interface refuses a section-restricted
+search when every word in the string is very common. That is deviation D2 in
+[docs/deviations.md](docs/deviations.md), and it splits the analysis in two.
+
 **Over what population?** GloWbE: 1.9 billion words across 1.8 million web pages
 from 20 countries, collected in December 2012. Five varieties are used here —
 US, GB, IE, AU, ZA — with components ranging from 387.6 million words for GB
@@ -50,13 +56,24 @@ partly a response to.
 
 The composite is a model rather than a total. Fifteen frames whose base rates
 differ by orders of magnitude would let the commonest of them dominate a raw
-sum, so the composite is a Poisson GLMM: `hits ~ frame_id + variety + section +
-(1 | frame:variety) + (1 | cell)` with `offset(log(words))`. Frame as a factor
-absorbs the base-rate spread without anyone choosing a number for it. The
-frame-by-variety random effect carries each frame's own preference for a
-variety, and the cell-level effect carries the remaining overdispersion, so the
-variety ratio is an average over frames and its interval widens when frames
-disagree.
+sum, so the composite is a Poisson GLMM with `offset(log(words))`. Frame as a
+factor absorbs the base-rate spread without anyone choosing a number for it,
+and a frame-by-variety random effect carries each frame's own preference for a
+variety, so the variety ratio is an average over frames and its interval widens
+when frames disagree.
+
+D2 gives it two forms. The confirmatory one covers the fourteen countable
+frames with the sections combined: `hits ~ frame_id + variety +
+(1 | frame:variety)`. With one observation per frame and variety, that term
+carries the frame preference and the overdispersion together; adding a separate
+cell-level effect would be the same grouping twice. Its intervals use a t
+reference with one degree of freedom per frame less one, because the variety
+effect is replicated across fourteen frames rather than across seventy cells:
+on synthetic grids the normal reference covered a known ratio 88–90% of the
+time and the t reference 92%. The secondary analysis is the registered form,
+`hits ~ frame_id + variety + section + (1 | frame:variety) + (1 | cell)`, on
+the eight frames that split, with the normal reference as registered, and it
+carries the genre control.
 
 Two simpler models were run against synthetic data with a known ratio first.
 When a frame's preference for a variety holds across both sections, which is the
@@ -103,7 +120,8 @@ stays open; widening the frozen frame set after seeing results does not, so the
 decision is recorded here.
 
 1. Copy `data/counts-template.csv` to `data/counts.csv` and
-   `data/corpus-sizes-template.csv` to `data/corpus-sizes.csv`.
+   `data/corpus-sizes-template.csv` to `data/corpus-sizes.csv`. Counts with the
+   sections combined go in `data/counts-combined.csv`.
 2. Record the raw hit count for each frame in each variety and section from
    the Chart display, with the section chosen in the Sections list, and the
    section word counts from the General and (Only) Blogs Words columns of the
@@ -117,16 +135,16 @@ decision is recorded here.
 3. `Rscript R/analyse.R`, which needs the R packages dplyr, ggplot2, readr,
    tidyr and lme4.
 
-The script refuses a partial grid. All 15 frames across 5 varieties and 2
-sections have to be present, entered once each, with a whole-number hit count,
-and every variety/section pair needs its word count. A cell left out would lower
-that variety's summed rate and nothing in the output would show it, so a gap is an
+The script refuses a partial grid, in either file. Every countable frame needs a
+combined count in all 5 varieties, every splittable frame needs both sections,
+each entered once with a whole-number hit count, and every variety needs its
+blog, general and whole-component word counts. A cell left out would lower that
+variety's summed rate and nothing in the output would show it, so a gap is an
 error rather than a warning.
 
-Outputs — `data/rates.csv`, `data/composite.csv`, `data/ratios-vs-us.csv`,
-`data/composite-ratios.csv`, `data/composite-ratios-by-section.csv`,
-`data/composite-ratios-sensitivity.csv` and `figures/frame-rates.png` — are all
-derived and are not committed. Everything needed to reproduce them is.
+Outputs — the `rates`, `composite`, `ratios-vs-us` and `composite-ratios` files
+in `data/`, and the figures — are all derived and are not committed. Everything
+needed to reproduce them is.
 
 Rates carry exact Poisson intervals on the underlying count, because a frame
 seen four times and a frame seen four thousand times are not equally well
@@ -134,19 +152,23 @@ measured and a bare per-million figure hides the difference.
 
 Every ratio against US carries an interval too. Per frame those are exact
 conditional Poisson intervals, reported as description. The confirmatory result
-is the composite from the GLMM above. The hypothesis is directional (each other
-variety below US), tested two-sided at 0.05 with Holm's correction across the
-four variety ratios. The same model with a `variety:section` term tests by
-likelihood ratio whether the variety effect survives the genre split. If it
-does not, the eight per-section ratios replace the four common ones as the
-confirmatory set, subject to the caveat above about how much that split can
-carry.
+is the composite from the combined-sections model. The hypothesis is directional
+(each other variety below US), tested two-sided at 0.05 with Holm's correction
+across the four variety ratios.
+
+In the secondary analysis, the same model with a `variety:section` term tests by
+likelihood ratio whether the variety effect survives the genre split, subject to
+the caveat above about how much that split can carry. It covers eight frames, so
+the frames most exposed to a genre explanation are the ones it cannot check.
 
 A frame with no hits anywhere leaves the model and the output names it. The
-whole composite analysis is also rerun without the two frames marked `partial`
-in `data/frames.csv`, as a check that the result does not rest on what those
-two patterns really match. The analysis is registered at <https://osf.io/48wjn>, and the text as
-submitted is in [docs/osf-study1-registration.md](docs/osf-study1-registration.md).
+primary analysis is also rerun without the two frames marked `partial` in
+`data/frames.csv`, as a check that the result does not rest on what those two
+patterns really match. Both partial frames are combined-only, so the secondary
+analysis never contains one.
+
+The analysis is registered at <https://osf.io/48wjn>, and the text as submitted
+is in [docs/osf-study1-registration.md](docs/osf-study1-registration.md).
 Departures from it are recorded in [docs/deviations.md](docs/deviations.md).
 
 ## Adding a frame

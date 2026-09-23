@@ -27,13 +27,15 @@ nothing downstream depends on its results.
       carrying the frozen frames, varieties, sections and the analysis as
       written. The Secondary Data template fits: GloWbE was collected in 2012
       and no count from it has been looked at
-- [ ] Full grid collected by hand from GloWbE: 15 frames x 5 varieties x 2
-      sections, plus the 10 section word counts, committed as `data/counts.csv`
-      and `data/corpus-sizes.csv`
+- [ ] Full grid collected by hand from GloWbE, as far as the interface allows
+      (deviation D2): the 14 countable frames x 5 varieties with the sections
+      combined in `data/counts-combined.csv`, both sections for the 8 frames
+      that split in `data/counts.csv`, and the word counts in
+      `data/corpus-sizes.csv`
 - [ ] `Rscript R/analyse.R` runs end to end on the real counts and produces the
-      rates, the per-frame ratios against US, the composite and the
-      `variety:section` likelihood-ratio test, and the partial-frame
-      sensitivity rerun
+      rates, the per-frame ratios against US, the confirmatory composite on the
+      combined counts, the partial-frame sensitivity rerun, and the secondary
+      per-section analysis with its `variety:section` likelihood-ratio test
 - [ ] A stranger with a free english-corpora.org account can reproduce every
       count from what is in the repository
 
@@ -134,3 +136,6 @@ clone.
 - 2026-09-04: split into one registration per study. A single registration for
   Studies 1 and 2 would have held Study 1 behind the frame-to-raw-text mapping,
   which is better written after the grid has been collected by hand.
+- 2026-09-22 to 09-23: collection found that the interface splits only 8 of the
+  frames by section and cannot count F06 at all. Phase A's grid criterion now
+  matches what D2 registers rather than the 150 cells originally planned.

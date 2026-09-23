@@ -16,6 +16,11 @@
 # split, the other totals and every base rate are invented. No GloWbE count was
 # looked at. The run takes around half an hour.
 #
+# It then calibrates the combined-sections model that deviation D2 makes the
+# confirmatory one - 14 frames, one observation per frame and variety, a single
+# random effect - and compares a normal reference against a t reference with
+# one degree of freedom per frame less one.
+#
 # Usage:
 #   Rscript R/calibrate-composite.R
 
@@ -86,4 +91,50 @@ for (cnd in conds) {
                 mean(r[, paste0(m, "_cov")]), mean(r[, paste0(m, "_split")]),
                 sd(exp(r[, paste0(m, "_est")]))))
   }
+}
+
+# --- the combined-sections model (deviation D2) ------------------------------
+#
+# With both sections in one count there is a single observation per frame and
+# variety, so the frame-by-variety effect and a cell-level effect are the same
+# grouping: only their sum is identified, and fitting both gives a degenerate
+# Hessian. One random effect carries both. The question here is which reference
+# distribution the interval should use, given that the variety effect is
+# replicated across fourteen frames rather than across seventy cells.
+
+cat("
+combined sections, 14 frames, normal against t reference
+")
+
+frames14 <- setdiff(frames$frame_id, "F06")
+words_all <- c(US = 386.8, GB = 387.6, IE = 101.0, AU = 148.2, ZA = 45.4) * 1e6
+tq <- qt(0.975, df = length(frames14) - 1)
+
+sim_combined <- function(sd_cell) {
+  d <- tidyr::expand_grid(frame_id = frames14, variety = V) %>%
+    mutate(words = words_all[variety],
+           hits = rpois(n(), base[frame_id] * words / 1e6 * truth[variety] *
+                          exp(rnorm(n(), 0, sd_cell))),
+           variety = factor(variety, V),
+           fv = interaction(frame_id, variety, drop = TRUE))
+  m <- suppressWarnings(glmer(hits ~ frame_id + variety + (1 | fv), poisson(),
+                              offset = log(words), data = d, control = ctrl))
+  s <- summary(m)$coefficients[paste0("variety", setdiff(V, "US")), ]
+  tr <- log(truth[setdiff(V, "US")])
+  c(wald = mean(abs(s[, 1] - tr) < 1.96 * s[, 2]),
+    tref = mean(abs(s[, 1] - tr) < tq * s[, 2]),
+    # ZA has a true ratio of 1, so calling it significant is a false positive
+    fp_wald = s["varietyZA", 1] < 0 &&
+      2 * pnorm(-abs(s["varietyZA", 1] / s["varietyZA", 2])) < 0.05,
+    fp_tref = s["varietyZA", 1] < 0 &&
+      2 * pt(-abs(s["varietyZA", 1] / s["varietyZA", 2]),
+             length(frames14) - 1) < 0.05)
+}
+
+for (sd_cell in c(0.1, 0.2, 0.4)) {
+  r <- t(replicate(150, suppressWarnings(suppressMessages(sim_combined(sd_cell)))))
+  cat(sprintf("  cell sd %.1f: coverage normal %.2f, t %.2f | ZA false positive normal %.3f, t %.3f
+",
+              sd_cell, mean(r[, "wald"]), mean(r[, "tref"]),
+              mean(r[, "fp_wald"]), mean(r[, "fp_tref"])))
 }

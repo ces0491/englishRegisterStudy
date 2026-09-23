@@ -37,3 +37,29 @@ set to IGNORE).
 
 The session ended at the query limit (21 queries) before F08. Section word
 counts were also taken this session (see D1 in `docs/deviations.md`).
+
+## Session 2 — 23 September 2026
+
+| Frame | Section split | US | GB | IE | AU | ZA | All 20 | Note |
+|---|---|---:|---:|---:|---:|---:|---:|---|
+| F08 | refused, General | 747 | 882 | 183 | 294 | 59 | 3828 | section rule |
+| F09 | refused, General | 3201 | 2654 | 385 | 805 | 161 | 10237 | section rule |
+| F10 | refused, General | 9246 | 6828 | 1370 | 2648 | 763 | 33443 | section rule; interface flagged SLOW QUERY |
+| F11 | works | 229 | 150 | 41 | 52 | 7 | 616 | general + blog = combined in all five |
+| F12 | works | 86 | 58 | 17 | 30 | 1 | 275 | general + blog = combined in all five; ZA blog is the first zero cell |
+| F13 | refused, General | 24330 | 19265 | 3958 | 7492 | 1558 | 84253 | section rule; roughly ten times any other frame |
+| F14 | works | 12073 | 7642 | 1449 | 2965 | 614 | 36702 | general + blog = combined in all five |
+| F15 | combined only so far | 696 | 354 | 53 | 136 | 37 | 1763 | General and Blog not yet run; the session ended at the query limit |
+
+The limit is a rolling 24-hour window and counts refused queries too, which is
+why a survey of eight frames exhausted it.
+
+## Which frames the interface allows
+
+| Split by section | Combined only | Not countable |
+|---|---|---|
+| F01, F02, F04, F05, F11, F12, F14, F15 | F03, F07, F08, F09, F10, F13 | F06 |
+
+The blocked set is not arbitrary: the section rule catches the frames built
+entirely from very common words, which is the whole contrastive family
+(F06-F10) plus F03 and F13. What follows from it is deviation D2.

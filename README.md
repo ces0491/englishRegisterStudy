@@ -136,6 +136,11 @@ decision is recorded here.
 3. `Rscript R/analyse.R`, which needs the R packages dplyr, ggplot2, readr,
    tidyr and lme4.
 
+Studies 2 and 3 count the same frames in raw text rather than through the
+interface. `docs/frame-mapping.md` defines how, `python/framecount.py`
+implements it with no dependencies beyond the standard library, and
+`python -m pytest python -q` checks it against a passage counted by hand.
+
 The script refuses a partial grid, in either file. Every countable frame needs a
 combined count in all 5 varieties, every splittable frame needs both sections,
 each entered once with a whole-number hit count, and every variety needs its

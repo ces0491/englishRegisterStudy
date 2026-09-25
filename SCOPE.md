@@ -50,12 +50,16 @@ It comes after phase A on purpose. The mapping has to reproduce what GloWbE's
 interface actually matches, and collecting the grid by hand is how that is
 learned.
 
-- [ ] The frame-to-raw-text mapping written down and frozen with the frames.
+- [x] The frame-to-raw-text mapping written down and frozen with the frames.
       The queries in `data/frames.csv` are in GloWbE's tokenised form, with
       clitics split off and punctuation as its own token, and none of that
-      survives contact with raw model output
-- [ ] Verified against a passage counted by hand, so the mapping is known to
-      reproduce the interface's own matching rather than assumed to
+      survives contact with raw model output. `docs/frame-mapping.md` defines
+      it and `python/framecount.py` implements it
+- [x] Verified against a passage counted by hand, so the mapping is known to
+      reproduce the interface's own matching rather than assumed to. Three
+      behaviours were also checked against the interface itself: case is
+      ignored, matches cross sentence boundaries, and a wildcard slot holds one
+      word with hyphens included
 - [ ] OSF registration for Study 2 submitted before any text is generated,
       carrying the generation protocol — models and versions, prompts,
       temperature and sampling, the topic and genre matching — and the mapping

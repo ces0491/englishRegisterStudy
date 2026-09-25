@@ -141,6 +141,26 @@ interface. `docs/frame-mapping.md` defines how, `python/framecount.py`
 implements it with no dependencies beyond the standard library, and
 `python -m pytest python -q` checks it against a passage counted by hand.
 
+Their pipeline, once each is registered:
+
+```
+modal run python/count_dolma.py --list-only        # confirm the layout
+modal run python/generate.py                       # four conditions, ~6 GPU-hours
+modal run python/count_dolma.py                    # the training corpus
+modal volume get englishregisterstudy /generated ./data/generated
+modal volume get englishregisterstudy /dolma ./data/dolma
+python python/count_generated.py data/generated
+python python/count_generated.py --dolma data/dolma
+Rscript R/analyse-generated.R                      # Study 2
+Rscript R/analyse-training.R                       # Study 3
+```
+
+The generated text and the Dolma draw are too large for git and are
+reproducible from the registered protocols; the counts taken from them are
+committed. `R/model.R` holds the model the two studies share. `R/analyse.R`
+does not use it: that is Study 1's registered analysis, it has run, and
+leaving it untouched is worth more than removing the duplication.
+
 The script refuses a partial grid, in either file. Every countable frame needs a
 combined count in all 5 varieties, every splittable frame needs both sections,
 each entered once with a whole-number hit count, and every variety needs its

@@ -10,6 +10,20 @@ data/rates-combined.csv
 data/composite-combined.csv
 data/ratios-vs-us-by-section.csv
 data/composite-ratios-sensitivity.csv
+data/rates-generated.csv
+data/composite-generated.csv
+data/generated-vs-varieties.csv
+data/generated-among-conditions.csv
+data/generated-per-frame.csv
+data/rates-training.csv
+data/composite-training.csv
+data/training-contrasts.csv
+data/training-per-subset.csv
+
+# Generated text and the raw Dolma draw: too large for git, and reproducible
+# from the registered protocols. The counts taken from them are committed.
+data/generated/
+data/dolma/
 figures/
 
 .Rproj.user/

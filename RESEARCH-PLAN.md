@@ -128,9 +128,19 @@ domain TLDs, where `.com` is ambiguous and dominant. The frame rate is directly
 countable with the same fifteen patterns used everywhere else, which makes input
 and output comparable without anyone having to classify a single document.
 
-- **Primary: OLMo on Dolma.** Ai2 publishes the weights, the training code and
-  the pretraining corpus. Frame rates can be counted in Dolma and in OLMo's
-  output and set against each other exactly. No other model family allows this.
+- **Primary: Olmo 3 on Dolma 3.** Ai2 publishes the weights, the training code
+  and the pretraining corpus. Frame rates can be counted in the corpus and in
+  the model's output and set against each other exactly. No other model family
+  allows this.
+
+  The release matters. Olmo 3's stage-1 pretraining used `dolma3_6T-mix-1025`,
+  published as `allenai/dolma3_mix-6T-1025`, so one checkpoint pairs with one
+  named corpus. OLMo 2 does not work that way: its mix draws on DCLM, Dolma,
+  Starcoder and Proof Pile II, followed by a midtraining stage on
+  Dolmino-Mix-1124, so "count the frames in its training data" would mean
+  reconstructing a four-source mixture with stage weights. Study 3's sampling
+  frame also has to say whether it covers stage 1 alone, which is 97.5% of the
+  budget but not all of it.
 - **This is cheaper than it looks, because OLMo is one of Study 2's models.**
   The generation run produces Study 2's open-model output and Study 3's output
   side at once, and both count through the same frame-to-raw-text mapping. What

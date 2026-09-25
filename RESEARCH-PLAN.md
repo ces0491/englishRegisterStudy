@@ -3,7 +3,8 @@
 Status: Study 1 is collected and analysed. It was registered on OSF at
 <https://osf.io/48wjn> on 21 September 2026 before any count was retrieved,
 with two declared deviations since; the result is in `docs/study1-results.qmd`.
-Studies 2 and 3 have not started. The literature
+Study 2 is registered at <https://osf.io/qjgtc> with its generation protocol
+and counting layer; nothing has been generated yet. Study 3 has not started. The literature
 review is as complete as it will get — two of the cited papers cannot be
 obtained, and the wording that depended on them is settled by decision rather
 than by reading. Completion criteria are in `SCOPE.md`.

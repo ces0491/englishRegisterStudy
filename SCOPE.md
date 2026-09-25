@@ -60,9 +60,10 @@ learned.
       behaviours were also checked against the interface itself: case is
       ignored, matches cross sentence boundaries, and a wildcard slot holds one
       word with hyphens included
-- [ ] OSF registration for Study 2 submitted before any text is generated,
+- [x] OSF registration for Study 2 submitted before any text is generated,
       carrying the generation protocol — models and versions, prompts,
-      temperature and sampling, the topic and genre matching — and the mapping
+      temperature and sampling, the topic and genre matching — and the mapping.
+      <https://osf.io/qjgtc>, 25 September 2026, pinned to commit 1196f8d
 
 **C — Studies 2 and 3 on OLMo.** One phase, not two. The OLMo generation run
 produces Study 2's open-model output and Study 3's output side at once, so the

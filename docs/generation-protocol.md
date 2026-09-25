@@ -1,8 +1,8 @@
 # Study 2: the generation protocol
 
 What gets generated, from which models, on what topics, with which settings.
-Registered before any text is generated, together with the counting layer in
-`docs/frame-mapping.md`.
+Registered at <https://osf.io/qjgtc> on 25 September 2026, before any text was
+generated, together with the counting layer in `docs/frame-mapping.md`.
 
 Study 2 asks whether a model's default register resembles the American end of
 Study 1. Everything below exists to stop the answer depending on something

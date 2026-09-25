@@ -1,5 +1,8 @@
 # OSF registration — Study 2
 
+Registered at <https://osf.io/qjgtc> on 25 September 2026, before any text was
+generated, pinned to commit `1196f8d`. This is the text as submitted.
+
 Text for OSF's **OSF Preregistration** template (version 4), in the template's
 order. Fields marked *required* cannot be left blank. The answers are plain
 text because OSF does not render Markdown.

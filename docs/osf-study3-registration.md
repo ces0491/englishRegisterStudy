@@ -117,7 +117,9 @@ the rule Study 2 applies to generated text.
 
 ### Data collection procedures documentation
 
-None uploaded. docs/dolma-sampling-frame.md in the linked repository.
+docs/dolma-sampling-frame.md and python/framecount.py, uploaded so that the
+frame and the counting rules are archived with the registration rather than
+depending on the repository surviving.
 
 ### Codebook
 

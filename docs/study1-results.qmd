@@ -1,0 +1,271 @@
+---
+title: "Study 1: rhetorical frames across national varieties of web English"
+subtitle: "englishRegisterStudy — results from the pre-registered analysis"
+author: "Cesaire Tobias"
+date: "2026-09-25"
+format:
+  pdf:
+    date-format: "DD MMMM, YYYY"
+    toc: true
+    toc-depth: 2
+    number-sections: true
+    colorlinks: true
+    documentclass: article
+    geometry: margin=1in
+    fontsize: 11pt
+    linestretch: 1.5
+    cite-method: citeproc
+    bibliography: ../references.bib
+    csl: ../harvard-cite-them-right.csl
+    link-citations: true
+    fig-pos: 'H'
+    tbl-pos: 'H'
+    include-in-header:
+      text: |
+        \usepackage{float}
+        \usepackage{booktabs}
+        \floatplacement{table}{H}
+---
+
+```{r}
+#| label: setup
+#| include: false
+#| message: false
+#| warning: false
+
+# Every number in this document comes from the files R/analyse.R writes, so it
+# cannot drift from the analysis. Run `Rscript R/analyse.R` from the repository
+# root before rendering.
+suppressPackageStartupMessages({
+  library(dplyr)
+  library(knitr)
+})
+
+root <- ".."
+need <- c("composite-ratios", "composite-ratios-sensitivity",
+          "composite-ratios-by-section", "composite-combined",
+          "ratios-vs-us")
+paths <- file.path(root, "data", paste0(need, ".csv"))
+if (!all(file.exists(paths))) {
+  stop("run Rscript R/analyse.R from the repository root first; missing: ",
+       paste(need[!file.exists(paths)], collapse = ", "))
+}
+d <- setNames(lapply(paths, readr::read_csv, show_col_types = FALSE), need)
+
+frames <- readr::read_csv(file.path(root, "data", "frames.csv"),
+                          show_col_types = FALSE)
+
+fmt_ratio <- function(x) sprintf("%.2f", x)
+fmt_p <- function(p) ifelse(p < 0.0001, "< 0.0001", sprintf("%.4f", p))
+ratio_ci <- function(ratio, lower, upper) {
+  sprintf("%s [%s, %s]", fmt_ratio(ratio), fmt_ratio(lower), fmt_ratio(upper))
+}
+n_countable <- sum(frames$interface != "uncountable")
+n_split <- sum(frames$interface == "split")
+```
+
+# What this measures
+
+Fifteen rhetorical frames were frozen before any querying, chosen from an
+impression of what language models overproduce: announcing a point before
+making it, the *it's not X, it's Y* contrast, the epigrammatic assertion. The
+question is whether they are features of American web register rather than of
+English generally.
+
+The instrument is GloWbE [@davies2013glowbe], 1.9 billion words of web text
+from twenty countries, collected in December 2012. Five national components are
+used: US, GB, IE, AU and ZA. The collection date is a design choice rather than
+an accident. Any corpus collected after 2022 contains generated text in unknown
+proportion, so a human baseline drawn from one would be circular.
+
+The design, the frames and the analysis were registered at
+<https://osf.io/48wjn> on 21 September 2026, before any count was retrieved.
+Two deviations were declared during collection and filed as registration
+updates; both are in `docs/deviations.md`.
+
+# What the interface allowed
+
+```{r}
+#| label: tbl-interface
+#| echo: false
+frames %>%
+  count(interface, name = "frames") %>%
+  mutate(interface = recode(interface,
+    split = "Counted in each section",
+    combined_only = "Counted only with sections combined",
+    uncountable = "Not countable on a free account")) %>%
+  kable(col.names = c("What the interface allowed", "Frames"),
+        caption = "The free tier's limits decided the shape of the analysis.")
+```
+
+A free english-corpora.org account refuses a section-restricted search when
+every slot in the query occurs 1,500,000 times or more, and caps a search
+string at five tokens. The first blocks six frames, which is the whole
+contrastive family apart from one, plus two others. The second blocks F06,
+`it 's not * , it 's`, entirely: it is seven tokens.
+
+The consequence is deviation D2. The confirmatory analysis covers the
+`r n_countable` countable frames with both sections combined, and the
+registered per-section model becomes a secondary analysis on the `r n_split`
+frames that split. The genre control is what this costs: it now covers
+`r n_split` frames rather than fifteen, and not the frames whose rates a genre
+explanation would most plausibly account for.
+
+# Results
+
+## The composite
+
+```{r}
+#| label: tbl-primary
+#| echo: false
+d$`composite-ratios` %>%
+  transmute(Variety = variety,
+            `Ratio against US` = ratio_ci(ratio, ratio_lower, ratio_upper),
+            `Holm p` = fmt_p(p_holm),
+            `Supports H1` = ifelse(supports_hypothesis, "yes", "no")) %>%
+  kable(caption = paste("Confirmatory result: the composite rate of the",
+                        n_countable, "countable frames in each variety,",
+                        "relative to American, with 95% intervals."))
+```
+
+Every variety uses the frames less often than American English does, and every
+comparison survives Holm's correction. The hypothesis was directional and
+pre-registered, and all four varieties support it.
+
+The frame-by-variety random effect has an SD of
+`r sprintf("%.3f", d$"composite-ratios"$sd_frame_variety[1])` on the log scale,
+so frames disagree modestly about how large the gap is. That disagreement is
+carried into the intervals above, which is what the model is for.
+
+```{r}
+#| label: tbl-rates
+#| echo: false
+d$`composite-combined` %>%
+  transmute(Variety = variety,
+            Hits = format(hits, big.mark = ","),
+            `Per million` = sprintf("%.1f", rate),
+            `95% interval` = sprintf("[%.1f, %.1f]", lower, upper)) %>%
+  kable(caption = "The same thing descriptively: all countable frames summed.")
+```
+
+## Robustness
+
+Two frames are marked partial in `data/frames.csv` because they match text
+outside the construction they stand for: `not * , but *` and `and that 's`.
+The second is the larger worry, being roughly ten times the size of any other
+frame in raw counts. Removing both and refitting moves every ratio slightly
+further from 1 rather than towards it, so the result does not rest on what
+those two patterns are really counting.
+
+```{r}
+#| label: tbl-sensitivity
+#| echo: false
+inner_join(
+  d$`composite-ratios` %>%
+    transmute(variety, primary = ratio_ci(ratio, ratio_lower, ratio_upper)),
+  d$`composite-ratios-sensitivity` %>%
+    transmute(variety, without = ratio_ci(ratio, ratio_lower, ratio_upper)),
+  by = "variety") %>%
+  kable(col.names = c("Variety", "All countable frames",
+                      "Without the partial frames"),
+        caption = "The primary result with and without F10 and F13.")
+```
+
+## The genre control
+
+```{r}
+#| label: tbl-secondary
+#| echo: false
+d$`composite-ratios-by-section` %>%
+  filter(model == "common") %>%
+  transmute(Variety = variety,
+            `Ratio against US` = ratio_ci(ratio, ratio_lower, ratio_upper),
+            `Holm p` = fmt_p(p_holm)) %>%
+  kable(caption = paste("Secondary analysis: the registered per-section model",
+                        "on the", n_split, "frames the interface splits."))
+```
+
+The variety × section interaction test finds no evidence that the gap differs
+between the corpus's blog and general sections. That is the weak form of
+evidence against a pure genre explanation: if the difference between varieties
+were really a difference between blogs and broadsheets, holding the section
+constant should have shrunk it, and it does not.
+
+The control is weaker than it looks, in two ways. The corpus's own composition
+table heads its General column "General (may also include blogs)", so the
+sections are not clean genres; @murphy2025please abandoned balancing a GloWbE
+sample across them on the strength of @biber2015exploring, a paper this study
+could not obtain and therefore cites at second hand. And the control covers
+`r n_split` frames, not all of them.
+
+## Where the pattern is not uniform
+
+```{r}
+#| label: tbl-exceptions
+#| echo: false
+d$`ratios-vs-us` %>%
+  filter(ratio > 1) %>%
+  inner_join(select(frames, frame_id, query), by = "frame_id") %>%
+  transmute(Frame = frame_id, Query = query, Variety = variety,
+            Ratio = ratio_ci(ratio, ratio_lower, ratio_upper)) %>%
+  arrange(Frame, Variety) %>%
+  kable(caption = "Every per-frame cell where a variety exceeds American.")
+```
+
+```{r}
+#| label: family-summary
+#| include: false
+fam <- d$`ratios-vs-us` %>%
+  group_by(family) %>%
+  summarise(median_ratio = median(ratio), n = n(), .groups = "drop") %>%
+  arrange(median_ratio)
+below <- sum(d$`ratios-vs-us`$ratio < 1)
+total <- nrow(d$`ratios-vs-us`)
+```
+
+`r below` of the `r total` per-frame ratios are below 1. The exceptions are
+British and Australian, and mostly contrastive frames. By family, the median
+ratio runs from `r sprintf("%.2f", fam$median_ratio[1])` for the
+`r fam$family[1]` frames to `r sprintf("%.2f", fam$median_ratio[nrow(fam)])`
+for the `r fam$family[nrow(fam)]` frames: the announce-the-point moves separate
+the varieties most, and the contrastive ones least. These ratios are
+descriptive, uncorrected and registered as such, so this is a lead for the
+write-up rather than a finding.
+
+# What this does not establish
+
+- **It is 2012 web English.** The register in question is claimed to have
+  spread through Medium, Substack and LinkedIn, which mostly postdate the
+  corpus. Nothing here speaks to English since.
+- **It counts fixed strings.** The sharper version of the claim is about
+  density and near-obligatory use, and a rate per million is a weak proxy for
+  it. Sentence position, one-sentence paragraphs and closing epigrams are not
+  reachable through the web interface at all.
+- **The frames were chosen from intuition.** Freezing and registering them
+  controls for choosing after seeing results. It cannot show they were the
+  right fifteen.
+- **Country assignment is a proxy.** GloWbE assigns pages by site rather than
+  by author nationality. From a spelling test, @murphy2025please estimates
+  10–15% of writers in the GB and US components are non-nationals, which biases
+  a variety comparison toward the null: the gaps above are more likely
+  understated than manufactured.
+- **No generated text appears anywhere in this study.** That American web
+  English used these frames more in 2012 says nothing on its own about why
+  generated prose reads as it does. Study 2 measures model output and Study 3
+  measures the training data behind it; only with those does the argument about
+  machine writing become testable.
+
+# Reproducing this
+
+Every count came from the GloWbE web interface with a free account. The
+repository holds the frozen frames (`data/frames.csv`), the counts
+(`data/counts.csv` and `data/counts-combined.csv`), the section and component
+word counts (`data/corpus-sizes.csv`), and what each query session did,
+including the refusals (`docs/collection-log.md`).
+
+`Rscript R/analyse.R` recomputes every number in this document.
+`Rscript R/check-corpus-sizes.R` recomputes the word counts from the corpus's
+own metadata download. `Rscript R/calibrate-composite.R` reruns the simulations
+behind the choice of model and interval.
+
+# References

@@ -1,12 +1,12 @@
 # Research plan
 
-Status: Study 1 is registered on OSF at <https://osf.io/48wjn>, submitted on
-21 September 2026 before any count was retrieved. Its design and analysis are
-now pre-registered, and any change is a declared deviation. The literature
+Status: Study 1 is collected and analysed. It was registered on OSF at
+<https://osf.io/48wjn> on 21 September 2026 before any count was retrieved,
+with two declared deviations since; the result is in `docs/study1-results.qmd`.
+Studies 2 and 3 have not started. The literature
 review is as complete as it will get — two of the cited papers cannot be
 obtained, and the wording that depended on them is settled by decision rather
-than by reading. Collecting the Study 1 grid is the next step. Completion
-criteria are in `SCOPE.md`.
+than by reading. Completion criteria are in `SCOPE.md`.
 
 ## The question
 

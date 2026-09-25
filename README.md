@@ -9,15 +9,16 @@ is characteristic of American web register rather than of English generally, and
 that this is part of why generated prose reads as foreign to a British, Irish,
 Australian or South African ear before it reads as machine-written.
 
-Neither the hypothesis nor its opposite has any evidence behind it at the time of
-writing. That is the point of measuring.
+Neither the hypothesis nor its opposite had any evidence behind it when this
+started. That was the point of measuring.
 
 The design is in [RESEARCH-PLAN.md](RESEARCH-PLAN.md) and the completion
 criteria in [SCOPE.md](SCOPE.md). The output is this repository and an article,
-not a journal submission. The frames are still pre-registered and the analysis
-still fixed before any data is collected, because both are for a reader rather
-than for a reviewer. Study 1 is registered on OSF at <https://osf.io/48wjn>,
-submitted on 21 September 2026 before any count was retrieved.
+not a journal submission. The frames were pre-registered and the analysis fixed
+before any data was collected, because both are for a reader rather than for a
+reviewer. Study 1 is registered on OSF at <https://osf.io/48wjn>, submitted on
+21 September 2026 before any count was retrieved, and its counts were collected
+over three sessions from 22 to 25 September.
 
 ## The four questions
 
@@ -37,8 +38,8 @@ search when every word in the string is very common. That is deviation D2 in
 **Over what population?** GloWbE: 1.9 billion words across 1.8 million web pages
 from 20 countries, collected in December 2012. Five varieties are used here —
 US, GB, IE, AU, ZA — with components ranging from 387.6 million words for GB
-down to 45.4 million for ZA. Each is split into the corpus's blog and
-general-web sections and analysed separately.
+down to 45.4 million for ZA. Each has a blog and a general-web section, and the
+frames the interface will split are analysed by section as well.
 
 That split is a partial genre control. Davies and Fuchs describe roughly 60% of
 the corpus as coming from informal blogs, while the section labelled Blog holds
@@ -169,7 +170,22 @@ analysis never contains one.
 
 The analysis is registered at <https://osf.io/48wjn>, and the text as submitted
 is in [docs/osf-study1-registration.md](docs/osf-study1-registration.md).
-Departures from it are recorded in [docs/deviations.md](docs/deviations.md).
+Departures from it are recorded in [docs/deviations.md](docs/deviations.md),
+and what each query session did, refusals included, in
+[docs/collection-log.md](docs/collection-log.md).
+
+## Result
+
+Every other variety uses the frames less often than American English does:
+GB 0.69 [0.61, 0.78], IE 0.54 [0.47, 0.62], AU 0.66 [0.58, 0.76] and
+ZA 0.50 [0.43, 0.57], each with a Holm-adjusted p below 0.0001. The secondary
+per-section analysis agrees and finds no evidence the gap differs between blog
+and general text on the eight frames it can check.
+
+[docs/study1-results.qmd](docs/study1-results.qmd) is the write-up, including
+where the pattern is not uniform and what the result does not establish. Every
+number in it comes from the files `R/analyse.R` writes, so run that first and
+render with `quarto render docs/study1-results.qmd`.
 
 ## Adding a frame
 

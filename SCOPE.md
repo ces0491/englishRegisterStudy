@@ -36,8 +36,10 @@ nothing downstream depends on its results.
       rates, the per-frame ratios against US, the confirmatory composite on the
       combined counts, the partial-frame sensitivity rerun, and the secondary
       per-section analysis with its `variety:section` likelihood-ratio test
-- [ ] A stranger with a free english-corpora.org account can reproduce every
-      count from what is in the repository
+- [x] A stranger with a free english-corpora.org account can reproduce every
+      count from what is in the repository. Spot-checked on 25 September 2026
+      across three cells in different parts of the grid, all matching; F06
+      remains uncountable on that tier, which D2 records
 
 **B — the counting layer, and Study 2's registration.** The gate for everything
 after it. Studies 2 and 3 both count the frozen frames in raw text, and they

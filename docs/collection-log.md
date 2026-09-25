@@ -69,3 +69,8 @@ entirely from very common words, which is the whole contrastive family
 F15's General and Blog runs, the two the second session ran out of queries
 before reaching. Both grids are now complete: 70 combined cells in
 `data/counts-combined.csv` and 80 section cells in `data/counts.csv`.
+
+Three cells were then re-queried as a reproduction check, chosen from different
+parts of the grid: F11 General GB, F09 unrestricted IE, and F15 Blog ZA. All
+three matched what the repository holds, as did every other variety in those
+three charts.

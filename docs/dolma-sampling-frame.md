@@ -1,5 +1,8 @@
 # Study 3: the Dolma 3 sampling frame
 
+Registered at <https://osf.io/ngt3m> on 25 September 2026, before any document
+was drawn, pinned to commit `381703b`.
+
 Study 3 counts the frozen frames in the corpus Olmo 3 was trained on and sets
 that against the rates in Olmo 3's own output. A model producing American
 register proves nothing on its own: if the training data was full of these

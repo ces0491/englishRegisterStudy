@@ -4,7 +4,9 @@ Status: Study 1 is collected and analysed. It was registered on OSF at
 <https://osf.io/48wjn> on 21 September 2026 before any count was retrieved,
 with two declared deviations since; the result is in `docs/study1-results.qmd`.
 Study 2 is registered at <https://osf.io/qjgtc> with its generation protocol
-and counting layer; nothing has been generated yet. Study 3 has not started. The literature
+and counting layer, and Study 3 at <https://osf.io/ngt3m> with its Dolma 3
+sampling frame. Nothing has been generated and no corpus sample has been
+drawn. The literature
 review is as complete as it will get — two of the cited papers cannot be
 obtained, and the wording that depended on them is settled by decision rather
 than by reading. Completion criteria are in `SCOPE.md`.
@@ -134,9 +136,8 @@ and output comparable without anyone having to classify a single document.
   the model's output and set against each other exactly. No other model family
   allows this.
 
-  The release matters. Olmo 3's stage-1 pretraining used `dolma3_6T-mix-1025`,
-  published as `allenai/dolma3_mix-6T-1025`, so one checkpoint pairs with one
-  named corpus. OLMo 2 does not work that way: its mix draws on DCLM, Dolma,
+  The release matters. Olmo 3's stage-1 pretraining corpus is published as
+  `allenai/dolma3_mix-6T-1025`, so one checkpoint pairs with one named corpus. OLMo 2 does not work that way: its mix draws on DCLM, Dolma,
   Starcoder and Proof Pile II, followed by a midtraining stage on
   Dolmino-Mix-1124, so "count the frames in its training data" would mean
   reconstructing a four-source mixture with stage weights. Study 3's sampling

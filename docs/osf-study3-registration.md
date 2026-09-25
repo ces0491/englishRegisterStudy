@@ -1,5 +1,9 @@
 # OSF registration — Study 3
 
+Registered at <https://osf.io/ngt3m> on 25 September 2026, before any document
+was drawn, pinned to commit `381703b`, with the sampling frame and
+`framecount.py` uploaded as attachments. This is the text as submitted.
+
 Text for OSF's **Secondary Data Preregistration** template (version 3), in the
 template's order, the same template Study 1 used: the corpus exists, is public,
 and has not been observed. The answers are plain text because OSF does not

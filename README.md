@@ -173,8 +173,10 @@ primary analysis is also rerun without the two frames marked `partial` in
 patterns really match. Both partial frames are combined-only, so the secondary
 analysis never contains one.
 
-The analysis is registered at <https://osf.io/48wjn>, and the text as submitted
-is in [docs/osf-study1-registration.md](docs/osf-study1-registration.md).
+Study 1's analysis is registered at <https://osf.io/48wjn>, and the text as
+submitted is in
+[docs/osf-study1-registration.md](docs/osf-study1-registration.md). Study 2 is
+registered at <https://osf.io/qjgtc> and Study 3 at <https://osf.io/ngt3m>.
 Departures from it are recorded in [docs/deviations.md](docs/deviations.md),
 and what each query session did, refusals included, in
 [docs/collection-log.md](docs/collection-log.md).

@@ -75,8 +75,9 @@ counts it. Everything else is already required by Study 2.
       `dolma3_6T-mix-1025`, 200M words of `common_crawl` as the primary input
       and 20M of each other subset for the whole-mix figure, 200 files at 1M
       words each, seed 20260925
-- [ ] OSF registration for Study 3 submitted before the sample is drawn.
-      Drafted in `docs/osf-study3-registration.md`
+- [x] OSF registration for Study 3 submitted before the sample is drawn.
+      <https://osf.io/ngt3m>, 25 September 2026, pinned to commit 381703b,
+      with the sampling frame and the counting layer attached
 - [ ] Olmo generation run: prompts, parameters and seeds committed, and enough
       text that the frames carry usable intervals. `python/generate.py` runs
       the four registered conditions on Modal; it has not been run

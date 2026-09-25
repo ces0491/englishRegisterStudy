@@ -18,14 +18,19 @@ web English? Generation protocol and analysis plan*
 
 ### Research questions or hypotheses *(required)*
 
-RQ1. Do the fifteen frozen rhetorical frames occur in a language model's
-unprompted prose at rates resembling the American end of the national-variety
-spread measured in Study 1?
+RQ1. Do the frozen rhetorical frames occur in a language model's unprompted
+prose at rates resembling the American end of the national-variety spread
+measured in Study 1?
 
-H1 (directional). The model's composite frame rate is higher than the rate of
-each non-American variety measured in Study 1: GB, IE, AU and ZA. Five tests
-in total, the fifth being the comparison against American web English, for
-which no direction is predicted.
+All fifteen frames are counted in the generated text. The comparison against
+Study 1 uses fourteen of them, because a free GloWbE account cannot search F06
+("it 's not * , it 's") at all: it is seven tokens and the interface caps a
+search at five. That is deviation D2 on Study 1's registration.
+
+H1 (directional). Over those fourteen frames, the model's composite rate is
+higher than the rate of each non-American variety measured in Study 1: GB, IE,
+AU and ZA. Five tests in total, the fifth being the comparison against
+American web English, for which no direction is predicted.
 
 Rationale. Study 1 found that American web English in 2012 used these frames
 between roughly 1.5 and 2 times as often as the other four varieties
@@ -157,7 +162,7 @@ generations per condition at roughly 500 words each reaches that.
 
 At the American rates Study 1 measured, a mid-frequency frame occurring around
 20 times per million words lands about 40 hits in 2 million words, and the
-composite across fifteen frames lands in the hundreds, so the interval on the
+composite across the frames lands in the hundreds, so the interval on the
 composite is tight enough to place the model within or outside the range
 Study 1 measured. The rarest frames will carry wide intervals, as they do in
 Study 1.
@@ -208,9 +213,9 @@ what", F04 "the thing is", F05 "what 's interesting is", F06 "it 's not * , it
 , but *", F11 "that 's the whole point", F12 "which is the point", F13 "and
 that 's", F14 "turns out", F15 "the real question is".
 
-All fifteen are counted here. A free GloWbE account could not search F06, so
-Study 1 covers fourteen; comparisons against Study 1 use those fourteen and
-say so.
+All fifteen are counted here, F06 included, because raw text has no
+five-token limit. Study 1 covers fourteen, so every comparison against it uses
+those fourteen and says so.
 
 ### Indices *(required)*
 

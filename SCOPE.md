@@ -27,12 +27,12 @@ nothing downstream depends on its results.
       carrying the frozen frames, varieties, sections and the analysis as
       written. The Secondary Data template fits: GloWbE was collected in 2012
       and no count from it has been looked at
-- [ ] Full grid collected by hand from GloWbE, as far as the interface allows
+- [x] Full grid collected by hand from GloWbE, as far as the interface allows
       (deviation D2): the 14 countable frames x 5 varieties with the sections
       combined in `data/counts-combined.csv`, both sections for the 8 frames
       that split in `data/counts.csv`, and the word counts in
       `data/corpus-sizes.csv`
-- [ ] `Rscript R/analyse.R` runs end to end on the real counts and produces the
+- [x] `Rscript R/analyse.R` runs end to end on the real counts and produces the
       rates, the per-frame ratios against US, the confirmatory composite on the
       combined counts, the partial-frame sensitivity rerun, and the secondary
       per-section analysis with its `variety:section` likelihood-ratio test

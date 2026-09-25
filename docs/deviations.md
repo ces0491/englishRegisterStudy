@@ -120,3 +120,129 @@ partial-frame rerun as covering the genre test, which it no longer does,
 because neither partial frame can be split by section. Both are recorded here
 rather than in a further update, and will be corrected if another deviation
 needs filing.
+
+# Deviations from the Study 3 registration
+
+Every departure from the registration at <https://osf.io/ngt3m>, recorded
+before any frame was counted in Dolma 3. Each is also filed as an update on the
+OSF registration.
+
+## S3-D1. The corpus is JSON Lines, under a new name, at a pinned revision
+
+**Registered:** "allenai/dolma3_mix-6T-1025 ... stored as parquet", and as the
+first step of the draw, "List the subset's parquet files from the repository,
+sorted by path."
+
+**What happened:** the first `count_dolma.py --list-only` run found 144,245
+files and no parquet. The data files are JSON Lines, compressed with zstd
+except for 78,137 olmOCR shards compressed with gzip. They sit in directories
+named for the subset followed by a topic, language or part
+(`data/common_crawl-politics-0016/`), with no single directory for a subset.
+The registered name redirects to `allenai/dolma3_mix-6T-1025-7B`, whose card
+now describes it as the mix used to train Olmo 3 7B and points to
+`allenai/dolma3_mix-6T` for the 32B. Study 2 generates from the 7B, so the
+pairing holds.
+
+**What is done instead:** the first step lists the subset's `.jsonl.zst` and
+`.jsonl.gz` files. A file belongs to a subset when its directory is named for
+the subset alone or for the subset followed by a hyphen. At the pinned
+revision that gives:
+
+| Subset | Files |
+|---|---:|
+| `common_crawl` | 36,936 |
+| `olmocr_science_pdfs` | 104,752 |
+| `stack_edu` | 1,977 |
+| `finemath-3plus` | 128 |
+| `rpj-proofpile-arxiv` | 20 |
+| `dolma1_7-wiki-en` | 42 |
+
+`rpj-proofpile-arxiv` has exactly the 20 files its draw asks for, so its draw
+is the whole subset in shuffled order.
+
+The gzip shards are counted even though the dataset card's loader
+configuration reads only `*.jsonl.zst`. They hold olmOCR topics found nowhere
+else in the repository, education, finance, literature, history and religion
+among them, so leaving them out would drop those topics from the subset.
+
+387 files named like `shard_00000032.jsonl.zst338588528` are left out. All are
+in olmOCR directories and each sits beside a shard of the same name without the
+trailing digits, so they read as interrupted uploads.
+
+The listing is pinned to revision `2ca900fbe14e86c5c83d064d9f0882f1c0b8c05b`,
+so the draw can be reproduced whatever Ai2 later changes in the repository.
+
+Sorting by path, the seeded draw, and reading each file from its first
+document to its quota are unchanged. The registered reason for a contiguous
+block holds for these files as it did for parquet: document order within a
+shard is not random, and reading random documents would mean decompressing the
+whole shard.
+
+**Effect on the analysis:** none. The subsets, volumes, seed, order and
+counting rules are as registered.
+
+**When:** 25 September 2026, from the listing, before any frame was counted.
+Settling the format meant reading documents from 68 shards, 63 of them olmOCR
+for the redaction check in S3-D2, and counting words but no frames in six of
+them to test the reader.
+
+## S3-D2. Two problems in `olmocr_science_pdfs`
+
+**Registered:** "The corpus is counted as the model received it", and a draw
+in which every file is equally likely, each read to a quota of 1,000,000 words,
+with a short file's shortfall made up from the next one.
+
+**What happened:**
+
+1. **Redaction.** The dataset card says some olmOCR documents were redacted
+   after Olmo 3 7B was trained, their text replaced with `[REMOVED]`. In 60
+   olmOCR shards picked at random for this check, reading the first 3 MB of
+   each, 668 of 8,582 documents were redacted, about 8%, spread over 34 of the
+   shards. Every redaction replaced the whole text. The model saw those
+   documents and this study cannot.
+2. **File sizes.** olmOCR's shards come in two families. 26,615 zstd shards,
+   median 27 MB, hold 80% of the subset's compressed bytes; 78,137 gzip
+   shards, median 0.5 MB, hold 20%. The families mostly divide by topic:
+   science, maths and technology and health are zstd, while education,
+   finance, literature, history, religion and most of the smaller topics are
+   gzip. A zstd shard fills its million-word quota. A gzip shard of median size
+   holds roughly 200,000 words, so it gives all it has and the draw moves on.
+   With every file equally likely, the gzip topics supply far more of the drawn
+   words than their share of the subset. Estimated from file sizes, science,
+   maths and technology is 57% of the subset's bytes and would supply about 27%
+   of the drawn words; literature, religion and history together are under 5%
+   of the bytes and would supply about a fifth of the words.
+
+   The same mechanism is mild in `stack_edu`, where Markdown is 24% of the
+   bytes and 18% of the files, and absent in `common_crawl`, where each topic's
+   share of files is within a point of its share of bytes.
+
+**What is done instead:**
+
+- The registered draw is kept, and redacted documents are counted as
+  registered. `[REMOVED]` counts as one word and matches no frame, so each
+  redacted document adds one word to the denominator. Every file's record
+  carries its number of redacted documents, so those words can be taken back
+  out exactly. The write-up says the olmOCR rate describes the unredacted
+  documents only.
+- The olmOCR rate is reported with each topic's share of the drawn words
+  beside its share of the subset's compressed bytes at the pinned revision,
+  counting a topic split into part directories once. The run records every
+  directory's files and bytes from the listing it draws from.
+- As exploratory analysis, the per-topic rates reweighted to those byte
+  shares, over the topics the draw reached, and the whole-mix comparison
+  recomputed with that rate in olmOCR's place. Compressed bytes are the only
+  size the repository publishes per file, and gzip packs text less tightly
+  than zstd, so byte shares somewhat overstate the gzip topics and the
+  reweighting corrects only part of the imbalance.
+
+**Effect on the analysis:** none on the primary comparison, which uses
+`common_crawl` alone. The whole-mix figure, the secondary comparison, carries
+olmOCR at its 13.57% token share. If the humanities topics use the frames more
+than science and medicine do, the draw raises the olmOCR rate, which raises the
+whole-mix input rate and makes any amplification look smaller: a bias against
+the finding H1 predicts. What the redacted documents would have contributed is
+unknown. The placeholder text itself is negligible: in the one olmOCR shard read
+to its quota while testing the reader, it came to 29 words out of 1,025,431.
+
+**When:** 25 September 2026, before any frame was counted.

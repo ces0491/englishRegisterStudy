@@ -11,8 +11,9 @@
 # working correctly. Equality is a result, and a duller one.
 #
 # Inputs:
-#   data/counts-dolma.csv      written by python/count_generated.py --dolma
-#   data/counts-generated.csv  written by python/count_generated.py
+#   data/counts-dolma.csv        written by python/count_generated.py --dolma
+#   data/counts-dolma-topic.csv  the same counts by topic, written alongside
+#   data/counts-generated.csv    written by python/count_generated.py
 #
 # Usage:
 #   python python/count_generated.py --dolma data/dolma
@@ -39,6 +40,7 @@ TOKEN_SHARES <- c(
 
 frames <- read_csv("data/frames.csv", show_col_types = FALSE)
 dolma <- read_csv("data/counts-dolma.csv", show_col_types = FALSE)
+dolma_topics <- read_csv("data/counts-dolma-topic.csv", show_col_types = FALSE)
 generated <- read_csv("data/counts-generated.csv", show_col_types = FALSE)
 
 for (needed in c(CONFIRMATORY, PRIMARY_INPUT)) {
@@ -115,16 +117,23 @@ mix_var <- sum((mix$share * mix$rate)^2 / mix$hits)
 model_row <- composite %>% filter(source == CONFIRMATORY)
 model_var <- model_row$rate^2 / model_row$hits
 
-log_ratio <- log(model_row$rate / mix_rate)
-log_se <- sqrt(model_var / model_row$rate^2 + mix_var / mix_rate^2)
-whole_mix <- tibble(
-  plus = CONFIRMATORY, minus = "whole mix (token-share weighted)",
-  ratio = exp(log_ratio),
-  ratio_lower = exp(log_ratio - 1.96 * log_se),
-  ratio_upper = exp(log_ratio + 1.96 * log_se),
-  p_value = 2 * stats::pnorm(-abs(log_ratio / log_se)),
-  comparison = "secondary, approximate"
-)
+# The confirmatory condition's rate against a mix rate with the given
+# variance, as a ratio.
+against_mix <- function(rate, var, minus, comparison) {
+  log_ratio <- log(model_row$rate / rate)
+  log_se <- sqrt(model_var / model_row$rate^2 + var / rate^2)
+  tibble(
+    plus = CONFIRMATORY, minus = minus,
+    ratio = exp(log_ratio),
+    ratio_lower = exp(log_ratio - 1.96 * log_se),
+    ratio_upper = exp(log_ratio + 1.96 * log_se),
+    p_value = 2 * stats::pnorm(-abs(log_ratio / log_se)),
+    comparison = comparison
+  )
+}
+
+whole_mix <- against_mix(mix_rate, mix_var, "whole mix (token-share weighted)",
+                         "secondary, approximate")
 
 # --- robustness: without the partial frames ----------------------------------
 
@@ -140,11 +149,75 @@ without_partial <- contrast(
   df = n_distinct(counts$frame_id[!counts$frame_id %in% partial]) - 1) %>%
   mutate(comparison = "primary, without the partial frames")
 
+# --- exploratory: olmOCR against its topics' sizes (deviation S3-D2) ---------
+#
+# olmOCR's small gzip shards hold most of its humanities topics, and every file
+# is equally likely to be drawn, so those topics supply more of the drawn words
+# than their share of the subset. The draw's composition is set against each
+# topic's share of the subset's compressed bytes, and the per-topic rates are
+# reweighted to those shares over the topics the draw reached. gzip packs text
+# less tightly than zstd, so byte shares overstate the gzip topics and the
+# reweighting corrects only part of the imbalance. The whole mix is then
+# recomputed with the reweighted rate in olmOCR's place.
+
+OLMOCR <- "olmocr_science_pdfs"
+
+olmocr_topics <- dolma_topics %>%
+  filter(source == OLMOCR) %>%
+  group_by(topic) %>%
+  summarise(files_available = first(files_available),
+            files_drawn = first(files_drawn), bytes = first(bytes),
+            words = first(words), redacted = first(redacted),
+            hits = sum(hits), .groups = "drop") %>%
+  mutate(byte_share = bytes / sum(bytes),
+         word_share = words / sum(words),
+         rate = if_else(words > 0, hits / words * 1e6, NA_real_))
+
+olmocr_row <- filter(composite, source == OLMOCR)
+if (sum(olmocr_topics$words) != olmocr_row$words ||
+    sum(olmocr_topics$hits) != olmocr_row$hits) {
+  fail("olmOCR's topics do not add up to its subset counts")
+}
+
+reached <- olmocr_topics %>%
+  filter(words > 0) %>%
+  mutate(weight = bytes / sum(bytes))
+reweighted_rate <- sum(reached$weight * reached$rate)
+# A topic's rate per million has variance hits / words^2 * 1e12, the Poisson
+# variance used above, written so that a topic with no hits adds nothing
+# rather than dividing by zero.
+reweighted_var <- sum(reached$weight^2 * reached$hits / reached$words^2) * 1e12
+reweighted_se_log <- sqrt(reweighted_var) / reweighted_rate
+
+mix_reweighted <- mix %>%
+  mutate(var = if_else(source == OLMOCR, reweighted_var, rate^2 / hits),
+         rate = if_else(source == OLMOCR, reweighted_rate, rate))
+whole_mix_reweighted <- against_mix(
+  sum(mix_reweighted$share * mix_reweighted$rate),
+  sum(mix_reweighted$share^2 * mix_reweighted$var),
+  "whole mix, olmOCR reweighted to topic bytes", "exploratory")
+
+exploratory <- bind_rows(
+  tibble(quantity = "olmOCR rate per million, as drawn",
+         estimate = olmocr_row$rate, lower = olmocr_row$lower,
+         upper = olmocr_row$upper),
+  tibble(quantity = "olmOCR rate per million, reweighted to topic bytes",
+         estimate = reweighted_rate,
+         lower = reweighted_rate * exp(-1.96 * reweighted_se_log),
+         upper = reweighted_rate * exp(1.96 * reweighted_se_log)),
+  transmute(whole_mix_reweighted,
+            quantity = sprintf("%s against the whole mix, olmOCR reweighted (ratio)",
+                               CONFIRMATORY),
+            estimate = ratio, lower = ratio_lower, upper = ratio_upper)
+)
+
 write_csv(rates, "data/rates-training.csv")
 write_csv(composite, "data/composite-training.csv")
 write_csv(bind_rows(primary, secondary, whole_mix, without_partial),
           "data/training-contrasts.csv")
 write_csv(per_subset, "data/training-per-subset.csv")
+write_csv(olmocr_topics, "data/olmocr-topics.csv")
+write_csv(exploratory, "data/training-exploratory.csv")
 
 message(sprintf(paste("\nPRIMARY: %s against %s, %d frames, one test,",
                       "uncorrected.\nFrame-by-source SD %.3f on the log scale."),
@@ -171,4 +244,11 @@ print(per_subset, width = Inf)
 message("\ncomposite rate per million words, all sources")
 print(composite %>% mutate(across(rate:upper, ~round(.x, 1))), n = Inf)
 
-message("\nwrote data/rates-training.csv, data/composite-training.csv,\n  data/training-contrasts.csv, data/training-per-subset.csv")
+message("\nEXPLORATORY: olmOCR's draw by topic against the subset's bytes")
+print(olmocr_topics %>%
+        mutate(across(c(byte_share, word_share), ~round(.x, 3)),
+               rate = round(rate, 1)) %>%
+        arrange(desc(bytes)), n = Inf, width = Inf)
+print(exploratory, width = Inf)
+
+message("\nwrote data/rates-training.csv, data/composite-training.csv,\n  data/training-contrasts.csv, data/training-per-subset.csv,\n  data/olmocr-topics.csv, data/training-exploratory.csv")

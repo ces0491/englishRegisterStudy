@@ -19,12 +19,16 @@ data/rates-training.csv
 data/composite-training.csv
 data/training-contrasts.csv
 data/training-per-subset.csv
+data/olmocr-topics.csv
+data/training-exploratory.csv
 
-# Generated text and the raw Dolma draw: too large for git, and reproducible
-# from the registered protocols. The counts taken from them are committed.
+# Generated text: too large for git, and reproducible from the registered
+# protocol. The counts taken from it are committed, and so is data/dolma/,
+# which holds the Dolma draw's per-file counts and none of its text.
 data/generated/
-data/dolma/
 figures/
+
+__pycache__/
 
 .Rproj.user/
 .Rhistory

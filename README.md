@@ -155,9 +155,11 @@ Rscript R/analyse-generated.R                      # Study 2
 Rscript R/analyse-training.R                       # Study 3
 ```
 
-The generated text and the Dolma draw are too large for git and are
-reproducible from the registered protocols; the counts taken from them are
-committed. `R/model.R` holds the model the two studies share. `R/analyse.R`
+The generated text is too large for git and is reproducible from the
+registered protocol; the counts taken from it are committed. The Dolma draw
+keeps no text: `data/dolma/` holds one record per drawn file, with its path,
+words, hits and redacted documents, and is committed so the draw can be
+checked. `R/model.R` holds the model the two studies share. `R/analyse.R`
 does not use it: that is Study 1's registered analysis, it has run, and
 leaving it untouched is worth more than removing the duplication.
 
@@ -197,7 +199,7 @@ Study 1's analysis is registered at <https://osf.io/48wjn>, and the text as
 submitted is in
 [docs/osf-study1-registration.md](docs/osf-study1-registration.md). Study 2 is
 registered at <https://osf.io/qjgtc> and Study 3 at <https://osf.io/ngt3m>.
-Departures from it are recorded in [docs/deviations.md](docs/deviations.md),
+Departures from them are recorded in [docs/deviations.md](docs/deviations.md),
 and what each query session did, refusals included, in
 [docs/collection-log.md](docs/collection-log.md).
 

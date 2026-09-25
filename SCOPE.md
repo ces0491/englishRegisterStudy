@@ -70,11 +70,16 @@ produces Study 2's open-model output and Study 3's output side at once, so the
 marginal cost of Study 3 over Study 2 is the Dolma sample and the pass that
 counts it. Everything else is already required by Study 2.
 
-- [ ] Dolma sampling frame decided: version, subsets, how shards are drawn, how
-      much text, and the seed
-- [ ] OSF registration for Study 3 submitted before the sample is drawn
-- [ ] OLMo generation run: prompts, parameters and seeds committed, and enough
-      text that the frames carry usable intervals
+- [x] Dolma sampling frame decided: version, subsets, how shards are drawn, how
+      much text, and the seed. `docs/dolma-sampling-frame.md`: stage 1 of
+      `dolma3_6T-mix-1025`, 200M words of `common_crawl` as the primary input
+      and 20M of each other subset for the whole-mix figure, 200 files at 1M
+      words each, seed 20260925
+- [ ] OSF registration for Study 3 submitted before the sample is drawn.
+      Drafted in `docs/osf-study3-registration.md`
+- [ ] Olmo generation run: prompts, parameters and seeds committed, and enough
+      text that the frames carry usable intervals. `python/generate.py` runs
+      the four registered conditions on Modal; it has not been run
 - [ ] Frame rates counted in the Dolma sample and in OLMo's output with the
       layer from phase B, both with intervals
 - [ ] The two set against each other, and against the Study 1 variety rates

@@ -84,6 +84,8 @@ def word_count(tokens: list[str]) -> int:
     corpus's rate depend on how heavily it is punctuated. See
     `docs/frame-mapping.md` on how this compares with GloWbE's own word counts.
     """
+    if isinstance(tokens, str):
+        raise TypeError("word_count takes tokens, not text: tokenise() first")
     return sum(1 for token in tokens if _WORDLIKE_RE.search(token))
 
 

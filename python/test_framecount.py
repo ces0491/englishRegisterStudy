@@ -93,6 +93,13 @@ def test_word_count_excludes_punctuation():
     assert word_count(tokenise("Here's the thing.")) == 4
 
 
+def test_word_count_refuses_untokenised_text():
+    # Counting a string character by character would silently inflate every
+    # word count, which is what a caller passing raw text would get.
+    with pytest.raises(TypeError):
+        word_count("Here's the thing.")
+
+
 def test_wildcard_matches_exactly_one_token():
     tokens = tokenise("here's the best part and here's the very best part")
     assert count_pattern(tokens, parse_query("here 's the * part")) == 1

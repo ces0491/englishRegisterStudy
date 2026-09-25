@@ -49,7 +49,7 @@ counts were also taken this session (see D1 in `docs/deviations.md`).
 | F12 | works | 86 | 58 | 17 | 30 | 1 | 275 | general + blog = combined in all five; ZA blog is the first zero cell |
 | F13 | refused, General | 24330 | 19265 | 3958 | 7492 | 1558 | 84253 | section rule; roughly ten times any other frame |
 | F14 | works | 12073 | 7642 | 1449 | 2965 | 614 | 36702 | general + blog = combined in all five |
-| F15 | combined only so far | 696 | 354 | 53 | 136 | 37 | 1763 | General and Blog not yet run; the session ended at the query limit |
+| F15 | combined 23 Sep, sections 25 Sep | 696 | 354 | 53 | 136 | 37 | 1763 | general + blog = combined in all five |
 
 The limit is a rolling 24-hour window and counts refused queries too, which is
 why a survey of eight frames exhausted it.
@@ -63,3 +63,9 @@ why a survey of eight frames exhausted it.
 The blocked set is not arbitrary: the section rule catches the frames built
 entirely from very common words, which is the whole contrastive family
 (F06-F10) plus F03 and F13. What follows from it is deviation D2.
+
+## Session 3 — 25 September 2026
+
+F15's General and Blog runs, the two the second session ran out of queries
+before reaching. Both grids are now complete: 70 combined cells in
+`data/counts-combined.csv` and 80 section cells in `data/counts.csv`.

@@ -286,11 +286,13 @@ if modal is not None:
             "sample_paths": {s: f[:2] for s, f in claimed.items()},
         }
 
-    # Counting runs at about 4.7 seconds per million words on one core, so
-    # the 200 million of common_crawl is roughly a quarter of an hour.
-    # Reading stops at each file's quota, so only the head of a shard is
-    # downloaded. Most olmOCR shards hold well under a million words, so that
-    # subset reads many more than 20 files to reach its 20 million.
+    # Counting is single-threaded and ran at about 14 seconds per million
+    # words on the first common_crawl run, four files a minute, so its 200
+    # million take close to an hour and a 20-million subset about five
+    # minutes. Reading stops at each file's quota, so only the head of a
+    # shard is downloaded. Most olmOCR shards hold well under a million
+    # words, so that subset opens many more than 20 files, and each opening
+    # costs a few seconds.
     @app.function(timeout=60 * 60 * 6, cpu=2, volumes={"/data": volume})
     def count_subset(subset: str) -> dict:
         """Draw one subset's files and count the frames in them."""
@@ -315,6 +317,10 @@ if modal is not None:
                 record = count_file(path, documents(handle, path), frames)
             record.size = sizes[path]
             counts.append(record)
+            counted = sum(c.words for c in counts)
+            print(f"{subset} file {len(counts)}: {path}, "
+                  f"{record.words:,} words; {counted:,} of "
+                  f"{words_wanted(subset):,}", flush=True)
 
         summary = totals(counts)
         result = {

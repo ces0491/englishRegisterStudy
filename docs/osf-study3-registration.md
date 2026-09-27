@@ -2,7 +2,9 @@
 
 Registered at <https://osf.io/ngt3m> on 25 September 2026, before any document
 was drawn, pinned to commit `381703b`, with the sampling frame and
-`framecount.py` uploaded as attachments. This is the text as submitted.
+`framecount.py` uploaded as attachments. This is the text as submitted. An
+update approved on 27 September 2026 revises six answers; `docs/deviations.md`
+gives each change against the text here.
 
 Text for OSF's **Secondary Data Preregistration** template (version 3), in the
 template's order, the same template Study 1 used: the corpus exists, is public,
@@ -114,6 +116,9 @@ draw checkable.
 No filtering, deduplication, quality screening, language identification or
 boilerplate removal. The corpus is counted as the model received it, which is
 the rule Study 2 applies to generated text.
+
+The sampling frame and the counting layer as registered:
+https://github.com/ces0491/englishRegisterStudy/tree/381703b
 
 ### Data collection procedures documentation
 

@@ -252,9 +252,10 @@ to its quota while testing the reader, it came to 29 words out of 1,025,431.
 
 ### The OSF update
 
-S3-D1 and S3-D2 are filed as one update to the registration. These are its
-changes, answer by answer, each marked with the deviation it comes from.
-Answers not listed are unchanged.
+S3-D1 and S3-D2 were submitted as one update to the registration on 27
+September 2026, citing this file at commit `e45f5d3`, and the update was
+approved the same day. These are its changes, answer by answer, each marked
+with the deviation it comes from. Answers not listed are unchanged.
 
 #### Datasets used
 

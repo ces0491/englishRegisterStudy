@@ -186,6 +186,11 @@ Settling the format meant reading documents from 68 shards, 63 of them olmOCR
 for the redaction check in S3-D2, and counting words but no frames in six of
 them to test the reader.
 
+**Answers revised on OSF:** Datasets used and Data identifiers, for the format,
+the name and the pinned revision; Data collection procedures, for how files are
+listed, the partial uploads left out, and the reason for reading a contiguous
+block; Prior knowledge, for the documents read before the draw.
+
 ## S3-D2. Two problems in `olmocr_science_pdfs`
 
 **Registered:** "The corpus is counted as the model received it", and a draw
@@ -246,3 +251,9 @@ unknown. The placeholder text itself is negligible: in the one olmOCR shard read
 to its quota while testing the reader, it came to 29 words out of 1,025,431.
 
 **When:** 25 September 2026, before any frame was counted.
+
+**Answers revised on OSF:** Datasets used, for the redactions; Data collection
+procedures, for how redacted documents are counted, why olmOCR's draw is
+uneven, and the sizes each run records; Reliability and Robustness Testing, for
+the composition report; Exploratory analysis, for the reweighted rate and the
+recomputed whole mix.

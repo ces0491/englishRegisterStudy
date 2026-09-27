@@ -1,10 +1,12 @@
-# Deviations from the Study 1 registration
+# Deviations from the registrations
+
+## Study 1
 
 Every departure from the registration at <https://osf.io/48wjn>, recorded when
 it was made and before the analysis was run. Each is also filed as an update on
 the OSF registration.
 
-## D1. Section word counts come from the corpus's TEXTS page
+### D1. Section word counts come from the corpus's TEXTS page
 
 **Registered:** "Section word counts are read off the interface when querying
 and recorded in data/corpus-sizes.csv."
@@ -41,7 +43,7 @@ would have biased the variety comparison.
 **When:** 22 September 2026, during the first query session. Only F01 had been
 counted, and no analysis had been run.
 
-## D2. The section split is unavailable for six frames, and F06 for none
+### D2. The section split is unavailable for six frames, and F06 for none
 
 **Registered:** all fifteen frames counted in each variety's blog and general
 sections, 150 cells, with the composite estimated per section and the
@@ -105,7 +107,7 @@ for it. The frame set for the main hypothesis falls from fifteen to fourteen.
 analysis was run. Counts already collected are unaffected: the eight splittable
 frames keep their section counts, which the secondary analysis uses.
 
-### Filed on OSF
+#### Filed on OSF
 
 D2 was submitted as a registration update on 23 September 2026, revising the
 Statistical models, Inference criteria, Unit of analysis and Missing data
@@ -121,17 +123,17 @@ because neither partial frame can be split by section. Both are recorded here
 rather than in a further update, and will be corrected if another deviation
 needs filing.
 
-# Deviations from the Study 3 registration
+## Study 3
 
 Every departure from the registration at <https://osf.io/ngt3m>, recorded
 before any frame was counted in Dolma 3. Each is also filed as an update on the
 OSF registration.
 
-## S3-D1. The corpus is JSON Lines, under a new name, at a pinned revision
+### S3-D1. The corpus is JSON Lines, under a new name, at a pinned revision
 
-**Registered:** "allenai/dolma3_mix-6T-1025 ... stored as parquet", and as the
-first step of the draw, "List the subset's parquet files from the repository,
-sorted by path."
+**Registered:** in Datasets used, "allenai/dolma3_mix-6T-1025 ... stored as
+parquet"; in Data collection procedures, as the first step of the draw, "List
+the subset's parquet files from the repository, sorted by path."
 
 **What happened:** the first `count_dolma.py --list-only` run found 144,245
 files and no parquet. The data files are JSON Lines, compressed with zstd
@@ -186,16 +188,12 @@ Settling the format meant reading documents from 68 shards, 63 of them olmOCR
 for the redaction check in S3-D2, and counting words but no frames in six of
 them to test the reader.
 
-**Answers revised on OSF:** Datasets used and Data identifiers, for the format,
-the name and the pinned revision; Data collection procedures, for how files are
-listed, the partial uploads left out, and the reason for reading a contiguous
-block; Prior knowledge, for the documents read before the draw.
+### S3-D2. Two problems in `olmocr_science_pdfs`
 
-## S3-D2. Two problems in `olmocr_science_pdfs`
-
-**Registered:** "The corpus is counted as the model received it", and a draw
-in which every file is equally likely, each read to a quota of 1,000,000 words,
-with a short file's shortfall made up from the next one.
+**Registered:** in Data collection procedures, "The corpus is counted as the
+model received it", and a draw in which every file is equally likely, each read
+to a quota of 1,000,000 words, with a short file's shortfall made up from the
+next one.
 
 **What happened:**
 
@@ -252,8 +250,144 @@ to its quota while testing the reader, it came to 29 words out of 1,025,431.
 
 **When:** 25 September 2026, before any frame was counted.
 
-**Answers revised on OSF:** Datasets used, for the redactions; Data collection
-procedures, for how redacted documents are counted, why olmOCR's draw is
-uneven, and the sizes each run records; Reliability and Robustness Testing, for
-the composition report; Exploratory analysis, for the reweighted rate and the
-recomputed whole mix.
+### The OSF update
+
+S3-D1 and S3-D2 are filed as one update to the registration. These are its
+changes, answer by answer, each marked with the deviation it comes from.
+Answers not listed are unchanged.
+
+#### Datasets used
+
+**S3-D1.** Replace
+
+> allenai/dolma3_mix-6T-1025, the stage-1 pretraining mix for Olmo 3: 5.93
+> trillion tokens over 3.87 billion documents, stored as parquet, published by
+> Ai2.
+
+with
+
+> allenai/dolma3_mix-6T-1025-7B, the stage-1 pretraining mix for Olmo 3 7B:
+> 5.93 trillion tokens over 3.87 billion documents, published by Ai2 as JSON
+> Lines compressed with zstd or, for part of olmocr_science_pdfs, gzip. It was
+> registered as allenai/dolma3_mix-6T-1025, which now redirects here.
+
+**S3-D2.** After the paragraph giving the composition, add
+
+> Ai2 has redacted some olmocr_science_pdfs documents since Olmo 3 7B was
+> trained, replacing their text with [REMOVED]. In the first 3 MB of 60 olmOCR
+> shards chosen at random, 668 of 8,582 documents were redacted, about 8%. The
+> olmOCR rate therefore describes the unredacted documents only.
+
+#### Data identifiers
+
+**S3-D1.** Replace
+
+> <https://huggingface.co/datasets/allenai/dolma3_mix-6T-1025> — the model it
+> trained: <https://huggingface.co/allenai/Olmo-3-1025-7B>
+
+with
+
+> <https://huggingface.co/datasets/allenai/dolma3_mix-6T-1025-7B> at revision
+> 2ca900fbe14e86c5c83d064d9f0882f1c0b8c05b, to which the listing and the draw
+> are pinned. Registered as
+> <https://huggingface.co/datasets/allenai/dolma3_mix-6T-1025>, which redirects
+> there. The model it trained: <https://huggingface.co/allenai/Olmo-3-1025-7B>
+
+#### Data collection procedures
+
+**S3-D1.** Replace step 1
+
+> 1\. List the subset's parquet files from the repository, sorted by path.
+
+with
+
+> 1\. List the subset's data files at the pinned revision, sorted by path. A
+> data file ends .jsonl.zst or .jsonl.gz and sits in a directory named for the
+> subset alone or for the subset followed by a hyphen and a topic, language or
+> part, as in data/common_crawl-politics-0016/. 387 files beside olmOCR
+> shards, named like shard_00000032.jsonl.zst338588528, are left out as
+> interrupted uploads.
+
+**S3-D1.** In step 3, replace
+
+> Read each drawn file from its first row, counting words with
+> python/framecount.word_count, and stop at the file's quota.
+
+with
+
+> Read each drawn file from its first document, counting words with
+> python/framecount.word_count, and stop at the document that brings the file
+> to its quota.
+
+**S3-D1 and S3-D2.** Replace step 4
+
+> 4\. Record, per file: path, rows read, words counted, and hits per frame.
+
+with
+
+> 4\. Record, per file: path, documents read, words counted, hits per frame,
+> redacted documents and the file's size; and per subset, the files and bytes
+> in each directory.
+
+**S3-D1.** Replace
+
+> because parquet row order is not random and a random-row draw would mean
+> reading the whole file anyway.
+
+with
+
+> because document order within a shard is not random and a random draw of
+> documents would mean decompressing the whole shard anyway.
+
+**S3-D2.** After "The corpus is counted as the model received it, which is the
+rule Study 2 applies to generated text.", add
+
+> The exception is outside this study's control: olmOCR documents Ai2 redacted
+> after training read [REMOVED]. They are counted as they stand, adding one
+> word each and no hits, and each file's record gives their number so those
+> words can be taken back out.
+
+**S3-D2.** At the end, add
+
+> olmOCR's files differ in size by topic. Science, maths and technology and
+> health, which hold most of its bytes, are stored in large shards, and most
+> other topics in small ones. Every file is equally likely to be drawn, so the
+> draw over-represents the topics in small files against their share of the
+> subset. The draw is kept as registered and its composition is reported,
+> under Reliability and Robustness Testing.
+
+#### Prior knowledge
+
+**S3-D1.** Replace
+
+> The author (sole author) has not drawn, read or counted any part of Dolma 3,
+> and has seen no frame count from it.
+
+with
+
+> At submission, the author (sole author) had not drawn, read or counted any
+> part of Dolma 3, and had seen no frame count from it. Since then, and before
+> the draw, documents from 68 shards were read to settle the file format and
+> check the redactions, and words were counted in six of them to test the
+> reader. No frame has been counted in Dolma 3 and no frame count from it has
+> been seen.
+
+#### Reliability and Robustness Testing
+
+**S3-D2.** At the end, add
+
+> The olmocr_science_pdfs rate is reported with each topic's share of the
+> drawn words beside its share of the subset's compressed bytes at the pinned
+> revision, counting a topic split into part directories once, because the
+> draw over-represents the topics stored in small files (see Data collection
+> procedures).
+
+#### Exploratory analysis
+
+**S3-D2.** At the end of the list, add
+
+> - The olmocr_science_pdfs per-topic rates reweighted to each topic's share
+>   of the subset's compressed bytes, over the topics the draw reached, and the
+>   whole-mix comparison recomputed with that rate. gzip packs text less
+>   tightly than zstd, so byte shares overstate the topics stored with gzip and
+>   the reweighting corrects only part of the imbalance.

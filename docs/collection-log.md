@@ -77,6 +77,36 @@ parts of the grid: F11 General GB, F09 unrestricted IE, and F15 Blog ZA. All
 three matched what the repository holds, as did every other variety in those
 three charts.
 
+## Study 2
+
+The generation run for the protocol registered at <https://osf.io/qjgtc>.
+
+**28 September 2026, trial.** Before any of the study's text was generated,
+`generate.py --trial 128` ran the pipeline on the first 128 topics with the
+base and instruct models at temperature 1.0, on an L40S with vLLM 0.30.0.
+Trial seeds come from a separate namespace, so the trial previewed none of the
+study's text. It wrote to `trial/` on the volume, its text was not counted, and
+it is not part of the data. What it established:
+
+- The first attempt failed to start: vLLM's default FlashInfer sampler compiles
+  a CUDA kernel on first use, and the image has no CUDA compiler. The run uses
+  vLLM's PyTorch sampler, which applies the same temperature and top-p.
+- All 256 texts are non-empty and free of special tokens and invented chat
+  turns. About a third reached the 1,024-token limit (42 base, 41 instruct);
+  the rest stopped on their own.
+- Words per generation averaged 585 for the base model and 656 for the instruct
+  model, so 4,000 topics come to about 2.3 and 2.6 million words at
+  temperature 1.0, above the 2 million target. The 0.7 settings were not tried.
+- Generation ran at about 1,450 to 1,500 tokens a second, so the four
+  conditions need about 2.5 hours on an L40S.
+- A generation run again alone, with the same seed, did not reproduce its
+  text. The seed fixes the sampling request, and vLLM's arithmetic varies with
+  the batch around it, so the recorded seeds document how each text was
+  sampled without guaranteeing the same text on a rerun.
+- The instruct checkpoint's chat template adds a system prompt whenever the
+  conversation has none: `You are a helpful function-calling AI assistant.
+  You do not currently have access to any functions. <functions></functions>`
+
 ## Study 3
 
 The Dolma 3 draw, run on Modal against the sampling frame registered at
@@ -84,7 +114,8 @@ The Dolma 3 draw, run on Modal against the sampling frame registered at
 
 **Study 2's text when Study 3 was registered.** None had been generated, and
 none has been since: the Modal volume the generation run writes to held no
-`generated/` folder on 28 September 2026, only the Dolma results.
+`generated/` folder on 28 September 2026. The trial described under Study 2
+wrote only to `trial/`.
 
 **25 September 2026.** The first `count_dolma.py --list-only` run found the
 corpus stored as JSON Lines, where the registration said parquet. Settling the

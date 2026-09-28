@@ -5,13 +5,16 @@ that the protocol registered at https://osf.io/qjgtc is what the code encodes:
 the four conditions, the prompt, the seeds, and the word target.
 """
 
+import json
+from dataclasses import asdict
 from pathlib import Path
 
 import pytest
 
 from framecount import word_count, tokenise
 from generate import (CONDITIONS, CONFIRMATORY, MAX_NEW_TOKENS, WORD_TARGET,
-                      Generation, build_prompt, load_topics, seed_for,
+                      Generation, build_prompt, check_resumable, load_topics,
+                      read_records, run_condition, seed_for, seed_name,
                       words_so_far)
 
 REPO = Path(__file__).resolve().parent.parent
@@ -81,3 +84,105 @@ def test_words_so_far_counts_the_way_study_2_counts():
 def test_every_condition_has_a_distinct_seed_stream(condition):
     seeds = {seed_for(condition, f"T{i:04d}", 1) for i in range(1, 51)}
     assert len(seeds) == 50
+
+
+def test_topics_load_in_topic_id_order(tmp_path):
+    path = tmp_path / "topics.csv"
+    path.write_text("topic_id,variety_source,site,topic\n"
+                    "T0002,GB,b,Second\nT0001,US,a,First\n", encoding="utf-8")
+    assert [t["topic_id"] for t in load_topics(path)] == ["T0001", "T0002"]
+
+
+def test_trial_seeds_are_not_the_study_seeds():
+    assert seed_name("base-1.0", 0) == "base-1.0"
+    trial = {seed_for(seed_name("base-1.0", 128), f"T{i:04d}", 1)
+             for i in range(1, 129)}
+    study = {seed_for("base-1.0", f"T{i:04d}", 1) for i in range(1, 129)}
+    assert not trial & study
+
+
+# --- the stopping rule, with a stand-in for the model ----------------------
+
+TOPICS = [{"topic_id": f"T{i:04d}", "topic": f"Topic {i}"} for i in range(1, 11)]
+
+
+def fake_generator(words_each, calls):
+    """Returns `words_each` words per generation and logs every call."""
+    def generate(batch, pass_number):
+        calls.append(([t["topic_id"] for t in batch], pass_number))
+        return [Generation("base-1.0", t["topic_id"], pass_number,
+                           seed_for("base-1.0", t["topic_id"], pass_number),
+                           "p", " ".join(["word"] * words_each), "length",
+                           "m", "r", 1.0, 1.0, 1024) for t in batch]
+    return generate
+
+
+def count(text):
+    return word_count(tokenise(text))
+
+
+def test_first_pass_covers_every_topic_even_past_the_target():
+    calls = []
+    records = run_condition(TOPICS, fake_generator(100, calls), count,
+                            word_target=300, chunk=4)
+    assert [r.topic_id for r in records] == [t["topic_id"] for t in TOPICS]
+    assert {r.pass_number for r in records} == {1}
+    assert [len(ids) for ids, _ in calls] == [4, 4, 2]
+
+
+def test_reuse_goes_in_topic_id_order_and_stops_after_the_batch_that_reaches_it():
+    calls = []
+    # The first pass gives 10 x 10 = 100 words; each reuse batch of two adds 20.
+    records = run_condition(TOPICS, fake_generator(10, calls), count,
+                            word_target=135, reuse_batch=2)
+    reused = [(r.topic_id, r.pass_number) for r in records if r.pass_number > 1]
+    assert reused == [("T0001", 2), ("T0002", 2), ("T0003", 2), ("T0004", 2)]
+    assert sum(count(r.text) for r in records) == 140
+    assert len({r.seed for r in records}) == len(records)
+
+
+def test_a_resumed_run_generates_only_what_is_missing():
+    calls = []
+    earlier = fake_generator(100, [])(TOPICS[:5], 1)
+    records = run_condition(TOPICS, fake_generator(100, calls), count,
+                            existing=earlier, word_target=300)
+    assert calls == [(["T0006", "T0007", "T0008", "T0009", "T0010"], 1)]
+    assert [r.topic_id for r in records] == [t["topic_id"] for t in TOPICS]
+
+
+def test_a_run_that_never_reaches_the_target_stops_after_the_last_pass():
+    calls = []
+    records = run_condition(TOPICS, fake_generator(0, calls), count,
+                            word_target=1, reuse_batch=5, max_passes=3)
+    assert len(records) == 30
+    assert {r.pass_number for r in records} == {1, 2, 3}
+
+
+def test_batches_are_handed_on_as_they_finish():
+    batches = []
+    run_condition(TOPICS, fake_generator(100, []), count, word_target=300,
+                  chunk=6, on_batch=batches.append)
+    assert [len(b) for b in batches] == [6, 4]
+
+
+# --- resuming from the volume -----------------------------------------------
+
+def test_read_records_drops_only_a_cut_off_last_line(tmp_path):
+    good = fake_generator(3, [])(TOPICS[:2], 1)
+    path = tmp_path / "base-1.0.jsonl"
+    lines = [json.dumps(asdict(r)) for r in good]
+    path.write_text("\n".join(lines) + '\n{"condition": "base-1', encoding="utf-8")
+    assert [r.topic_id for r in read_records(path)] == ["T0001", "T0002"]
+    path.write_text(lines[0] + '\n{"broken"\n' + lines[1] + "\n", encoding="utf-8")
+    with pytest.raises(json.JSONDecodeError):
+        read_records(path)
+    assert read_records(tmp_path / "missing.jsonl") == []
+
+
+def test_resuming_refuses_text_from_another_revision():
+    base = next(c for c in CONDITIONS if c.name == "base-1.0")
+    made = [Generation("base-1.0", "T0001", 1, 1, "p", "text", "stop",
+                       base.model, "abc123", 1.0, 1.0, MAX_NEW_TOKENS)]
+    check_resumable(made, base, "abc123")
+    with pytest.raises(RuntimeError, match="cannot resume"):
+        check_resumable(made, base, "def456")

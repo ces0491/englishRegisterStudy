@@ -123,6 +123,141 @@ because neither partial frame can be split by section. Both are recorded here
 rather than in a further update, and will be corrected if another deviation
 needs filing.
 
+## Study 2
+
+Every departure from the registration at <https://osf.io/qjgtc>, recorded
+before any of the study's text was generated. Each is also filed as an update
+on the OSF registration.
+
+### S2-D1. The instruct checkpoint's template adds a system prompt
+
+**Registered:** in Data collection procedures, "For the instruction-tuned
+model the prompt is the user turn, with the checkpoint's own chat template and
+no system prompt."
+
+**What happened:** the chat template of `allenai/Olmo-3-7B-Instruct`, at the
+revision the run uses (`6e5971d9eba42665f5bd5a0fcf047f299ce1dccc`), inserts a
+system turn whenever the conversation has none: "`You are a helpful
+function-calling AI assistant. You do not currently have access to any
+functions. <functions></functions>`". With this checkpoint, its own template
+and no system prompt cannot both hold.
+
+**What is done instead:** the checkpoint's template is applied as it stands to
+a conversation holding only the user turn, so the model receives its default
+system prompt, as it does for anyone who supplies none. This study adds no
+system prompt of its own, and the default names no variety, register or style.
+The full rendered prompt is recorded with every generation.
+
+The alternatives were an empty system message, which keeps "no system prompt"
+literally but gives the model an empty system turn its template never
+produces, and a prompt built by hand without a system turn, which abandons the
+checkpoint's template. Study 2 measures default register, and the template's
+default is the checkpoint as shipped.
+
+**Effect on the analysis:** none on the model, frames, counts or inference.
+The instruct conditions measure the checkpoint with its default system prompt,
+and the write-up says so. The difference between the base and instruct
+conditions, registered as what post-training adds, includes whatever that
+system prompt contributes.
+
+**When:** 28 September 2026, from the checkpoint's template, confirmed by the
+trial recorded in `docs/collection-log.md`, before any of the study's text was
+generated.
+
+### S2-D2. Every condition covers all 4,000 topics
+
+**Registered:** in Starting and stopping rules, "A condition stops when its
+text reaches 2 million words as counted by python/framecount.py. If 4,000
+generations fall short of 2 million words, topics are reused in topic_id order
+with the seed advanced"; in Study design, "The same 4,000 topics serve every
+condition, so topic is held constant across models and settings."
+
+**What happened:** a condition averaging more than 500 words a generation
+reaches 2 million words before its 4,000th topic. The trial averaged 585 words
+for the base model and 656 for the instruct model at temperature 1.0, so
+stopping at 2 million would end those conditions around topics 3,400 and
+3,050, and topic would no longer be held constant across conditions.
+
+**What is done instead:** every condition generates each of the 4,000 topics
+once, whatever its word count. Only if that falls short of 2 million words are
+topics reused, in topic_id order with the seed advanced, 64 at a time, and the
+condition stops after the batch that brings its text to 2 million words. A
+condition can therefore end above 2 million words, and the write-up reports
+each condition's words and generations.
+
+**Effect on the analysis:** none on the model or inference. Each condition's
+words enter as its offset, so more text narrows a condition's interval without
+changing what its rate estimates. Topic stays constant across conditions, as
+the design registers.
+
+**When:** 28 September 2026, before any of the study's text was generated.
+
+### Study 2's OSF update
+
+S2-D1 and S2-D2 are filed as one update to the registration, which also
+discloses the trial. These are its changes, answer by answer. Answers not
+listed are unchanged.
+
+#### Overview: Explanation of foreknowledge and managing unintended influences
+
+**Disclosure of the trial.** At the end, add
+
+> After registration and before the run, a trial generated text for 128 topics
+> with each model at temperature 1.0 to test the pipeline. Its seeds came from
+> a separate namespace, so it produced none of the study's text, and its text
+> was not counted and is not part of the data. docs/collection-log.md records
+> what it found.
+
+#### Sampling: Data collection procedures
+
+**S2-D1.** Replace
+
+> For the instruction-tuned model the prompt is the user turn, with the
+> checkpoint's own chat template and no system prompt.
+
+with
+
+> For the instruction-tuned model the prompt is the user turn, with the
+> checkpoint's own chat template and no system prompt added by this study. The
+> template supplies a default system prompt whenever a conversation has none,
+> "`You are a helpful function-calling AI assistant. You do not currently have
+> access to any functions. <functions></functions>`", so the model receives it,
+> as it would for anyone who gives no system message. The full rendered prompt
+> is recorded with every generation.
+
+#### Sampling: Sample size
+
+**S2-D2.** Replace
+
+> About 2 million words per condition, so about 8 million in total. 4,000
+> generations per condition at roughly 500 words each reaches that.
+
+with
+
+> At least 2 million words per condition, so at least 8 million in total.
+> Every condition generates all 4,000 topics, and 4,000 generations at roughly
+> 500 words each reach 2 million; a condition that falls short reuses topics
+> until it does.
+
+#### Sampling: Starting and stopping rules
+
+**S2-D2.** Replace
+
+> A condition stops when its text reaches 2 million words as counted by
+> python/framecount.py. If 4,000 generations fall short of 2 million words,
+> topics are reused in topic_id order with the seed advanced, and the write-up
+> reports how many generations each condition needed.
+
+with
+
+> Every condition generates each of the 4,000 topics once, whatever its word
+> count, so topic is held constant across conditions. If those 4,000
+> generations fall short of 2 million words as counted by python/framecount.py,
+> topics are reused in topic_id order with the seed advanced, 64 at a time, and
+> the condition stops after the batch that brings its text to 2 million words.
+> The write-up reports each condition's words and how many generations it
+> needed.
+
 ## Study 3
 
 Every departure from the registration at <https://osf.io/ngt3m>, recorded
@@ -250,14 +385,14 @@ to its quota while testing the reader, it came to 29 words out of 1,025,431.
 
 **When:** 25 September 2026, before any frame was counted.
 
-### The OSF update
+### Study 3's OSF update
 
 S3-D1 and S3-D2 were submitted as one update to the registration on 27
 September 2026, citing this file at commit `e45f5d3`, and the update was
 approved the same day. These are its changes, answer by answer, each marked
 with the deviation it comes from. Answers not listed are unchanged.
 
-#### Datasets used
+#### Data Description: Datasets used
 
 **S3-D1.** Replace
 
@@ -279,7 +414,7 @@ with
 > shards chosen at random, 668 of 8,582 documents were redacted, about 8%. The
 > olmOCR rate therefore describes the unredacted documents only.
 
-#### Data identifiers
+#### Data Description: Data identifiers
 
 **S3-D1.** Replace
 
@@ -294,7 +429,7 @@ with
 > <https://huggingface.co/datasets/allenai/dolma3_mix-6T-1025>, which redirects
 > there. The model it trained: <https://huggingface.co/allenai/Olmo-3-1025-7B>
 
-#### Data collection procedures
+#### Data Description: Data collection procedures
 
 **S3-D1.** Replace step 1
 
@@ -357,7 +492,7 @@ rule Study 2 applies to generated text.", add
 > subset. The draw is kept as registered and its composition is reported,
 > under Reliability and Robustness Testing.
 
-#### Prior knowledge
+#### Knowledge of Data: Prior knowledge
 
 **S3-D1.** Replace
 
@@ -373,7 +508,7 @@ with
 > reader. No frame has been counted in Dolma 3 and no frame count from it has
 > been seen.
 
-#### Reliability and Robustness Testing
+#### Analyses: Reliability and Robustness Testing
 
 **S3-D2.** At the end, add
 
@@ -383,7 +518,7 @@ with
 > draw over-represents the topics stored in small files (see Data collection
 > procedures).
 
-#### Exploratory analysis
+#### Analyses: Exploratory analysis
 
 **S3-D2.** At the end of the list, add
 

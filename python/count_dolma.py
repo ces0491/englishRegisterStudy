@@ -18,7 +18,7 @@ Usage:
   modal run python/count_dolma.py --list-only       # inspect the layout first
   modal run python/count_dolma.py --subset common_crawl
   modal run python/count_dolma.py                   # every subset
-  modal volume get englishregisterstudy /dolma ./data/dolma
+  modal volume get --force englishregisterstudy /dolma/ ./data/
 
 The pure functions carry no Modal dependency, so python/test_count_dolma.py can
 check the draw and the reader without touching the corpus.

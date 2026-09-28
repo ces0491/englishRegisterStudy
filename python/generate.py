@@ -13,7 +13,7 @@ settings, and the versions of the libraries that produced it.
 Usage:
   modal run python/generate.py                      # all four conditions
   modal run python/generate.py --condition base-1.0 # one of them
-  modal volume get englishregisterstudy /generated ./data/generated
+  modal volume get --force englishregisterstudy /generated/ ./data/
 
 The pure functions below carry no Modal dependency so that
 python/test_generate.py can check them without a GPU.

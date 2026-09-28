@@ -147,13 +147,17 @@ Their pipeline, once each is registered:
 modal run python/count_dolma.py --list-only        # confirm the layout
 modal run python/generate.py                       # four conditions, ~6 GPU-hours
 modal run python/count_dolma.py                    # the training corpus
-modal volume get englishregisterstudy /generated ./data/generated
-modal volume get englishregisterstudy /dolma ./data/dolma
+modal volume get --force englishregisterstudy /generated/ ./data/
+modal volume get --force englishregisterstudy /dolma/ ./data/
 python python/count_generated.py data/generated
 python python/count_generated.py --dolma data/dolma
 Rscript R/analyse-generated.R                      # Study 2
 Rscript R/analyse-training.R                       # Study 3
 ```
+
+`modal volume get` creates the volume's folder inside the destination, so
+both downloads go to `data/`, and `--force` replaces files from an earlier
+download while leaving the rest of `data/` alone.
 
 The generated text is too large for git and is reproducible from the
 registered protocol; the counts taken from it are committed. The Dolma draw

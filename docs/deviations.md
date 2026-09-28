@@ -218,12 +218,15 @@ listed are unchanged.
 with
 
 > For the instruction-tuned model the prompt is the user turn, with the
-> checkpoint's own chat template and no system prompt added by this study. The
-> template supplies a default system prompt whenever a conversation has none,
-> "`You are a helpful function-calling AI assistant. You do not currently have
-> access to any functions. <functions></functions>`", so the model receives it,
-> as it would for anyone who gives no system message. The full rendered prompt
-> is recorded with every generation.
+> checkpoint's own chat template and no system prompt added by this study.
+> Whenever a conversation has no system prompt, the template supplies a default
+> one, "You are a helpful function-calling AI assistant. You do not currently
+> have access to any functions." followed by an empty functions tag, so the
+> model receives that, as it would for anyone who gives no system message. The
+> full rendered prompt is recorded with every generation.
+
+OSF drops text in angle brackets, so the answer describes the template's empty
+`<functions></functions>` element in words. S2-D1 gives the prompt in full.
 
 #### Sampling: Sample size
 

@@ -1,7 +1,9 @@
 # OSF registration — Study 2
 
 Registered at <https://osf.io/qjgtc> on 25 September 2026, before any text was
-generated, pinned to commit `1196f8d`. This is the text as submitted.
+generated, pinned to commit `1196f8d`. This is the text as submitted. An update
+approved on 28 September 2026 revises four answers; `docs/deviations.md` gives
+each change against the text here.
 
 Text for OSF's **OSF Preregistration** template (version 4), in the template's
 order. Fields marked *required* cannot be left blank. The answers are plain
@@ -334,3 +336,6 @@ https://github.com/ces0491/englishRegisterStudy
 
 The work is unaffiliated and unfunded. It is not being submitted to a journal;
 the output is the repository and an article. The rigour is unchanged by that.
+
+Protocol, counting layer, frozen frames and topics as registered:
+https://github.com/ces0491/englishRegisterStudy/tree/1196f8d

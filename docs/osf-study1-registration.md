@@ -1,7 +1,8 @@
 # OSF registration — Study 1
 
 Submitted to OSF on 21 September 2026 as <https://osf.io/48wjn>. This is the
-text as submitted.
+text as submitted. Updates approved on 22 and 23 September 2026 revise five
+answers, for deviations D1 and D2 in `docs/deviations.md`.
 
 Text for OSF's **Secondary Data Preregistration** template (version 3), in the
 template's order. Fields marked *required* cannot be left blank on OSF. The
@@ -62,6 +63,8 @@ US, 387.6 million for GB, 148.2 million for AU, 101.0 million for IE and 45.4
 million for ZA.
 
 Cross-sectional: one collection, no waves.
+
+https://github.com/ces0491/englishRegisterStudy/tree/95f609da821078e658dbafc5175ea98fa9b5dce1
 
 ### Data availability *(required)*
 
@@ -279,6 +282,8 @@ cell, this model covered it 89–91%.
 
 Post-hoc analyses. None beyond those listed under Reliability and
 Exploratory analysis.
+
+https://github.com/ces0491/englishRegisterStudy/tree/95f609da821078e658dbafc5175ea98fa9b5dce1
 
 ### Effect size
 

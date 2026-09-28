@@ -43,6 +43,11 @@ would have biased the variety comparison.
 **When:** 22 September 2026, during the first query session. Only F01 had been
 counted, and no analysis had been run.
 
+#### D1 filed on OSF
+
+D1 was submitted as a registration update on 22 September 2026, revising the
+Data collection procedures answer.
+
 ### D2. The section split is unavailable for six frames, and F06 for none
 
 **Registered:** all fifteen frames counted in each variety's blog and general
@@ -107,7 +112,7 @@ for it. The frame set for the main hypothesis falls from fifteen to fourteen.
 analysis was run. Counts already collected are unaffected: the eight splittable
 frames keep their section counts, which the secondary analysis uses.
 
-#### Filed on OSF
+#### D2 filed on OSF
 
 D2 was submitted as a registration update on 23 September 2026, revising the
 Statistical models, Inference criteria, Unit of analysis and Missing data
@@ -194,9 +199,10 @@ the design registers.
 
 ### Study 2's OSF update
 
-S2-D1 and S2-D2 are filed as one update to the registration, which also
-discloses the trial. These are its changes, answer by answer. Answers not
-listed are unchanged.
+S2-D1 and S2-D2 were submitted as one update to the registration on 28
+September 2026, citing this file at commit `bb8274b`, and the update was
+approved the same day. It also discloses the trial. These are its changes,
+answer by answer. Answers not listed are unchanged.
 
 #### Overview: Explanation of foreknowledge and managing unintended influences
 

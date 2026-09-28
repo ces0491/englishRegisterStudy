@@ -146,7 +146,7 @@ Their pipeline, once each is registered:
 ```
 modal run python/count_dolma.py --list-only        # confirm the layout
 modal run python/generate.py --condition base-1.0 --trial 128  # check first
-modal run python/generate.py                       # four conditions, ~2.5 L40S-hours
+modal run --detach python/generate.py              # four conditions in parallel, ~2.5 L40S-hours
 modal run python/count_dolma.py                    # the training corpus
 modal volume get --force englishregisterstudy /generated/ ./data/
 modal volume get --force englishregisterstudy /dolma/ ./data/

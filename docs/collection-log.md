@@ -107,6 +107,11 @@ it is not part of the data. What it established:
   conversation has none: `You are a helpful function-calling AI assistant.
   You do not currently have access to any functions. <functions></functions>`
 
+**28 September 2026, pre-flight.** After the library versions were pinned, a
+second trial ran 8 topics in each of the four conditions, in parallel on four
+L40S GPUs, with trial seeds as before. It ran cleanly on the rebuilt image,
+including the two 0.7 settings, which the first trial had not tried.
+
 ## Study 3
 
 The Dolma 3 draw, run on Modal against the sampling frame registered at

@@ -11,9 +11,9 @@ checkpoint's resolved commit, the seed of each generation, the sampling
 settings, the GPU, and the versions of the libraries that produced it.
 
 Usage:
-  modal run python/generate.py --condition base-1.0 --trial 128  # trial
-  modal run python/generate.py                      # all four conditions
-  modal run python/generate.py --condition base-1.0 # one of them
+  modal run python/generate.py --trial 8            # all four, briefly
+  modal run --detach python/generate.py             # all four, in parallel
+  modal run --detach python/generate.py --condition base-1.0  # one
   modal volume get --force englishregisterstudy /generated/ ./data/
 
 A trial draws its seeds from a separate namespace, so it previews none of the
@@ -382,11 +382,15 @@ if modal is not None:
         volume.commit()
         return manifest
 
+    # The conditions are spawned together rather than called in turn, so under
+    # `modal run --detach` every one of them keeps running if this machine
+    # disconnects. Each needs its own GPU, and each writes its own files.
     @app.local_entrypoint()
     def main(condition: str = "", trial: int = 0) -> None:
         names = [condition] if condition else [c.name for c in CONDITIONS]
-        for name in names:
-            manifest = generate_condition.remote(name, trial)
+        calls = [(name, generate_condition.spawn(name, trial)) for name in names]
+        for name, call in calls:
+            manifest = call.get()
             if trial:
                 print(json.dumps(manifest, indent=2))
                 continue

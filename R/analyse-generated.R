@@ -74,7 +74,8 @@ df_varieties <- n_distinct(against_varieties$frame_id) - 1
 confirmatory <- contrasts_against(
   fit_varieties, targets = VARIETIES, reference = CONFIRMATORY,
   df = df_varieties, correct = TRUE) %>%
-  mutate(supports_h1 = minus != "US" & ratio > 1 & p_holm < 0.05)
+  mutate(supports_h1 = minus != "US" & ratio > 1 & p_holm < 0.05,
+         sd_frame_source = random_effect_sd(fit_varieties))
 
 # --- registered comparisons among the conditions -----------------------------
 
@@ -87,7 +88,8 @@ df_conditions <- n_distinct(among_conditions$frame_id) - 1
 
 among <- contrasts_against(
   fit_conditions, targets = setdiff(conditions, CONFIRMATORY),
-  reference = CONFIRMATORY, df = df_conditions, correct = TRUE)
+  reference = CONFIRMATORY, df = df_conditions, correct = TRUE) %>%
+  mutate(sd_frame_source = random_effect_sd(fit_conditions))
 
 # --- per-frame ratios, descriptive -------------------------------------------
 

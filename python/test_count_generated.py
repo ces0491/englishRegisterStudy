@@ -1,10 +1,39 @@
-"""Checks on turning Study 3's per-subset JSON into the by-topic table.
+"""Checks on the tables count_generated.py writes.
 
-The table carries deviation S3-D2's report: olmOCR's drawn words by topic
-against each topic's share of the subset's bytes.
+Study 2's per-generation counts must add back up to the condition totals the
+analysis uses. Study 3's by-topic table carries deviation S3-D2's report:
+olmOCR's drawn words by topic against each topic's share of the subset's bytes.
 """
 
-from count_generated import dolma_topic_rows
+import json
+
+from count_generated import count_file, dolma_topic_rows
+
+FRAMES = {"F01": ["here", "'s", "the", "thing"], "F09": ["is", "n't", "just"]}
+
+
+def test_per_generation_counts_add_up_to_the_condition(tmp_path):
+    records = [
+        {"topic_id": "T0001", "pass_number": 1, "finish_reason": "stop",
+         "text": "Here's the thing: it isn't just a phone. Here's the thing."},
+        {"topic_id": "T0002", "pass_number": 1, "finish_reason": "stop",
+         "text": ""},
+        {"topic_id": "T0003", "pass_number": 1, "finish_reason": "length",
+         "text": "It isn't just"},
+    ]
+    path = tmp_path / "base-1.0.jsonl"
+    path.write_text("".join(json.dumps(r) + "\n" for r in records),
+                    encoding="utf-8")
+    totals = count_file(path, FRAMES)
+    texts = totals["texts"]
+    assert [(t["source"], t["topic_id"], t["finish_reason"]) for t in texts] == [
+        ("base-1.0", "T0001", "stop"), ("base-1.0", "T0002", "stop"),
+        ("base-1.0", "T0003", "length")]
+    assert [(t["F01"], t["F09"], t["words"]) for t in texts] == [
+        (2, 1, 14), (0, 0, 0), (0, 1, 4)]
+    for key in ("F01", "F09", "words"):
+        assert sum(t[key] for t in texts) == totals[key]
+    assert totals["empty_generations"] == 1
 
 RESULT = {
     "subset": "olmocr_science_pdfs",

@@ -1,0 +1,8 @@
+8abd90a40c1689cd611f5a59b52334f150c124dba29827c9d8cc401f7d893bcd *data/generated/base-0.7.jsonl
+41842a030cfdfd847ca3d19b09428f0ef7cc5d1c5bc36cec97328f67c38e000b *data/generated/base-1.0.jsonl
+efe0e8e20398db96570237a0715eddd24781f639ec0a58afc5e936cc51cb5d80 *data/generated/instruct-0.7.jsonl
+14330bdc6266b664efd916b51e9d27a08d820f1bebafeb4213ffe76f49e041e1 *data/generated/instruct-1.0.jsonl
+44937c1b2899912a04056eb313bf8e64e8857a382d60a0a1dbdc33429078feca *data/generated/base-0.7.manifest.json
+162196cfbe8b2a86de2a83117296316aef17408dda8462e3e21f8fb9350d5b7d *data/generated/base-1.0.manifest.json
+f7bf8e0d5899bf41d3a47ce260d44ed7a18c3afdfa02215a2ce2b62f4966cca1 *data/generated/instruct-0.7.manifest.json
+177612ccb9bfc849ef4cf62c98dce8f140e3395efa710417ad370b2c5c847e4d *data/generated/instruct-1.0.manifest.json

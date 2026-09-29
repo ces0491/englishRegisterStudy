@@ -160,8 +160,12 @@ Rscript R/analyse-training.R                       # Study 3
 both downloads go to `data/`, and `--force` replaces files from an earlier
 download while leaving the rest of `data/` alone.
 
-The generated text is too large for git and is reproducible from the
-registered protocol; the counts taken from it are committed. The Dolma draw
+The generated text is too large for git, and rerunning the protocol gives
+different text: each generation's seed fixes its sampling request, but vLLM's
+arithmetic varies with the batch around it. `data/generated-sha256.txt`
+identifies the files that were counted, and the counts taken from them are
+committed, with each text's own counts in `data/counts-generated-by-text.csv`.
+The Dolma draw
 keeps no text: `data/dolma/` holds one record per drawn file, with its path,
 words, hits and redacted documents, and is committed so the draw can be
 checked. `R/model.R` holds the model the two studies share. `R/analyse.R`
@@ -208,7 +212,9 @@ Departures from them are recorded in [docs/deviations.md](docs/deviations.md),
 and what each query session did, refusals included, in
 [docs/collection-log.md](docs/collection-log.md).
 
-## Result
+## Results
+
+### Study 1
 
 Every other variety uses the frames less often than American English does:
 GB 0.69 [0.61, 0.78], IE 0.54 [0.47, 0.62], AU 0.66 [0.58, 0.76] and
@@ -220,6 +226,27 @@ and general text on the eight frames it can check.
 where the pattern is not uniform and what the result does not establish. Every
 number in it comes from the files `R/analyse.R` writes, so run that first and
 render with `quarto render docs/study1-results.qmd`.
+
+### Studies 2 and 3
+
+The base model at unmodified sampling, the confirmatory condition, supports
+Study 2's H1 against South Africa only: ZA 2.69 [1.33, 5.41] with a
+Holm-adjusted p of 0.047. Against GB (1.76), IE (2.25) and AU (1.86) the
+estimates are above 1, with adjusted p-values from 0.10 to 0.23, and against US the ratio is 1.19 [0.60, 2.38]. Against the web portion
+of its training data it is 1.72 [0.65, 4.53], p = 0.25, so Study 3 finds no
+evidence of amplification.
+
+Both intervals are wide because the frames disagree. In the exploratory
+analysis the model uses the contrastive frames at about four times the American
+rate and five times its input's, and the epigrammatic frames less than any
+variety. The frames it over-produces show no relation to the ones Study 1 found
+most American. The instruction-tuned model uses the frames about twice as often
+as the base model.
+
+[docs/study2-3-results.qmd](docs/study2-3-results.qmd) is the write-up. It
+reads the files all three analysis scripts write, so run `R/analyse.R`,
+`R/analyse-generated.R` and `R/analyse-training.R` first and render with
+`quarto render docs/study2-3-results.qmd`.
 
 ## Adding a frame
 

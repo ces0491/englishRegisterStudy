@@ -22,9 +22,9 @@ data/training-per-subset.csv
 data/olmocr-topics.csv
 data/training-exploratory.csv
 
-# Generated text: too large for git, and reproducible from the registered
-# protocol. The counts taken from it are committed, and so is data/dolma/,
-# which holds the Dolma draw's per-file counts and none of its text.
+# Generated text: too large for git. data/generated-sha256.txt identifies the
+# files that were counted, and the counts taken from them are committed, as is
+# data/dolma/, which holds the Dolma draw's per-file counts and none of its text.
 data/generated/
 figures/
 

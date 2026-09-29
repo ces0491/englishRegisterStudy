@@ -86,7 +86,8 @@ counts it. Everything else is already required by Study 2.
 - [x] Frame rates counted in the Dolma sample and in OLMo's output with the
       layer from phase B, both with intervals. `data/counts-dolma.csv` and
       `data/counts-generated.csv`
-- [ ] The two set against each other, and against the Study 1 variety rates
+- [x] The two set against each other, and against the Study 1 variety rates.
+      `docs/study2-3-results.qmd`
 
 **D — closed models.** Optional, and the article stands without it. It widens
 Study 2 only: GPT, Claude and Gemini output can be measured and their inputs

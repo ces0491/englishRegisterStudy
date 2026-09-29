@@ -1,0 +1,664 @@
+---
+title: "Studies 2 and 3: rhetorical frames in Olmo 3's prose and its training data"
+subtitle: "englishRegisterStudy — results from the pre-registered analyses"
+author: "Cesaire Tobias"
+date: "2026-09-29"
+format:
+  pdf:
+    date-format: "DD MMMM, YYYY"
+    toc: true
+    toc-depth: 2
+    number-sections: true
+    colorlinks: true
+    documentclass: article
+    geometry: margin=1in
+    fontsize: 11pt
+    linestretch: 1.5
+    cite-method: citeproc
+    bibliography: ../references.bib
+    csl: ../harvard-cite-them-right.csl
+    link-citations: true
+    fig-pos: 'H'
+    tbl-pos: 'H'
+    include-in-header:
+      text: |
+        \usepackage{float}
+        \usepackage{booktabs}
+        \floatplacement{table}{H}
+---
+
+```{r}
+#| label: setup
+#| include: false
+#| message: false
+#| warning: false
+
+# Every number in this document comes from the files the three analysis
+# scripts write, or from the committed counts, so it cannot drift from the
+# analysis. Run `Rscript R/analyse.R`, `Rscript R/analyse-generated.R` and
+# `Rscript R/analyse-training.R` from the repository root before rendering.
+suppressPackageStartupMessages({
+  library(dplyr)
+  library(knitr)
+})
+
+root <- ".."
+derived <- c("generated-vs-varieties", "generated-among-conditions",
+             "rates-generated", "rates-training", "composite-training",
+             "training-contrasts", "training-per-subset",
+             "training-exploratory", "olmocr-topics", "composite-ratios")
+paths <- file.path(root, "data", paste0(derived, ".csv"))
+if (!all(file.exists(paths))) {
+  stop("run R/analyse.R, R/analyse-generated.R and R/analyse-training.R ",
+       "from the repository root first; missing: ",
+       paste(derived[!file.exists(paths)], collapse = ", "))
+}
+d <- setNames(lapply(paths, readr::read_csv, show_col_types = FALSE), derived)
+
+read_data <- function(name) {
+  readr::read_csv(file.path(root, "data", name), show_col_types = FALSE)
+}
+frames <- read_data("frames.csv")
+run <- read_data("generated-run.csv")
+by_text <- read_data("counts-generated-by-text.csv")
+crawl_files <- jsonlite::fromJSON(
+  file.path(root, "data", "dolma", "common_crawl.json"))$per_file
+
+CONDITIONS <- c("base-1.0", "base-0.7", "instruct-1.0", "instruct-0.7")
+VARIETIES <- c("US", "GB", "IE", "AU", "ZA")
+FAMILIES <- c("announce", "contrastive", "epigram", "reveal")
+
+fmt_ratio <- function(x) sprintf("%.2f", x)
+fmt_p <- function(p) ifelse(p < 0.001, "< 0.001", sprintf("%.3f", p))
+ratio_ci <- function(ratio, lower, upper) {
+  sprintf("%s [%s, %s]", fmt_ratio(ratio), fmt_ratio(lower), fmt_ratio(upper))
+}
+fmt_rate <- function(x) sprintf("%.1f", x)
+pct <- function(x) sprintf("%.0f%%", 100 * x)
+number_word <- function(n) {
+  c("no", "one", "two", "three", "four", "five", "six", "seven", "eight",
+    "nine", "ten")[n + 1]
+}
+big <- function(x) format(x, big.mark = ",")
+poisson_bounds <- function(hits, words) {
+  ci <- sapply(hits, function(h) stats::poisson.test(h)$conf.int)
+  list(lower = ci[1, ] / words * 1e6, upper = ci[2, ] / words * 1e6)
+}
+
+# The fourteen frames Study 1 could count, which every comparison against it
+# uses.
+shared <- d$`rates-generated` %>% filter(source == "US") %>% pull(frame_id)
+
+# Study 1, for the rationale and the comparison of random-effect SDs.
+s1 <- d$`composite-ratios`
+
+# Study 2.
+vs <- d$`generated-vs-varieties`
+among <- d$`generated-among-conditions`
+vs_row <- function(v) vs[vs$minus == v, ]
+supported <- vs$minus[vs$supports_h1]
+
+# The run.
+finish <- by_text %>%
+  group_by(source) %>%
+  summarise(truncated = sum(finish_reason == "length"),
+            share_truncated = mean(finish_reason == "length"),
+            .groups = "drop")
+run_tbl <- run %>%
+  inner_join(finish, by = "source") %>%
+  mutate(source = factor(source, levels = CONDITIONS)) %>%
+  arrange(source)
+
+# Summed rates over the shared frames, with exact intervals.
+composite14 <- d$`rates-generated` %>%
+  filter(frame_id %in% shared) %>%
+  group_by(source) %>%
+  summarise(hits = sum(hits), words = first(words), .groups = "drop") %>%
+  mutate(rate = hits / words * 1e6)
+bounds <- poisson_bounds(composite14$hits, composite14$words)
+composite14 <- composite14 %>%
+  mutate(lower = bounds$lower, upper = bounds$upper,
+         source = factor(source, levels = c(VARIETIES, CONDITIONS))) %>%
+  arrange(source)
+summed <- function(s) composite14$rate[composite14$source == s]
+
+# Study 3.
+tc <- d$`training-contrasts`
+primary <- tc %>% filter(comparison == "primary")
+without_partial <- tc %>% filter(comparison == "primary, without the partial frames")
+secondary <- tc %>% filter(comparison == "secondary")
+whole_mix <- tc %>% filter(comparison == "secondary, approximate")
+ct <- d$`composite-training`
+base_rate15 <- ct$rate[ct$source == "base-1.0"]
+mix_rate <- base_rate15 / whole_mix$ratio
+explore <- d$`training-exploratory`
+olmocr <- d$`olmocr-topics`
+
+# Family rates relative to US, over the shared frames.
+family_rates <- bind_rows(
+  d$`rates-generated`,
+  d$`rates-training` %>% filter(source == "common_crawl")) %>%
+  filter(frame_id %in% shared) %>%
+  group_by(source, family) %>%
+  summarise(rate = sum(hits) / first(words) * 1e6, .groups = "drop")
+family_vs_us <- family_rates %>%
+  inner_join(family_rates %>% filter(source == "US") %>%
+               select(family, us = rate), by = "family") %>%
+  mutate(ratio = rate / us)
+fam <- function(s, f) {
+  family_vs_us$ratio[family_vs_us$source == s & family_vs_us$family == f]
+}
+
+# Per frame: how American Study 1 found it, how far the base model exceeds
+# its input on it, and what post-training does to it.
+per_frame <- bind_rows(
+  d$`rates-generated`,
+  d$`rates-training` %>% filter(source == "common_crawl")) %>%
+  filter(frame_id %in% shared) %>%
+  select(source, frame_id, rate) %>%
+  tidyr::pivot_wider(names_from = source, values_from = rate) %>%
+  mutate(american = US / ((GB + IE + AU + ZA) / 4),
+         over = `base-1.0` / common_crawl,
+         post = `instruct-1.0` / `base-1.0`) %>%
+  inner_join(select(frames, frame_id, query, family), by = "frame_id") %>%
+  arrange(desc(over))
+rho <- cor(per_frame$american, per_frame$over, method = "spearman")
+top_over <- head(per_frame$frame_id, 3)
+top_american <- per_frame %>% arrange(desc(american)) %>% head(5) %>% pull(frame_id)
+least_american <- per_frame$frame_id[which.min(per_frame$american)]
+never <- per_frame$frame_id[per_frame$`base-1.0` == 0]
+produced <- per_frame %>% filter(!is.nan(post))
+most_raised <- produced$frame_id[which.max(produced$post)]
+
+# Frames with no hits in any condition, which leave the model among them.
+no_hits <- d$`rates-generated` %>%
+  filter(source %in% CONDITIONS) %>%
+  group_by(frame_id) %>%
+  summarise(hits = sum(hits), .groups = "drop") %>%
+  filter(hits == 0) %>%
+  pull(frame_id)
+instruct_multiple <- 1 / among$ratio[grepl("instruct", among$minus)]
+base_07 <- among[among$minus == "base-0.7", ]
+
+# Contrastive frames where a variety beat US in Study 1.
+contrastive_beaten <- per_frame %>%
+  filter(family == "contrastive", GB > US | AU > US) %>%
+  nrow()
+
+# How widely the commonest contrastive frame spreads across texts.
+spread <- by_text %>%
+  group_by(source) %>%
+  summarise(texts = sum(F09 > 0), most = max(F09), .groups = "drop")
+spread_of <- function(s, col) spread[[col]][spread$source == s]
+
+# Frame rates by whether the text reached the token limit.
+family_of <- setNames(frames$family, frames$frame_id)
+by_family <- by_text
+for (f in FAMILIES) {
+  by_family[[f]] <- rowSums(by_text[shared[family_of[shared] == f]])
+}
+length_tbl <- by_family %>%
+  group_by(source, finish_reason) %>%
+  summarise(texts = n(), across(all_of(FAMILIES), sum),
+            words = sum(words), .groups = "drop") %>%
+  mutate(across(all_of(FAMILIES), ~ .x / words * 1e6),
+         per_text = words / texts,
+         source = factor(source, levels = CONDITIONS)) %>%
+  arrange(source, desc(finish_reason))
+by_finish <- function(s, reason, f) {
+  length_tbl[[f]][length_tbl$source == s & length_tbl$finish_reason == reason]
+}
+
+# Variation between the drawn common_crawl files.
+crawl_hits <- rowSums(as.matrix(crawl_files$hits))
+crawl_rate <- crawl_hits / crawl_files$words * 1e6
+crawl_total <- sum(crawl_hits) / sum(crawl_files$words) * 1e6
+crawl_loo <- (sum(crawl_hits) - crawl_hits) /
+  (sum(crawl_files$words) - crawl_files$words) * 1e6
+crawl_range <- quantile(crawl_rate, c(0.05, 0.95))
+
+# The prose below states these in words; stop rather than let it drift.
+variety_family <- function(f) {
+  family_vs_us$ratio[family_vs_us$source %in% VARIETIES[-1] &
+                       family_vs_us$family == f]
+}
+stopifnot(
+  length(intersect(top_over, top_american)) == 0,
+  all(family_of[top_over] == "contrastive"),
+  abs(crawl_total - ct$rate[ct$source == "common_crawl"]) < 1e-6,
+  all(run$passes == 1),
+  vs_row("US")$ratio_lower < 1, vs_row("US")$ratio_upper > 2,
+  all(instruct_multiple > 1.8 & instruct_multiple < 2.2),
+  fam("base-1.0", "epigram") < min(variety_family("epigram")),
+  fam("base-1.0", "reveal") < max(variety_family("reveal")),
+  fam("base-1.0", "reveal") > min(variety_family("reveal")),
+  all(family_vs_us$ratio[family_vs_us$source == "common_crawl"] < 1)
+)
+```
+
+# What this measures
+
+Study 1 found that American web English in 2012 used fifteen frozen rhetorical
+frames more often than the other four national varieties measured, which used
+them at between `r fmt_ratio(min(s1$ratio))` and `r fmt_ratio(max(s1$ratio))`
+times the American rate. The frames were chosen because they seem typical of
+machine-generated prose: announcing a point before making it, the *it's not X,
+it's Y* contrast, the epigrammatic assertion. The argument behind the whole
+study is that such prose reads as foreign to readers of other varieties partly
+because it reads as American.
+
+Two further studies test the next steps. Each was registered before its own
+data existed.
+
+- **Study 2** (<https://osf.io/qjgtc>) asks whether a language model's
+  unprompted prose sits at the American end of Study 1's spread. H1 predicts
+  that the model's composite rate over the fourteen frames Study 1 could count
+  is higher than each of GB, IE, AU and ZA. The comparison against US is
+  reported without a predicted direction.
+- **Study 3** (<https://osf.io/ngt3m>) asks whether the model uses the frames
+  more often than the text it was trained on. A model that reproduces its
+  training data's register is working correctly, so H1 predicts amplification:
+  a composite rate above that of the web portion of the pretraining corpus.
+
+The model is Olmo 3 7B, chosen because Ai2 published the corpus it was trained
+on, which is what makes Study 3 possible. Four conditions were generated: the
+base and instruction-tuned models
+([`allenai/Olmo-3-1025-7B`](https://huggingface.co/allenai/Olmo-3-1025-7B),
+[`allenai/Olmo-3-7B-Instruct`](https://huggingface.co/allenai/Olmo-3-7B-Instruct)),
+each at unmodified sampling (temperature 1.0, top-p 1.0) and at typical
+deployment settings (0.7 and 0.9). The confirmatory condition in both studies is
+the base model at unmodified sampling, `base-1.0`. Each condition wrote one post
+for each of 4,000 titles drawn from GloWbE's blog pages [@davies2013glowbe], 800
+from each variety, prompted with `Write a blog post titled:` and the title, and
+nothing else.
+
+Four deviations were declared before the data they affect existed, and each was
+filed as a registration update; all four are in `docs/deviations.md`. Two concern
+the generated text. The instruct model receives the default system prompt its
+chat template inserts (S2-D1), and every condition covers all 4,000 titles even
+where that takes it past the registered two million words (S2-D2). The other two
+concern the Dolma draw (S3-D1 and S3-D2).
+
+# The generated text
+
+```{r}
+#| label: tbl-run
+#| echo: false
+run_tbl %>%
+  transmute(Condition = as.character(source),
+            Generations = big(generations),
+            Words = big(words),
+            `Reached 1,024 tokens` = sprintf("%s (%s)", big(truncated),
+                                             pct(share_truncated)),
+            Empty = empty_generations) %>%
+  kable(caption = "The four conditions as generated on 28 September 2026.")
+```
+
+Each condition passed two million words on its first pass over the titles, so
+no title was reused and topic is the same across all four. Between
+`r pct(min(run_tbl$share_truncated))` and `r pct(max(run_tbl$share_truncated))`
+of generations reached the 1,024-token limit and end mid-text. They are counted
+as they came, as registered, and the length analysis below shows what that
+does to the rates. The two empty generations are posts the base model ended
+before writing anything. The checks made on the text before any frame was
+counted are in `docs/collection-log.md`.
+
+# Study 2: the model against the national varieties
+
+## The confirmatory test
+
+```{r}
+#| label: tbl-confirmatory
+#| echo: false
+vs %>%
+  transmute(Variety = minus,
+            `base-1.0 against the variety` = ratio_ci(ratio, ratio_lower,
+                                                      ratio_upper),
+            `Holm p` = fmt_p(p_holm),
+            `Supports H1` = ifelse(minus == "US", "no direction predicted",
+                                   ifelse(supports_h1, "yes", "no"))) %>%
+  kable(caption = paste("Confirmatory result: the composite rate of the",
+                        length(shared), "shared frames in base-1.0, relative",
+                        "to each variety, with unadjusted 95% intervals."))
+```
+
+H1 is supported against `r paste(supported, collapse = ", ")` only, where the
+model's rate is `r fmt_ratio(vs_row("ZA")$ratio)` times South Africa's with a
+Holm-adjusted p of `r fmt_p(vs_row("ZA")$p_holm)`. Against GB, IE and AU the
+point estimates are above 1 and the adjusted p-values are not below 0.05. The
+intervals in the table are unadjusted, which is why Ireland's excludes 1 while
+its adjusted p is `r fmt_p(vs_row("IE")$p_holm)`. Against American English the
+ratio is `r fmt_ratio(vs_row("US")$ratio)`, with an interval that runs from
+well below the American rate to more than twice it.
+
+The intervals are wide because the frames disagree about the model. The
+frame-by-source SD is `r sprintf("%.2f", vs$sd_frame_source[1])` on the log
+scale, against `r sprintf("%.2f", s1$sd_frame_variety[1])` among the varieties
+in Study 1, so the model departs from the varieties frame by frame far more
+than the varieties depart from each other. The exploratory section below shows
+where.
+
+```{r}
+#| label: tbl-summed
+#| echo: false
+composite14 %>%
+  transmute(Source = as.character(source),
+            Hits = big(hits),
+            `Per million` = fmt_rate(rate),
+            `95% interval` = sprintf("[%s, %s]", fmt_rate(lower),
+                                     fmt_rate(upper))) %>%
+  kable(caption = paste("The", length(shared), "shared frames summed, for",
+                        "each variety and each condition."))
+```
+
+Summed, base-1.0's rate is `r fmt_ratio(summed("base-1.0") / summed("US"))`
+times the American one. The model's ratio of `r fmt_ratio(vs_row("US")$ratio)`
+is smaller because it averages over frames on the log scale, where a large
+excess on a few frames counts for less than it does in a sum.
+
+## The four conditions
+
+```{r}
+#| label: tbl-among
+#| echo: false
+among %>%
+  transmute(Comparison = sprintf("%s against %s", plus, minus),
+            Ratio = ratio_ci(ratio, ratio_lower, ratio_upper),
+            `Holm p` = fmt_p(p_holm)) %>%
+  kable(caption = paste("The registered comparisons among the conditions,",
+                        "Holm-corrected within the set of three."))
+```
+
+These comparisons use `r nrow(frames) - length(no_hits)` frames:
+`r paste(no_hits, collapse = ", ")` have no hits in any condition and leave the
+model, as registered. The instruction-tuned model uses the frames at about twice
+the base model's rate, at either setting. This matches @reinhart2025llms, who
+compared Llama 3 and GPT-4o with human writing on Biber's grammatical and
+rhetorical features and found the differences larger for instruction-tuned
+models than for base models. The base model at deployment settings
+sits below the same model at unmodified sampling: base-1.0 is
+`r ratio_ci(base_07$ratio, base_07$ratio_lower, base_07$ratio_upper)` times
+base-0.7, with an adjusted p of `r fmt_p(base_07$p_holm)`. Both instruct
+conditions include the default system prompt, so the difference between base
+and instruct includes whatever that prompt contributes.
+
+# Study 3: the model against its training data
+
+## The primary test
+
+The input is a 200-million-word sample of `common_crawl`, the web portion of
+Dolma 3's stage-1 mix and 76% of its tokens by Ai2's published composition,
+drawn as registered and recorded in `docs/collection-log.md`.
+
+```{r}
+#| label: tbl-primary
+#| echo: false
+bind_rows(primary, without_partial) %>%
+  transmute(Frames = c("All fifteen", "Without F10 and F13"),
+            `base-1.0 against common_crawl` = ratio_ci(ratio, ratio_lower,
+                                                       ratio_upper),
+            p = fmt_p(p_value)) %>%
+  kable(caption = paste("Primary result, one uncorrected test, and its",
+                        "registered robustness check."))
+```
+
+H1 is not supported. The confirmatory condition's rate is
+`r fmt_ratio(primary$ratio)` times the input's, with an interval from
+`r fmt_ratio(primary$ratio_lower)` to `r fmt_ratio(primary$ratio_upper)` and
+p = `r fmt_p(primary$p_value)`. The data are consistent both with the model
+reproducing its input's rate and with it exceeding that rate several times
+over. Removing the two partial frames leaves the conclusion where it is. The
+frame-by-source SD is `r sprintf("%.2f", primary$sd_frame_source)`, larger than
+Study 2's, and again it is the frames' disagreement that makes the interval
+wide.
+
+## The other conditions
+
+```{r}
+#| label: tbl-secondary
+#| echo: false
+secondary %>%
+  transmute(Condition = plus,
+            `Against common_crawl` = ratio_ci(ratio, ratio_lower, ratio_upper),
+            `Holm p` = fmt_p(p_holm)) %>%
+  kable(caption = "Secondary results, Holm-corrected within the set of three.")
+```
+
+Both instruct conditions sit about three times above the input, with adjusted
+p-values of `r fmt_p(max(secondary$p_holm[grepl("instruct", secondary$plus)]))`.
+The base model at deployment settings is close to the input's rate.
+
+## The whole mix
+
+The registered comparison against the whole stage-1 mix gives
+`r ratio_ci(whole_mix$ratio, whole_mix$ratio_lower, whole_mix$ratio_upper)`.
+It rests on an approximation the registration names, token shares applied to
+per-word rates, and it measures something different from the primary test. It
+is a ratio of summed rates, base-1.0's `r fmt_rate(base_rate15)` per million
+against a token-weighted mix rate of `r fmt_rate(mix_rate)`, and its interval
+reflects counting noise alone. Frame disagreement, which widens every other
+interval in this document, does not enter it, and a sum is dominated by the
+frames with the most hits, which here are the contrastive frames the model
+over-uses. The mix rate is also pulled down by the code, mathematics, arXiv,
+science PDF and Wikipedia subsets, which use the frames far less than web text
+does.
+
+```{r}
+#| label: tbl-subsets
+#| echo: false
+d$`training-per-subset` %>%
+  inner_join(ct %>% select(minus = source, rate), by = "minus") %>%
+  bind_rows(tibble(minus = "common_crawl",
+                   rate = ct$rate[ct$source == "common_crawl"],
+                   ratio = primary$ratio, ratio_lower = primary$ratio_lower,
+                   ratio_upper = primary$ratio_upper)) %>%
+  arrange(desc(rate)) %>%
+  transmute(Subset = minus,
+            `Per million` = fmt_rate(rate),
+            `base-1.0 against the subset` = ratio_ci(ratio, ratio_lower,
+                                                     ratio_upper)) %>%
+  kable(caption = paste("Each subset's summed rate over all fifteen frames,",
+                        "and the confirmatory condition against it, with",
+                        "unadjusted intervals."))
+```
+
+The olmOCR draw reached `r sum(olmocr$files_drawn > 0)` of the subset's
+`r nrow(olmocr)` topics. The ones it missed hold
+`r pct(sum(olmocr$byte_share[olmocr$files_drawn == 0]))` of its compressed
+bytes, health and education most of that. Reweighting the per-topic rates to
+byte shares over the topics reached moves olmOCR's rate from
+`r fmt_rate(explore$estimate[1])` to `r fmt_rate(explore$estimate[2])` per
+million, and the whole-mix ratio from `r fmt_ratio(whole_mix$ratio)` to
+`r fmt_ratio(explore$estimate[3])`. The olmOCR rate describes the unredacted
+documents only (S3-D2).
+
+# What drives the composite
+
+Everything in this section is registered as exploratory. It is descriptive and
+uncorrected, and no conclusion rests on a single frame.
+
+## By family
+
+```{r}
+#| label: tbl-family
+#| echo: false
+family_vs_us %>%
+  filter(source != "US") %>%
+  mutate(source = factor(source, levels = c(VARIETIES, "common_crawl",
+                                            CONDITIONS))) %>%
+  select(source, family, ratio) %>%
+  tidyr::pivot_wider(names_from = family, values_from = ratio) %>%
+  arrange(source) %>%
+  transmute(Source = as.character(source),
+            across(all_of(FAMILIES), fmt_ratio)) %>%
+  kable(caption = paste("Each family's summed rate over the shared frames,",
+                        "relative to American English in 2012."))
+```
+
+The model differs from the varieties in shape as well as level. On the
+announce-the-point frames, which separated the varieties most in Study 1,
+base-1.0 is at `r fmt_ratio(fam("base-1.0", "announce"))` times the American
+rate. On the epigrammatic frames it is at
+`r fmt_ratio(fam("base-1.0", "epigram"))`, below every variety, and on the
+single reveal frame at `r fmt_ratio(fam("base-1.0", "reveal"))`, among the
+lower varieties. On the contrastive frames it is at
+`r sprintf("%.1f", fam("base-1.0", "contrastive"))` times the American rate,
+and the instruct model at `r sprintf("%.0f", fam("instruct-1.0", "contrastive"))`
+times. The contrastive family separated the varieties least in Study 1, where
+British or Australian writers used `r number_word(contrastive_beaten)` of its
+four countable frames more often than Americans did.
+
+The model's input, `common_crawl`, sits below American English of 2012 on every
+family, near the other four varieties. Its rates rest on a different word count from Study 1's, and it
+is a filtered crawl of English from everywhere, so the comparison is loose. It
+does show that the stage-1 web text the model was trained on has no
+contrastive excess of its own.
+
+## Frame by frame
+
+```{r}
+#| label: tbl-frames
+#| echo: false
+per_frame %>%
+  transmute(Frame = frame_id,
+            Query = sprintf("`%s`", query),
+            `US against the others, Study 1` = fmt_ratio(american),
+            `base-1.0 against common_crawl` = fmt_ratio(over),
+            `instruct-1.0 against base-1.0` = ifelse(is.nan(post), "no hits",
+                                                     fmt_ratio(post))) %>%
+  kable(caption = paste("The shared frames, ordered by how far base-1.0",
+                        "exceeds its input. The first column is the US rate",
+                        "over the mean of the other four varieties."))
+```
+
+The registration asks whether the frames the model most over-produces are the
+ones Study 1 found most American. Across the `r nrow(per_frame)` frames, the
+rank correlation between the first two ratio columns is
+`r sprintf("%.2f", rho)`. The three frames the model over-produces most against
+its input, `r paste(top_over, collapse = ", ")`, are all contrastive. None is
+among Study 1's five most American frames, and `r least_american` is its least
+American. The three frames the base model never produced,
+`r paste(never, collapse = ", ")`, all ran at more than
+`r sprintf("%.1f", floor(min(per_frame$american[per_frame$frame_id %in% never]) * 10) / 10)`
+times the other varieties' rate in American English.
+
+Post-training raises `r sum(produced$post > 1)` of the `r nrow(produced)`
+frames the base model produced, `r most_raised` most of all.
+
+## How widely the hits spread
+
+A base model at unmodified sampling can fall into loops, and a few looping texts
+would produce a large count. The contrastive hits are spread thinly instead. F09
+appears in `r big(spread_of("base-1.0", "texts"))` of base-1.0's 4,000 texts and
+never more than `r spread_of("base-1.0", "most")` times in one, and in
+`r big(spread_of("instruct-1.0", "texts"))` of instruct-1.0's, at most
+`r spread_of("instruct-1.0", "most")` in one.
+
+## Length and truncation
+
+```{r}
+#| label: tbl-length
+#| echo: false
+length_tbl %>%
+  transmute(Condition = as.character(source),
+            Ending = ifelse(finish_reason == "length", "cut off", "finished"),
+            Texts = big(texts),
+            `Mean words` = sprintf("%.0f", per_text),
+            across(all_of(FAMILIES), fmt_rate)) %>%
+  rename_with(tools::toTitleCase, all_of(FAMILIES)) %>%
+  kable(caption = paste("Family rates per million over the shared frames,",
+                        "by whether the text finished or was cut off."))
+```
+
+Texts that reached the token limit were cut before their ending. If the frames
+cluster at the ends of posts, truncation lowers a condition's rate. For the base
+model it makes little difference: base-1.0's epigrammatic rate is
+`r fmt_rate(by_finish("base-1.0", "stop", "epigram"))` per million in texts that
+finished and `r fmt_rate(by_finish("base-1.0", "length", "epigram"))` in texts
+that were cut, so its low epigrammatic rate is not an effect of truncation. The
+instruct model's finished texts carry far more contrastive and epigrammatic
+frames than its truncated ones. Truncation therefore lowers the instruct rates,
+and the instruct conditions' excess is if anything understated.
+
+## Variation between the drawn files
+
+The 200 `common_crawl` files differ widely from one another: the middle 90% run
+from `r fmt_rate(crawl_range[1])` to `r fmt_rate(crawl_range[2])` per million
+over all fifteen frames. No single file matters much. Dropping any one of them
+moves the subset's rate by at most
+`r sprintf("%.1f%%", 100 * max(abs(crawl_loo / crawl_total - 1)))`.
+
+# What this does not establish
+
+- **One model.** Olmo 3 7B was chosen because its training corpus is published.
+  Nothing here says how GPT, Claude or Gemini write, and for them the input side
+  cannot be measured at all.
+- **One prompt and one genre.** Every text answers `Write a blog post titled:`
+  followed by a title from a 2012 blog. Other prompts and genres may draw on
+  other registers.
+- **Twelve years.** Study 1's baseline is web English collected in December
+  2012, and the model card gives December 2024 as the cutoff of the model's
+  data. A gap between the model and the varieties mixes register with whatever
+  changed in web writing in between. Study 3's input comes from the model's own
+  period.
+- **Different denominators.** Study 1's rates divide by GloWbE's own word counts,
+  and Studies 2 and 3 divide by this study's word rule (`docs/frame-mapping.md`).
+  Comparisons within Studies 2 and 3 share one footing. Comparisons back to
+  Study 1 do not, and the direction of any bias is unknown.
+- **Fourteen frames against Study 1.** F06 is counted in Studies 2 and 3, but a
+  free GloWbE account could not search it.
+- **A system prompt in the instruct conditions.** The template inserts a default
+  system prompt (S2-D1), so what post-training adds cannot be separated from
+  what that prompt adds.
+- **Stage 1 only.** The input sample comes from the stage-1 mix, 5.93 of the
+  6.08 trillion tokens the
+  [base model's card](https://huggingface.co/allenai/Olmo-3-1025-7B) lists
+  across its three pretraining stages. The two later stages were not sampled,
+  and they differ in kind: Ai2's
+  [card for the midtraining mix](https://huggingface.co/datasets/allenai/dolma3_dolmino_mix-100B-1025)
+  labels most of it synthetic, including instruction data and reasoning traces
+  from other models, among them QwQ, Gemini and Llama Nemotron. The instruct
+  model's post-training adds
+  [supervised examples](https://huggingface.co/datasets/allenai/dolci-instruct-sft)
+  that include responses written by GPT-4.1, and
+  [preference pairs](https://huggingface.co/datasets/allenai/dolci-3-instruct-dpo-with-metadata)
+  partly judged by a GPT model. The base model's departure from its stage-1
+  input may therefore come partly from model-written text it saw later, and
+  neither that departure nor the instruct model's excess can be traced to a
+  stage.
+- **An incomplete olmOCR draw.** It missed
+  `r number_word(sum(olmocr$files_drawn == 0))` of the subset's topics and
+  cannot see redacted documents. Both affect the whole-mix figure only.
+- **Truncated texts.** Between `r pct(min(run_tbl$share_truncated))` and
+  `r pct(max(run_tbl$share_truncated))` of generations were cut at 1,024 tokens.
+  The length analysis above bounds what that does.
+- **Fixed strings.** As in Study 1, these are rates per million. Density,
+  sentence position and near-obligatory use are not measured.
+- **Frames chosen as typical of model output.** A high model rate on some of
+  them is what got them chosen. The studies ask where the model's rate sits
+  against the varieties and against its input, which the choice does not settle,
+  but a different fifteen frames could tell a different story.
+- **Text that cannot be regenerated exactly.** Each generation's seed fixes its
+  sampling request, but vLLM's arithmetic varies with the batch a request
+  shares, so a rerun gives different text. `data/generated-sha256.txt`
+  identifies the files that were counted.
+
+# Reproducing this
+
+The repository holds the generation code (`python/generate.py`), the titles
+(`data/topics.csv`), the counts of the generated text
+(`data/counts-generated.csv`, with each text's own counts in
+`data/counts-generated-by-text.csv` and the run's totals in
+`data/generated-run.csv`), the Dolma draw's per-file records (`data/dolma/`)
+and their counts (`data/counts-dolma.csv` and `data/counts-dolma-topic.csv`),
+and the record of both runs (`docs/collection-log.md`).
+
+`Rscript R/analyse.R`, `Rscript R/analyse-generated.R` and
+`Rscript R/analyse-training.R` recompute every number in this document from
+those files. `python python/count_generated.py data/generated` recounts the
+generated text into the tables above.
+
+# References
+
+::: {#refs}
+:::

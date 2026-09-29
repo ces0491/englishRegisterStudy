@@ -3,7 +3,8 @@
 
 `python/generate.py` writes one JSONL file per condition, each line a
 generation with its text and metadata. This counts them with the frozen
-counting layer and writes the tidy table the R analysis reads.
+counting layer and writes the tidy table the R analysis reads, the run's
+totals, and each generation's own counts for the exploratory analysis.
 
 Text is counted as it came: no deduplication, no dropping refusals or
 truncated endings, no stripping of markdown. That is the rule registered at
@@ -27,12 +28,18 @@ REPO = Path(__file__).resolve().parent.parent
 
 
 def count_file(path: Path, frames: dict[str, list[str]]) -> dict:
-    """Totals for one condition's JSONL, plus what the run did."""
+    """Totals for one condition's JSONL, plus what the run did.
+
+    `texts` holds each generation's own counts, for the registered exploratory
+    analysis of generation length against frame rate, which needs them and
+    cannot be recovered from the totals.
+    """
     totals = {frame_id: 0 for frame_id in frames}
     totals["words"] = 0
     generations = 0
     empty = 0
     passes = 0
+    texts = []
     with open(path, encoding="utf-8") as handle:
         for line in handle:
             record = json.loads(line)
@@ -43,9 +50,18 @@ def count_file(path: Path, frames: dict[str, list[str]]) -> dict:
             generations += 1
             empty += not text.strip()
             passes = max(passes, record.get("pass_number", 1))
+            texts.append({
+                "source": path.stem,
+                "topic_id": record.get("topic_id", ""),
+                "pass_number": record.get("pass_number", 1),
+                "finish_reason": record.get("finish_reason", ""),
+                "words": counts["words"],
+                **{frame_id: counts[frame_id] for frame_id in frames},
+            })
     totals["generations"] = generations
     totals["empty_generations"] = empty
     totals["passes"] = passes
+    totals["texts"] = texts
     return totals
 
 
@@ -94,12 +110,21 @@ def main() -> None:
                 "words": totals["words"],
             })
 
+    by_text = REPO / "data" / "counts-generated-by-text.csv"
+    with open(by_text, "w", encoding="utf-8", newline="") as handle:
+        writer = csv.DictWriter(
+            handle, fieldnames=["source", "topic_id", "pass_number",
+                                "finish_reason", "words", *frames])
+        writer.writeheader()
+        for source in sorted(per_source):
+            writer.writerows(per_source[source]["texts"])
+
     for source, totals in sorted(per_source.items()):
         print(f"{source}: {totals['words']:,} words, "
               f"{totals['generations']:,} generations, "
               f"{totals['empty_generations']} empty, "
               f"{totals['passes']} pass(es)")
-    print(f"wrote {out} and {summary}")
+    print(f"wrote {out}, {summary} and {by_text}")
 
 
 def dolma_topic_rows(result: dict) -> list[dict]:

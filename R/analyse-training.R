@@ -79,7 +79,8 @@ df_frames <- n_distinct(drop_empty_frames(counts)$frame_id) - 1
 primary <- contrast(fit_all, plus = CONFIRMATORY, minus = PRIMARY_INPUT,
                     df = df_frames) %>%
   mutate(comparison = "primary",
-         supports_h1 = ratio > 1 & p_value < 0.05)
+         supports_h1 = ratio > 1 & p_value < 0.05,
+         sd_frame_source = random_effect_sd(fit_all))
 
 # Three secondary contrasts: the other conditions against the same input,
 # Holm-corrected within that set.
@@ -147,7 +148,8 @@ fit_without <- counts %>%
 without_partial <- contrast(
   fit_without, plus = CONFIRMATORY, minus = PRIMARY_INPUT,
   df = n_distinct(counts$frame_id[!counts$frame_id %in% partial]) - 1) %>%
-  mutate(comparison = "primary, without the partial frames")
+  mutate(comparison = "primary, without the partial frames",
+         sd_frame_source = random_effect_sd(fit_without))
 
 # --- exploratory: olmOCR against its topics' sizes (deviation S3-D2) ---------
 #

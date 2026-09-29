@@ -97,6 +97,7 @@ composite_data <- counts %>%
   prepare(reference = "B3")
 composite_fit <- fit_frames_glmm(composite_data)
 composite_df <- n_distinct(composite_data$frame_id) - 1
+composite_sd <- random_effect_sd(composite_fit)
 
 composite_contrast <- function(plus, minus) {
   out <- contrast(composite_fit, plus = plus, minus = minus, df = composite_df)
@@ -142,7 +143,9 @@ confirmatory <- run_contrasts(CONFIRMATORY) %>%
            predicted == "either" & ratio > 1 ~ "favours QA and instruction data (N1)",
            predicted == "either" & ratio < 1 ~ "favours reasoning traces, math and code (N2)",
            ratio > 1 ~ "supported",
-           TRUE ~ "evidence against"))
+           TRUE ~ "evidence against"),
+         sd_frame_source = ifelse(outcome == "composite", composite_sd,
+                                  NA_real_))
 
 # --- secondary, with intervals and no correction ------------------------------
 
@@ -232,7 +235,7 @@ out(by_length, "results-length.csv")
 
 message(sprintf(paste("\nCONFIRMATORY: nine contrasts on two outcomes, Holm across",
                       "eighteen. Composite frame-by-source SD %.3f, %d frames."),
-                random_effect_sd(composite_fit), composite_df + 1))
+                composite_sd, composite_df + 1))
 print(as_tibble(confirmatory) %>%
         mutate(across(c(ratio, lower, upper), ~ round(.x, 2)),
                across(c(p_value, p_holm), ~ signif(.x, 3))) %>%

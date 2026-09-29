@@ -230,8 +230,7 @@ Study 1's analysis is registered at <https://osf.io/48wjn>, and the text as
 submitted is in
 [docs/osf-study1-registration.md](docs/osf-study1-registration.md). Study 2 is
 registered at <https://osf.io/qjgtc>, Study 3 at <https://osf.io/ngt3m>, and
-Study 4 at <https://osf.io/d79u4>. Study 4's data were collected on 29
-September 2026, and its analysis has not yet run.
+Study 4 at <https://osf.io/d79u4>.
 Departures from them are recorded in [docs/deviations.md](docs/deviations.md),
 and what each query session did, refusals included, in
 [docs/collection-log.md](docs/collection-log.md).
@@ -271,6 +270,29 @@ as the base model.
 reads the files all three analysis scripts write, so run `R/analyse.R`,
 `R/analyse-generated.R` and `R/analyse-training.R` first and render with
 `quarto render docs/study2-3-results.qmd`.
+
+### Study 4
+
+The contrastive family, F06 to F09, rises at every stage of Olmo 3's training
+after stage 1, most of all in midtraining. Per million words it runs at 10.1 at
+the end of stage 1, 61.5 after midtraining, 198.0 in the final base model and
+615.6 in the final instruct model, while the training text of every stage runs
+between 9.5 and 25.2. Midtraining raises the model's rate 6.07 [3.63, 10.14]
+times, SFT 2.20 [1.94, 2.50], DPO 1.24 [1.14, 1.36] and RLVR 1.14 [1.05, 1.23],
+each supported after Holm's correction, and long-context training 3.22
+[2.56, 4.05] in a secondary contrast. Of two midtraining mixes run from the same
+checkpoint, the one with QA and instruction data gives 2.82 [2.11, 3.76] times
+the rate of the one with math, code and reasoning traces.
+
+The end-of-stage-1 model uses the family less than its web text, 0.43
+[0.27, 0.70], and neither the midtraining text nor the SFT responses carry more
+of it than what came before them, so H1, H2 and H5 have evidence against them.
+On the fifteen-frame composite only H5 reaches significance, because the other
+frames move in different directions.
+
+[docs/study4-results.qmd](docs/study4-results.qmd) is the write-up. It reads
+the files `R/analyse-study4.R` writes, so run that first and render with
+`quarto render docs/study4-results.qmd`.
 
 ## Adding a frame
 

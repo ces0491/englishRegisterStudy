@@ -1,0 +1,786 @@
+---
+title: "Study 4: where Olmo 3's contrastive frames enter its training"
+subtitle: "englishRegisterStudy — results from the pre-registered analysis"
+author: "Cesaire Tobias"
+date: "2026-09-29"
+format:
+  pdf:
+    date-format: "DD MMMM, YYYY"
+    toc: true
+    toc-depth: 2
+    number-sections: true
+    colorlinks: true
+    documentclass: article
+    geometry: margin=1in
+    fontsize: 11pt
+    linestretch: 1.5
+    cite-method: citeproc
+    bibliography: ../references.bib
+    csl: ../harvard-cite-them-right.csl
+    link-citations: true
+    fig-pos: 'H'
+    tbl-pos: 'H'
+    include-in-header:
+      text: |
+        \usepackage{float}
+        \usepackage{booktabs}
+        \floatplacement{table}{H}
+---
+
+```{r}
+#| label: setup
+#| include: false
+#| message: false
+#| warning: false
+
+# Every number in this document comes from the files R/analyse-study4.R
+# writes, or from the committed counts in data/study4/, so it cannot drift
+# from the analysis. Run `Rscript R/analyse-study4.R` from the repository root
+# before rendering.
+suppressPackageStartupMessages({
+  library(dplyr)
+  library(knitr)
+})
+
+root <- ".."
+D <- file.path(root, "data", "study4")
+derived <- c("confirmatory", "secondary", "midtraining", "sft-datasets",
+             "dpo-models", "per-frame", "length")
+paths <- file.path(D, paste0("results-", derived, ".csv"))
+if (!all(file.exists(paths))) {
+  stop("run R/analyse-study4.R from the repository root first; missing: ",
+       paste(derived[!file.exists(paths)], collapse = ", "))
+}
+r <- setNames(lapply(paths, readr::read_csv, show_col_types = FALSE), derived)
+
+read4 <- function(name) {
+  readr::read_csv(file.path(D, name), show_col_types = FALSE)
+}
+counts <- read4("counts.csv")
+generated <- read4("units-generated.csv")
+stage1 <- read4("units-stage1.csv")
+midtraining <- read4("units-midtraining.csv")
+sft <- read4("units-sft.csv.gz")
+dpo <- read4("units-dpo.csv.gz")
+
+# The registered estimator, for each source's family rate.
+source(file.path(root, "R", "ratio.R"))
+
+FAMILY <- c("F06", "F07", "F08", "F09")
+ARMS <- tibble::tribble(
+  ~arm, ~checkpoint,                       ~prompt,
+  "B1", "end of stage 1",                  "raw",
+  "B2", "end of midtraining",              "raw",
+  "B3", "final base",                      "raw",
+  "N1", "Gen-QA mix from 2T",              "raw",
+  "N2", "math-code-thinking mix from 2T",  "raw",
+  "N3", "Round 5 mix from 2T",             "raw",
+  "P1", "SFT",                             "chat template",
+  "P2", "DPO",                             "chat template",
+  "P3", "final instruct",                  "chat template")
+MAIN_LINE <- c("B1", "B2", "B3", "P1", "P2", "P3")
+
+fmt_ratio <- function(x) sprintf("%.2f", x)
+fmt_p <- function(p) ifelse(p < 0.001, "< 0.001", sprintf("%.3f", p))
+ratio_ci <- function(ratio, lower, upper) {
+  sprintf("%s [%s, %s]", fmt_ratio(ratio), fmt_ratio(lower), fmt_ratio(upper))
+}
+ci_of <- function(row) ratio_ci(row$ratio, row$lower, row$upper)
+fmt_rate <- function(x) sprintf("%.1f", x)
+rate_ci <- function(rate, lower, upper) {
+  sprintf("%s [%s, %s]", fmt_rate(rate), fmt_rate(lower), fmt_rate(upper))
+}
+rate_or_none <- function(hits, rate, lower, upper) {
+  ifelse(hits == 0, "no hits", rate_ci(rate, lower, upper))
+}
+and_list <- function(x) {
+  if (length(x) < 2) return(x)
+  paste(paste(head(x, -1), collapse = ", "), "and", tail(x, 1))
+}
+pct <- function(x) sprintf("%.0f%%", 100 * x)
+big <- function(x) format(x, big.mark = ",", scientific = FALSE, trim = TRUE)
+millions <- function(x) sprintf("%.1f million", x / 1e6)
+number_word <- function(n) {
+  c("no", "one", "two", "three", "four", "five", "six", "seven", "eight",
+    "nine", "ten")[n + 1]
+}
+
+# The generated text.
+run_tbl <- generated %>%
+  group_by(arm) %>%
+  summarise(texts = n(), zero = sum(words == 0),
+            cut = sum(finish_reason == "length"), words = sum(words),
+            .groups = "drop") %>%
+  inner_join(ARMS, by = "arm") %>%
+  mutate(arm = factor(arm, levels = ARMS$arm)) %>%
+  arrange(arm)
+share_cut <- run_tbl$cut / run_tbl$texts
+zero_arms <- as.character(run_tbl$arm[run_tbl$zero > 10])
+
+# The training text. Every redacted document is in the olmOCR source.
+olmocr <- midtraining %>% filter(grepl("OLMOCR", source))
+redacted <- sum(olmocr$redacted)
+redacted_docs <- sum(olmocr$documents)
+
+# Each source's family rate, by the registered ratio estimator, with a
+# normal interval as R/analyse-study4.R gives its rate tables.
+hits_of <- function(d, frames = FAMILY, suffix = "") {
+  rowSums(as.matrix(d[, paste0(frames, suffix)]))
+}
+rate_row <- function(key, label, kind, h, w) {
+  x <- ratio_rate(h, w)
+  se <- sqrt(x$var)
+  tibble(key = key, source = label, kind = kind, units = x$n,
+         words = x$words, hits = x$hits, rate = x$rate * 1e6,
+         lower = max(0, x$rate - 1.96 * se) * 1e6,
+         upper = (x$rate + 1.96 * se) * 1e6)
+}
+arm_row <- function(a) {
+  d <- filter(generated, arm == a)
+  rate_row(a, sprintf("%s, %s", a, ARMS$checkpoint[ARMS$arm == a]),
+           "model output", hits_of(d), d$words)
+}
+ladder <- bind_rows(
+  rate_row("stage1", "Stage-1 sample", "training text", hits_of(stage1),
+           stage1$words),
+  arm_row("B1"),
+  rate_row("midtraining", "Midtraining sample", "training text",
+           hits_of(midtraining), midtraining$words),
+  arm_row("B2"),
+  arm_row("B3"),
+  rate_row("sft", "SFT responses", "training text", hits_of(sft), sft$words),
+  arm_row("P1"),
+  rate_row("dpo_chosen", "DPO chosen responses", "training text",
+           hits_of(dpo, suffix = "_chosen"), dpo$words_chosen),
+  rate_row("dpo_rejected", "DPO rejected responses", "training text",
+           hits_of(dpo, suffix = "_rejected"), dpo$words_rejected),
+  arm_row("P2"),
+  arm_row("P3"),
+  arm_row("N1"),
+  arm_row("N2"),
+  arm_row("N3"))
+rate_of <- function(k) ladder$rate[ladder$key == k]
+training_text <- ladder %>% filter(kind == "training text")
+
+# The confirmatory tests.
+conf <- r$confirmatory
+cf <- function(h, o = "family") conf[conf$hypothesis == h & conf$outcome == o, ]
+composite_sd <- conf$sd_frame_source[conf$outcome == "composite"][1]
+composite_significant <- conf %>% filter(outcome == "composite", p_holm < 0.05)
+CONTRASTS <- c(
+  H1 = "B1 against the stage-1 sample",
+  H2 = "Midtraining sample against the stage-1 sample",
+  H3 = "B2 against B1",
+  H4 = "N1 against N2",
+  H5 = "SFT responses against B3",
+  H6 = "P1 against B3",
+  H7 = "Chosen against rejected DPO responses",
+  H8 = "P2 against P1",
+  H9 = "P3 against P2")
+
+# The secondary analyses.
+sec <- r$secondary
+sc <- function(h, o = "family") sec[sec$hypothesis == h & sec$outcome == o, ]
+sensitivity <- sec %>%
+  filter(outcome == "family with F10") %>%
+  inner_join(conf %>% filter(outcome == "family") %>%
+               select(hypothesis, family_ratio = ratio), by = "hypothesis")
+replication <- sec %>% filter(hypothesis == "replication")
+
+# The multiple Studies 2 and 3 reported, over the frames they shared with
+# Study 1, against the registered family's.
+summed <- function(s, fr) {
+  x <- counts %>% filter(source == s, frame_id %in% fr)
+  sum(x$hits) / x$words[1]
+}
+STUDY23_FAMILY <- c("F07", "F08", "F09", "F10")
+multiple_23 <- summed("B3", STUDY23_FAMILY) / summed("stage1", STUDY23_FAMILY)
+multiple_4 <- summed("B3", FAMILY) / summed("stage1", FAMILY)
+
+# Per frame.
+pf <- r$`per-frame`
+pf_rate <- function(s, f) pf$rate[pf$source == s & pf$frame_id == f]
+f09_share <- function(s) {
+  x <- pf %>% filter(source == s, frame_id %in% FAMILY)
+  x$hits[x$frame_id == "F09"] / sum(x$hits)
+}
+base_arms <- c("B1", "B2", "B3", "N1", "N2", "N3")
+f10_base <- sapply(base_arms, pf_rate, f = "F10")
+f10_post <- sapply(c("P1", "P2", "P3"), pf_rate, f = "F10")
+along <- function(f) sapply(MAIN_LINE, pf_rate, f = f)
+near_stage1 <- function(f) all(abs(log(along(f) / pf_rate("stage1", f))) < log(1.5))
+FRAME_SOURCES <- c("stage1", MAIN_LINE)
+
+# The training text, broken down.
+mt <- r$midtraining
+mt_cat <- mt %>% filter(level == "category") %>% arrange(desc(per_million))
+mt_src <- mt %>% filter(level == "source") %>% arrange(desc(per_million))
+cat_rate <- function(c) mt_cat$per_million[mt_cat$category == c]
+src_rate <- function(s) mt_src$per_million[mt_src$source == s]
+sft_sets <- r$`sft-datasets` %>% arrange(desc(per_million))
+wildchat <- sft_sets %>% filter(source_dataset == "Wildchat")
+dm <- r$`dpo-models`
+largest <- function(s) dm %>% filter(side == s) %>% arrange(desc(units)) %>% slice(1)
+
+# Rates by how each text ended.
+len <- r$length
+len_rate <- function(a, reason) {
+  len$per_million[len$arm == a & len$finish_reason == reason]
+}
+ordered_within <- function(reason) {
+  all(diff(sapply(MAIN_LINE, len_rate, reason = reason)) > 0)
+}
+finished_higher <- sum(sapply(ARMS$arm, function(a) {
+  len_rate(a, "stop") > len_rate(a, "length")
+}))
+
+# The prose below states these in words; stop rather than let it drift.
+stopifnot(
+  all(run_tbl$texts == 4000),
+  cf("H1")$verdict == "evidence against",
+  cf("H2")$verdict == "evidence against",
+  cf("H3")$verdict == "supported",
+  grepl("N1", cf("H4")$verdict),
+  cf("H5")$verdict == "evidence against",
+  all(sapply(c("H6", "H7", "H8", "H9"), function(h) {
+    cf(h)$verdict == "supported"
+  })),
+  nrow(composite_significant) == 1,
+  composite_significant$hypothesis == "H5",
+  composite_significant$ratio < 1,
+  sc("long-context stage")$lower > 1,
+  rate_of("B1") < rate_of("stage1"),
+  max(training_text$upper) <
+    min(ladder$lower[ladder$key %in% c("B2", "B3", "P1", "P2", "P3")]),
+  sc("midtrained model vs its data")$lower > 1,
+  sc("SFT model vs its data")$lower > 1,
+  sc("midtrained model vs its data", "composite")$lower > 1,
+  sc("SFT model vs its data", "composite")$lower > 1,
+  sc("Round 5 against Gen-QA")$upper < 1,
+  sc("Round 5 against math-code")$lower > 1,
+  all(replication$lower < 1 & replication$upper > 1),
+  all(sensitivity$lower > 1 | sensitivity$upper < 1),
+  all(sign(log(sensitivity$ratio)) == sign(log(sensitivity$family_ratio))),
+  sensitivity$ratio[sensitivity$hypothesis == "H3"] < cf("H3")$ratio,
+  all(abs(log(f10_base / pf_rate("stage1", "F10"))) < log(1.5)),
+  min(f10_post) > max(f10_base),
+  all(diff(along("F07")[c("B1", "B2", "B3")]) > 0),
+  names(which.max(along("F08"))) == "B3",
+  all(c(along("F01")[c("P1", "P3")], along("F03")[c("P1", "P3")]) >
+        3 * c(along("F01")["B3"], along("F01")["B3"],
+              along("F03")["B3"], along("F03")["B3"])),
+  all(sapply(c("F01", "F03"), function(f) {
+    x <- along(f)
+    x[["P1"]] / x[["B3"]] > max(x[["P2"]] / x[["P1"]], x[["P3"]] / x[["P2"]])
+  })),
+  along("F04")["P3"] < pf_rate("stage1", "F04") / 2,
+  near_stage1("F13"), near_stage1("F14"),
+  max(pf$rate[pf$frame_id == "F06"]) < 5,
+  ordered_within("stop"), ordered_within("length"),
+  mt_cat$category[1] == "Web pages",
+  mt_cat$hits[1] / sum(mt_cat$hits) > 0.5,
+  all(sapply(c("QA (synth)", "Instruction (synth)"), cat_rate) <
+        cat_rate("Web pages")),
+  all(sapply(c("QA (synth)", "Instruction (synth)"), cat_rate) >
+        max(sapply(c("Math (synth)", "Code", "Python (synth)",
+                     "Thinking (synth)", "PDFs"), cat_rate))),
+  mt_src$source[1] == "Nemotron Synth QA",
+  sft_sets$source_dataset[1] == "Wildchat",
+  wildchat$hits / sum(sft_sets$hits) > 0.5,
+  sum(midtraining$redacted) == redacted,
+  all(zero_arms %in% c("B1", "B2", "N1", "N3")),
+  sum(run_tbl$zero[run_tbl$arm %in% c("P1", "P2", "P3")]) == 0
+)
+```
+
+# What this measures
+
+Studies 2 and 3 of this project found, in analyses registered as exploratory,
+that Olmo 3 7B writes the contrastive frames, *it's not X, it's Y* and its
+relatives, at several times the rate of the web text it was pretrained on, and
+that the instruction-tuned model writes them more often again. Study 4 asks
+where in the model's training that excess enters. It was registered at
+<https://osf.io/d79u4> on 29 September 2026, before any of its text was
+generated or any frame counted in its data.
+
+Olmo 3 was trained in six stages: stage-1 pretraining, midtraining,
+long-context training, supervised fine-tuning (SFT), preference tuning (DPO)
+and reinforcement learning with verifiable rewards (RLVR). Ai2 published a
+checkpoint after each stage and the data each stage trained on
+[@olmo2025olmo]. Study 4 counts the frames in the output of checkpoints from
+each stage and in the text four of the stages trained on.
+
+```{r}
+#| label: tbl-arms
+#| echo: false
+ARMS %>%
+  transmute(Arm = arm, Checkpoint = checkpoint, Prompt = prompt) %>%
+  kable(caption = paste("The nine checkpoints. B1 to N3 are branches of",
+                        "allenai/Olmo-3-1025-7B, and P1 to P3 are",
+                        "allenai/Olmo-3-7B-Instruct-SFT,",
+                        "allenai/Olmo-3-7B-Instruct-DPO and",
+                        "allenai/Olmo-3-7B-Instruct. Each is pinned to a",
+                        "commit in docs/study4-protocol.md."))
+```
+
+Each checkpoint wrote one post for each of the 4,000 titles Study 2 used,
+drawn from GloWbE's blog pages [@davies2013glowbe] and prompted with
+`Write a blog post titled:` and the title, at temperature 1.0 and top-p 1.0
+with at most 1,024 new tokens. The base-model checkpoints received the prompt
+as raw text and the three post-trained ones through their chat template, which
+adds a default system prompt, as in Study 2. N1 to N3 are three midtraining
+runs of the same length from one stage-1 checkpoint at 2 trillion tokens, which
+Ai2 published as branches of the base model, each with a different data mix.
+In the Olmo 3 report's description, the Gen-QA mix "increases proportions of
+web, QA, and instruction data while omitting math, code, and thinking", the
+math-code-thinking mix "increases proportions of math, code, and thinking data
+while omitting QA and instruction data" and keeps web, and Round 5 is the final
+mix [@olmo2025olmo].
+
+Four samples of training text are measured:
+
+- **Stage 1:** Study 3's registered sample of `common_crawl`, the web portion
+  of the stage-1 mix, `r big(nrow(stage1))` files and
+  `r millions(sum(stage1$words))` words.
+- **Midtraining:** `r millions(sum(midtraining$words))` words from
+  `r big(nrow(midtraining))` files of the Dolmino midtraining mix, allocated
+  across its 24 sources by their shares of its tokens, so the pooled sample
+  stands for the mix.
+- **SFT:** the assistant turns of all `r big(nrow(sft))` conversations in the
+  SFT set, `r millions(sum(sft$words))` words.
+- **DPO:** the final response on each side of all `r big(nrow(dpo))`
+  preference pairs, `r millions(sum(dpo$words_chosen))` words chosen and
+  `r millions(sum(dpo$words_rejected))` rejected.
+
+The long-context stage's data, two-thirds of it midtraining data, is not
+counted. The RLVR data holds prompts and reference answers but none of the
+model's responses, so RLVR is measured on the output side only.
+
+## Two outcomes
+
+The **family** is the four contrastive frames F06 to F09, `it 's not * , it 's`,
+`it 's not just`, `not just * but` and `is n't just`, as a rate per word.
+Each source's rate is its total hits over its total words, with an interval
+from the variation between its units, whether posts, files, conversations or
+pairs (`R/ratio.R`). The **composite** is all fifteen frozen frames through the
+model Studies 2 and 3 used, in which a source's effect is its frame rates
+averaged over frames on the log scale, so that it means what it meant in
+Studies 1 to 3.
+
+Studies 2 and 3 summarised the contrastive family over the frames they shared
+with Study 1, F07 to F10. F10, `not * , but *`, is a partial frame, and Study 4
+registered the family without it, adding it only as a sensitivity check. The
+two sets give different multiples for the same text. The final base model's
+rate is `r fmt_ratio(multiple_23)` times the stage-1 sample's over F07 to F10,
+the figure behind the registration's "about five times", and
+`r fmt_ratio(multiple_4)` times over F06 to F09. F10 runs near the stage-1
+sample's rate in every base-model checkpoint, so including it pulls the
+multiple towards 1.
+
+## Nine hypotheses
+
+- **H1.** The end-of-stage-1 checkpoint (B1) uses the frames more than its
+  stage-1 input.
+- **H2.** The midtraining text uses them more than the stage-1 text.
+- **H3.** The end-of-midtraining checkpoint (B2) uses them more than B1.
+- **H4.** The Gen-QA checkpoint (N1) and the math-code-thinking checkpoint
+  (N2) differ, in either direction.
+- **H5.** The SFT responses use them more than the final base model (B3).
+- **H6.** The SFT checkpoint (P1) uses them more than B3.
+- **H7.** Chosen DPO responses use them more than rejected responses to the
+  same prompts.
+- **H8.** The DPO checkpoint (P2) uses them more than P1.
+- **H9.** The final instruct model (P3) uses them more than P2.
+
+Each is tested on both outcomes, eighteen tests with Holm's correction. A
+hypothesis is supported on an outcome when its ratio lies in the predicted
+direction with an adjusted p below 0.05, and a ratio in the other direction
+with an adjusted p below 0.05 is evidence against it.
+
+Earlier work measured post-training's effect on style from output alone.
+@reinhart2025llms compared Llama 3 and GPT-4o with human writing on Biber's
+grammatical and rhetorical features and found the differences larger for
+instruction-tuned models than for base models, and @li2026narrative compared
+OLMo 32B's base, SFT, DPO and RLVR checkpoints with human fiction and found
+that post-training compresses stylistic variation. Study 4 adds the stages
+before post-training and the training text of each stage.
+
+## Deviations
+
+Four are recorded in `docs/deviations.md`, and none changes the design:
+
+- **S4-D1:** the protocol's directory pattern for one midtraining source
+  matched nothing and is read as the one pattern that fits.
+- **S4-D2:** the registration gave the DPO set as 260,000 pairs, the dataset
+  card's rounded description. It holds `r big(nrow(dpo))`, and every pair was
+  counted.
+- **S4-D3:** SFT conversations are identified by file and row, where the
+  protocol names each conversation's `id`.
+- **S4-D4:** `r big(redacted)` of the `r big(redacted_docs)` documents drawn
+  from the midtraining mix's olmOCR source were redacted after training and are
+  counted as they stand, as in Study 3.
+
+S4-D1, S4-D2 and S4-D4 were filed as an update to the registration, approved
+before the analysis ran.
+
+# The generated text
+
+```{r}
+#| label: tbl-run
+#| echo: false
+run_tbl %>%
+  transmute(Arm = as.character(arm),
+            Words = big(words),
+            `Words a post` = sprintf("%.0f", words / texts),
+            `Reached 1,024 tokens` = sprintf("%s (%s)", big(cut),
+                                             pct(cut / texts)),
+            `No words` = zero) %>%
+  kable(align = c("l", "r", "r", "r", "r"),
+        caption = "The nine arms as generated on 29 September 2026.")
+```
+
+Every arm wrote all 4,000 posts. Between `r pct(min(share_cut))` and
+`r pct(max(share_cut))` of an arm's posts reached the 1,024-token limit and
+end mid-text; they are counted as they came, as registered, and the length
+analysis below shows what that does to the rates. Posts with no words are ones
+the model ended at once or that hold no word character, and they count as zero
+words. They cluster in `r and_list(zero_arms)`, and the post-trained
+checkpoints wrote none. The checks made on the text and the counts
+before the analysis are in `docs/collection-log.md`.
+
+# Confirmatory results
+
+## The family
+
+```{r}
+#| label: tbl-family
+#| echo: false
+conf %>%
+  filter(outcome == "family") %>%
+  transmute(` ` = hypothesis,
+            Contrast = CONTRASTS[hypothesis],
+            Ratio = ratio_ci(ratio, lower, upper),
+            `Holm p` = fmt_p(p_holm),
+            Verdict = ifelse(hypothesis == "H4", "favours N1", verdict)) %>%
+  kable(caption = paste("The family outcome: the first source's rate of F06",
+                        "to F09 over the second's, with unadjusted 95%",
+                        "intervals. H4 is two-sided; a ratio above 1 favours",
+                        "the QA and instruction data in N1's mix."))
+```
+
+The end-of-stage-1 checkpoint uses the family less than its training text: B1's
+rate is `r ci_of(cf("H1"))` times the stage-1 sample's, evidence against H1.
+The midtraining text also carries less of it than the stage-1 text,
+`r ci_of(cf("H2"))`, evidence against H2. Midtraining still raises the model's
+rate: B2 is `r ci_of(cf("H3"))` times B1, which supports H3. Of the two
+midtraining mixes run from the same checkpoint, the one with more web, QA and
+instruction data and no math, code or reasoning traces gives the higher rate:
+N1 is `r ci_of(cf("H4"))` times N2, which favours the QA and instruction data.
+The mixes differ in several categories at once, so the attribution to QA and
+instruction data is an interpretation.
+
+The SFT responses use the family at `r ci_of(cf("H5"))` times the final base
+model's rate, evidence against H5, yet the SFT checkpoint uses it
+`r ci_of(cf("H6"))` times as often as B3. The preference data leans the same
+way as the model. Chosen responses use the family `r ci_of(cf("H7"))` times as often as
+the rejected responses to the same prompts. DPO then raises the model's rate by
+`r ci_of(cf("H8"))` and RLVR by a further `r ci_of(cf("H9"))`. H6 to H9 are
+supported.
+
+## The composite
+
+```{r}
+#| label: tbl-composite
+#| echo: false
+conf %>%
+  filter(outcome == "composite") %>%
+  transmute(` ` = hypothesis,
+            Contrast = CONTRASTS[hypothesis],
+            Ratio = ratio_ci(ratio, lower, upper),
+            `Holm p` = fmt_p(p_holm),
+            Verdict = verdict) %>%
+  kable(caption = paste("The composite outcome: the first source's effect over",
+                        "the second's in the model over all fifteen frames,",
+                        "with unadjusted 95% intervals."))
+```
+
+On the composite only H5 reaches significance, again as evidence against: the
+SFT responses' effect is `r ci_of(cf("H5", "composite"))` times B3's. Every
+other contrast is not supported. The frame-by-source SD is
+`r sprintf("%.2f", composite_sd)` on the log scale. Along the training line
+some frames rise steeply, others hold steady and F04 falls, so an average that
+weights each of the fifteen equally on the log scale moves little and carries
+wide intervals. The per-frame rates below show which frames move.
+
+## The family along the training line
+
+```{r}
+#| label: tbl-ladder
+#| echo: false
+ladder %>%
+  transmute(Source = source,
+            Kind = kind,
+            Words = big(words),
+            Hits = big(hits),
+            `Per million` = rate_ci(rate, lower, upper)) %>%
+  kable(align = c("l", "l", "r", "r", "r"),
+        caption = paste("The family's rate per million words in each source,",
+                        "in training order, with the midtraining experiment",
+                        "last. Intervals are rate plus or minus 1.96",
+                        "standard errors from the ratio estimator."))
+```
+
+The model's rate rises at every stage after stage 1: by a factor of
+`r fmt_ratio(cf("H3")$ratio)` in midtraining,
+`r fmt_ratio(sc("long-context stage")$ratio)` in long-context training (a
+secondary contrast), `r fmt_ratio(cf("H6")$ratio)` in SFT,
+`r fmt_ratio(cf("H8")$ratio)` in DPO and `r fmt_ratio(cf("H9")$ratio)` in RLVR.
+From B1's `r fmt_rate(rate_of("B1"))` per million words it reaches
+`r fmt_rate(rate_of("P3"))` in the final instruct model. None of the training
+text comes near the model's rate once midtraining has run: it runs between
+`r fmt_rate(min(training_text$rate))` and `r fmt_rate(max(training_text$rate))`
+per million, against `r fmt_rate(rate_of("B2"))` for B2.
+
+# Secondary results
+
+Everything in this section is registered as secondary and reported with
+unadjusted intervals.
+
+```{r}
+#| label: tbl-secondary
+#| echo: false
+sec %>%
+  filter(hypothesis %in% c("long-context stage", "Round 5 against Gen-QA",
+                           "Round 5 against math-code",
+                           "midtrained model vs its data",
+                           "SFT model vs its data")) %>%
+  select(hypothesis, plus, minus, outcome, ratio, lower, upper) %>%
+  mutate(value = ratio_ci(ratio, lower, upper)) %>%
+  select(hypothesis, plus, minus, outcome, value) %>%
+  tidyr::pivot_wider(names_from = outcome, values_from = value) %>%
+  transmute(Contrast = sprintf("%s against %s", plus,
+                               ifelse(minus == "midtraining",
+                                      "the midtraining sample",
+                                      ifelse(minus == "sft", "the SFT responses",
+                                             minus))),
+            Family = family, Composite = composite) %>%
+  kable(caption = "Secondary contrasts, with unadjusted 95% intervals.")
+```
+
+Long-context training raises the family's rate by
+`r ci_of(sc("long-context stage"))`, and by
+`r ci_of(sc("long-context stage", "composite"))` on the composite. Its data,
+two-thirds of it midtraining data, was not counted, so this study cannot say
+what in that stage raises the rate.
+
+The Round 5 mix from 2T lands between the other two: N3 is
+`r ci_of(sc("Round 5 against Gen-QA"))` times N1 and
+`r ci_of(sc("Round 5 against math-code"))` times N2.
+
+The two checkpoints set against the text of their own stage both outrun it. B2
+is `r ci_of(sc("midtrained model vs its data"))` times the midtraining sample
+and P1 is `r ci_of(sc("SFT model vs its data"))` times the SFT responses, and
+both hold on the composite.
+
+Adding the partial F10 to the family leaves every confirmatory ratio on the
+same side of 1, with an interval that excludes 1. Where F10 makes up much of
+the hits and changes little between the two sources, it pulls the ratio
+towards 1: H3's falls from `r fmt_ratio(cf("H3")$ratio)` to
+`r fmt_ratio(sensitivity$ratio[sensitivity$hypothesis == "H3"])`.
+
+The final base and final instruct checkpoints are the ones Study 2 ran at the
+same settings, with new seeds, and their family rates reproduce Study 2's. B3
+is `r ci_of(replication[replication$plus == "B3", ])` times Study 2's
+base-1.0, and P3 is `r ci_of(replication[replication$plus == "P3", ])` times
+its instruct-1.0.
+
+## Where the family sits in the training text
+
+```{r}
+#| label: tbl-midtraining
+#| echo: false
+mt_cat %>%
+  transmute(Category = category,
+            Files = units,
+            Words = millions(words),
+            Hits = big(hits),
+            `Per million` = rate_or_none(hits, per_million, lower, upper)) %>%
+  kable(align = c("l", "r", "r", "r", "r"),
+        caption = paste("The midtraining sample by the dataset card's",
+                        "categories, with normal intervals."))
+```
+
+In the midtraining sample, `r pct(mt_cat$hits[1] / sum(mt_cat$hits))` of the
+family's hits come from web text, which runs at
+`r fmt_rate(cat_rate("Web pages"))` per million, close to the stage-1 sample's
+rate. The synthetic QA sources run at `r fmt_rate(cat_rate("QA (synth)"))` as a
+group and the instruction data at `r fmt_rate(cat_rate("Instruction (synth)"))`,
+with one QA source, Nemotron Synth QA, the highest of the 24 at
+`r fmt_rate(src_rate("Nemotron Synth QA"))`. Code, mathematics, reasoning
+traces and PDFs carry little. A mix that trades mathematics, code and reasoning
+traces for QA and instruction data, as the Gen-QA mix does, therefore holds
+more of the family per word, which may account for part of N1's higher rate.
+The two experimental mixes' own text was not measured, and the released mix,
+which was, differs from both.
+
+```{r}
+#| label: tbl-sft
+#| echo: false
+sft_sets %>%
+  transmute(Dataset = source_dataset,
+            Conversations = big(units),
+            Words = big(words),
+            Hits = big(hits),
+            `Per million` = rate_or_none(hits, per_million, lower, upper)) %>%
+  kable(align = c("l", "r", "r", "r", "r"),
+        caption = paste("The SFT responses by source dataset, with normal",
+                        "intervals."))
+```
+
+In the SFT set the family comes mostly from one dataset: the WildChat prompts
+with responses written by GPT-4.1 hold `r pct(wildchat$words / sum(sft_sets$words))`
+of the words and `r pct(wildchat$hits / sum(sft_sets$hits))` of the family's
+hits, at `r fmt_rate(wildchat$per_million)` per million. That is
+`r pct(wildchat$per_million / rate_of("P1"))` of the SFT checkpoint's rate. The
+mathematics, code and puzzle datasets carry little or none.
+
+In the DPO set, `r largest("chosen")$model` wrote
+`r pct(largest("chosen")$units / nrow(dpo))` of the chosen responses, at
+`r fmt_rate(largest("chosen")$per_million)` per million, and
+`r largest("rejected")$model` wrote
+`r pct(largest("rejected")$units / nrow(dpo))` of the rejected ones, at
+`r fmt_rate(largest("rejected")$per_million)`. H7's difference therefore
+reflects which models wrote each side as well as which responses were
+preferred. The per-model rates are in `data/study4/results-dpo-models.csv`.
+
+# Exploratory results
+
+Everything in this section is registered as exploratory. It is descriptive and
+uncorrected.
+
+## Frame by frame
+
+```{r}
+#| label: tbl-frames
+#| echo: false
+pf %>%
+  filter(source %in% FRAME_SOURCES) %>%
+  mutate(source = factor(source, levels = FRAME_SOURCES)) %>%
+  select(source, frame_id, rate) %>%
+  arrange(source) %>%
+  tidyr::pivot_wider(names_from = source, values_from = rate) %>%
+  arrange(frame_id) %>%
+  mutate(across(-frame_id, fmt_rate)) %>%
+  rename(Frame = frame_id, `Stage 1` = stage1) %>%
+  kable(align = c("l", rep("r", length(FRAME_SOURCES))),
+        caption = paste("Each frame's rate per million words in the stage-1",
+                        "sample and along the main line of checkpoints. The",
+                        "frames' strings are in data/frames.csv."))
+```
+
+F09, `is n't just`, carries most of the family's rise. It runs at
+`r fmt_rate(pf_rate("stage1", "F09"))` per million in the stage-1 sample, at
+`r fmt_rate(pf_rate("B3", "F09"))` in the final base model and at
+`r fmt_rate(pf_rate("P3", "F09"))` in the final instruct model, where it makes
+up `r pct(f09_share("P3"))` of the family's hits. F07, `it 's not just`, rises
+at each step from B1 to B3, and F08, `not just * but`, peaks in B3. F06, the
+full `it 's not * , it 's`, is rare everywhere, and F10 holds near the stage-1
+rate in every base-model checkpoint and runs higher in the post-trained ones.
+
+The other families move differently. Two announce-the-point frames rise mainly
+at SFT: F01, `here 's the thing`, from `r fmt_rate(pf_rate("B3", "F01"))` per
+million in B3 to `r fmt_rate(pf_rate("P3", "F01"))` in P3, and F03,
+`here 's what`, from `r fmt_rate(pf_rate("B3", "F03"))` to
+`r fmt_rate(pf_rate("P3", "F03"))`. F04, `the thing is`, falls from
+`r fmt_rate(pf_rate("stage1", "F04"))` in the stage-1 sample to
+`r fmt_rate(pf_rate("P3", "F04"))` in P3, while F13, `and that 's`, and F14,
+`turns out`, stay near their stage-1 rates throughout. That spread is what the
+composite's frame-by-source SD records.
+
+## Length and truncation
+
+```{r}
+#| label: tbl-length
+#| echo: false
+len %>%
+  select(arm, finish_reason, texts, per_million) %>%
+  tidyr::pivot_wider(names_from = finish_reason,
+                     values_from = c(texts, per_million)) %>%
+  mutate(arm = factor(arm, levels = ARMS$arm)) %>%
+  arrange(arm) %>%
+  transmute(Arm = as.character(arm),
+            `Finished posts` = big(texts_stop),
+            `Per million, finished` = fmt_rate(per_million_stop),
+            `Cut-off posts` = big(texts_length),
+            `Per million, cut off` = fmt_rate(per_million_length)) %>%
+  kable(align = c("l", "r", "r", "r", "r"),
+        caption = paste("The family's rate per million words by whether the",
+                        "post finished or reached the token limit."))
+```
+
+In `r number_word(finished_higher)` of the nine arms, posts that finished carry
+the family at a higher rate than posts cut at the token limit, so truncation
+lowers those arms' rates, more so where more posts were cut. The order along
+the training line holds within each kind of post: among finished posts and
+among cut-off posts alike, each of B1, B2, B3, P1, P2 and P3 has a higher rate
+than the one before.
+
+# What this does not establish
+
+- **One model.** Olmo 3 7B was chosen because every stage's checkpoint and data
+  are published. Nothing here says how other models acquire the frames.
+- **One prompt and one genre.** Every text answers `Write a blog post titled:`
+  followed by a title from a 2012 blog.
+- **Genre in the comparisons with training text.** H1, H2, H5 and the
+  secondary comparisons of a checkpoint with its own data set prompted blog
+  posts against training text of every kind, from code to encyclopedia
+  articles. The comparisons between checkpoints hold the prompts fixed. Within
+  the training text, the sources nearest to blog writing, web text and GPT-4.1's
+  WildChat responses, still run far below the post-trained checkpoints.
+- **What a stage bundles.** A difference between successive checkpoints is the
+  effect of all the training between them: the data, the learning-rate
+  schedule and, at the step from base to SFT, the prompt format and the chat
+  template's default system prompt.
+- **One experiment on the mixes.** N1 to N3 start from a stage-1 checkpoint at
+  2 trillion tokens, earlier than the one the released model continued from,
+  and their mixes differ in several categories at once.
+- **Stages measured on one side.** The long-context stage's data was not
+  counted, and the RLVR data holds no responses. For both, only the change in
+  the model's output is measured.
+- **Few hits at the start.** B1's rate rests on
+  `r big(ladder$hits[ladder$key == "B1"])` hits, so its interval is wide.
+- **A midtraining sample by token share.** The sources are allocated by their
+  shares of tokens and rates are per word, so the pooled sample matches the
+  mix's composition only approximately, and the olmOCR source's rate describes
+  its unredacted documents only (S4-D4).
+- **Truncated texts.** Between `r pct(min(share_cut))` and
+  `r pct(max(share_cut))` of an arm's posts were cut at 1,024 tokens. The
+  length analysis above shows they lower the rates without changing the order.
+- **Fixed strings chosen as typical of model output.** As in Studies 1 to 3,
+  these are rates per million of fifteen frozen strings, chosen because they
+  seem typical of machine-generated prose. Density, sentence position and
+  paraphrases are not measured.
+- **Text that cannot be regenerated exactly.** Each generation's seed fixes its
+  sampling request, but vLLM's arithmetic varies with the batch a request
+  shares, so a rerun gives different text.
+  `data/study4/generated-sha256.txt` identifies the files that were counted.
+
+# Reproducing this
+
+The repository holds the generation and counting code
+(`python/generate_study4.py`, `python/count_study4.py`), the protocol with
+every checkpoint's and dataset's pinned commit (`docs/study4-protocol.md`), the
+counts (`data/study4/counts.csv`, with one row per unit of text in
+`data/study4/units-*`), one record per midtraining file read
+(`data/study4/midtraining/`), and the record of the run
+(`docs/collection-log.md`).
+
+`Rscript R/analyse-study4.R` recomputes every number in this document from
+those files, and `python python/count_study4.py --collect data/study4`
+rebuilds the tables from the generated text and the per-shard counts, which
+git does not hold.
+
+# References
+
+::: {#refs}
+:::

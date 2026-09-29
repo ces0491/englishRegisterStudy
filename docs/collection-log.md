@@ -244,3 +244,28 @@ repository but not a commit; GitHub then held `f6b09d9`, committed and pushed
 at 09:08 UTC. The filed text includes three corrections made before filing and
 committed after it: the option-list answers, H4's description of the two
 midtraining mixes, and the protocol's label for contrast 4.
+
+**29 September 2026, trial and format check.** After registration, before any
+of the study's text was generated or any frame counted in its data.
+
+- `python/generate_study4.py --trial 8` ran all nine checkpoints in parallel
+  on L40S GPUs, 8 topics each, with seeds from a trial namespace. The text went
+  to `study4-trial/` on the volume and is not data. Every arm loaded at its
+  pinned commit, the three runs from 2T through the Olmo 3 configuration, and
+  all 72 texts are non-empty, in topic order and free of special tokens. The
+  chat arms' prompts carry the same default system prompt as Study 2's, and
+  the library versions match Study 2's.
+- The end-of-stage-1, end-of-midtraining, Gen-QA and Round 5 checkpoints wrote
+  about 300 words a text, against about 670 for the final base model. That
+  rests on 8 texts each, but if it holds, those arms will have roughly half the
+  words and wider intervals than the registration's sample-size rationale,
+  which assumed Study 2's lengths.
+- `python/count_study4.py --check` listed the midtraining mix's 71,090 files.
+  Every one is claimed by exactly one of the 24 sources once `stack_edu-fim_*`
+  replaces the protocol's `stack_edu-fim-*` (deviation S4-D1). It read each
+  source's last file in draw order, the one the draw reaches last if at all,
+  and every source's documents carry a `text` field. Those files are the
+  smallest in their sources, some holding a single document. It counted words
+  and no frames. The SFT conversations are user and assistant turns, and all
+  of the DPO set's first 500 pairs end on an assistant turn, as the protocol's
+  rule for the response assumes.

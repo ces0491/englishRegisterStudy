@@ -172,6 +172,25 @@ checked. `R/model.R` holds the model the two studies share. `R/analyse.R`
 does not use it: that is Study 1's registered analysis, it has run, and
 leaving it untouched is worth more than removing the duplication.
 
+Study 4's pipeline, registered at <https://osf.io/d79u4> and specified in
+`docs/study4-protocol.md`:
+
+```
+modal run python/generate_study4.py --trial 8     # nine checkpoints, briefly
+modal run python/count_study4.py --check          # formats, words only, no frames
+modal run --detach python/generate_study4.py      # nine checkpoints in parallel
+modal run --detach python/count_study4.py         # midtraining, SFT and DPO data
+modal volume get --force englishregisterstudy /study4/ ./data/
+python python/count_study4.py --collect data/study4
+Rscript R/analyse-study4.R
+```
+
+`python/generate_study4.py` repeats Study 2's generation functions rather than
+importing them, and its tests check that the two agree. The collect step writes
+`data/study4/counts.csv`, which the composite's model reads, and one row per
+unit of text in `data/study4/units-*`, which the family's ratio estimator in
+`R/ratio.R` reads. The generated text stays out of git, as Study 2's does.
+
 The script refuses a partial grid, in either file. Every countable frame needs a
 combined count in all 5 varieties, every splittable frame needs both sections,
 each entered once with a whole-number hit count, and every variety needs its

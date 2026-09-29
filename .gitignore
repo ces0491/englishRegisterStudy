@@ -21,11 +21,17 @@ data/training-contrasts.csv
 data/training-per-subset.csv
 data/olmocr-topics.csv
 data/training-exploratory.csv
+# Study 4: derived by R/analyse-study4.R, and the per-shard SFT and DPO counts
+# that python/count_study4.py --collect combines into data/study4/units-*.
+data/study4/results-*.csv
+data/study4/sft/
+data/study4/dpo/
 
 # Generated text: too large for git. data/generated-sha256.txt identifies the
 # files that were counted, and the counts taken from them are committed, as is
 # data/dolma/, which holds the Dolma draw's per-file counts and none of its text.
 data/generated/
+data/study4/generated/
 figures/
 
 __pycache__/

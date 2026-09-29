@@ -536,3 +536,57 @@ with
 >   whole-mix comparison recomputed with that rate. gzip packs text less
 >   tightly than zstd, so byte shares overstate the topics stored with gzip and
 >   the reweighting corrects only part of the imbalance.
+
+## Study 4
+
+Every departure from the registration at <https://osf.io/d79u4>, recorded
+before any of the study's text was generated or any frame counted in its data.
+
+### S4-D1. One directory pattern in the protocol matches nothing
+
+**Registered:** the registration allocates the midtraining sample across "the
+24 sources" of the dataset card. The protocol it specifies the study through,
+`docs/study4-protocol.md`, gives each source's directory pattern, and for
+StackEdu (FIM) that pattern is `stack_edu-fim-*`.
+
+**What happened:** at the pinned commit no directory matches
+`stack_edu-fim-*`. The source's 474 files sit in 60 directories named
+`stack_edu-fim_vigintile_*`, with an underscore where the pattern has a
+hyphen. Checked on 29 September 2026 against the full listing, while writing
+the counting code: every other pattern matches its source's directories, and
+no directory is claimed by two sources.
+
+**What is done instead:** the pattern is read as `stack_edu-fim_*`, which
+matches those 60 directories and nothing else, so StackEdu (FIM) is sampled at
+its registered allocation of 24,023,062 words like every other source.
+
+**Effect on the analysis:** none on the registered design. The registration
+names the source and its share; only the protocol's pattern was wrong, and no
+other reading of it is possible. Without the correction the source would have
+no files and the sample could not be drawn as registered.
+
+**When:** 29 September 2026, after registration and before any Study 4 text
+was generated or any frame counted in its data.
+
+### Study 4's OSF update
+
+Drafted on 29 September 2026, to be submitted as one update to the
+registration, citing this file at the commit that first holds this section.
+It makes one change. Answers not listed are unchanged.
+
+#### Sampling: Data collection procedures
+
+**S4-D1.** After the paragraph beginning "Midtraining draw.", add
+
+> One directory pattern in docs/study4-protocol.md is corrected. The protocol
+> gives StackEdu (FIM)'s directories as stack_edu-fim-*, which matches no
+> directory at the pinned commit; the source's 474 files are in 60 directories
+> named stack_edu-fim_vigintile_*, and the draw reads the pattern as
+> stack_edu-fim_*. No other reading is possible, and nothing else changes. This
+> is deviation S4-D1 in docs/deviations.md.
+
+The justification OSF asks for:
+
+> Corrects a clerical error in the protocol's directory pattern for one
+> midtraining source, found while writing the counting code, before any of the
+> study's text was generated or any frame counted in its data.

@@ -8,7 +8,8 @@ Study 2 is registered at <https://osf.io/qjgtc> and Study 3 at
 Study 2's text generated on 28 September; both runs are in
 `docs/collection-log.md`, and both studies are analysed and written up in
 `docs/study2-3-results.qmd`. A fourth study, locating where the model's excess
-enters its training, is designed below and not registered. The literature
+enters its training, is designed below, registered at
+<https://osf.io/d79u4> and not yet run. The literature
 behind Studies 1 to 3 is in `docs/literature-notes.qmd`, where two cited papers
 could not be obtained and the wording that depended on them is settled by
 decision. Prior art on model style, found on 29 September, is listed with
@@ -175,7 +176,7 @@ publishing. Equality would be a real result too, and a duller one.
 
 ### Study 4 — where the excess enters
 
-*Designed 29 September 2026, with its choices settled the same day. The
+*Designed and registered on 29 September 2026, at <https://osf.io/d79u4>. The
 specification is `docs/study4-protocol.md` and the registration text
 `docs/osf-study4-registration.md`. Nothing has been generated or counted.*
 
@@ -261,7 +262,9 @@ from the same stage-1 checkpoint at 2T tokens, each on a different mix. Table
 describes them: the Gen-QA mix keeps web, QA and instruction data and omits
 reasoning traces, and the math-code-thinking mix keeps reasoning traces and
 omits QA and instruction data. With the same start and budget, the pair
-separates instruction data from reasoning traces. Their checkpoints declare
+contrasts QA and instruction data with math, code and reasoning traces; the
+mixes differ in several categories at once, so which one carries an effect
+is an interpretation. Their checkpoints declare
 a pre-release architecture, `olmo2-retrofit`, and are loaded as Olmo 3,
 whose configuration they otherwise match; the protocol gives the details.
 

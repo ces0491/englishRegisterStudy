@@ -107,8 +107,9 @@ against the output of the checkpoint it produced. The design is in
 
 - [x] Design settled on 29 September 2026: `docs/study4-protocol.md`, the
       estimator in `R/ratio.R` and its calibration in `R/calibrate-ratio.R`
-- [ ] OSF registration submitted before any of its text is generated or any of
-      its data counted
+- [x] OSF registration submitted before any of its text is generated or any of
+      its data counted. <https://osf.io/d79u4>, 29 September 2026, filed with
+      the repository at commit f6b09d9
 - [ ] Generation from the checkpoints and counts of the midtraining,
       fine-tuning and preference data, logged in `docs/collection-log.md`
 - [ ] Analysed and written up, reported as a follow-up to the article

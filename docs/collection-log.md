@@ -235,3 +235,12 @@ run-to-run variation.
 sources of 40 files each and checked 28 scenarios, covering 93.5% to 95.7%;
 the design now draws the midtraining sample in proportion to token shares,
 and the composite uses the model Studies 2 and 3 used.
+
+**29 September 2026, registration.** Filed at 10:16 UTC as
+<https://osf.io/d79u4>, public from filing, with no embargo. Every filed
+answer matches `docs/osf-study4-registration.md` word for word, checked
+against OSF's API the same day. The filed *Context* answer links the
+repository but not a commit; GitHub then held `f6b09d9`, committed and pushed
+at 09:08 UTC. The filed text includes three corrections made before filing and
+committed after it: the option-list answers, H4's description of the two
+midtraining mixes, and the protocol's label for contrast 4.

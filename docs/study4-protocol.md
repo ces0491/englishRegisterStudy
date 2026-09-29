@@ -2,8 +2,11 @@
 
 What Study 4 generates, what it counts, and how it compares them. The design
 and its reasons are in `RESEARCH-PLAN.md` under *Study 4*; this document is
-the specification the registration pins. Nothing below has been generated or
-counted.
+the specification behind the registration at <https://osf.io/d79u4>, filed
+on 29 September 2026, whose text governs wherever the two differ. The label
+of contrast 4 in the table below was corrected before filing, to match the
+registration's H4, and committed after it. Nothing below has been generated
+or counted.
 
 ## The question
 
@@ -194,7 +197,7 @@ Nine contrasts, each on both outcomes: eighteen tests, Holm-corrected together.
 | 1 | B1 against stage-1 input | pretraining amplifies by itself | B1 higher |
 | 2 | midtraining sample against stage-1 input | midtraining data carries it | midtraining higher |
 | 3 | B2 against B1 | midtraining raises the model's rate | B2 higher |
-| 4 | N1 against N2 | instruction data or reasoning traces | N1 higher if instruction data, N2 higher if reasoning traces |
+| 4 | N1 against N2 | QA and instruction data, or reasoning traces, math and code | N1 higher if the former, N2 higher if the latter |
 | 5 | SFT responses against B3 | fine-tuning data carries it | SFT data higher |
 | 6 | P1 against B3 | fine-tuning raises the model's rate | P1 higher |
 | 7 | chosen against rejected, paired | preference data pushes it | chosen higher |

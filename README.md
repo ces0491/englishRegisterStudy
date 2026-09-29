@@ -207,7 +207,8 @@ analysis never contains one.
 Study 1's analysis is registered at <https://osf.io/48wjn>, and the text as
 submitted is in
 [docs/osf-study1-registration.md](docs/osf-study1-registration.md). Study 2 is
-registered at <https://osf.io/qjgtc> and Study 3 at <https://osf.io/ngt3m>.
+registered at <https://osf.io/qjgtc>, Study 3 at <https://osf.io/ngt3m>, and
+Study 4, which has not yet run, at <https://osf.io/d79u4>.
 Departures from them are recorded in [docs/deviations.md](docs/deviations.md),
 and what each query session did, refusals included, in
 [docs/collection-log.md](docs/collection-log.md).

@@ -1,21 +1,41 @@
 # OSF registration — Study 4
 
+Registered at <https://osf.io/d79u4> on 29 September 2026 at 10:16 UTC,
+public from filing, with no embargo. This is the text as submitted: every
+answer below matches OSF's record word for word, checked against `api.osf.io`
+the same day.
+
 Text for OSF's **OSF Preregistration** template (version 4), in the template's
-order, for filing from the project the other three studies were registered
-from. Fields marked *required* cannot be left blank. The answers are plain
-text because OSF does not render Markdown, and they contain no angle
-brackets, which OSF drops.
+order. The answers are plain text because OSF does not render Markdown, and
+they contain no angle brackets, which OSF drops. Foreknowledge, study type,
+causal interpretation and blinding are option lists in OSF with no text box;
+their answers here quote the options selected, word for word.
 
-What this registers is `docs/study4-protocol.md`, the estimator in
-`R/ratio.R` and its calibration in `R/calibrate-ratio.R`, the model in
-`R/model.R`, and the pre-flight in `python/preflight_study4.py`, at the
-commit this registration links to, together with the frozen frames in
-`data/frames.csv`, the counting layer in `python/framecount.py` and the
-topics in `data/topics.csv`. The link to that commit goes into the last
-answer once the commit exists.
+The registration specifies the study through `docs/study4-protocol.md`, the
+estimator in `R/ratio.R` and its calibration in `R/calibrate-ratio.R`, the
+model in `R/model.R`, the pre-flight in `python/preflight_study4.py`, the
+frozen frames in `data/frames.csv`, the counting layer in
+`python/framecount.py` and the topics in `data/topics.csv`. The *Context*
+answer as filed links the repository and not a commit. At filing, GitHub held
+commit `f6b09d9`, pushed at 09:08 UTC, which has all of those files. Three
+corrections in the filed text were made before filing and committed after it:
+the option-list answers, H4's description of the two midtraining mixes, and
+the matching label for contrast 4 in the protocol.
 
-Suggested title: *Where does a language model's excess of rhetorical frames
-enter its training? Olmo 3, stage by stage*
+Metadata, in the form of the three earlier registrations:
+
+- **Title:** *Where does a language model's excess of rhetorical frames enter
+  its training? Olmo 3, stage by stage*
+- **Description** (472 characters):
+
+  ```
+  Where in a language model's training does its excess of rhetorical frames enter? Olmo 3 7B was trained in six published stages. Nine of its checkpoints, including three midtraining runs from one start on different data mixes, each write on 4,000 topics, and fifteen frozen frames are counted in their output and in the training data of four stages. Fourth study, after osf.io/48wjn, osf.io/qjgtc and osf.io/ngt3m.
+  Code and protocol: github.com/ces0491/englishRegisterStudy
+  ```
+
+- **Category:** project
+- **Tags:** corpus linguistics, Dolma, LLM, Olmo, post-training, register,
+  training data
 
 ---
 
@@ -53,13 +73,15 @@ a higher rate than the stage-1 input.
 H3. Midtraining raises the model's rate: the checkpoint at the end of
 midtraining uses the frames more than the checkpoint at the end of stage 1.
 
-H4. Instruction data or reasoning traces. Ai2 ran three midtraining mixes
-from the same 2T-token stage-1 checkpoint with the same 100B-token budget. By
-the Olmo 3 paper's description, the Gen-QA mix keeps web, QA and instruction
-data and omits reasoning traces, and the math-code-thinking mix keeps
-reasoning traces and omits QA and instruction data. If instruction data
-carries the excess, the Gen-QA checkpoint uses the frames more; if reasoning
-traces do, the math-code-thinking checkpoint does. Tested two-sided.
+H4. QA and instruction data, or reasoning traces. Ai2 ran three midtraining
+mixes from the same 2T-token stage-1 checkpoint with the same 100B-token
+budget. By the Olmo 3 paper's description, the Gen-QA mix raises the
+proportions of web, QA and instruction data and omits math, code and
+reasoning traces, and the math-code-thinking mix raises math, code and
+reasoning traces, keeps web, and omits QA and instruction data. If the excess
+comes with the QA and instruction data, the Gen-QA checkpoint uses the frames
+more; if it comes with the reasoning traces, math or code, the
+math-code-thinking checkpoint does. Tested two-sided.
 
 H5. Fine-tuning data carries it: the SFT responses use the frames more than
 the final base model's output.
@@ -78,10 +100,12 @@ uses the frames more than the DPO checkpoint.
 
 ### Foreknowledge of data or evidence *(required)*
 
-Some data exist and none has been analysed for this plan. The generated text
-does not exist and will not be generated until this plan is registered. The
-midtraining, SFT and preference datasets are public and no frame has been
-counted in them. The stage-1 counts are Study 3's, analysed and public.
+Authors have observed the data, but have not performed the proposed analyses. At least
+some of the data that will be used for this analysis plan has been accessed and observed
+by the authors. The authors have sufficiently observed relevant evidence to influence
+their analysis decisions or conclusions. However, the authors have not yet performed any
+of the proposed analyses in this plan and will not do so until after this plan is
+registered.
 
 ### Explanation of foreknowledge and managing unintended influences
 
@@ -89,6 +113,12 @@ The author has seen the results of Studies 1 to 3 in full, including the
 exploratory finding this study follows up. The outcomes and hypotheses were
 chosen after seeing it, so each hypothesis is tested only on data that did not
 exist, or had not been counted, when it was chosen.
+
+That is why the level certified is that the authors have observed the data but
+not performed the proposed analyses. Some of the data this plan uses has been
+observed and analysed, and what was seen shaped the plan. None of the plan's
+analyses has been performed, because every contrast in it needs data that does
+not exist yet or has not been counted.
 
 Three kinds of data are already known. The stage-1 input is Study 3's
 registered sample, reused as counted. Two arms, the final base model and the
@@ -115,22 +145,17 @@ model is the one Study 1's calibration checked.
 
 ### Study type *(required)*
 
-Non-randomized study. Descriptive study.
+Non-randomized study.
+
+Quasi-experimental design.
 
 ### Intention for causal interpretation
 
-Limited. A difference between successive checkpoints is the effect of the
-training between them, but that training bundles its data with other changes:
-the learning-rate schedule and, at the step from base to SFT, the prompt
-format. The three midtraining runs from the same 2T-token checkpoint share
-their start and their 100B-token budget and differ in their data, so H4 is
-the contrast read as an effect of data.
+Indirect inference on causal relationship(s).
 
 ### Blinding of experimental treatments *(required)*
 
-No blinding is involved. The subjects are model checkpoints and training
-datasets, and the outcome is counted by a frozen script rather than coded by
-a person.
+No blinding is involved.
 
 ### Study design *(required)*
 
@@ -170,6 +195,14 @@ The nine hypotheses map to nine contrasts: B1 against stage 1 (H1), the
 midtraining sample against stage 1 (H2), B2 against B1 (H3), N1 against N2
 (H4), the SFT responses against B3 (H5), P1 against B3 (H6), chosen against
 rejected DPO responses (H7), P2 against P1 (H8), and P3 against P2 (H9).
+
+Causal reading. A difference between successive checkpoints is the effect of
+the training between them, which bundles its data with other changes: the
+learning-rate schedule and, at the step from base to SFT, the prompt format.
+The three midtraining runs from the same 2T-token checkpoint share their start
+and budget and differ in their data mix, so H4 reads as an effect of the mix.
+The mixes differ in several categories at once, so which category carries an
+effect is an interpretation, and the write-up presents it as one.
 
 ### Randomization
 

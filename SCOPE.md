@@ -129,13 +129,17 @@ no ground truth for "American-like" beyond Study 1 itself, and that one open
 model was measured. It answers claim by claim to *The Average Human Problem*
 (4 May 2026), whose averaging argument Study 3 was built to test; the plan is
 `notes/register-study-article.md` in the `tech-perspectives` repo. The
-article is `_posts/2026-09-29-too-much-of-a-good-thing.md` there, committed
-locally on 29 September 2026 and awaiting Ces's read before it is pushed.
+article is `_posts/2026-09-29-too-much-of-a-good-thing.md` there, published on
+29 September 2026 at
+<https://blog.sheetsolved.com/too-much-of-a-good-thing.html>.
 
 - [x] `README.md` and `RESEARCH-PLAN.md` describe what was actually done,
       checked on 29 September 2026
-- [ ] *The Average Human Problem* carries a dated correction note linking to
+- [x] *The Average Human Problem* carries a dated correction note linking to
       the article, under the house style's rule for corrections
+- [x] Published, and linking the write-ups at
+      <https://ces0491.github.io/englishRegisterStudy/> for the full results
+      and the repository for the counts and the code
 
 ## Out of scope
 

@@ -1,0 +1,1016 @@
+source,category,path,documents,redacted,stopped,words,F01,F02,F03,F04,F05,F06,F07,F08,F09,F10,F11,F12,F13,F14,F15
+TinyMATH Mind,Math (synth),data/tinymath-mind/output_011.jsonl.zst,746,0,cap,249605,0,0,1,0,1,0,1,0,1,1,0,0,15,1,1
+TinyMATH Mind,Math (synth),data/tinymath-mind/output_150.jsonl.zst,740,0,cap,249551,1,0,0,0,0,0,2,0,0,2,0,0,14,0,1
+TinyMATH Mind,Math (synth),data/tinymath-mind/output_013.jsonl.zst,734,0,cap,249455,0,1,5,1,0,0,0,0,1,2,0,0,20,3,1
+TinyMATH Mind,Math (synth),data/tinymath-mind/output_005.jsonl.zst,744,0,cap,249160,0,0,3,0,0,0,2,0,2,5,0,0,14,2,0
+TinyMATH Mind,Math (synth),data/tinymath-mind/output_148.jsonl.zst,748,0,cap,249877,0,0,1,0,1,0,0,0,0,0,0,0,7,0,0
+TinyMATH Mind,Math (synth),data/tinymath-mind/output_084.jsonl.zst,736,0,cap,249229,0,1,3,0,0,0,0,0,0,3,0,0,16,1,0
+TinyMATH Mind,Math (synth),data/tinymath-mind/output_093.jsonl.zst,718,0,cap,249994,1,1,1,0,0,0,0,0,0,4,0,0,18,0,0
+TinyMATH Mind,Math (synth),data/tinymath-mind/output_110.jsonl.zst,762,0,cap,249998,0,0,0,0,1,0,0,0,0,6,0,0,6,0,0
+TinyMATH Mind,Math (synth),data/tinymath-mind/output_155.jsonl.zst,451,0,allocation,160537,0,0,2,0,0,0,0,0,0,4,0,0,6,0,0
+TinyMATH PoT,Math (synth),data/tinymath-pot/output_06.jsonl.zst,2032,0,cap,249934,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+TinyMATH PoT,Math (synth),data/tinymath-pot/output_07.jsonl.zst,2020,0,cap,249775,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0
+TinyMATH PoT,Math (synth),data/tinymath-pot/output_04.jsonl.zst,719,0,allocation,79399,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+CraneMath,Math (synth),data/cranemath/shard_00000000-withid.jsonl.zst,557,0,cap,249716,0,0,0,0,0,0,0,0,0,3,0,0,0,0,0
+CraneMath,Math (synth),data/cranemath/shard_00000135-withid.jsonl.zst,575,0,cap,249983,0,0,0,0,0,0,0,0,0,3,0,0,0,0,0
+CraneMath,Math (synth),data/cranemath/shard_00000077-withid.jsonl.zst,593,0,cap,249920,0,0,0,0,0,0,0,0,1,3,0,0,1,0,0
+CraneMath,Math (synth),data/cranemath/shard_00000022-withid.jsonl.zst,605,0,cap,249864,0,0,0,0,0,0,0,0,1,2,0,0,0,0,0
+CraneMath,Math (synth),data/cranemath/shard_00000129-withid.jsonl.zst,556,0,cap,249891,0,0,0,0,0,0,0,0,0,1,0,1,0,0,0
+CraneMath,Math (synth),data/cranemath/shard_00000033-withid.jsonl.zst,537,0,cap,249821,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0
+CraneMath,Math (synth),data/cranemath/shard_00000098-withid.jsonl.zst,563,0,cap,249417,0,0,0,0,0,0,0,0,0,4,0,0,0,0,0
+CraneMath,Math (synth),data/cranemath/shard_00000096-withid.jsonl.zst,601,0,cap,249906,0,0,1,0,0,0,0,0,1,3,0,0,0,0,0
+CraneMath,Math (synth),data/cranemath/shard_00000073-withid.jsonl.zst,591,0,cap,249769,0,0,0,0,0,0,0,0,3,1,0,1,0,0,0
+CraneMath,Math (synth),data/cranemath/shard_00000130-withid.jsonl.zst,550,0,cap,248137,0,0,0,0,0,0,1,0,3,0,0,0,0,1,0
+CraneMath,Math (synth),data/cranemath/shard_00000134-withid.jsonl.zst,572,0,cap,248414,0,0,1,0,0,0,0,0,0,2,0,0,0,0,0
+CraneMath,Math (synth),data/cranemath/shard_00000099-withid.jsonl.zst,642,0,cap,249678,0,0,0,0,0,0,0,0,0,3,0,0,0,0,0
+CraneMath,Math (synth),data/cranemath/shard_00000111-withid.jsonl.zst,619,0,cap,249632,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+CraneMath,Math (synth),data/cranemath/shard_00000065-withid.jsonl.zst,601,0,cap,249810,0,0,0,0,0,0,0,0,1,1,0,0,0,0,0
+CraneMath,Math (synth),data/cranemath/shard_00000045-withid.jsonl.zst,554,0,cap,248339,0,0,0,0,0,0,0,0,2,3,0,0,0,0,0
+CraneMath,Math (synth),data/cranemath/shard_00000160-withid.jsonl.zst,618,0,cap,249690,0,0,0,0,0,0,0,0,2,1,0,0,0,0,0
+CraneMath,Math (synth),data/cranemath/shard_00000119-withid.jsonl.zst,455,0,cap,249039,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+CraneMath,Math (synth),data/cranemath/shard_00000171-withid.jsonl.zst,551,0,cap,249826,0,0,0,0,0,0,0,0,0,2,0,0,0,0,0
+CraneMath,Math (synth),data/cranemath/shard_00000051-withid.jsonl.zst,542,0,cap,248107,0,0,0,0,0,0,0,1,0,3,0,0,0,0,0
+CraneMath,Math (synth),data/cranemath/shard_00000190-withid.jsonl.zst,620,0,cap,248053,0,0,0,0,0,0,0,0,2,1,0,0,0,0,0
+CraneMath,Math (synth),data/cranemath/shard_00000092-withid.jsonl.zst,591,0,cap,247715,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+CraneMath,Math (synth),data/cranemath/shard_00000016-withid.jsonl.zst,573,0,cap,249578,0,0,0,0,0,0,0,0,2,1,0,0,1,0,0
+CraneMath,Math (synth),data/cranemath/shard_00000158-withid.jsonl.zst,550,0,cap,249740,0,0,0,0,0,0,0,0,0,3,0,0,0,0,0
+CraneMath,Math (synth),data/cranemath/shard_00000070-withid.jsonl.zst,586,0,cap,249927,0,0,1,0,0,0,0,0,0,1,0,0,0,0,0
+CraneMath,Math (synth),data/cranemath/shard_00000185-withid.jsonl.zst,609,0,cap,249709,0,0,0,0,0,0,0,0,0,2,0,0,1,0,0
+CraneMath,Math (synth),data/cranemath/shard_00000047-withid.jsonl.zst,565,0,cap,249915,0,0,1,0,0,0,0,0,0,3,0,0,0,0,0
+CraneMath,Math (synth),data/cranemath/shard_00000165-withid.jsonl.zst,579,0,cap,249684,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0
+CraneMath,Math (synth),data/cranemath/shard_00000140-withid.jsonl.zst,608,0,cap,248370,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0
+CraneMath,Math (synth),data/cranemath/shard_00000043-withid.jsonl.zst,593,0,cap,249767,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0
+CraneMath,Math (synth),data/cranemath/shard_00000039-withid.jsonl.zst,561,0,cap,248815,0,0,0,0,0,0,1,0,0,0,0,0,1,0,0
+CraneMath,Math (synth),data/cranemath/shard_00000059-withid.jsonl.zst,575,0,cap,248643,0,0,0,0,0,0,0,0,2,2,0,0,0,0,0
+CraneMath,Math (synth),data/cranemath/shard_00000058-withid.jsonl.zst,619,0,cap,249989,0,0,0,0,0,0,0,0,0,1,0,0,1,0,0
+CraneMath,Math (synth),data/cranemath/shard_00000186-withid.jsonl.zst,539,0,cap,249142,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0
+CraneMath,Math (synth),data/cranemath/shard_00000142-withid.jsonl.zst,567,0,cap,249722,0,0,0,0,0,0,0,0,0,2,0,0,0,0,0
+CraneMath,Math (synth),data/cranemath/shard_00000035-withid.jsonl.zst,596,0,cap,249692,0,0,0,0,0,0,0,1,1,2,0,0,0,0,0
+CraneMath,Math (synth),data/cranemath/shard_00000072-withid.jsonl.zst,555,0,cap,249919,0,0,0,0,0,0,0,0,0,1,0,1,0,0,0
+CraneMath,Math (synth),data/cranemath/shard_00000083-withid.jsonl.zst,520,0,cap,249978,0,0,0,0,0,0,0,0,1,1,0,0,0,0,0
+CraneMath,Math (synth),data/cranemath/shard_00000109-withid.jsonl.zst,543,0,cap,249885,0,0,0,0,0,0,0,0,5,2,0,0,1,0,0
+CraneMath,Math (synth),data/cranemath/shard_00000151-withid.jsonl.zst,571,0,cap,249500,0,0,0,0,0,0,0,1,2,1,0,0,0,0,0
+CraneMath,Math (synth),data/cranemath/shard_00000117-withid.jsonl.zst,529,0,cap,249823,0,0,0,0,0,0,0,0,1,4,0,0,0,0,0
+CraneMath,Math (synth),data/cranemath/shard_00000076-withid.jsonl.zst,582,0,cap,249359,0,0,0,0,0,0,0,0,0,4,0,1,1,0,0
+CraneMath,Math (synth),data/cranemath/shard_00000068-withid.jsonl.zst,611,0,cap,249912,0,0,0,0,0,0,0,0,0,2,0,0,0,0,0
+CraneMath,Math (synth),data/cranemath/shard_00000080-withid.jsonl.zst,597,0,cap,249491,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0
+CraneMath,Math (synth),data/cranemath/shard_00000144-withid.jsonl.zst,546,0,cap,249960,0,0,0,0,0,0,0,0,2,0,0,1,0,0,0
+CraneMath,Math (synth),data/cranemath/shard_00000122-withid.jsonl.zst,611,0,cap,249830,0,0,0,0,0,0,0,0,0,2,0,0,0,0,0
+CraneMath,Math (synth),data/cranemath/shard_00000005-withid.jsonl.zst,602,0,cap,249993,0,0,0,0,0,0,1,1,2,2,0,0,0,0,0
+CraneMath,Math (synth),data/cranemath/shard_00000107-withid.jsonl.zst,533,0,cap,249945,0,0,0,0,0,0,0,0,6,1,0,0,0,0,0
+CraneMath,Math (synth),data/cranemath/shard_00000184-withid.jsonl.zst,613,0,cap,249746,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+CraneMath,Math (synth),data/cranemath/shard_00000088-withid.jsonl.zst,571,0,cap,249816,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+CraneMath,Math (synth),data/cranemath/shard_00000115-withid.jsonl.zst,590,0,cap,249908,0,0,0,0,0,0,0,0,0,7,0,0,0,0,0
+CraneMath,Math (synth),data/cranemath/shard_00000159-withid.jsonl.zst,609,0,cap,249610,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0
+CraneMath,Math (synth),data/cranemath/shard_00000139-withid.jsonl.zst,553,0,cap,249933,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+CraneMath,Math (synth),data/cranemath/shard_00000046-withid.jsonl.zst,593,0,cap,248265,0,0,0,0,0,0,0,0,1,1,0,0,0,0,0
+CraneMath,Math (synth),data/cranemath/shard_00000177-withid.jsonl.zst,653,0,cap,249763,0,0,0,0,0,0,0,0,0,2,0,0,0,0,0
+CraneMath,Math (synth),data/cranemath/shard_00000063-withid.jsonl.zst,62,0,allocation,28933,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0
+MegaMatt,Math (synth),data/megamatt/shard_00000314.jsonl.zst,882,0,cap,249791,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0
+MegaMatt,Math (synth),data/megamatt/shard_00000574.jsonl.zst,866,0,cap,249850,0,0,0,0,0,0,0,0,0,2,0,0,0,0,0
+MegaMatt,Math (synth),data/megamatt/shard_00001807.jsonl.zst,842,0,cap,249933,0,0,0,0,0,0,0,0,0,2,0,0,0,0,0
+MegaMatt,Math (synth),data/megamatt/shard_00001550.jsonl.zst,900,0,cap,249706,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+MegaMatt,Math (synth),data/megamatt/shard_00000712.jsonl.zst,821,0,cap,249814,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+MegaMatt,Math (synth),data/megamatt/shard_00001886.jsonl.zst,800,0,cap,249809,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0
+MegaMatt,Math (synth),data/megamatt/shard_00000694.jsonl.zst,846,0,cap,249877,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0
+MegaMatt,Math (synth),data/megamatt/shard_00001488.jsonl.zst,893,0,cap,249738,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+MegaMatt,Math (synth),data/megamatt/shard_00000404.jsonl.zst,872,0,cap,249562,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+MegaMatt,Math (synth),data/megamatt/shard_00001604.jsonl.zst,889,0,cap,249981,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+MegaMatt,Math (synth),data/megamatt/shard_00001862.jsonl.zst,887,0,cap,249698,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0
+MegaMatt,Math (synth),data/megamatt/shard_00000029.jsonl.zst,846,0,cap,249973,0,0,0,0,0,0,0,0,0,2,0,0,0,0,0
+MegaMatt,Math (synth),data/megamatt/shard_00000386.jsonl.zst,852,0,cap,249182,0,0,0,0,0,0,0,0,0,4,0,0,0,0,0
+MegaMatt,Math (synth),data/megamatt/shard_00001482.jsonl.zst,843,0,cap,249946,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+MegaMatt,Math (synth),data/megamatt/shard_00000275.jsonl.zst,873,0,cap,248147,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+MegaMatt,Math (synth),data/megamatt/shard_00000738.jsonl.zst,841,0,cap,249908,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+MegaMatt,Math (synth),data/megamatt/shard_00000442.jsonl.zst,554,0,allocation,161182,0,0,0,0,0,0,0,1,0,1,0,0,1,0,0
+Dolmino Math,Math (synth),data/dolmino-math/dolmino_math_mathcoder2-synthmath_m-a-p_Matrix_filtered-math_book_math.0000.0414.jsonl.zst,329,0,cap,249698,0,2,3,0,0,0,0,0,7,2,0,0,6,28,0
+Dolmino Math,Math (synth),data/dolmino-math/dolmino_math_tulu_math_personahub_math_grade_train_0001.jsonl.zst,889,0,cap,249962,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+Dolmino Math,Math (synth),data/dolmino-math/dolmino_math_tinyGSM-MIND_2students_tiny_gsm_inline_part096.000000.jsonl.zst,942,0,cap,249832,0,0,29,0,0,0,0,0,0,0,0,0,40,0,0
+Dolmino Math,Math (synth),data/dolmino-math/dolmino_math_tinyGSM-MIND_problem-solving_tiny_gsm_inline_part056.000004.jsonl.zst,980,0,cap,250000,0,0,0,0,0,0,0,0,0,0,0,0,6,2,0
+Dolmino Math,Math (synth),data/dolmino-math/dolmino_math_metamath-owmfilter_0000.jsonl.zst,1707,0,cap,249878,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0
+Dolmino Math,Math (synth),data/dolmino-math/dolmino_math_tinyGSM-MIND_2students_tiny_gsm_inline_part044.000003.jsonl.zst,962,0,cap,249952,0,0,21,0,0,0,0,0,0,0,0,0,25,0,0
+Dolmino Math,Math (synth),data/dolmino-math/dolmino_math_mathcoder2-synthmath_ajibawa-2023_Maths-College-5-Final.jsonl.zst,459,0,cap,249740,0,0,2,0,0,0,0,0,0,0,0,0,0,16,0
+Dolmino Math,Math (synth),data/dolmino-math/dolmino_math_mathcoder2-synthmath_m-a-p_Matrix_filtered-math_book_science.0000.0347.jsonl.zst,65,0,cap,249342,0,0,0,0,0,0,0,0,0,1,0,0,0,17,0
+Dolmino Math,Math (synth),data/dolmino-math/dolmino_math_tinyGSM-MIND_2students_tiny_gsm_inline_part036.000009.jsonl.zst,966,0,cap,249961,0,0,23,0,0,0,0,0,0,0,0,0,28,0,1
+Dolmino Math,Math (synth),data/dolmino-math/dolmino_math_mathcoder2-synthmath_m-a-p_Matrix_filtered-math_book_science.0000.0305.jsonl.zst,76,0,cap,246834,0,0,0,0,0,0,0,0,0,1,0,0,0,15,0
+Dolmino Math,Math (synth),data/dolmino-math/dolmino_math_tinyGSM-MIND_problem-solving_tiny_gsm_inline_part094.000003.jsonl.zst,969,0,cap,249919,0,0,1,0,0,0,0,0,0,3,0,0,12,0,0
+Dolmino Math,Math (synth),data/dolmino-math/dolmino_math_mathcoder2-synthmath_m-a-p_Matrix_filtered-math_book_science.0000.0159.jsonl.zst,66,0,cap,242321,0,0,0,0,0,0,0,0,0,1,0,0,0,23,0
+Dolmino Math,Math (synth),data/dolmino-math/dolmino_math_mathcoder2-synthmath_m-a-p_Matrix_filtered-math_book_science.0000.0085.jsonl.zst,60,0,cap,249863,0,0,0,0,0,0,0,0,0,1,0,0,0,23,0
+Dolmino Math,Math (synth),data/dolmino-math/dolmino_math_mathcoder2-synthmath_m-a-p_Matrix_filtered-math_book_science.0000.0372.jsonl.zst,53,0,cap,220026,0,0,0,0,0,0,0,1,0,1,0,0,0,20,0
+Dolmino Math,Math (synth),data/dolmino-math/dolmino_math_mathcoder2-synthmath_m-a-p_Matrix_filtered-math_book_math.0002.0371.jsonl.zst,336,0,cap,249361,1,1,2,1,0,0,0,0,3,1,0,0,4,40,0
+Dolmino Math,Math (synth),data/dolmino-math/dolmino_math_tinyGSM-MIND_2students_tiny_gsm_inline_part015.000004.jsonl.zst,912,0,cap,249962,0,0,26,0,0,0,1,0,0,0,0,0,22,0,0
+Dolmino Math,Math (synth),data/dolmino-math/dolmino_math_tinyGSM-MIND_problem-solving_tiny_gsm_inline_part035.000000.jsonl.zst,952,0,cap,249846,1,0,0,0,0,0,0,0,0,0,0,0,5,0,0
+Dolmino Math,Math (synth),data/dolmino-math/dolmino_math_tinyGSM-MIND_problem-solving_tiny_gsm_inline_part028.000004.jsonl.zst,914,0,cap,249722,0,0,0,0,0,0,0,0,0,2,0,0,7,0,0
+Dolmino Math,Math (synth),data/dolmino-math/dolmino_math_tinyGSM-MIND_2students_tiny_gsm_inline_part084.000001.jsonl.zst,943,0,cap,249967,0,0,36,0,0,0,0,0,0,0,0,0,57,1,0
+Dolmino Math,Math (synth),data/dolmino-math/dolmino_math_tinyGSM-MIND_2students_tiny_gsm_inline_part043.000001.jsonl.zst,949,0,cap,249953,0,0,36,0,0,0,0,0,0,0,0,0,30,0,0
+Dolmino Math,Math (synth),data/dolmino-math/dolmino_math_tinyGSM-MIND_problem-solving_tiny_gsm_inline_part101.000003.jsonl.zst,968,0,cap,249744,0,0,0,0,0,0,0,0,0,0,0,0,6,1,0
+Dolmino Math,Math (synth),data/dolmino-math/dolmino_math_tinyGSM-MIND_problem-solving_tiny_gsm_inline_part091.000005.jsonl.zst,972,0,cap,249928,0,0,0,0,0,0,0,0,0,2,0,0,6,1,0
+Dolmino Math,Math (synth),data/dolmino-math/dolmino_math_mathcoder2-synthmath_m-a-p_Matrix_filtered-math_book_science.0000.0088.jsonl.zst,56,0,cap,247987,0,0,0,0,0,0,0,0,0,1,0,1,0,21,0
+Dolmino Math,Math (synth),data/dolmino-math/dolmino_math_tinyGSM-MIND_problem-solving_tiny_gsm_inline_part099.000005.jsonl.zst,956,0,cap,249890,0,0,0,0,0,0,0,0,0,0,0,0,3,1,0
+Dolmino Math,Math (synth),data/dolmino-math/dolmino_math_tinyGSM-MIND_2students_tiny_gsm_inline_part015.000005.jsonl.zst,884,0,cap,249936,0,0,25,0,0,0,0,0,0,0,0,0,26,0,0
+Dolmino Math,Math (synth),data/dolmino-math/dolmino_math_tinyGSM-MIND_problem-solving_tiny_gsm_inline_part096.000000.jsonl.zst,947,0,cap,249874,0,0,0,0,0,0,0,0,0,2,0,0,3,1,0
+Dolmino Math,Math (synth),data/dolmino-math/dolmino_math_mathcoder2-synthmath_m-a-p_Matrix_filtered-math_book_math.0002.0198.jsonl.zst,329,0,cap,249567,0,2,2,0,0,0,0,0,4,0,0,1,10,28,0
+Dolmino Math,Math (synth),data/dolmino-math/dolmino_math_mathcoder2-synthmath_m-a-p_Matrix_filtered-math_book_science.0000.0022.jsonl.zst,83,0,cap,249606,0,0,0,0,0,0,0,0,0,3,0,0,0,17,0
+Dolmino Math,Math (synth),data/dolmino-math/dolmino_math_mathcoder2-synthmath_m-a-p_Matrix_filtered-math_book_math.0002.0097.jsonl.zst,336,0,cap,249600,0,1,2,0,0,0,0,0,4,2,0,0,5,33,0
+Dolmino Math,Math (synth),data/dolmino-math/dolmino_math_mathcoder2-synthmath_m-a-p_Matrix_filtered-math_book_math.0000.0433.jsonl.zst,336,0,cap,249865,0,3,6,0,0,0,0,0,3,2,0,0,12,24,1
+Dolmino Math,Math (synth),data/dolmino-math/dolmino_math_mathcoder2-synthmath_ajibawa-2023_Maths-College-1-Final.jsonl.zst,464,0,cap,249436,0,0,4,0,0,0,0,0,0,0,0,0,0,31,0
+Dolmino Math,Math (synth),data/dolmino-math/dolmino_math_tinyGSM-MIND_problem-solving_tiny_gsm_inline_part083.000006.jsonl.zst,968,0,cap,249877,0,0,0,0,0,0,0,0,0,0,0,0,5,1,0
+Dolmino Math,Math (synth),data/dolmino-math/dolmino_math_mathcoder2-synthmath_m-a-p_Matrix_filtered-math_book_math.0003.0566.jsonl.zst,333,0,cap,249870,0,3,2,0,0,0,0,2,1,2,0,0,5,40,0
+Dolmino Math,Math (synth),data/dolmino-math/dolmino_math_tinyGSM-MIND_problem-solving_tiny_gsm_inline_part054.000009.jsonl.zst,960,0,cap,249904,0,0,1,0,0,0,0,0,0,2,0,0,5,1,0
+Dolmino Math,Math (synth),data/dolmino-math/dolmino_math_mathcoder2-synthmath_m-a-p_Matrix_filtered-math_book_math.0001.0029.jsonl.zst,332,0,cap,248546,0,2,3,0,0,0,1,0,4,1,0,0,10,30,0
+Dolmino Math,Math (synth),data/dolmino-math/dolmino_math_tinyGSM-MIND_problem-solving_tiny_gsm_inline_part063.000000.jsonl.zst,943,0,cap,249615,0,0,0,0,0,0,0,0,0,1,0,0,6,1,0
+Dolmino Math,Math (synth),data/dolmino-math/dolmino_math_mathcoder2-synthmath_ajibawa-2023_Maths-College-4-Final.jsonl.zst,461,0,cap,249938,0,0,0,0,0,0,0,0,0,1,0,0,0,29,0
+Dolmino Math,Math (synth),data/dolmino-math/dolmino_math_tinyGSM-MIND_problem-solving_tiny_gsm_inline_part038.000007.jsonl.zst,949,0,cap,249791,0,1,2,0,0,0,0,0,0,2,0,0,9,4,0
+Dolmino Math,Math (synth),data/dolmino-math/dolmino_math_mathcoder2-synthmath_m-a-p_Matrix_filtered-math_book_math.0003.0466.jsonl.zst,334,0,cap,249911,1,3,2,1,0,0,0,1,4,2,0,0,7,33,0
+Dolmino Math,Math (synth),data/dolmino-math/dolmino_math_tinyGSM-MIND_2students_tiny_gsm_inline_part083.000002.jsonl.zst,950,0,cap,249632,0,0,25,0,0,0,0,0,0,0,0,0,25,0,0
+Dolmino Math,Math (synth),data/dolmino-math/dolmino_math_mathcoder2-synthmath_m-a-p_Matrix_filtered-math_book_math.0002.0149.jsonl.zst,333,0,cap,249303,1,3,5,0,0,0,0,1,5,2,0,0,4,25,0
+Dolmino Math,Math (synth),data/dolmino-math/dolmino_math_mathcoder2-synthmath_ajibawa-2023_Maths-College-0-Final.jsonl.zst,465,0,cap,249785,0,0,0,0,0,0,0,0,0,0,0,0,0,31,0
+Dolmino Math,Math (synth),data/dolmino-math/dolmino_math_tinyGSM-MIND_2students_tiny_gsm_inline_part097.000007.jsonl.zst,951,0,cap,249776,0,0,30,0,0,0,0,0,0,0,0,0,20,0,0
+Dolmino Math,Math (synth),data/dolmino-math/dolmino_math_tinyGSM-MIND_problem-solving_tiny_gsm_inline_part077.000005.jsonl.zst,970,0,cap,250000,0,0,0,0,0,0,0,0,0,3,0,0,3,1,0
+Dolmino Math,Math (synth),data/dolmino-math/dolmino_math_tinyGSM-MIND_2students_tiny_gsm_inline_part015.000001.jsonl.zst,883,0,cap,249709,0,0,30,0,0,0,0,0,0,0,0,0,20,0,0
+Dolmino Math,Math (synth),data/dolmino-math/dolmino_math_mathcoder2-synthmath_m-a-p_Matrix_filtered-math_book_science.0000.0304.jsonl.zst,65,0,cap,249825,0,0,0,0,0,0,0,0,0,3,0,0,0,9,0
+Dolmino Math,Math (synth),data/dolmino-math/dolmino_math_mathcoder2-synthmath_m-a-p_Matrix_filtered-math_book_math.0001.0385.jsonl.zst,337,0,cap,249812,0,4,6,0,0,0,1,0,1,2,0,0,2,25,0
+Dolmino Math,Math (synth),data/dolmino-math/dolmino_math_tinyGSM-MIND_problem-solving_tiny_gsm_inline_part001.000008.jsonl.zst,921,0,cap,249798,0,0,3,0,0,0,0,0,0,1,0,0,5,0,0
+Dolmino Math,Math (synth),data/dolmino-math/dolmino_math_mathcoder2-synthmath_m-a-p_Matrix_filtered-math_book_science.0000.0217.jsonl.zst,64,0,cap,242476,0,0,0,0,0,0,0,0,0,1,0,0,0,17,0
+Dolmino Math,Math (synth),data/dolmino-math/dolmino_math_tinyGSM-MIND_problem-solving_tiny_gsm_inline_part039.000004.jsonl.zst,985,0,cap,249964,0,0,0,0,0,0,0,0,0,3,0,0,5,3,0
+Dolmino Math,Math (synth),data/dolmino-math/dolmino_math_mathcoder2-synthmath_m-a-p_Matrix_filtered-math_book_math.0000.0165.jsonl.zst,338,0,cap,249988,0,1,4,0,0,0,1,0,2,3,0,0,5,34,0
+Dolmino Math,Math (synth),data/dolmino-math/dolmino_math_tinyGSM-MIND_problem-solving_tiny_gsm_inline_part022.000004.jsonl.zst,935,0,cap,249810,0,0,1,0,0,0,0,0,0,1,0,0,12,0,0
+Dolmino Math,Math (synth),data/dolmino-math/dolmino_math_mathcoder2-synthmath_m-a-p_Matrix_filtered-math_book_math.0001.0522.jsonl.zst,337,0,cap,249868,1,2,4,0,0,0,0,0,2,2,0,0,8,30,0
+Dolmino Math,Math (synth),data/dolmino-math/dolmino_math_tinyGSM-MIND_problem-solving_tiny_gsm_inline_part041.000000.jsonl.zst,966,0,cap,249534,0,0,0,0,0,0,0,0,0,0,0,0,2,0,0
+Dolmino Math,Math (synth),data/dolmino-math/dolmino_math_mathcoder2-synthmath_m-a-p_Matrix_filtered-math_book_math.0001.0183.jsonl.zst,334,0,cap,249556,0,1,4,0,0,0,1,0,2,0,0,0,5,28,0
+Dolmino Math,Math (synth),data/dolmino-math/dolmino_math_tinyGSM-MIND_problem-solving_tiny_gsm_inline_part099.000003.jsonl.zst,956,0,cap,249676,0,0,0,0,0,0,0,0,0,2,0,0,5,2,0
+Dolmino Math,Math (synth),data/dolmino-math/dolmino_math_tinyGSM-MIND_2students_tiny_gsm_inline_part054.000003.jsonl.zst,953,0,cap,249803,0,0,29,0,0,0,0,0,0,1,0,0,21,0,0
+Dolmino Math,Math (synth),data/dolmino-math/dolmino_math_tinyGSM-MIND_problem-solving_tiny_gsm_inline_part099.000002.jsonl.zst,947,0,cap,249980,0,0,2,0,0,0,0,0,0,1,0,0,4,1,0
+Dolmino Math,Math (synth),data/dolmino-math/dolmino_math_mathcoder2-synthmath_m-a-p_Matrix_filtered-math_book_math.0001.0388.jsonl.zst,328,0,cap,249842,0,1,3,0,0,0,0,0,2,0,0,0,7,37,0
+Dolmino Math,Math (synth),data/dolmino-math/dolmino_math_tinyGSM-MIND_problem-solving_tiny_gsm_inline_part019.000005.jsonl.zst,937,0,cap,249943,0,0,0,0,0,0,0,0,0,0,0,0,7,0,0
+Dolmino Math,Math (synth),data/dolmino-math/dolmino_math_mathcoder2-synthmath_m-a-p_Matrix_filtered-math_book_math.0001.0546.jsonl.zst,339,0,cap,249370,1,3,5,0,0,0,0,1,7,3,0,0,7,37,0
+Dolmino Math,Math (synth),data/dolmino-math/dolmino_math_tinyGSM-MIND_2students_tiny_gsm_inline_part087.000001.jsonl.zst,968,0,cap,249686,0,0,23,0,0,0,0,0,0,0,0,0,31,0,0
+Dolmino Math,Math (synth),data/dolmino-math/dolmino_math_tinyGSM-MIND_2students_tiny_gsm_inline_part080.000008.jsonl.zst,947,0,cap,249951,0,1,29,0,0,0,0,0,0,0,0,0,35,0,0
+Dolmino Math,Math (synth),data/dolmino-math/dolmino_math_mathcoder2-synthmath_m-a-p_Matrix_filtered-math_book_science.0000.0251.jsonl.zst,60,0,cap,247849,0,0,0,0,0,0,0,0,0,1,0,0,0,12,0
+Dolmino Math,Math (synth),data/dolmino-math/dolmino_math_mathcoder2-synthmath_m-a-p_Matrix_filtered-math_book_math.0001.0624.jsonl.zst,338,0,cap,249640,0,2,2,0,0,0,0,0,5,1,0,1,1,33,0
+Dolmino Math,Math (synth),data/dolmino-math/dolmino_math_mathcoder2-synthmath_m-a-p_Matrix_filtered-math_book_science.0000.0179.jsonl.zst,55,0,cap,234623,0,0,0,0,0,0,0,0,0,1,0,0,0,25,0
+Dolmino Math,Math (synth),data/dolmino-math/dolmino_math_mathcoder2-synthmath_m-a-p_Matrix_filtered-math_book_math.0003.0495.jsonl.zst,336,0,cap,249143,3,0,4,1,0,0,0,1,3,0,0,2,4,17,0
+Dolmino Math,Math (synth),data/dolmino-math/dolmino_math_tinyGSM-MIND_2students_tiny_gsm_inline_part037.000000.jsonl.zst,961,0,cap,249853,0,0,23,0,0,0,1,0,0,0,0,0,24,0,0
+Dolmino Math,Math (synth),data/dolmino-math/dolmino_math_tinyGSM-MIND_2students_tiny_gsm_inline_part036.000007.jsonl.zst,954,0,cap,249799,0,0,30,0,0,0,0,0,0,0,0,0,37,0,0
+Dolmino Math,Math (synth),data/dolmino-math/dolmino_math_tinyGSM-MIND_2students_tiny_gsm_inline_part011.000005.jsonl.zst,903,0,cap,249847,0,0,20,0,0,0,2,0,0,0,0,0,20,0,0
+Dolmino Math,Math (synth),data/dolmino-math/dolmino_math_tulu_math_personahub_math_v5_train_0004.jsonl.zst,387,0,cap,249756,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0
+Dolmino Math,Math (synth),data/dolmino-math/dolmino_math_tinyGSM-MIND_2students_tiny_gsm_inline_part035.000002.jsonl.zst,963,0,cap,249967,0,0,20,0,0,0,0,0,0,0,0,0,39,0,0
+Dolmino Math,Math (synth),data/dolmino-math/dolmino_math_mathcoder2-synthmath_m-a-p_Matrix_filtered-math_book_science.0000.0299.jsonl.zst,49,0,cap,246025,0,0,0,0,0,0,0,0,0,0,0,0,0,21,0
+Dolmino Math,Math (synth),data/dolmino-math/dolmino_math_tinyGSM-MIND_2students_tiny_gsm_inline_part073.000000.jsonl.zst,981,0,cap,249889,0,0,7,0,0,0,1,0,0,2,0,0,25,0,0
+Dolmino Math,Math (synth),data/dolmino-math/dolmino_math_tinyGSM-MIND_2students_tiny_gsm_inline_part024.000000.jsonl.zst,884,0,cap,249848,0,0,22,0,0,0,0,0,0,0,0,0,29,0,0
+Dolmino Math,Math (synth),data/dolmino-math/dolmino_math_mathcoder2-synthmath_m-a-p_Matrix_filtered-math_book_science.0000.0090.jsonl.zst,56,0,cap,248884,0,0,0,0,0,0,0,0,0,2,0,0,0,23,0
+Dolmino Math,Math (synth),data/dolmino-math/dolmino_math_tinyGSM-MIND_problem-solving_tiny_gsm_inline_part112.000000.jsonl.zst,846,0,cap,249922,0,0,0,0,0,0,0,0,0,0,0,0,2,0,1
+Dolmino Math,Math (synth),data/dolmino-math/dolmino_math_tinyGSM-MIND_2students_tiny_gsm_inline_part041.000006.jsonl.zst,966,0,cap,249909,0,0,31,0,0,0,1,0,0,0,0,0,33,0,0
+Dolmino Math,Math (synth),data/dolmino-math/dolmino_math_mathcoder2-synthmath_m-a-p_Matrix_filtered-math_book_science.0000.0380.jsonl.zst,53,0,cap,240259,0,0,0,0,0,0,0,0,0,4,0,0,0,13,0
+Dolmino Math,Math (synth),data/dolmino-math/dolmino_math_mathcoder2-synthmath_m-a-p_Matrix_filtered-math_book_science.0000.0335.jsonl.zst,51,0,cap,246112,0,0,0,0,0,0,0,0,0,1,0,0,0,36,0
+Dolmino Math,Math (synth),data/dolmino-math/dolmino_math_mathcoder2-synthmath_m-a-p_Matrix_filtered-math_book_math.0000.0098.jsonl.zst,338,0,cap,249592,0,0,8,1,0,0,0,1,5,1,0,0,8,27,0
+Dolmino Math,Math (synth),data/dolmino-math/dolmino_math_tinyGSM-MIND_2students_tiny_gsm_inline_part049.000009.jsonl.zst,952,0,cap,249858,0,0,24,0,0,0,0,0,0,0,0,0,33,0,0
+Dolmino Math,Math (synth),data/dolmino-math/dolmino_math_mathcoder2-synthmath_m-a-p_Matrix_filtered-math_book_science.0000.0213.jsonl.zst,72,0,cap,244401,0,0,0,0,0,0,0,0,0,2,0,0,1,11,0
+Dolmino Math,Math (synth),data/dolmino-math/dolmino_math_tinyGSM-MIND_problem-solving_tiny_gsm_inline_part021.000008.jsonl.zst,931,0,cap,249675,0,1,0,0,0,0,2,0,0,1,0,0,11,0,0
+Dolmino Math,Math (synth),data/dolmino-math/dolmino_math_tinyGSM-MIND_2students_tiny_gsm_inline_part018.000008.jsonl.zst,891,0,cap,249742,0,0,24,0,0,0,0,0,0,0,0,0,26,0,0
+Dolmino Math,Math (synth),data/dolmino-math/dolmino_math_tinyGSM-MIND_2students_tiny_gsm_inline_part011.000002.jsonl.zst,895,0,cap,249812,0,0,29,0,0,0,0,0,0,0,0,0,20,0,0
+Dolmino Math,Math (synth),data/dolmino-math/dolmino_math_tinyGSM-MIND_problem-solving_tiny_gsm_inline_part048.000001.jsonl.zst,965,0,cap,249933,0,0,1,0,0,0,0,0,0,4,0,0,6,7,0
+Dolmino Math,Math (synth),data/dolmino-math/dolmino_math_mathcoder2-synthmath_m-a-p_Matrix_filtered-math_book_math.0001.0246.jsonl.zst,335,0,cap,249662,0,1,7,0,0,0,0,0,2,0,0,0,8,29,0
+Dolmino Math,Math (synth),data/dolmino-math/dolmino_math_mathcoder2-synthmath_ajibawa-2023_Maths-College-3-Final.jsonl.zst,476,0,cap,249532,0,0,3,0,0,0,0,0,0,0,0,0,0,17,0
+Dolmino Math,Math (synth),data/dolmino-math/dolmino_math_mathcoder2-synthmath_m-a-p_Matrix_filtered-math_book_math.0002.0256.jsonl.zst,336,0,cap,249780,1,2,2,0,0,0,0,1,2,4,0,0,7,28,0
+Dolmino Math,Math (synth),data/dolmino-math/dolmino_math_tinyGSM-MIND_2students_tiny_gsm_inline_part040.000001.jsonl.zst,952,0,cap,249980,0,0,35,0,0,0,0,0,0,0,0,0,27,0,0
+Dolmino Math,Math (synth),data/dolmino-math/dolmino_math_tinyGSM-MIND_problem-solving_tiny_gsm_inline_part034.000000.jsonl.zst,981,0,cap,249835,0,0,0,0,0,0,0,0,0,1,0,0,5,2,0
+Dolmino Math,Math (synth),data/dolmino-math/dolmino_math_mathcoder2-synthmath_m-a-p_Matrix_filtered-math_book_science.0000.0116.jsonl.zst,45,0,cap,244088,0,0,0,0,0,0,0,0,0,0,0,0,1,31,0
+Dolmino Math,Math (synth),data/dolmino-math/dolmino_math_mathcoder2-synthmath_m-a-p_Matrix_filtered-math_book_science.0000.0120.jsonl.zst,46,0,cap,248342,0,0,0,0,0,0,0,0,0,1,0,0,1,20,0
+Dolmino Math,Math (synth),data/dolmino-math/dolmino_math_tinyGSM-MIND_2students_tiny_gsm_inline_part000.000004.jsonl.zst,913,0,cap,249929,0,0,30,0,0,0,2,1,0,0,0,0,32,0,0
+Dolmino Math,Math (synth),data/dolmino-math/dolmino_math_mathcoder2-synthmath_m-a-p_Matrix_filtered-math_book_math.0003.0043.jsonl.zst,337,0,cap,249575,0,2,5,0,0,0,0,0,3,0,0,0,8,18,0
+Dolmino Math,Math (synth),data/dolmino-math/dolmino_math_tinyGSM-MIND_2students_tiny_gsm_inline_part089.000004.jsonl.zst,955,0,cap,249930,0,0,22,0,0,0,0,0,0,0,0,0,26,0,0
+Dolmino Math,Math (synth),data/dolmino-math/dolmino_math_tinyGSM-MIND_2students_tiny_gsm_inline_part073.000002.jsonl.zst,967,0,cap,249818,0,0,23,0,0,0,0,0,0,0,0,0,15,0,0
+Dolmino Math,Math (synth),data/dolmino-math/dolmino_math_tinyGSM-MIND_problem-solving_tiny_gsm_inline_part023.000002.jsonl.zst,934,0,cap,249862,0,0,0,0,0,0,0,0,0,0,0,0,9,2,0
+Dolmino Math,Math (synth),data/dolmino-math/dolmino_math_mathcoder2-synthmath_m-a-p_Matrix_filtered-math_book_math.0003.0027.jsonl.zst,337,0,cap,249550,0,4,3,0,1,0,0,0,4,2,0,0,4,24,0
+Dolmino Math,Math (synth),data/dolmino-math/dolmino_math_mathcoder2-synthmath_m-a-p_Matrix_filtered-math_book_math.0000.0033.jsonl.zst,332,0,cap,249477,0,0,4,1,0,0,0,0,5,0,0,0,3,33,1
+Dolmino Math,Math (synth),data/dolmino-math/dolmino_math_mathcoder2-synthmath_m-a-p_Matrix_filtered-math_book_science.0000.0086.jsonl.zst,62,0,cap,249643,0,0,0,0,0,0,0,0,0,1,0,0,0,19,0
+Dolmino Math,Math (synth),data/dolmino-math/dolmino_math_tinyGSM-MIND_2students_tiny_gsm_inline_part017.000007.jsonl.zst,888,0,cap,249728,0,0,22,0,0,0,0,0,0,0,0,0,19,0,0
+Dolmino Math,Math (synth),data/dolmino-math/dolmino_math_mathcoder2-synthmath_m-a-p_Matrix_filtered-math_book_science.0000.0138.jsonl.zst,20,0,allocation,85206,0,0,0,0,0,0,0,0,0,0,0,0,0,2,0
+StackEdu (FIM),Code,data/stack_edu-fim_vigintile_19_Java/shard_00000100.jsonl.zst,1137,0,cap,249785,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+StackEdu (FIM),Code,data/stack_edu-fim_vigintile_16_Python/shard_00000027.jsonl.zst,834,0,cap,249540,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0
+StackEdu (FIM),Code,data/stack_edu-fim_vigintile_17_Java/shard_00000049.jsonl.zst,912,0,cap,249065,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+StackEdu (FIM),Code,data/stack_edu-fim_vigintile_19_JavaScript/shard_00000010.jsonl.zst,1108,0,cap,249569,0,0,0,1,0,0,0,0,0,0,1,0,0,1,0
+StackEdu (FIM),Code,data/stack_edu-fim_vigintile_15_Markdown/shard_00000029.jsonl.zst,449,0,cap,249505,0,0,2,0,0,0,0,0,1,2,0,0,10,3,0
+StackEdu (FIM),Code,data/stack_edu-fim_vigintile_17_PHP/shard_00000005.jsonl.zst,743,0,cap,247347,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+StackEdu (FIM),Code,data/stack_edu-fim_vigintile_19_Python/shard_00000028.jsonl.zst,1360,0,cap,249994,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0
+StackEdu (FIM),Code,data/stack_edu-fim_vigintile_16_TypeScript/shard_00000000.jsonl.zst,1015,0,cap,249925,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+StackEdu (FIM),Code,data/stack_edu-fim_vigintile_19_Markdown/shard_00000053.jsonl.zst,395,0,cap,249785,0,0,3,0,0,0,1,1,0,3,0,0,7,4,0
+StackEdu (FIM),Code,data/stack_edu-fim_vigintile_19_Markdown/shard_00000052.jsonl.zst,506,0,cap,248543,0,0,3,0,0,0,0,0,1,2,0,0,0,0,0
+StackEdu (FIM),Code,data/stack_edu-fim_vigintile_19_C/shard_00000013.jsonl.zst,1070,0,cap,249850,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+StackEdu (FIM),Code,data/stack_edu-fim_vigintile_19_Java/shard_00000059.jsonl.zst,1142,0,cap,249776,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0
+StackEdu (FIM),Code,data/stack_edu-fim_vigintile_16_Python/shard_00000017.jsonl.zst,892,0,cap,249829,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0
+StackEdu (FIM),Code,data/stack_edu-fim_vigintile_19_Cpp/shard_00000016.jsonl.zst,951,0,cap,249863,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0
+StackEdu (FIM),Code,data/stack_edu-fim_vigintile_19_C/shard_00000002.jsonl.zst,1133,0,cap,249907,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0
+StackEdu (FIM),Code,data/stack_edu-fim_vigintile_19_Markdown/shard_00000014.jsonl.zst,499,0,cap,249696,0,0,1,0,0,0,1,0,0,3,0,0,1,0,0
+StackEdu (FIM),Code,data/stack_edu-fim_vigintile_19_CSharp/shard_00000026.jsonl.zst,1185,0,cap,249944,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+StackEdu (FIM),Code,data/stack_edu-fim_vigintile_19_Go/shard_00000003.jsonl.zst,1180,0,cap,249873,0,0,0,0,0,0,0,0,0,0,0,0,0,2,0
+StackEdu (FIM),Code,data/stack_edu-fim_vigintile_19_Python/shard_00000020.jsonl.zst,1305,0,cap,249788,0,0,0,0,0,0,0,0,0,1,1,0,0,2,0
+StackEdu (FIM),Code,data/stack_edu-fim_vigintile_19_SQL/shard_00000011.jsonl.zst,662,0,cap,248926,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+StackEdu (FIM),Code,data/stack_edu-fim_vigintile_19_Markdown/shard_00000025.jsonl.zst,471,0,cap,249698,0,0,6,0,0,0,0,0,0,2,0,0,0,3,0
+StackEdu (FIM),Code,data/stack_edu-fim_vigintile_17_SQL/shard_00000004.jsonl.zst,463,0,cap,249560,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+StackEdu (FIM),Code,data/stack_edu-fim_vigintile_17_Java/shard_00000006.jsonl.zst,829,0,cap,249535,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+StackEdu (FIM),Code,data/stack_edu-fim_vigintile_19_CSharp/shard_00000017.jsonl.zst,1234,0,cap,249874,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0
+StackEdu (FIM),Code,data/stack_edu-fim_vigintile_17_PHP/shard_00000008.jsonl.zst,1020,0,cap,249981,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+StackEdu (FIM),Code,data/stack_edu-fim_vigintile_19_CSharp/shard_00000005.jsonl.zst,1232,0,cap,247886,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0
+StackEdu (FIM),Code,data/stack_edu-fim_vigintile_19_Python/shard_00000002.jsonl.zst,1340,0,cap,249495,0,0,0,0,0,0,0,0,0,2,0,0,0,0,0
+StackEdu (FIM),Code,data/stack_edu-fim_vigintile_19_Markdown/shard_00000033.jsonl.zst,444,0,cap,246878,0,0,1,0,0,0,0,0,0,2,0,0,3,1,0
+StackEdu (FIM),Code,data/stack_edu-fim_vigintile_19_Python/shard_00000013.jsonl.zst,1196,0,cap,249193,0,0,0,0,0,0,0,0,0,2,0,0,0,0,0
+StackEdu (FIM),Code,data/stack_edu-fim_vigintile_17_Markdown/shard_00000032.jsonl.zst,454,0,cap,247120,0,0,3,0,0,0,0,0,0,6,0,0,3,4,0
+StackEdu (FIM),Code,data/stack_edu-fim_vigintile_19_Java/shard_00000098.jsonl.zst,1171,0,cap,249773,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0
+StackEdu (FIM),Code,data/stack_edu-fim_vigintile_19_Java/shard_00000063.jsonl.zst,1050,0,cap,249853,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0
+StackEdu (FIM),Code,data/stack_edu-fim_vigintile_19_Cpp/shard_00000024.jsonl.zst,953,0,cap,246272,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0
+StackEdu (FIM),Code,data/stack_edu-fim_vigintile_19_Swift/shard_00000000.jsonl.zst,945,0,cap,249930,0,0,0,0,0,0,0,0,0,1,0,0,2,5,0
+StackEdu (FIM),Code,data/stack_edu-fim_vigintile_19_JavaScript/shard_00000026.jsonl.zst,1250,0,cap,249884,0,0,0,0,0,0,0,0,0,2,0,0,1,0,0
+StackEdu (FIM),Code,data/stack_edu-fim_vigintile_19_PHP/shard_00000014.jsonl.zst,1175,0,cap,249947,0,0,0,0,0,0,0,0,0,3,0,0,0,0,0
+StackEdu (FIM),Code,data/stack_edu-fim_vigintile_19_Markdown/shard_00000043.jsonl.zst,430,0,cap,249429,0,0,2,0,0,0,0,0,0,3,0,0,4,5,0
+StackEdu (FIM),Code,data/stack_edu-fim_vigintile_17_Markdown/shard_00000025.jsonl.zst,443,0,cap,249895,0,0,2,0,0,0,1,0,0,2,0,0,1,5,0
+StackEdu (FIM),Code,data/stack_edu-fim_vigintile_19_Markdown/shard_00000026.jsonl.zst,442,0,cap,247772,0,0,1,1,0,0,0,0,0,1,0,0,4,1,0
+StackEdu (FIM),Code,data/stack_edu-fim_vigintile_19_JavaScript/shard_00000008.jsonl.zst,1211,0,cap,249944,0,0,1,0,0,0,0,0,0,1,0,0,1,0,0
+StackEdu (FIM),Code,data/stack_edu-fim_vigintile_19_Ruby/shard_00000001.jsonl.zst,1340,0,cap,249847,0,0,3,0,0,0,0,0,0,0,0,0,0,2,0
+StackEdu (FIM),Code,data/stack_edu-fim_vigintile_16_CSharp/shard_00000001.jsonl.zst,933,0,cap,249884,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+StackEdu (FIM),Code,data/stack_edu-fim_vigintile_19_CSharp/shard_00000023.jsonl.zst,1320,0,cap,249921,0,0,1,0,0,0,0,0,0,0,0,0,0,1,0
+StackEdu (FIM),Code,data/stack_edu-fim_vigintile_19_SQL/shard_00000006.jsonl.zst,542,0,cap,249852,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0
+StackEdu (FIM),Code,data/stack_edu-fim_vigintile_19_TypeScript/shard_00000005.jsonl.zst,977,0,cap,249622,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+StackEdu (FIM),Code,data/stack_edu-fim_vigintile_19_Python/shard_00000005.jsonl.zst,1119,0,cap,249084,0,0,3,0,0,0,0,0,0,0,0,0,0,2,0
+StackEdu (FIM),Code,data/stack_edu-fim_vigintile_19_Go/shard_00000001.jsonl.zst,1076,0,cap,249509,0,0,1,0,0,0,0,0,0,1,0,0,0,1,0
+StackEdu (FIM),Code,data/stack_edu-fim_vigintile_19_PHP/shard_00000015.jsonl.zst,1131,0,cap,249980,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0
+StackEdu (FIM),Code,data/stack_edu-fim_vigintile_19_Java/shard_00000029.jsonl.zst,1059,0,cap,249684,0,0,0,0,0,0,0,0,0,3,0,0,0,0,0
+StackEdu (FIM),Code,data/stack_edu-fim_vigintile_19_Ruby/shard_00000002.jsonl.zst,1342,0,cap,249986,0,0,1,0,0,0,0,0,0,0,0,0,0,4,0
+StackEdu (FIM),Code,data/stack_edu-fim_vigintile_17_Java/shard_00000043.jsonl.zst,1036,0,cap,249892,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0
+StackEdu (FIM),Code,data/stack_edu-fim_vigintile_19_Java/shard_00000081.jsonl.zst,1144,0,cap,248795,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+StackEdu (FIM),Code,data/stack_edu-fim_vigintile_19_Markdown/shard_00000021.jsonl.zst,440,0,cap,249983,0,0,0,0,0,0,0,0,0,4,0,0,1,3,0
+StackEdu (FIM),Code,data/stack_edu-fim_vigintile_19_Markdown/shard_00000031.jsonl.zst,443,0,cap,249849,0,0,1,1,0,0,0,0,1,3,0,1,3,4,1
+StackEdu (FIM),Code,data/stack_edu-fim_vigintile_19_Python/shard_00000027.jsonl.zst,1226,0,cap,249953,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+StackEdu (FIM),Code,data/stack_edu-fim_vigintile_15_Java/shard_00000026.jsonl.zst,819,0,cap,207085,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+StackEdu (FIM),Code,data/stack_edu-fim_vigintile_19_Markdown/shard_00000042.jsonl.zst,418,0,cap,249253,0,0,1,0,0,0,0,0,0,0,0,0,2,3,0
+StackEdu (FIM),Code,data/stack_edu-fim_vigintile_16_Markdown/shard_00000033.jsonl.zst,421,0,cap,249310,0,0,1,0,0,0,0,0,0,2,0,0,3,4,0
+StackEdu (FIM),Code,data/stack_edu-fim_vigintile_16_Java/shard_00000026.jsonl.zst,938,0,cap,249892,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+StackEdu (FIM),Code,data/stack_edu-fim_vigintile_19_Cpp/shard_00000022.jsonl.zst,938,0,cap,249925,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+StackEdu (FIM),Code,data/stack_edu-fim_vigintile_16_Markdown/shard_00000019.jsonl.zst,402,0,cap,249950,0,0,1,0,0,0,1,0,2,5,0,0,4,3,0
+StackEdu (FIM),Code,data/stack_edu-fim_vigintile_17_Cpp/shard_00000020.jsonl.zst,799,0,cap,249929,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+StackEdu (FIM),Code,data/stack_edu-fim_vigintile_16_Java/shard_00000024.jsonl.zst,958,0,cap,249946,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+StackEdu (FIM),Code,data/stack_edu-fim_vigintile_19_Python/shard_00000034.jsonl.zst,1163,0,cap,249929,0,0,0,0,0,0,0,0,0,0,0,0,0,2,0
+StackEdu (FIM),Code,data/stack_edu-fim_vigintile_15_PHP/shard_00000003.jsonl.zst,887,0,cap,249958,0,0,0,0,0,0,0,0,0,0,0,0,2,0,0
+StackEdu (FIM),Code,data/stack_edu-fim_vigintile_17_Java/shard_00000046.jsonl.zst,946,0,cap,249946,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0
+StackEdu (FIM),Code,data/stack_edu-fim_vigintile_17_Cpp/shard_00000019.jsonl.zst,870,0,cap,249531,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+StackEdu (FIM),Code,data/stack_edu-fim_vigintile_19_SQL/shard_00000014.jsonl.zst,626,0,cap,249676,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0
+StackEdu (FIM),Code,data/stack_edu-fim_vigintile_16_Markdown/shard_00000005.jsonl.zst,385,0,cap,247334,0,0,1,0,0,0,0,0,1,1,0,0,0,2,0
+StackEdu (FIM),Code,data/stack_edu-fim_vigintile_19_Markdown/shard_00000011.jsonl.zst,466,0,cap,248971,0,0,0,0,0,0,0,0,0,1,0,0,4,2,0
+StackEdu (FIM),Code,data/stack_edu-fim_vigintile_17_Java/shard_00000018.jsonl.zst,936,0,cap,249932,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0
+StackEdu (FIM),Code,data/stack_edu-fim_vigintile_19_CSharp/shard_00000001.jsonl.zst,1281,0,cap,249948,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+StackEdu (FIM),Code,data/stack_edu-fim_vigintile_17_Python/shard_00000009.jsonl.zst,1098,0,cap,249845,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+StackEdu (FIM),Code,data/stack_edu-fim_vigintile_16_Rust/shard_00000001.jsonl.zst,515,0,cap,245368,0,0,0,0,0,0,0,0,0,4,0,0,0,0,0
+StackEdu (FIM),Code,data/stack_edu-fim_vigintile_17_Markdown/shard_00000026.jsonl.zst,83,0,cap,165826,1,0,0,0,0,0,0,0,0,1,0,0,3,1,0
+StackEdu (FIM),Code,data/stack_edu-fim_vigintile_17_Java/shard_00000032.jsonl.zst,949,0,cap,249829,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0
+StackEdu (FIM),Code,data/stack_edu-fim_vigintile_19_Python/shard_00000023.jsonl.zst,1159,0,cap,249983,0,0,0,0,0,0,0,0,0,1,0,0,2,1,0
+StackEdu (FIM),Code,data/stack_edu-fim_vigintile_19_Markdown/shard_00000050.jsonl.zst,479,0,cap,249846,0,0,0,0,0,0,0,0,0,2,0,0,1,5,0
+StackEdu (FIM),Code,data/stack_edu-fim_vigintile_16_JavaScript/shard_00000013.jsonl.zst,926,0,cap,249948,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+StackEdu (FIM),Code,data/stack_edu-fim_vigintile_19_Java/shard_00000022.jsonl.zst,1007,0,cap,249895,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0
+StackEdu (FIM),Code,data/stack_edu-fim_vigintile_17_Java/shard_00000031.jsonl.zst,894,0,cap,249608,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+StackEdu (FIM),Code,data/stack_edu-fim_vigintile_17_Java/shard_00000047.jsonl.zst,985,0,cap,249978,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0
+StackEdu (FIM),Code,data/stack_edu-fim_vigintile_17_Python/shard_00000001.jsonl.zst,1051,0,cap,249965,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0
+StackEdu (FIM),Code,data/stack_edu-fim_vigintile_17_SQL/shard_00000001.jsonl.zst,423,0,cap,249411,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+StackEdu (FIM),Code,data/stack_edu-fim_vigintile_17_Cpp/shard_00000000.jsonl.zst,915,0,cap,249362,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+StackEdu (FIM),Code,data/stack_edu-fim_vigintile_17_Python/shard_00000014.jsonl.zst,1065,0,cap,249685,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0
+StackEdu (FIM),Code,data/stack_edu-fim_vigintile_16_Java/shard_00000003.jsonl.zst,945,0,cap,249688,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+StackEdu (FIM),Code,data/stack_edu-fim_vigintile_19_Markdown/shard_00000029.jsonl.zst,390,0,cap,240647,0,0,1,0,0,0,0,0,0,1,0,0,2,5,0
+StackEdu (FIM),Code,data/stack_edu-fim_vigintile_19_Java/shard_00000039.jsonl.zst,1085,0,cap,249924,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+StackEdu (FIM),Code,data/stack_edu-fim_vigintile_19_Python/shard_00000000.jsonl.zst,1209,0,cap,249800,0,0,4,0,0,0,0,0,0,0,0,0,0,0,0
+StackEdu (FIM),Code,data/stack_edu-fim_vigintile_15_Cpp/shard_00000001.jsonl.zst,821,0,cap,249970,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+StackEdu (FIM),Code,data/stack_edu-fim_vigintile_17_JavaScript/shard_00000004.jsonl.zst,1101,0,cap,248665,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+StackEdu (FIM),Code,data/stack_edu-fim_vigintile_17_Markdown/shard_00000042.jsonl.zst,422,0,cap,249035,0,0,2,0,0,0,3,0,0,2,0,0,2,4,0
+StackEdu (FIM),Code,data/stack_edu-fim_vigintile_17_C/shard_00000003.jsonl.zst,923,0,cap,249518,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0
+StackEdu (FIM),Code,data/stack_edu-fim_vigintile_17_Java/shard_00000012.jsonl.zst,999,0,cap,249912,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+StackEdu (FIM),Code,data/stack_edu-fim_vigintile_17_Ruby/shard_00000001.jsonl.zst,1709,0,cap,249879,0,0,1,0,0,0,0,0,0,1,0,0,0,0,0
+StackEdu (FIM),Code,data/stack_edu-fim_vigintile_19_Markdown/shard_00000010.jsonl.zst,380,0,allocation,209191,0,0,0,0,1,0,0,0,0,3,0,0,2,1,0
+CraneCode,Python (synth),data/cranecode/shard_00000241.jsonl.zst,488,0,cap,249816,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+CraneCode,Python (synth),data/cranecode/shard_00000018.jsonl.zst,471,0,cap,249525,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+CraneCode,Python (synth),data/cranecode/shard_00000431.jsonl.zst,561,0,cap,249964,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+CraneCode,Python (synth),data/cranecode/shard_00000029.jsonl.zst,535,0,cap,249834,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+CraneCode,Python (synth),data/cranecode/shard_00000402.jsonl.zst,583,0,cap,249382,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+CraneCode,Python (synth),data/cranecode/shard_00000266.jsonl.zst,519,0,cap,249303,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+CraneCode,Python (synth),data/cranecode/shard_00000220.jsonl.zst,530,0,cap,249690,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+CraneCode,Python (synth),data/cranecode/shard_00000193.jsonl.zst,590,0,cap,249817,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+CraneCode,Python (synth),data/cranecode/shard_00000028.jsonl.zst,560,0,cap,249961,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+CraneCode,Python (synth),data/cranecode/shard_00000384.jsonl.zst,550,0,cap,249742,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+CraneCode,Python (synth),data/cranecode/shard_00000057.jsonl.zst,473,0,cap,249808,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0
+CraneCode,Python (synth),data/cranecode/shard_00000263.jsonl.zst,636,0,cap,249905,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+CraneCode,Python (synth),data/cranecode/shard_00000119.jsonl.zst,579,0,cap,249525,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0
+CraneCode,Python (synth),data/cranecode/shard_00000375.jsonl.zst,522,0,cap,249390,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+CraneCode,Python (synth),data/cranecode/shard_00000198.jsonl.zst,538,0,cap,249984,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+CraneCode,Python (synth),data/cranecode/shard_00000435.jsonl.zst,458,0,cap,249778,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+CraneCode,Python (synth),data/cranecode/shard_00000083.jsonl.zst,598,0,cap,249549,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+CraneCode,Python (synth),data/cranecode/shard_00000153.jsonl.zst,588,0,cap,249228,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+CraneCode,Python (synth),data/cranecode/shard_00000049.jsonl.zst,522,0,cap,249897,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+CraneCode,Python (synth),data/cranecode/shard_00000188.jsonl.zst,501,0,cap,249838,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+CraneCode,Python (synth),data/cranecode/shard_00000287.jsonl.zst,570,0,cap,249552,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+CraneCode,Python (synth),data/cranecode/shard_00000008.jsonl.zst,455,0,cap,249894,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+CraneCode,Python (synth),data/cranecode/shard_00000158.jsonl.zst,540,0,cap,249907,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+CraneCode,Python (synth),data/cranecode/shard_00000133.jsonl.zst,714,0,cap,249985,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+CraneCode,Python (synth),data/cranecode/shard_00000089.jsonl.zst,447,0,cap,249918,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+CraneCode,Python (synth),data/cranecode/shard_00000458.jsonl.zst,538,0,cap,249470,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+CraneCode,Python (synth),data/cranecode/shard_00000141.jsonl.zst,488,0,cap,249951,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+CraneCode,Python (synth),data/cranecode/shard_00000459.jsonl.zst,535,0,cap,249927,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+CraneCode,Python (synth),data/cranecode/shard_00000380.jsonl.zst,459,0,cap,249936,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+CraneCode,Python (synth),data/cranecode/shard_00000361.jsonl.zst,591,0,cap,249384,0,0,0,8,0,0,0,0,0,0,0,0,0,0,0
+CraneCode,Python (synth),data/cranecode/shard_00000254.jsonl.zst,534,0,cap,249570,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+CraneCode,Python (synth),data/cranecode/shard_00000118.jsonl.zst,589,0,cap,249605,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+CraneCode,Python (synth),data/cranecode/shard_00000396.jsonl.zst,529,0,cap,249432,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+CraneCode,Python (synth),data/cranecode/shard_00000222.jsonl.zst,570,0,cap,248516,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+CraneCode,Python (synth),data/cranecode/shard_00000466.jsonl.zst,496,0,cap,248994,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+CraneCode,Python (synth),data/cranecode/shard_00000314.jsonl.zst,543,0,cap,249656,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+CraneCode,Python (synth),data/cranecode/shard_00000124.jsonl.zst,612,0,cap,249917,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+CraneCode,Python (synth),data/cranecode/shard_00000320.jsonl.zst,490,0,cap,249945,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+CraneCode,Python (synth),data/cranecode/shard_00000321.jsonl.zst,547,0,cap,249498,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+CraneCode,Python (synth),data/cranecode/shard_00000329.jsonl.zst,607,0,cap,248981,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+CraneCode,Python (synth),data/cranecode/shard_00000306.jsonl.zst,489,0,cap,249935,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+CraneCode,Python (synth),data/cranecode/shard_00000137.jsonl.zst,441,0,cap,249685,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+CraneCode,Python (synth),data/cranecode/shard_00000468.jsonl.zst,564,0,cap,249297,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+CraneCode,Python (synth),data/cranecode/shard_00000450.jsonl.zst,572,0,cap,249734,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+CraneCode,Python (synth),data/cranecode/shard_00000182.jsonl.zst,564,0,cap,249548,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+CraneCode,Python (synth),data/cranecode/shard_00000064.jsonl.zst,517,0,cap,249423,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+CraneCode,Python (synth),data/cranecode/shard_00000482.jsonl.zst,561,0,cap,249922,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+CraneCode,Python (synth),data/cranecode/shard_00000441.jsonl.zst,624,0,cap,249709,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+CraneCode,Python (synth),data/cranecode/shard_00000160.jsonl.zst,524,0,cap,249257,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0
+CraneCode,Python (synth),data/cranecode/shard_00000077.jsonl.zst,512,0,cap,249680,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+CraneCode,Python (synth),data/cranecode/shard_00000282.jsonl.zst,556,0,cap,249481,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+CraneCode,Python (synth),data/cranecode/shard_00000054.jsonl.zst,507,0,cap,249745,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+CraneCode,Python (synth),data/cranecode/shard_00000207.jsonl.zst,525,0,cap,249670,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+CraneCode,Python (synth),data/cranecode/shard_00000412.jsonl.zst,493,0,cap,249975,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+CraneCode,Python (synth),data/cranecode/shard_00000015.jsonl.zst,524,0,cap,249687,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+CraneCode,Python (synth),data/cranecode/shard_00000455.jsonl.zst,539,0,cap,249766,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+CraneCode,Python (synth),data/cranecode/shard_00000227.jsonl.zst,510,0,cap,249820,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+CraneCode,Python (synth),data/cranecode/shard_00000434.jsonl.zst,417,0,cap,249834,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+CraneCode,Python (synth),data/cranecode/shard_00000280.jsonl.zst,588,0,cap,248964,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+CraneCode,Python (synth),data/cranecode/shard_00000257.jsonl.zst,583,0,cap,249896,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0
+CraneCode,Python (synth),data/cranecode/shard_00000420.jsonl.zst,486,0,cap,249468,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+CraneCode,Python (synth),data/cranecode/shard_00000443.jsonl.zst,523,0,cap,249964,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+CraneCode,Python (synth),data/cranecode/shard_00000159.jsonl.zst,509,0,cap,249966,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+CraneCode,Python (synth),data/cranecode/shard_00000389.jsonl.zst,609,0,cap,249862,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+CraneCode,Python (synth),data/cranecode/shard_00000172.jsonl.zst,575,0,cap,249698,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0
+CraneCode,Python (synth),data/cranecode/shard_00000415.jsonl.zst,614,0,cap,249964,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+CraneCode,Python (synth),data/cranecode/shard_00000308.jsonl.zst,482,0,cap,249956,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+CraneCode,Python (synth),data/cranecode/shard_00000480.jsonl.zst,614,0,cap,249656,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+CraneCode,Python (synth),data/cranecode/shard_00000294.jsonl.zst,534,0,cap,249764,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+CraneCode,Python (synth),data/cranecode/shard_00000328.jsonl.zst,557,0,cap,249859,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+CraneCode,Python (synth),data/cranecode/shard_00000484.jsonl.zst,611,0,cap,249151,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0
+CraneCode,Python (synth),data/cranecode/shard_00000039.jsonl.zst,480,0,cap,249270,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+CraneCode,Python (synth),data/cranecode/shard_00000006.jsonl.zst,522,0,cap,249846,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+CraneCode,Python (synth),data/cranecode/shard_00000403.jsonl.zst,509,0,cap,249416,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+CraneCode,Python (synth),data/cranecode/shard_00000139.jsonl.zst,544,0,cap,249833,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+CraneCode,Python (synth),data/cranecode/shard_00000231.jsonl.zst,456,0,cap,249960,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+CraneCode,Python (synth),data/cranecode/shard_00000316.jsonl.zst,498,0,cap,249929,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+CraneCode,Python (synth),data/cranecode/shard_00000444.jsonl.zst,577,0,cap,249423,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+CraneCode,Python (synth),data/cranecode/shard_00000351.jsonl.zst,553,0,cap,249900,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+CraneCode,Python (synth),data/cranecode/shard_00000496.jsonl.zst,626,0,cap,249825,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+CraneCode,Python (synth),data/cranecode/shard_00000211.jsonl.zst,558,0,cap,249160,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+CraneCode,Python (synth),data/cranecode/shard_00000264.jsonl.zst,579,0,cap,249953,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+CraneCode,Python (synth),data/cranecode/shard_00000436.jsonl.zst,586,0,cap,249797,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0
+CraneCode,Python (synth),data/cranecode/shard_00000256.jsonl.zst,583,0,cap,248760,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+CraneCode,Python (synth),data/cranecode/shard_00000038.jsonl.zst,542,0,cap,249601,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0
+CraneCode,Python (synth),data/cranecode/shard_00000229.jsonl.zst,523,0,cap,249785,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+CraneCode,Python (synth),data/cranecode/shard_00000438.jsonl.zst,486,0,cap,249510,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+CraneCode,Python (synth),data/cranecode/shard_00000031.jsonl.zst,511,0,cap,248962,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+CraneCode,Python (synth),data/cranecode/shard_00000169.jsonl.zst,567,0,cap,249862,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0
+CraneCode,Python (synth),data/cranecode/shard_00000099.jsonl.zst,539,0,cap,249829,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+CraneCode,Python (synth),data/cranecode/shard_00000495.jsonl.zst,546,0,cap,249494,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+CraneCode,Python (synth),data/cranecode/shard_00000221.jsonl.zst,559,0,cap,249060,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+CraneCode,Python (synth),data/cranecode/shard_00000250.jsonl.zst,651,0,cap,249897,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+CraneCode,Python (synth),data/cranecode/shard_00000414.jsonl.zst,473,0,cap,248523,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+CraneCode,Python (synth),data/cranecode/shard_00000090.jsonl.zst,617,0,cap,249756,0,0,2,0,0,0,0,0,0,0,0,0,0,0,0
+CraneCode,Python (synth),data/cranecode/shard_00000181.jsonl.zst,587,0,cap,249013,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+CraneCode,Python (synth),data/cranecode/shard_00000273.jsonl.zst,125,0,allocation,58678,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+Reddit To Flashcards,QA (synth),data/reddit_to_flashcards/lowthresh-0155_f3.jsonl.zst,6395,0,cap,249972,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+Reddit To Flashcards,QA (synth),data/reddit_to_flashcards/highthresh-part-154-00000-decoded.jsonl.zst,5686,0,cap,249986,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0
+Reddit To Flashcards,QA (synth),data/reddit_to_flashcards/merged_qa_prefilter_densesubs_lowthresh-0019_f2.jsonl.zst,6421,0,cap,249972,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+Reddit To Flashcards,QA (synth),data/reddit_to_flashcards/merged_qa_prefilter_densesubs_lowthresh-0163_f3.jsonl.zst,6403,0,cap,249959,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0
+Reddit To Flashcards,QA (synth),data/reddit_to_flashcards/highthresh-part-134-00000-decoded.jsonl.zst,5631,0,cap,249975,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+Reddit To Flashcards,QA (synth),data/reddit_to_flashcards/merged_qa_prefilter_densesubs_lowthresh-0007_f4.jsonl.zst,6461,0,cap,249969,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+Reddit To Flashcards,QA (synth),data/reddit_to_flashcards/lowthresh-0159_f1.jsonl.zst,6581,0,cap,249931,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+Reddit To Flashcards,QA (synth),data/reddit_to_flashcards/lowthresh-0164_f0.jsonl.zst,6412,0,cap,249971,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+Reddit To Flashcards,QA (synth),data/reddit_to_flashcards/highthresh-part-100-00000-decoded.jsonl.zst,5853,0,cap,249955,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+Reddit To Flashcards,QA (synth),data/reddit_to_flashcards/merged_qa_prefilter_densesubs_lowthresh-0186_f1.jsonl.zst,6487,0,cap,249980,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+Reddit To Flashcards,QA (synth),data/reddit_to_flashcards/merged_qa_prefilter_densesubs_lowthresh-0045_f3.jsonl.zst,6488,0,cap,249961,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+Reddit To Flashcards,QA (synth),data/reddit_to_flashcards/lowthresh-0189_f4.jsonl.zst,6423,0,cap,249961,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+Reddit To Flashcards,QA (synth),data/reddit_to_flashcards/merged_qa_prefilter_densesubs_lowthresh-0098_f3.jsonl.zst,6393,0,cap,249991,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0
+Reddit To Flashcards,QA (synth),data/reddit_to_flashcards/lowthresh-0157_f0.jsonl.zst,6453,0,cap,249985,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+Reddit To Flashcards,QA (synth),data/reddit_to_flashcards/highthresh-part-176-00000-decoded.jsonl.zst,5774,0,cap,249957,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+Reddit To Flashcards,QA (synth),data/reddit_to_flashcards/merged_qa_prefilter_densesubs_lowthresh-0053_f2.jsonl.zst,6451,0,cap,249999,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+Reddit To Flashcards,QA (synth),data/reddit_to_flashcards/merged_qa_prefilter_densesubs_lowthresh-0181_f3.jsonl.zst,6494,0,cap,249994,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+Reddit To Flashcards,QA (synth),data/reddit_to_flashcards/lowthresh-0121_f0.jsonl.zst,6439,0,cap,249988,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+Reddit To Flashcards,QA (synth),data/reddit_to_flashcards/highthresh-part-016-00000-decoded.jsonl.zst,5711,0,cap,249944,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+Reddit To Flashcards,QA (synth),data/reddit_to_flashcards/merged_qa_prefilter_densesubs_lowthresh-0034_f2.jsonl.zst,6417,0,cap,249969,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+Reddit To Flashcards,QA (synth),data/reddit_to_flashcards/lowthresh-0007_f3.jsonl.zst,6493,0,cap,249985,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+Reddit To Flashcards,QA (synth),data/reddit_to_flashcards/highthresh-part-012-00000-decoded.jsonl.zst,5739,0,cap,249954,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+Reddit To Flashcards,QA (synth),data/reddit_to_flashcards/highthresh-part-049-00000-decoded.jsonl.zst,5779,0,cap,249962,0,0,0,0,0,0,0,0,0,2,0,0,0,0,0
+Reddit To Flashcards,QA (synth),data/reddit_to_flashcards/lowthresh-0008_f4.jsonl.zst,6465,0,cap,249981,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+Reddit To Flashcards,QA (synth),data/reddit_to_flashcards/lowthresh-0060_f2.jsonl.zst,6470,0,cap,249967,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+Reddit To Flashcards,QA (synth),data/reddit_to_flashcards/highthresh-part-142-00000-decoded.jsonl.zst,5630,0,cap,249984,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+Reddit To Flashcards,QA (synth),data/reddit_to_flashcards/merged_qa_prefilter_densesubs_lowthresh-0177_f4.jsonl.zst,6447,0,cap,249968,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+Reddit To Flashcards,QA (synth),data/reddit_to_flashcards/lowthresh-0042_f0.jsonl.zst,6470,0,cap,249967,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+Reddit To Flashcards,QA (synth),data/reddit_to_flashcards/merged_qa_prefilter_densesubs_lowthresh-0193_f2.jsonl.zst,6430,0,cap,249955,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+Reddit To Flashcards,QA (synth),data/reddit_to_flashcards/highthresh-part-162-00000-decoded.jsonl.zst,5699,0,cap,249984,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+Reddit To Flashcards,QA (synth),data/reddit_to_flashcards/merged_qa_prefilter_densesubs_lowthresh-0149_f4.jsonl.zst,6413,0,cap,249992,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+Reddit To Flashcards,QA (synth),data/reddit_to_flashcards/highthresh-part-118-00000-decoded.jsonl.zst,5653,0,cap,249934,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0
+Reddit To Flashcards,QA (synth),data/reddit_to_flashcards/merged_qa_prefilter_densesubs_lowthresh-0137_f2.jsonl.zst,6481,0,cap,249995,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0
+Reddit To Flashcards,QA (synth),data/reddit_to_flashcards/lowthresh-0203_f3.jsonl.zst,6425,0,cap,249989,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+Reddit To Flashcards,QA (synth),data/reddit_to_flashcards/lowthresh-0151_f4.jsonl.zst,6472,0,cap,249963,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0
+Reddit To Flashcards,QA (synth),data/reddit_to_flashcards/lowthresh-0178_f0.jsonl.zst,6449,0,cap,249971,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+Reddit To Flashcards,QA (synth),data/reddit_to_flashcards/highthresh-part-053-00000-decoded.jsonl.zst,5820,0,cap,249993,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+Reddit To Flashcards,QA (synth),data/reddit_to_flashcards/highthresh-part-174-00000-decoded.jsonl.zst,5687,0,cap,249960,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0
+Reddit To Flashcards,QA (synth),data/reddit_to_flashcards/merged_qa_prefilter_densesubs_lowthresh-0001_f1.jsonl.zst,6422,0,cap,249970,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+Reddit To Flashcards,QA (synth),data/reddit_to_flashcards/merged_qa_prefilter_densesubs_lowthresh-0108_f4.jsonl.zst,6446,0,cap,249983,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+Reddit To Flashcards,QA (synth),data/reddit_to_flashcards/lowthresh-0073_f2.jsonl.zst,6481,0,cap,249985,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+Reddit To Flashcards,QA (synth),data/reddit_to_flashcards/highthresh-part-017-00000-decoded.jsonl.zst,5669,0,cap,249980,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0
+Reddit To Flashcards,QA (synth),data/reddit_to_flashcards/lowthresh-0012_f2.jsonl.zst,6433,0,cap,249953,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+Reddit To Flashcards,QA (synth),data/reddit_to_flashcards/lowthresh-0135_f4.jsonl.zst,6418,0,cap,249969,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+Reddit To Flashcards,QA (synth),data/reddit_to_flashcards/highthresh-part-115-00000-decoded.jsonl.zst,5847,0,cap,249982,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+Reddit To Flashcards,QA (synth),data/reddit_to_flashcards/merged_qa_prefilter_densesubs_lowthresh-0138_f2.jsonl.zst,6467,0,cap,249978,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0
+Reddit To Flashcards,QA (synth),data/reddit_to_flashcards/merged_qa_prefilter_densesubs_lowthresh-0090_f3.jsonl.zst,6494,0,cap,249990,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+Reddit To Flashcards,QA (synth),data/reddit_to_flashcards/highthresh-part-098-00000-decoded.jsonl.zst,5766,0,cap,249973,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0
+Reddit To Flashcards,QA (synth),data/reddit_to_flashcards/lowthresh-0185_f3.jsonl.zst,6464,0,cap,249998,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+Reddit To Flashcards,QA (synth),data/reddit_to_flashcards/merged_qa_prefilter_densesubs_lowthresh-0000_f0.jsonl.zst,6394,0,cap,250000,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+Reddit To Flashcards,QA (synth),data/reddit_to_flashcards/highthresh-part-061-00000-decoded.jsonl.zst,5793,0,cap,249950,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+Reddit To Flashcards,QA (synth),data/reddit_to_flashcards/lowthresh-0054_f2.jsonl.zst,6383,0,cap,249975,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+Reddit To Flashcards,QA (synth),data/reddit_to_flashcards/lowthresh-0051_f2.jsonl.zst,6394,0,cap,249996,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+Reddit To Flashcards,QA (synth),data/reddit_to_flashcards/highthresh-part-064-00000-decoded.jsonl.zst,5624,0,cap,249991,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0
+Reddit To Flashcards,QA (synth),data/reddit_to_flashcards/merged_qa_prefilter_densesubs_lowthresh-0134_f0.jsonl.zst,6388,0,cap,249974,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+Reddit To Flashcards,QA (synth),data/reddit_to_flashcards/lowthresh-0011_f3.jsonl.zst,6450,0,cap,249991,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0
+Reddit To Flashcards,QA (synth),data/reddit_to_flashcards/merged_qa_prefilter_densesubs_lowthresh-0178_f1.jsonl.zst,4519,0,allocation,175070,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+Wiki To RCQA,QA (synth),data/wiki_to_rcqa-part1/00000_f48.jsonl.zst,882,0,end,117648,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0
+Wiki To RCQA,QA (synth),data/wiki_to_rcqa-part1/00010_f74.jsonl.zst,999,0,end,134409,0,0,0,0,0,0,0,0,0,2,0,0,0,1,0
+Wiki To RCQA,QA (synth),data/wiki_to_rcqa-part1/00019_f10.jsonl.zst,999,0,end,145989,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0
+Wiki To RCQA,QA (synth),data/wiki_to_rcqa-part1/00021_f170.jsonl.zst,999,0,end,138907,0,0,0,0,0,0,0,0,0,0,0,0,3,0,0
+Wiki To RCQA,QA (synth),data/wiki_to_rcqa-part2/00023_f149.jsonl.zst,999,0,end,135180,0,0,0,0,0,0,0,0,0,1,0,0,0,1,0
+Wiki To RCQA,QA (synth),data/wiki_to_rcqa-part2/00038_f270.jsonl.zst,999,0,end,140191,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+Wiki To RCQA,QA (synth),data/wiki_to_rcqa-part3/00060_f138.jsonl.zst,352,0,end,44315,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0
+Wiki To RCQA,QA (synth),data/wiki_to_rcqa-part2/00041_f163.jsonl.zst,999,0,end,132730,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0
+Wiki To RCQA,QA (synth),data/wiki_to_rcqa-part3/00043_f152.jsonl.zst,999,0,end,132967,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0
+Wiki To RCQA,QA (synth),data/wiki_to_rcqa-part1/00005_f127.jsonl.zst,999,0,end,143238,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+Wiki To RCQA,QA (synth),data/wiki_to_rcqa-part2/00030_f24.jsonl.zst,999,0,end,144293,0,0,0,0,0,0,0,0,0,3,0,0,0,1,0
+Wiki To RCQA,QA (synth),data/wiki_to_rcqa-part2/00029_f238.jsonl.zst,999,0,end,142127,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+Wiki To RCQA,QA (synth),data/wiki_to_rcqa-part3/00057_f279.jsonl.zst,999,0,end,128724,0,0,0,0,0,0,0,0,0,2,0,0,0,1,0
+Wiki To RCQA,QA (synth),data/wiki_to_rcqa-part3/00055_f147.jsonl.zst,999,0,end,132456,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+Wiki To RCQA,QA (synth),data/wiki_to_rcqa-part3/00059_f231.jsonl.zst,999,0,end,130809,0,0,0,0,0,0,0,0,0,0,0,0,2,1,0
+Wiki To RCQA,QA (synth),data/wiki_to_rcqa-part1/00018_f44.jsonl.zst,999,0,end,130311,0,0,0,0,0,0,0,0,0,2,0,0,0,2,0
+Wiki To RCQA,QA (synth),data/wiki_to_rcqa-part3/00054_f320.jsonl.zst,999,0,end,140512,0,0,0,0,0,0,0,0,0,3,0,0,0,0,0
+Wiki To RCQA,QA (synth),data/wiki_to_rcqa-part2/00035_f335.jsonl.zst,999,0,end,131793,0,0,0,0,0,0,0,0,0,0,0,0,1,3,0
+Wiki To RCQA,QA (synth),data/wiki_to_rcqa-part2/00024_f14.jsonl.zst,999,0,end,127448,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+Wiki To RCQA,QA (synth),data/wiki_to_rcqa-part3/00051_f146.jsonl.zst,999,0,end,126993,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+Wiki To RCQA,QA (synth),data/wiki_to_rcqa-part1/00017_f80.jsonl.zst,999,0,end,143094,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+Wiki To RCQA,QA (synth),data/wiki_to_rcqa-part1/00011_f67.jsonl.zst,999,0,end,144726,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0
+Wiki To RCQA,QA (synth),data/wiki_to_rcqa-part1/00012_f84.jsonl.zst,999,0,end,139093,0,0,0,0,0,0,0,0,0,2,0,0,0,0,0
+Wiki To RCQA,QA (synth),data/wiki_to_rcqa-part3/00047_f134.jsonl.zst,999,0,end,131421,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0
+Wiki To RCQA,QA (synth),data/wiki_to_rcqa-part1/00004_f178.jsonl.zst,999,0,end,147932,0,0,0,0,0,0,0,0,0,2,0,0,2,0,0
+Wiki To RCQA,QA (synth),data/wiki_to_rcqa-part3/00060_f30.jsonl.zst,999,0,end,138907,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0
+Wiki To RCQA,QA (synth),data/wiki_to_rcqa-part3/00058_f183.jsonl.zst,999,0,end,130110,0,0,0,0,0,0,1,0,1,0,0,0,1,0,0
+Wiki To RCQA,QA (synth),data/wiki_to_rcqa-part1/00013_f157.jsonl.zst,999,0,end,146416,0,0,0,0,0,0,0,0,0,2,0,0,0,0,0
+Wiki To RCQA,QA (synth),data/wiki_to_rcqa-part2/00027_f255.jsonl.zst,999,0,end,132931,0,0,0,0,0,0,0,0,0,1,0,0,0,1,0
+Wiki To RCQA,QA (synth),data/wiki_to_rcqa-part1/00002_f39.jsonl.zst,999,0,end,141543,0,0,0,0,0,0,0,0,0,2,0,0,1,2,0
+Wiki To RCQA,QA (synth),data/wiki_to_rcqa-part2/00028_f188.jsonl.zst,999,0,end,139848,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+Wiki To RCQA,QA (synth),data/wiki_to_rcqa-part2/00028_f97.jsonl.zst,999,0,end,133902,0,0,0,0,0,0,0,0,0,1,0,0,0,2,0
+Wiki To RCQA,QA (synth),data/wiki_to_rcqa-part1/00016_f107.jsonl.zst,999,0,end,148582,0,0,0,0,0,0,0,0,0,1,0,0,2,0,0
+Wiki To RCQA,QA (synth),data/wiki_to_rcqa-part3/00061_f12.jsonl.zst,999,0,end,126359,0,0,0,0,0,0,0,0,0,0,0,0,2,0,0
+Wiki To RCQA,QA (synth),data/wiki_to_rcqa-part1/00016_f117.jsonl.zst,999,0,end,132534,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0
+Wiki To RCQA,QA (synth),data/wiki_to_rcqa-part1/00008_f121.jsonl.zst,999,0,end,138271,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+Wiki To RCQA,QA (synth),data/wiki_to_rcqa-part1/00002_f231.jsonl.zst,999,0,end,154424,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0
+Wiki To RCQA,QA (synth),data/wiki_to_rcqa-part1/00009_f102.jsonl.zst,999,0,end,138018,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+Wiki To RCQA,QA (synth),data/wiki_to_rcqa-part1/00009_f315.jsonl.zst,999,0,end,136492,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+Wiki To RCQA,QA (synth),data/wiki_to_rcqa-part1/00017_f314.jsonl.zst,999,0,end,134814,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+Wiki To RCQA,QA (synth),data/wiki_to_rcqa-part2/00031_f253.jsonl.zst,999,0,end,135220,0,0,0,0,0,0,0,0,0,4,0,0,0,3,0
+Wiki To RCQA,QA (synth),data/wiki_to_rcqa-part3/00048_f124.jsonl.zst,999,0,end,126428,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0
+Wiki To RCQA,QA (synth),data/wiki_to_rcqa-part1/00011_f197.jsonl.zst,999,0,end,139622,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0
+Wiki To RCQA,QA (synth),data/wiki_to_rcqa-part2/00036_f293.jsonl.zst,999,0,end,135122,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+Wiki To RCQA,QA (synth),data/wiki_to_rcqa-part3/00057_f304.jsonl.zst,999,0,end,140542,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0
+Wiki To RCQA,QA (synth),data/wiki_to_rcqa-part2/00026_f257.jsonl.zst,999,0,end,129891,0,0,0,0,0,0,0,0,0,3,0,0,0,0,0
+Wiki To RCQA,QA (synth),data/wiki_to_rcqa-part2/00028_f184.jsonl.zst,999,0,end,130715,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0
+Wiki To RCQA,QA (synth),data/wiki_to_rcqa-part2/00032_f54.jsonl.zst,999,0,end,139588,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+Wiki To RCQA,QA (synth),data/wiki_to_rcqa-part3/00048_f125.jsonl.zst,999,0,end,125695,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0
+Wiki To RCQA,QA (synth),data/wiki_to_rcqa-part2/00037_f324.jsonl.zst,999,0,end,137155,0,0,0,0,0,0,0,0,0,1,0,0,1,2,0
+Wiki To RCQA,QA (synth),data/wiki_to_rcqa-part2/00040_f17.jsonl.zst,999,0,end,143968,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+Wiki To RCQA,QA (synth),data/wiki_to_rcqa-part3/00061_f324.jsonl.zst,999,0,end,135512,0,0,0,0,0,0,0,0,0,3,0,0,1,0,0
+Wiki To RCQA,QA (synth),data/wiki_to_rcqa-part3/00058_f358.jsonl.zst,999,0,end,127982,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0
+Wiki To RCQA,QA (synth),data/wiki_to_rcqa-part1/00007_f26.jsonl.zst,523,0,allocation,79024,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0
+Nemotron Synth QA,QA (synth),data/nemotron-synth-qa/CC-MAIN-2022-49-part-00013.jsonl.zst,624,0,cap,249953,0,0,3,2,0,1,2,1,3,5,0,0,10,6,0
+Nemotron Synth QA,QA (synth),data/nemotron-synth-qa/CC-MAIN-2015-22-part-00002.jsonl.zst,645,0,cap,249555,0,0,6,2,0,0,2,4,1,4,0,0,9,4,0
+Nemotron Synth QA,QA (synth),data/nemotron-synth-qa/CC-MAIN-2021-10-part-00007.jsonl.zst,632,0,cap,249941,0,0,1,2,0,0,1,0,1,3,0,0,5,1,0
+Nemotron Synth QA,QA (synth),data/nemotron-synth-qa/CC-MAIN-2019-26-part-00009.jsonl.zst,616,0,cap,249516,0,0,5,1,0,1,2,0,0,3,0,0,8,3,0
+Nemotron Synth QA,QA (synth),data/nemotron-synth-qa/CC-MAIN-2018-05-part-00023.jsonl.zst,642,0,cap,249619,0,0,1,0,0,2,2,0,1,5,0,0,9,4,0
+Nemotron Synth QA,QA (synth),data/nemotron-synth-qa/CC-MAIN-2024-10-part-00041.jsonl.zst,579,0,cap,249859,0,0,4,0,0,0,8,0,2,4,0,0,3,1,0
+Nemotron Synth QA,QA (synth),data/nemotron-synth-qa/CC-MAIN-2018-17-part-00006.jsonl.zst,655,0,cap,249730,1,0,1,2,0,0,2,0,4,5,0,0,7,8,0
+Nemotron Synth QA,QA (synth),data/nemotron-synth-qa/CC-MAIN-2017-43-part-00011.jsonl.zst,647,0,cap,249588,0,0,0,3,0,0,2,0,1,3,0,0,7,2,0
+Nemotron Synth QA,QA (synth),data/nemotron-synth-qa/CC-MAIN-2024-22-part-00048.jsonl.zst,581,0,cap,249836,0,0,1,1,0,0,10,0,7,1,0,0,5,0,0
+Nemotron Synth QA,QA (synth),data/nemotron-synth-qa/CC-MAIN-2024-18-part-00071.jsonl.zst,604,0,cap,249832,0,0,0,0,0,0,11,2,5,2,0,0,8,1,0
+Nemotron Synth QA,QA (synth),data/nemotron-synth-qa/CC-MAIN-2014-41-part-00009.jsonl.zst,699,0,cap,249958,1,1,3,0,0,1,3,0,0,1,1,0,8,5,0
+Nemotron Synth QA,QA (synth),data/nemotron-synth-qa/CC-MAIN-2023-50-part-00044.jsonl.zst,595,0,cap,249616,0,0,1,0,0,0,4,2,4,5,0,1,8,3,0
+Nemotron Synth QA,QA (synth),data/nemotron-synth-qa/CC-MAIN-2017-04-part-00004.jsonl.zst,674,0,cap,249748,0,1,0,2,0,0,5,0,2,5,0,0,11,4,0
+Nemotron Synth QA,QA (synth),data/nemotron-synth-qa/CC-MAIN-2016-50-part-00000.jsonl.zst,683,0,cap,249831,0,0,2,0,0,0,5,0,1,2,0,0,10,1,1
+Nemotron Synth QA,QA (synth),data/nemotron-synth-qa/CC-MAIN-2017-34-part-00001.jsonl.zst,651,0,cap,249885,1,1,2,3,0,0,0,0,4,9,0,0,6,8,0
+Nemotron Synth QA,QA (synth),data/nemotron-synth-qa/CC-MAIN-2014-35-part-00003.jsonl.zst,663,0,cap,249763,0,0,1,2,0,0,1,0,3,5,0,0,13,3,1
+Nemotron Synth QA,QA (synth),data/nemotron-synth-qa/CC-MAIN-2019-26-part-00004.jsonl.zst,601,0,cap,249887,2,0,3,1,0,1,1,0,3,5,0,0,17,6,0
+Nemotron Synth QA,QA (synth),data/nemotron-synth-qa/CC-MAIN-2019-26-part-00016.jsonl.zst,660,0,cap,249961,0,0,0,2,0,0,4,0,1,4,0,0,8,7,0
+Nemotron Synth QA,QA (synth),data/nemotron-synth-qa/CC-MAIN-2021-04-part-00017.jsonl.zst,644,0,cap,249666,1,0,5,0,1,0,4,0,2,2,0,0,11,5,0
+Nemotron Synth QA,QA (synth),data/nemotron-synth-qa/CC-MAIN-2024-18-part-00016.jsonl.zst,597,0,cap,249729,2,1,2,1,0,0,6,0,5,2,0,0,3,2,0
+Nemotron Synth QA,QA (synth),data/nemotron-synth-qa/CC-MAIN-2022-05-part-00003.jsonl.zst,644,0,cap,249586,0,0,2,4,0,0,2,0,2,1,1,0,14,1,0
+Nemotron Synth QA,QA (synth),data/nemotron-synth-qa/CC-MAIN-2023-23-part-00004.jsonl.zst,621,0,cap,249870,0,0,4,1,0,1,1,0,1,2,0,0,7,6,0
+Nemotron Synth QA,QA (synth),data/nemotron-synth-qa/CC-MAIN-2021-49-part-00013.jsonl.zst,628,0,cap,249754,0,0,1,0,0,0,2,0,1,5,0,0,15,7,0
+Nemotron Synth QA,QA (synth),data/nemotron-synth-qa/CC-MAIN-2023-23-part-00012.jsonl.zst,610,0,cap,249833,1,0,4,1,0,0,5,2,1,4,0,0,10,2,0
+Nemotron Synth QA,QA (synth),data/nemotron-synth-qa/CC-MAIN-2024-22-part-00004.jsonl.zst,568,0,cap,249585,0,0,0,0,0,0,7,1,6,1,0,0,14,0,0
+Nemotron Synth QA,QA (synth),data/nemotron-synth-qa/CC-MAIN-2022-49-part-00042.jsonl.zst,616,0,cap,249752,0,1,2,2,0,0,3,0,1,4,0,0,12,8,1
+Nemotron Synth QA,QA (synth),data/nemotron-synth-qa/CC-MAIN-2024-18-part-00034.jsonl.zst,583,0,cap,249662,0,1,2,0,0,0,6,2,3,6,1,0,13,1,0
+Nemotron Synth QA,QA (synth),data/nemotron-synth-qa/CC-MAIN-2017-13-part-00012.jsonl.zst,663,0,cap,249961,0,0,2,2,0,0,2,0,1,4,0,0,12,4,0
+Nemotron Synth QA,QA (synth),data/nemotron-synth-qa/CC-MAIN-2024-30-part-00085.jsonl.zst,588,0,cap,249851,0,0,1,0,0,0,7,2,4,2,1,0,9,5,0
+Nemotron Synth QA,QA (synth),data/nemotron-synth-qa/CC-MAIN-2024-18-part-00086.jsonl.zst,595,0,cap,249572,2,0,2,0,0,1,2,1,5,2,0,0,8,4,0
+Nemotron Synth QA,QA (synth),data/nemotron-synth-qa/CC-MAIN-2019-51-part-00011.jsonl.zst,648,0,cap,249407,0,0,1,0,0,0,0,0,3,9,0,0,12,2,0
+Nemotron Synth QA,QA (synth),data/nemotron-synth-qa/CC-MAIN-2020-40-part-00011.jsonl.zst,612,0,cap,249681,0,0,2,1,0,0,1,0,0,6,0,1,7,3,0
+Nemotron Synth QA,QA (synth),data/nemotron-synth-qa/CC-MAIN-2016-40-part-00007.jsonl.zst,603,0,cap,249701,0,0,3,2,0,0,3,0,3,3,0,0,7,3,0
+Nemotron Synth QA,QA (synth),data/nemotron-synth-qa/CC-MAIN-2023-50-part-00037.jsonl.zst,610,0,cap,249579,0,0,1,0,0,0,4,1,6,2,0,0,10,1,0
+Nemotron Synth QA,QA (synth),data/nemotron-synth-qa/CC-MAIN-2019-39-part-00003.jsonl.zst,638,0,cap,249857,0,0,4,1,0,0,1,2,4,4,0,0,11,5,0
+Nemotron Synth QA,QA (synth),data/nemotron-synth-qa/CC-MAIN-2018-30-part-00006.jsonl.zst,650,0,cap,249836,1,0,1,1,1,1,2,0,1,0,0,0,7,5,0
+Nemotron Synth QA,QA (synth),data/nemotron-synth-qa/CC-MAIN-2022-40-part-00033.jsonl.zst,627,0,cap,249428,0,0,0,0,0,0,1,0,2,5,0,0,9,1,0
+Nemotron Synth QA,QA (synth),data/nemotron-synth-qa/CC-MAIN-2020-34-part-00005.jsonl.zst,631,0,cap,249871,0,1,2,0,0,0,2,0,2,3,0,0,17,5,0
+Nemotron Synth QA,QA (synth),data/nemotron-synth-qa/CC-MAIN-2021-31-part-00006.jsonl.zst,584,0,cap,249500,0,0,3,5,0,1,4,0,0,2,0,0,8,3,1
+Nemotron Synth QA,QA (synth),data/nemotron-synth-qa/CC-MAIN-2024-30-part-00001.jsonl.zst,587,0,cap,249491,0,0,1,1,0,2,13,1,10,1,0,0,2,1,0
+Nemotron Synth QA,QA (synth),data/nemotron-synth-qa/CC-MAIN-2018-30-part-00011.jsonl.zst,626,0,cap,249656,0,0,3,1,0,0,1,0,3,6,0,0,8,4,1
+Nemotron Synth QA,QA (synth),data/nemotron-synth-qa/CC-MAIN-2024-18-part-00079.jsonl.zst,591,0,cap,249676,1,0,0,1,0,0,10,3,17,3,0,0,5,2,0
+Nemotron Synth QA,QA (synth),data/nemotron-synth-qa/CC-MAIN-2019-35-part-00002.jsonl.zst,621,0,cap,249674,0,0,1,1,0,1,2,0,0,11,0,0,8,4,0
+Nemotron Synth QA,QA (synth),data/nemotron-synth-qa/CC-MAIN-2024-22-part-00034.jsonl.zst,578,0,cap,249962,0,1,3,0,0,0,8,0,4,0,0,0,4,2,0
+Nemotron Synth QA,QA (synth),data/nemotron-synth-qa/CC-MAIN-2024-18-part-00032.jsonl.zst,584,0,cap,249958,0,0,1,0,0,0,10,1,11,6,1,0,4,3,0
+Nemotron Synth QA,QA (synth),data/nemotron-synth-qa/CC-MAIN-2013-20-part-00032.jsonl.zst,661,0,cap,249876,2,0,2,1,0,0,2,0,1,7,0,0,13,4,0
+Nemotron Synth QA,QA (synth),data/nemotron-synth-qa/CC-MAIN-2014-52-part-00000.jsonl.zst,644,0,cap,249483,0,1,3,1,0,0,3,0,2,8,0,0,8,9,1
+Nemotron Synth QA,QA (synth),data/nemotron-synth-qa/CC-MAIN-2024-10-part-00048.jsonl.zst,583,0,cap,249807,0,0,5,0,0,0,9,4,17,1,0,0,4,3,0
+Nemotron Synth QA,QA (synth),data/nemotron-synth-qa/CC-MAIN-2021-49-part-00002.jsonl.zst,63,0,allocation,24760,0,0,0,0,0,0,0,0,0,1,0,0,0,1,0
+Math Meta-Reasoning,Thinking (synth),data/math-meta-reasoning/mid-train-test_part_035.jsonl.zst,405,0,cap,249785,0,0,0,0,0,0,0,1,0,35,0,0,0,0,0
+Math Meta-Reasoning,Thinking (synth),data/math-meta-reasoning/mid-train-test_part_029.jsonl.zst,538,0,cap,249954,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0
+Math Meta-Reasoning,Thinking (synth),data/math-meta-reasoning/mid-train-test_part_036.jsonl.zst,403,0,cap,249980,0,0,0,0,0,0,0,0,1,30,0,0,0,0,0
+Math Meta-Reasoning,Thinking (synth),data/math-meta-reasoning/mid-train-test_part_001.jsonl.zst,185,0,allocation,166306,1,0,1,0,0,0,2,0,2,5,0,0,8,1,0
+Code Meta-Reasoning,Thinking (synth),data/code-meta-reasoning/mid-train-test_part_045.jsonl.zst,705,0,cap,249982,0,0,1,0,0,0,0,1,0,1,0,0,0,0,0
+Code Meta-Reasoning,Thinking (synth),data/code-meta-reasoning/mid-train-test_part_007.jsonl.zst,202,0,cap,249109,1,0,19,0,0,0,0,0,0,2,0,0,2,2,0
+Code Meta-Reasoning,Thinking (synth),data/code-meta-reasoning/mid-train-test_part_019.jsonl.zst,278,0,cap,249777,1,0,2,1,0,0,0,1,0,2,0,0,6,1,0
+Code Meta-Reasoning,Thinking (synth),data/code-meta-reasoning/mid-train-test_part_031.jsonl.zst,212,0,cap,249433,0,0,3,1,0,0,0,2,0,1,0,0,5,4,0
+Code Meta-Reasoning,Thinking (synth),data/code-meta-reasoning/mid-train-test_part_009.jsonl.zst,84,0,allocation,105895,0,0,13,0,0,0,0,0,0,0,0,0,1,0,0
+Program-Verifiable,Thinking (synth),data/program_verifiable/gpt41-train-00003-of-00004.jsonl.zst,292,0,cap,249690,0,0,0,0,0,0,1,0,0,7,0,0,1,0,0
+Program-Verifiable,Thinking (synth),data/program_verifiable/gpt41-train-00001-of-00004.jsonl.zst,152,0,allocation,133667,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0
+OMR Rewrite FullThoughts,Thinking (synth),data/omr-rewrite-fullthoughts/cot-00011-of-00021.jsonl.zst,173,0,cap,249305,0,0,0,0,0,0,0,0,0,6,0,2,2,0,0
+OMR Rewrite FullThoughts,Thinking (synth),data/omr-rewrite-fullthoughts/cot-00000-of-00021.jsonl.zst,167,0,cap,249488,0,0,0,0,0,0,1,0,0,6,0,1,0,1,0
+OMR Rewrite FullThoughts,Thinking (synth),data/omr-rewrite-fullthoughts/cot-00014-of-00021.jsonl.zst,161,0,cap,247136,1,0,0,0,0,1,1,0,0,6,0,0,2,0,0
+OMR Rewrite FullThoughts,Thinking (synth),data/omr-rewrite-fullthoughts/cot-00012-of-00021.jsonl.zst,165,0,cap,249703,0,0,0,0,0,0,1,0,1,7,0,0,0,2,0
+OMR Rewrite FullThoughts,Thinking (synth),data/omr-rewrite-fullthoughts/cot-00017-of-00021.jsonl.zst,146,0,cap,248332,1,0,0,0,0,0,0,0,0,9,0,1,0,3,0
+OMR Rewrite FullThoughts,Thinking (synth),data/omr-rewrite-fullthoughts/cot-00009-of-00021.jsonl.zst,156,0,cap,247636,0,0,0,0,0,0,0,0,3,9,0,0,0,1,0
+OMR Rewrite FullThoughts,Thinking (synth),data/omr-rewrite-fullthoughts/cot-00018-of-00021.jsonl.zst,171,0,cap,248611,0,0,0,0,0,0,0,0,0,5,0,0,0,1,0
+OMR Rewrite FullThoughts,Thinking (synth),data/omr-rewrite-fullthoughts/cot-00015-of-00021.jsonl.zst,171,0,cap,249596,0,0,0,0,0,0,1,0,0,3,0,0,1,0,0
+OMR Rewrite FullThoughts,Thinking (synth),data/omr-rewrite-fullthoughts/cot-00005-of-00021.jsonl.zst,38,0,allocation,54801,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0
+QWQ Reasoning Traces,Thinking (synth),data/qwq-reasoning-traces/train-00047-of-00088.jsonl.zst,38,0,cap,248644,0,0,0,0,0,0,0,0,0,17,0,0,2,0,0
+QWQ Reasoning Traces,Thinking (synth),data/qwq-reasoning-traces/train-00034-of-00088.jsonl.zst,41,0,cap,249322,0,0,0,0,0,0,0,1,1,8,0,1,0,0,0
+QWQ Reasoning Traces,Thinking (synth),data/qwq-reasoning-traces/train-00033-of-00088.jsonl.zst,35,0,cap,245909,0,0,0,0,0,0,0,0,1,17,0,0,1,0,0
+QWQ Reasoning Traces,Thinking (synth),data/qwq-reasoning-traces/train-00022-of-00088.jsonl.zst,41,0,cap,240611,0,0,0,0,0,0,0,0,0,10,0,0,0,0,0
+QWQ Reasoning Traces,Thinking (synth),data/qwq-reasoning-traces/train-00014-of-00088.jsonl.zst,39,0,cap,243663,0,0,0,0,0,0,0,0,0,9,0,0,3,0,0
+QWQ Reasoning Traces,Thinking (synth),data/qwq-reasoning-traces/train-00042-of-00088.jsonl.zst,42,0,cap,248763,0,0,0,0,0,0,0,0,0,20,0,0,1,0,0
+QWQ Reasoning Traces,Thinking (synth),data/qwq-reasoning-traces/train-00050-of-00088.jsonl.zst,38,0,cap,246185,0,0,0,0,0,0,0,0,0,11,0,0,1,0,0
+QWQ Reasoning Traces,Thinking (synth),data/qwq-reasoning-traces/train-00044-of-00088.jsonl.zst,36,0,cap,244270,0,0,0,0,0,0,0,0,1,10,0,0,1,0,0
+QWQ Reasoning Traces,Thinking (synth),data/qwq-reasoning-traces/train-00018-of-00088.jsonl.zst,39,0,cap,248508,0,0,0,0,0,0,0,0,0,9,0,1,0,0,0
+QWQ Reasoning Traces,Thinking (synth),data/qwq-reasoning-traces/train-00009-of-00088.jsonl.zst,41,0,cap,242271,0,0,0,0,0,1,0,0,1,8,0,1,2,0,0
+QWQ Reasoning Traces,Thinking (synth),data/qwq-reasoning-traces/train-00000-of-00088.jsonl.zst,41,0,cap,248800,0,0,0,0,0,0,1,0,0,8,0,0,1,1,0
+QWQ Reasoning Traces,Thinking (synth),data/qwq-reasoning-traces/train-00070-of-00088.jsonl.zst,37,0,cap,245576,0,0,0,0,0,0,0,0,1,14,0,0,1,0,0
+QWQ Reasoning Traces,Thinking (synth),data/qwq-reasoning-traces/train-00067-of-00088.jsonl.zst,35,0,cap,246421,0,0,0,0,0,0,1,0,0,17,0,0,2,0,0
+QWQ Reasoning Traces,Thinking (synth),data/qwq-reasoning-traces/train-00013-of-00088.jsonl.zst,38,0,cap,244346,0,0,0,0,0,0,1,0,1,28,0,0,0,0,0
+QWQ Reasoning Traces,Thinking (synth),data/qwq-reasoning-traces/train-00036-of-00088.jsonl.zst,39,0,cap,242515,0,0,0,0,0,0,0,0,0,19,0,0,0,0,0
+QWQ Reasoning Traces,Thinking (synth),data/qwq-reasoning-traces/train-00077-of-00088.jsonl.zst,39,0,cap,249653,0,0,0,0,0,0,0,0,0,12,0,0,0,0,0
+QWQ Reasoning Traces,Thinking (synth),data/qwq-reasoning-traces/train-00007-of-00088.jsonl.zst,39,0,cap,247928,0,0,0,0,0,0,0,0,0,10,0,0,0,0,0
+QWQ Reasoning Traces,Thinking (synth),data/qwq-reasoning-traces/train-00057-of-00088.jsonl.zst,34,0,cap,247534,0,0,0,0,0,0,0,0,1,20,0,1,0,0,0
+QWQ Reasoning Traces,Thinking (synth),data/qwq-reasoning-traces/train-00045-of-00088.jsonl.zst,10,0,allocation,61403,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0
+General Reasoning Mix,Thinking (synth),data/general_reasoning_mix/train-00027-of-00049.jsonl.zst,63,0,cap,246299,0,0,0,0,0,0,0,0,0,7,0,0,1,0,0
+General Reasoning Mix,Thinking (synth),data/general_reasoning_mix/train-00025-of-00049.jsonl.zst,87,0,cap,249348,0,0,0,0,0,0,0,0,0,8,0,0,4,0,0
+General Reasoning Mix,Thinking (synth),data/general_reasoning_mix/train-00045-of-00049.jsonl.zst,98,0,cap,249280,1,0,0,0,0,0,0,0,0,3,0,0,1,0,0
+General Reasoning Mix,Thinking (synth),data/general_reasoning_mix/train-00008-of-00049.jsonl.zst,103,0,cap,248961,0,0,0,0,0,0,0,0,1,6,0,0,1,0,0
+General Reasoning Mix,Thinking (synth),data/general_reasoning_mix/train-00034-of-00049.jsonl.zst,96,0,cap,247553,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+General Reasoning Mix,Thinking (synth),data/general_reasoning_mix/train-00039-of-00049.jsonl.zst,95,0,cap,249533,1,0,0,0,0,0,1,0,2,5,0,1,0,0,0
+General Reasoning Mix,Thinking (synth),data/general_reasoning_mix/train-00021-of-00049.jsonl.zst,231,0,cap,249405,0,0,1,0,0,0,0,1,2,4,0,1,1,0,0
+General Reasoning Mix,Thinking (synth),data/general_reasoning_mix/train-00048-of-00049.jsonl.zst,93,0,cap,249726,0,0,0,0,0,1,0,0,0,5,0,0,2,0,0
+General Reasoning Mix,Thinking (synth),data/general_reasoning_mix/train-00043-of-00049.jsonl.zst,95,0,cap,245445,0,0,0,0,0,1,0,0,2,6,0,0,1,1,0
+General Reasoning Mix,Thinking (synth),data/general_reasoning_mix/train-00024-of-00049.jsonl.zst,267,0,cap,249307,0,0,4,0,0,0,4,1,9,4,0,0,0,0,0
+General Reasoning Mix,Thinking (synth),data/general_reasoning_mix/train-00042-of-00049.jsonl.zst,102,0,cap,248661,0,0,0,0,0,0,0,0,0,6,0,0,0,0,0
+General Reasoning Mix,Thinking (synth),data/general_reasoning_mix/train-00046-of-00049.jsonl.zst,79,0,cap,245818,0,0,0,0,0,0,0,0,0,6,0,1,3,0,0
+General Reasoning Mix,Thinking (synth),data/general_reasoning_mix/train-00030-of-00049.jsonl.zst,53,0,cap,248323,1,0,0,0,0,0,0,0,0,3,0,0,0,0,0
+General Reasoning Mix,Thinking (synth),data/general_reasoning_mix/train-00037-of-00049.jsonl.zst,77,0,cap,248234,0,0,0,0,0,0,0,0,1,2,0,2,0,0,0
+General Reasoning Mix,Thinking (synth),data/general_reasoning_mix/train-00028-of-00049.jsonl.zst,61,0,cap,244922,0,0,0,0,0,0,0,0,1,5,0,0,0,2,0
+General Reasoning Mix,Thinking (synth),data/general_reasoning_mix/train-00000-of-00049.jsonl.zst,123,0,cap,247729,1,0,0,0,0,0,1,2,1,2,0,0,1,3,0
+General Reasoning Mix,Thinking (synth),data/general_reasoning_mix/train-00044-of-00049.jsonl.zst,107,0,cap,248988,2,0,0,0,0,0,0,0,1,2,0,0,1,2,0
+General Reasoning Mix,Thinking (synth),data/general_reasoning_mix/train-00033-of-00049.jsonl.zst,90,0,cap,244574,0,0,0,0,0,0,0,0,0,3,0,0,1,0,0
+General Reasoning Mix,Thinking (synth),data/general_reasoning_mix/train-00003-of-00049.jsonl.zst,29,0,allocation,30320,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0
+Gemini Reasoning Traces,Thinking (synth),data/gemini-reasoning-traces/train-00002-of-00004.jsonl.zst,106,0,cap,248890,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+Gemini Reasoning Traces,Thinking (synth),data/gemini-reasoning-traces/train-00001-of-00004.jsonl.zst,113,0,cap,247496,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+Gemini Reasoning Traces,Thinking (synth),data/gemini-reasoning-traces/train-00003-of-00004.jsonl.zst,43,0,allocation,95952,0,0,0,0,0,0,0,0,0,1,0,0,1,0,0
+Llama Nemotron Reasoning Traces,Thinking (synth),data/llama_nemotron-reasoning-traces/train-00113-of-00278.jsonl.zst,66,0,cap,246018,0,0,0,0,0,0,0,0,0,9,0,0,3,0,0
+Llama Nemotron Reasoning Traces,Thinking (synth),data/llama_nemotron-reasoning-traces/train-00075-of-00278.jsonl.zst,66,0,cap,249876,0,0,0,0,0,0,0,0,0,13,0,1,2,0,0
+Llama Nemotron Reasoning Traces,Thinking (synth),data/llama_nemotron-reasoning-traces/train-00203-of-00278.jsonl.zst,75,0,cap,248472,0,0,0,0,0,0,1,0,0,4,0,1,0,0,0
+Llama Nemotron Reasoning Traces,Thinking (synth),data/llama_nemotron-reasoning-traces/train-00005-of-00278.jsonl.zst,28,0,cap,246226,0,0,0,0,0,0,0,0,0,10,0,0,0,0,0
+Llama Nemotron Reasoning Traces,Thinking (synth),data/llama_nemotron-reasoning-traces/train-00000-of-00278.jsonl.zst,25,0,cap,245875,0,0,0,1,0,0,0,0,0,3,0,0,1,0,0
+Llama Nemotron Reasoning Traces,Thinking (synth),data/llama_nemotron-reasoning-traces/train-00070-of-00278.jsonl.zst,108,0,cap,249292,1,0,0,0,0,0,0,0,1,8,0,0,1,0,0
+Llama Nemotron Reasoning Traces,Thinking (synth),data/llama_nemotron-reasoning-traces/train-00157-of-00278.jsonl.zst,67,0,cap,246207,0,0,0,0,0,0,0,0,0,7,0,1,1,0,0
+Llama Nemotron Reasoning Traces,Thinking (synth),data/llama_nemotron-reasoning-traces/train-00017-of-00278.jsonl.zst,47,0,cap,245190,0,0,0,0,0,0,0,0,0,6,0,0,1,0,0
+Llama Nemotron Reasoning Traces,Thinking (synth),data/llama_nemotron-reasoning-traces/train-00109-of-00278.jsonl.zst,70,0,cap,243827,0,0,0,0,0,0,0,0,0,9,0,0,0,0,0
+Llama Nemotron Reasoning Traces,Thinking (synth),data/llama_nemotron-reasoning-traces/train-00134-of-00278.jsonl.zst,73,0,cap,248889,0,0,0,0,0,1,0,0,0,5,0,0,0,0,0
+Llama Nemotron Reasoning Traces,Thinking (synth),data/llama_nemotron-reasoning-traces/train-00183-of-00278.jsonl.zst,75,0,cap,249697,1,0,0,0,0,0,0,0,1,7,0,0,1,1,0
+Llama Nemotron Reasoning Traces,Thinking (synth),data/llama_nemotron-reasoning-traces/train-00277-of-00278.jsonl.zst,74,0,cap,249558,1,0,0,1,0,0,0,0,1,15,0,0,7,0,1
+Llama Nemotron Reasoning Traces,Thinking (synth),data/llama_nemotron-reasoning-traces/train-00196-of-00278.jsonl.zst,13,0,allocation,33765,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+OpenThoughts2 Reasoning Traces,Thinking (synth),data/openthoughts2-reasoning-traces/train-00018-of-00110.jsonl.zst,83,0,cap,249271,0,0,0,0,0,0,0,0,0,6,0,0,3,0,0
+OpenThoughts2 Reasoning Traces,Thinking (synth),data/openthoughts2-reasoning-traces/train-00014-of-00110.jsonl.zst,74,0,cap,247309,1,0,0,0,0,0,0,0,0,4,0,0,2,0,0
+OpenThoughts2 Reasoning Traces,Thinking (synth),data/openthoughts2-reasoning-traces/train-00035-of-00110.jsonl.zst,72,0,cap,249237,1,0,0,1,0,0,0,0,2,6,0,1,1,0,0
+OpenThoughts2 Reasoning Traces,Thinking (synth),data/openthoughts2-reasoning-traces/train-00105-of-00110.jsonl.zst,72,0,cap,247998,0,0,0,0,0,0,0,0,0,5,0,1,0,0,0
+OpenThoughts2 Reasoning Traces,Thinking (synth),data/openthoughts2-reasoning-traces/train-00016-of-00110.jsonl.zst,62,0,cap,239377,0,0,0,0,0,0,0,0,0,3,0,0,1,0,0
+OpenThoughts2 Reasoning Traces,Thinking (synth),data/openthoughts2-reasoning-traces/train-00081-of-00110.jsonl.zst,87,0,cap,249793,0,0,0,0,0,0,0,0,1,4,0,0,4,0,0
+OpenThoughts2 Reasoning Traces,Thinking (synth),data/openthoughts2-reasoning-traces/train-00009-of-00110.jsonl.zst,89,0,cap,247866,0,0,1,0,0,0,0,0,0,8,0,0,1,0,0
+OpenThoughts2 Reasoning Traces,Thinking (synth),data/openthoughts2-reasoning-traces/train-00026-of-00110.jsonl.zst,86,0,cap,248860,0,0,0,0,0,1,3,0,0,13,0,0,2,1,0
+OpenThoughts2 Reasoning Traces,Thinking (synth),data/openthoughts2-reasoning-traces/train-00102-of-00110.jsonl.zst,74,0,cap,245937,0,0,0,0,0,0,1,0,1,3,0,0,1,0,0
+OpenThoughts2 Reasoning Traces,Thinking (synth),data/openthoughts2-reasoning-traces/train-00082-of-00110.jsonl.zst,90,0,cap,249758,0,0,0,0,0,0,0,0,0,7,0,0,0,0,0
+OpenThoughts2 Reasoning Traces,Thinking (synth),data/openthoughts2-reasoning-traces/train-00072-of-00110.jsonl.zst,100,0,cap,246491,0,0,1,0,0,0,0,0,0,2,0,0,0,0,0
+OpenThoughts2 Reasoning Traces,Thinking (synth),data/openthoughts2-reasoning-traces/train-00083-of-00110.jsonl.zst,74,0,cap,247645,0,0,0,0,0,0,1,0,2,5,0,0,0,0,0
+OpenThoughts2 Reasoning Traces,Thinking (synth),data/openthoughts2-reasoning-traces/train-00017-of-00110.jsonl.zst,9,0,allocation,33801,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+Tulu 3 SFT,Instruction (synth),data/tulu-3-sft/tulu-3-midtrain-v0-data-simple-concat-with-double-new-line-with-generation-prompt_part_060.jsonl.zst,370,0,cap,249389,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+Tulu 3 SFT,Instruction (synth),data/tulu-3-sft/tulu-3-midtrain-v0-data-simple-concat-with-double-new-line-with-generation-prompt_part_005.jsonl.zst,764,0,cap,249547,0,0,0,0,0,0,0,0,1,6,0,0,3,6,0
+Tulu 3 SFT,Instruction (synth),data/tulu-3-sft/tulu-3-midtrain-v0-data-simple-concat-with-double-new-line-with-generation-prompt_part_068.jsonl.zst,756,0,cap,249587,0,0,3,0,0,0,0,0,0,1,0,0,2,0,0
+Tulu 3 SFT,Instruction (synth),data/tulu-3-sft/tulu-3-midtrain-v0-data-simple-concat-with-double-new-line-with-generation-prompt_part_034.jsonl.zst,152,0,cap,248132,0,1,2,0,0,0,5,6,5,0,0,0,2,2,0
+Tulu 3 SFT,Instruction (synth),data/tulu-3-sft/tulu-3-midtrain-v0-data-simple-concat-with-double-new-line-with-generation-prompt_part_069.jsonl.zst,307,0,cap,248915,0,0,0,0,0,0,0,0,0,1,0,0,0,2,0
+Tulu 3 SFT,Instruction (synth),data/tulu-3-sft/tulu-3-midtrain-v0-data-simple-concat-with-double-new-line-with-generation-prompt_part_065.jsonl.zst,690,0,cap,249428,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0
+Tulu 3 SFT,Instruction (synth),data/tulu-3-sft/tulu-3-midtrain-v0-data-simple-concat-with-double-new-line-with-generation-prompt_part_032.jsonl.zst,162,0,cap,249924,0,0,4,0,0,1,3,1,2,0,0,0,2,6,1
+Tulu 3 SFT,Instruction (synth),data/tulu-3-sft/tulu-3-midtrain-v0-data-simple-concat-with-double-new-line-with-generation-prompt_part_039.jsonl.zst,175,0,cap,248653,0,0,4,0,0,1,7,3,0,4,0,0,6,0,0
+Tulu 3 SFT,Instruction (synth),data/tulu-3-sft/tulu-3-midtrain-v0-data-simple-concat-with-double-new-line-with-generation-prompt_part_023.jsonl.zst,174,0,cap,249520,0,0,3,2,0,0,4,1,1,0,0,0,4,1,0
+Tulu 3 SFT,Instruction (synth),data/tulu-3-sft/tulu-3-midtrain-v0-data-simple-concat-with-double-new-line-with-generation-prompt_part_048.jsonl.zst,174,0,cap,246957,0,0,1,0,0,0,4,8,4,2,0,0,4,5,0
+Tulu 3 SFT,Instruction (synth),data/tulu-3-sft/tulu-3-midtrain-v0-data-simple-concat-with-double-new-line-with-generation-prompt_part_010.jsonl.zst,483,0,allocation,152494,0,0,1,0,0,0,0,0,0,1,0,0,1,6,0
+Dolmino 1 Flan,Instruction (synth),data/dolmino_1-flan/tulu_flan-0048.jsonl.zst,602,0,cap,249934,0,0,0,1,0,0,2,0,2,2,0,0,2,4,0
+Dolmino 1 Flan,Instruction (synth),data/dolmino_1-flan/tulu_flan-0146.jsonl.zst,338,0,cap,249426,0,0,0,0,0,0,0,0,0,1,0,0,5,24,0
+Dolmino 1 Flan,Instruction (synth),data/dolmino_1-flan/tulu_flan-0035.jsonl.zst,1529,0,cap,249854,0,0,0,0,0,0,0,0,0,0,0,0,1,1,0
+Dolmino 1 Flan,Instruction (synth),data/dolmino_1-flan/tulu_flan-0088.jsonl.zst,1707,0,cap,248241,1,0,4,0,0,0,2,0,1,0,0,0,10,6,0
+Dolmino 1 Flan,Instruction (synth),data/dolmino_1-flan/tulu_flan-0168.jsonl.zst,683,0,cap,249762,0,0,0,0,0,0,0,0,1,5,0,0,6,1,0
+Dolmino 1 Flan,Instruction (synth),data/dolmino_1-flan/tulu_flan-0066.jsonl.zst,872,0,cap,249974,0,1,2,0,0,0,2,1,0,6,1,0,6,5,0
+Dolmino 1 Flan,Instruction (synth),data/dolmino_1-flan/tulu_flan-0188.jsonl.zst,330,0,cap,249766,0,0,0,0,0,0,1,0,1,2,0,0,1,13,0
+Dolmino 1 Flan,Instruction (synth),data/dolmino_1-flan/tulu_flan-0065.jsonl.zst,751,0,cap,249208,0,0,0,0,0,0,1,0,1,3,0,0,6,1,0
+Dolmino 1 Flan,Instruction (synth),data/dolmino_1-flan/tulu_flan-0034.jsonl.zst,1811,0,cap,249855,0,0,0,0,0,0,0,0,1,2,0,0,0,0,0
+Dolmino 1 Flan,Instruction (synth),data/dolmino_1-flan/tulu_flan-0133.jsonl.zst,346,0,cap,249946,0,0,1,1,0,0,0,0,0,0,0,0,2,14,0
+Dolmino 1 Flan,Instruction (synth),data/dolmino_1-flan/tulu_flan-0150.jsonl.zst,359,0,cap,249898,0,0,0,1,0,0,0,0,0,5,0,0,4,21,0
+Dolmino 1 Flan,Instruction (synth),data/dolmino_1-flan/tulu_flan-0020.jsonl.zst,2459,0,cap,249921,0,0,0,1,0,2,2,0,0,10,0,0,6,1,0
+Dolmino 1 Flan,Instruction (synth),data/dolmino_1-flan/tulu_flan-0071.jsonl.zst,812,0,cap,249831,0,0,6,1,0,0,1,0,1,5,0,0,6,1,0
+Dolmino 1 Flan,Instruction (synth),data/dolmino_1-flan/tulu_flan-0205.jsonl.zst,2464,0,cap,249918,0,0,0,1,0,0,1,0,0,6,0,0,8,3,0
+Dolmino 1 Flan,Instruction (synth),data/dolmino_1-flan/tulu_flan-0008.jsonl.zst,4269,0,cap,249922,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0
+Dolmino 1 Flan,Instruction (synth),data/dolmino_1-flan/tulu_flan-0022.jsonl.zst,731,0,cap,248941,0,0,1,0,0,2,2,0,0,3,0,0,4,2,0
+Dolmino 1 Flan,Instruction (synth),data/dolmino_1-flan/tulu_flan-0206.jsonl.zst,2459,0,cap,249940,0,0,0,1,0,0,0,0,3,8,0,0,6,6,0
+Dolmino 1 Flan,Instruction (synth),data/dolmino_1-flan/tulu_flan-0138.jsonl.zst,353,0,cap,248819,0,0,2,0,0,0,0,0,0,2,0,0,3,15,0
+Dolmino 1 Flan,Instruction (synth),data/dolmino_1-flan/tulu_flan-0160.jsonl.zst,752,0,cap,249694,0,0,0,0,0,0,0,0,1,4,0,0,4,1,0
+Dolmino 1 Flan,Instruction (synth),data/dolmino_1-flan/tulu_flan-0037.jsonl.zst,1381,0,cap,249918,0,0,0,0,0,0,0,0,0,3,0,0,0,1,0
+Dolmino 1 Flan,Instruction (synth),data/dolmino_1-flan/tulu_flan-0031.jsonl.zst,1903,0,cap,249949,0,0,0,0,0,0,0,1,0,1,0,0,2,1,0
+Dolmino 1 Flan,Instruction (synth),data/dolmino_1-flan/tulu_flan-0073.jsonl.zst,832,0,cap,249126,0,0,1,0,0,0,4,1,0,3,0,0,7,5,0
+Dolmino 1 Flan,Instruction (synth),data/dolmino_1-flan/tulu_flan-0192.jsonl.zst,2751,0,cap,249858,0,0,1,3,0,0,0,0,0,1,1,0,5,4,0
+Dolmino 1 Flan,Instruction (synth),data/dolmino_1-flan/tulu_flan-0109.jsonl.zst,984,0,cap,249939,0,0,0,0,0,0,1,0,1,4,0,0,1,1,0
+Dolmino 1 Flan,Instruction (synth),data/dolmino_1-flan/tulu_flan-0190.jsonl.zst,844,0,cap,249660,0,0,0,0,0,0,0,0,0,4,0,0,3,7,0
+Dolmino 1 Flan,Instruction (synth),data/dolmino_1-flan/tulu_flan-0149.jsonl.zst,355,0,cap,249949,0,0,1,0,0,0,0,0,0,2,0,0,8,25,0
+Dolmino 1 Flan,Instruction (synth),data/dolmino_1-flan/tulu_flan-0052.jsonl.zst,600,0,cap,248837,0,0,0,0,0,0,1,0,1,3,0,0,8,3,0
+Dolmino 1 Flan,Instruction (synth),data/dolmino_1-flan/tulu_flan-0177.jsonl.zst,319,0,cap,249061,0,0,0,0,0,0,0,0,0,0,0,0,4,10,0
+Dolmino 1 Flan,Instruction (synth),data/dolmino_1-flan/tulu_flan-0145.jsonl.zst,344,0,cap,249487,0,0,0,0,0,0,1,0,0,1,0,0,1,20,0
+Dolmino 1 Flan,Instruction (synth),data/dolmino_1-flan/tulu_flan-0090.jsonl.zst,4862,0,cap,249961,0,0,0,0,0,0,0,0,0,2,0,0,1,0,0
+Dolmino 1 Flan,Instruction (synth),data/dolmino_1-flan/tulu_flan-0015.jsonl.zst,757,0,cap,249706,0,0,0,1,0,0,0,0,0,3,0,0,4,1,1
+Dolmino 1 Flan,Instruction (synth),data/dolmino_1-flan/tulu_flan-0144.jsonl.zst,356,0,cap,249736,0,0,0,0,0,0,0,0,0,3,0,0,5,25,0
+Dolmino 1 Flan,Instruction (synth),data/dolmino_1-flan/tulu_flan-0042.jsonl.zst,1249,0,cap,249890,0,0,0,0,0,1,0,0,0,1,0,0,0,0,0
+Dolmino 1 Flan,Instruction (synth),data/dolmino_1-flan/tulu_flan-0104.jsonl.zst,4261,0,cap,249953,0,0,0,0,0,0,1,0,0,2,0,0,1,0,0
+Dolmino 1 Flan,Instruction (synth),data/dolmino_1-flan/tulu_flan-0194.jsonl.zst,2536,0,cap,249899,0,0,2,2,0,0,2,0,3,9,0,0,7,7,0
+Dolmino 1 Flan,Instruction (synth),data/dolmino_1-flan/tulu_flan-0082.jsonl.zst,1403,0,cap,249816,0,0,0,0,0,0,0,0,0,4,0,0,0,4,0
+Dolmino 1 Flan,Instruction (synth),data/dolmino_1-flan/tulu_flan-0049.jsonl.zst,644,0,cap,249913,0,0,2,0,0,0,1,1,0,0,0,0,9,1,0
+Dolmino 1 Flan,Instruction (synth),data/dolmino_1-flan/tulu_flan-0002.jsonl.zst,1262,0,cap,249860,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+Dolmino 1 Flan,Instruction (synth),data/dolmino_1-flan/tulu_flan-0187.jsonl.zst,337,0,cap,249806,2,0,0,0,0,2,2,0,0,2,0,0,4,14,0
+Dolmino 1 Flan,Instruction (synth),data/dolmino_1-flan/tulu_flan-0183.jsonl.zst,326,0,cap,249060,0,0,0,1,0,0,0,0,1,1,0,0,3,14,0
+Dolmino 1 Flan,Instruction (synth),data/dolmino_1-flan/tulu_flan-0077.jsonl.zst,1412,0,cap,249820,0,0,0,0,0,0,0,0,0,1,0,0,0,1,0
+Dolmino 1 Flan,Instruction (synth),data/dolmino_1-flan/tulu_flan-0191.jsonl.zst,695,0,cap,249660,0,0,0,0,0,0,0,0,0,1,0,0,2,16,0
+Dolmino 1 Flan,Instruction (synth),data/dolmino_1-flan/tulu_flan-0012.jsonl.zst,360,0,cap,249311,2,0,1,0,0,0,1,0,0,5,0,0,4,12,0
+Dolmino 1 Flan,Instruction (synth),data/dolmino_1-flan/tulu_flan-0058.jsonl.zst,572,0,cap,248873,0,0,3,0,0,1,0,0,0,1,0,0,6,2,0
+Dolmino 1 Flan,Instruction (synth),data/dolmino_1-flan/tulu_flan-0172.jsonl.zst,334,0,cap,248979,0,0,0,0,0,0,0,0,0,1,0,0,5,9,0
+Dolmino 1 Flan,Instruction (synth),data/dolmino_1-flan/tulu_flan-0186.jsonl.zst,327,0,cap,249973,0,0,0,1,0,0,0,0,0,0,0,0,1,19,0
+Dolmino 1 Flan,Instruction (synth),data/dolmino_1-flan/tulu_flan-0026.jsonl.zst,860,0,cap,248672,2,0,1,0,0,0,0,1,0,5,0,0,13,3,0
+Dolmino 1 Flan,Instruction (synth),data/dolmino_1-flan/tulu_flan-0108.jsonl.zst,988,0,cap,248989,0,0,0,0,0,0,3,0,0,4,0,0,0,3,0
+Dolmino 1 Flan,Instruction (synth),data/dolmino_1-flan/tulu_flan-0175.jsonl.zst,34,0,allocation,31562,0,0,0,0,0,0,0,0,0,0,0,0,0,2,0
+OLMOCR Science PDFs (High Q.),PDFs,data/olmocr_science_pdfs-high_quality-software_development-2e13/software_dev_p050_shard_00003160.jsonl.zst,43,11,cap,247955,0,0,0,0,0,0,0,0,0,2,0,0,1,5,0
+OLMOCR Science PDFs (High Q.),PDFs,data/olmocr_science_pdfs-high_quality-science_math_and_technology-2e13/science_tech_p080_shard_00000028.jsonl.zst,40,3,cap,244610,0,0,0,0,0,0,0,0,0,1,0,0,1,5,0
+OLMOCR Science PDFs (High Q.),PDFs,data/olmocr_science_pdfs-high_quality-science_math_and_technology-2e13/science_tech_p020_shard_00000164.jsonl.zst,38,3,cap,249514,0,0,0,0,0,0,0,0,0,1,0,0,0,2,0
+OLMOCR Science PDFs (High Q.),PDFs,data/olmocr_science_pdfs-high_quality-software_development-2e12/software_dev_p020_shard_00003299.jsonl.zst,72,8,cap,246449,0,0,0,0,0,0,0,0,0,3,0,0,0,2,0
+OLMOCR Science PDFs (High Q.),PDFs,data/olmocr_science_pdfs-high_quality-software_development-2e13/software_dev_p060_shard_00003176.jsonl.zst,42,9,cap,247600,0,0,0,0,0,0,0,1,0,0,0,0,0,6,0
+OLMOCR Science PDFs (High Q.),PDFs,data/olmocr_science_pdfs-high_quality-science_math_and_technology-2e13/science_tech_p050_shard_00000114.jsonl.zst,40,6,cap,247784,0,0,0,0,0,0,0,0,0,1,0,0,2,1,0
+OLMOCR Science PDFs (High Q.),PDFs,data/olmocr_science_pdfs-high_quality-science_math_and_technology-2e13/science_tech_p070_shard_00000167.jsonl.zst,40,3,cap,249371,0,0,0,0,0,0,2,0,0,1,0,0,4,7,0
+OLMOCR Science PDFs (High Q.),PDFs,data/olmocr_science_pdfs-high_quality-science_math_and_technology-2e12/science_tech_p020_shard_00001423.jsonl.zst,69,7,cap,249810,0,0,0,0,0,0,0,0,0,1,0,0,0,1,0
+OLMOCR Science PDFs (High Q.),PDFs,data/olmocr_science_pdfs-high_quality-software_development-2e13/software_dev_p040_shard_00003182.jsonl.zst,38,7,cap,245756,0,0,0,0,0,0,0,0,0,3,0,0,1,4,0
+OLMOCR Science PDFs (High Q.),PDFs,data/olmocr_science_pdfs-high_quality-science_math_and_technology-2e13/science_tech_p070_shard_00000100.jsonl.zst,45,8,cap,247474,0,0,0,0,0,0,0,0,0,4,0,0,0,1,0
+OLMOCR Science PDFs (High Q.),PDFs,data/olmocr_science_pdfs-high_quality-science_math_and_technology-2e12/science_tech_p030_shard_00001265.jsonl.zst,72,9,cap,248610,0,0,0,0,0,0,0,0,0,2,0,0,0,4,0
+OLMOCR Science PDFs (High Q.),PDFs,data/olmocr_science_pdfs-high_quality-science_math_and_technology-2e13/science_tech_p040_shard_00000205.jsonl.zst,46,12,cap,247397,0,0,0,0,0,0,0,0,0,4,0,0,3,4,0
+OLMOCR Science PDFs (High Q.),PDFs,data/olmocr_science_pdfs-high_quality-science_math_and_technology-2e13/science_tech_p030_shard_00000230.jsonl.zst,44,10,cap,248574,0,0,0,0,0,0,0,0,0,2,0,0,0,2,0
+OLMOCR Science PDFs (High Q.),PDFs,data/olmocr_science_pdfs-high_quality-industrial-2e12/industrial_p020_shard_00004424.jsonl.zst,60,1,cap,248363,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0
+OLMOCR Science PDFs (High Q.),PDFs,data/olmocr_science_pdfs-high_quality-science_math_and_technology-2e13/science_tech_p080_shard_00000221.jsonl.zst,46,9,cap,243697,0,0,0,0,0,0,0,0,0,3,0,0,0,4,0
+OLMOCR Science PDFs (High Q.),PDFs,data/olmocr_science_pdfs-high_quality-software_development-2e12/software_dev_p030_shard_00003297.jsonl.zst,67,9,cap,246366,0,0,2,0,0,0,0,0,0,0,0,0,0,1,0
+OLMOCR Science PDFs (High Q.),PDFs,data/olmocr_science_pdfs-high_quality-politics-2e13/politics_p060_shard_00004496.jsonl.zst,28,2,end,216603,0,0,0,0,0,0,0,0,0,2,0,0,1,5,0
+OLMOCR Science PDFs (High Q.),PDFs,data/olmocr_science_pdfs-high_quality-science_math_and_technology-2e13/science_tech_p060_shard_00000047.jsonl.zst,46,12,cap,243195,0,0,0,0,0,0,0,0,0,2,0,0,0,0,0
+OLMOCR Science PDFs (High Q.),PDFs,data/olmocr_science_pdfs-high_quality-health-2e12/health_p080_shard_00003664.jsonl.zst,45,9,end,126045,0,0,0,0,0,0,0,0,0,1,0,0,0,3,0
+OLMOCR Science PDFs (High Q.),PDFs,data/olmocr_science_pdfs-high_quality-science_math_and_technology-2e12/science_tech_p020_shard_00001213.jsonl.zst,72,11,cap,248755,0,0,0,0,0,0,0,1,0,0,0,0,0,2,0
+OLMOCR Science PDFs (High Q.),PDFs,data/olmocr_science_pdfs-high_quality-science_math_and_technology-2e13/science_tech_p040_shard_00000192.jsonl.zst,43,8,cap,249016,0,0,0,0,0,0,0,0,0,3,0,0,4,2,0
+OLMOCR Science PDFs (High Q.),PDFs,data/olmocr_science_pdfs-high_quality-software_development-2e13/software_dev_p040_shard_00003176.jsonl.zst,39,8,cap,243708,0,0,1,0,0,0,0,0,0,1,0,0,1,0,0
+OLMOCR Science PDFs (High Q.),PDFs,data/olmocr_science_pdfs-high_quality-science_math_and_technology-2e13/science_tech_p040_shard_00000204.jsonl.zst,34,0,cap,244194,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0
+OLMOCR Science PDFs (High Q.),PDFs,data/olmocr_science_pdfs-high_quality-science_math_and_technology-2e12/science_tech_p050_shard_00001281.jsonl.zst,75,10,cap,248573,0,0,0,0,0,0,1,0,0,0,0,0,0,3,0
+OLMOCR Science PDFs (High Q.),PDFs,data/olmocr_science_pdfs-high_quality-health-2e12/health_p060_shard_00003644.jsonl.zst,50,9,end,156426,0,0,0,0,0,0,0,0,0,1,0,0,3,1,0
+OLMOCR Science PDFs (High Q.),PDFs,data/olmocr_science_pdfs-high_quality-health-2e13/health_p030_shard_00002675.jsonl.zst,38,5,cap,245856,0,0,0,0,0,0,0,0,0,4,0,0,1,0,0
+OLMOCR Science PDFs (High Q.),PDFs,data/olmocr_science_pdfs-high_quality-health-2e12/health_p020_shard_00003610.jsonl.zst,65,8,cap,249369,0,0,0,0,0,0,0,0,0,2,0,0,0,0,0
+OLMOCR Science PDFs (High Q.),PDFs,data/olmocr_science_pdfs-high_quality-science_math_and_technology-2e13/science_tech_p030_shard_00000011.jsonl.zst,37,3,cap,241687,0,0,0,0,0,0,0,0,0,3,0,0,0,5,0
+OLMOCR Science PDFs (High Q.),PDFs,data/olmocr_science_pdfs-high_quality-science_math_and_technology-2e12/science_tech_p070_shard_00001372.jsonl.zst,83,12,cap,249975,0,0,0,0,0,0,0,0,0,1,0,0,3,3,0
+OLMOCR Science PDFs (High Q.),PDFs,data/olmocr_science_pdfs-high_quality-science_math_and_technology-2e13/science_tech_p030_shard_00000052.jsonl.zst,46,11,cap,246399,0,0,0,0,0,0,0,0,0,3,0,0,0,7,0
+OLMOCR Science PDFs (High Q.),PDFs,data/olmocr_science_pdfs-high_quality-science_math_and_technology-2e13/science_tech_p050_shard_00000167.jsonl.zst,49,13,cap,244092,0,0,0,0,0,0,0,0,0,0,0,0,0,5,0
+OLMOCR Science PDFs (High Q.),PDFs,data/olmocr_science_pdfs-high_quality-science_math_and_technology-2e12/science_tech_p070_shard_00001490.jsonl.zst,78,11,cap,248016,0,0,0,0,0,0,0,1,0,2,0,0,0,2,0
+OLMOCR Science PDFs (High Q.),PDFs,data/olmocr_science_pdfs-high_quality-science_math_and_technology-2e13/science_tech_p040_shard_00000086.jsonl.zst,37,3,cap,244505,0,0,0,0,0,0,0,0,0,3,0,0,0,3,0
+OLMOCR Science PDFs (High Q.),PDFs,data/olmocr_science_pdfs-high_quality-science_math_and_technology-2e13/science_tech_p080_shard_00000145.jsonl.zst,45,9,cap,248598,0,0,0,0,0,0,1,0,0,4,0,0,6,4,0
+OLMOCR Science PDFs (High Q.),PDFs,data/olmocr_science_pdfs-high_quality-industrial-2e13/industrial_p040_shard_00005678.jsonl.zst,32,0,cap,246416,0,0,0,0,0,0,0,0,0,2,0,0,0,0,0
+OLMOCR Science PDFs (High Q.),PDFs,data/olmocr_science_pdfs-high_quality-science_math_and_technology-2e12/science_tech_p050_shard_00001366.jsonl.zst,69,4,cap,247313,0,0,0,0,0,0,0,0,0,2,0,0,0,3,0
+OLMOCR Science PDFs (High Q.),PDFs,data/olmocr_science_pdfs-high_quality-health-2e13/health_p060_shard_00002659.jsonl.zst,27,3,end,178715,0,0,0,0,0,0,0,0,0,1,0,0,0,1,0
+OLMOCR Science PDFs (High Q.),PDFs,data/olmocr_science_pdfs-high_quality-health-2e13/health_p040_shard_00002741.jsonl.zst,41,5,cap,244043,0,0,0,0,0,0,0,0,0,2,0,0,0,0,0
+OLMOCR Science PDFs (High Q.),PDFs,data/olmocr_science_pdfs-high_quality-crime_and_law-2e13/crime_law_p030_shard_00004455.jsonl.zst,19,0,end,170404,0,0,0,0,0,0,0,0,0,3,0,0,0,0,0
+OLMOCR Science PDFs (High Q.),PDFs,data/olmocr_science_pdfs-high_quality-science_math_and_technology-2e13/science_tech_p050_shard_00000068.jsonl.zst,43,6,cap,243254,0,0,0,0,0,0,0,0,0,2,0,0,0,2,0
+OLMOCR Science PDFs (High Q.),PDFs,data/olmocr_science_pdfs-high_quality-industrial-2e12/industrial_p060_shard_00004432.jsonl.zst,64,0,cap,246330,0,0,0,0,0,0,1,0,0,1,0,0,3,0,0
+OLMOCR Science PDFs (High Q.),PDFs,data/olmocr_science_pdfs-high_quality-software_development-2e13/software_dev_p020_shard_00003170.jsonl.zst,46,14,cap,245030,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+OLMOCR Science PDFs (High Q.),PDFs,data/olmocr_science_pdfs-high_quality-science_math_and_technology-2e13/science_tech_p050_shard_00000234.jsonl.zst,47,13,cap,246565,0,0,0,0,0,0,0,0,0,1,0,0,3,2,0
+OLMOCR Science PDFs (High Q.),PDFs,data/olmocr_science_pdfs-high_quality-science_math_and_technology-2e13/science_tech_p060_shard_00000222.jsonl.zst,42,6,cap,245806,0,0,0,0,0,0,0,0,0,1,0,0,0,4,0
+OLMOCR Science PDFs (High Q.),PDFs,data/olmocr_science_pdfs-high_quality-science_math_and_technology-2e13/science_tech_p040_shard_00000008.jsonl.zst,37,4,cap,243423,0,0,0,0,0,0,0,0,0,5,0,0,0,4,0
+OLMOCR Science PDFs (High Q.),PDFs,data/olmocr_science_pdfs-high_quality-science_math_and_technology-2e13/science_tech_p030_shard_00000122.jsonl.zst,36,3,cap,248582,0,0,0,0,0,0,0,0,0,1,0,0,0,4,0
+OLMOCR Science PDFs (High Q.),PDFs,data/olmocr_science_pdfs-high_quality-science_math_and_technology-2e13/science_tech_p060_shard_00000285.jsonl.zst,44,10,cap,241009,0,0,0,0,0,0,0,0,0,1,0,0,0,2,0
+OLMOCR Science PDFs (High Q.),PDFs,data/olmocr_science_pdfs-high_quality-science_math_and_technology-2e13/science_tech_p030_shard_00000192.jsonl.zst,40,5,cap,244975,0,0,0,0,0,0,0,0,0,6,0,0,0,2,0
+OLMOCR Science PDFs (High Q.),PDFs,data/olmocr_science_pdfs-high_quality-science_math_and_technology-2e12/science_tech_p020_shard_00001427.jsonl.zst,72,10,cap,249955,0,0,0,0,0,0,0,0,0,3,0,0,0,2,0
+OLMOCR Science PDFs (High Q.),PDFs,data/olmocr_science_pdfs-high_quality-science_math_and_technology-2e12/science_tech_p030_shard_00001319.jsonl.zst,67,10,cap,246423,0,0,0,0,0,0,0,0,0,3,0,0,0,3,0
+OLMOCR Science PDFs (High Q.),PDFs,data/olmocr_science_pdfs-high_quality-science_math_and_technology-2e13/science_tech_p030_shard_00000201.jsonl.zst,8,1,allocation,53061,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0
+STEM-Heavy Crawl,Web pages,data/stem-heavy-crawl/software_development.00000087.jsonl.zst,393,0,cap,244351,1,0,2,0,0,1,0,0,1,8,0,0,11,11,0
+STEM-Heavy Crawl,Web pages,data/stem-heavy-crawl/fashion_and_beauty.00000024.jsonl.zst,626,0,cap,249896,0,0,2,0,0,0,1,1,2,3,0,0,4,6,0
+STEM-Heavy Crawl,Web pages,data/stem-heavy-crawl/health.00000015.jsonl.zst,313,0,cap,249596,0,0,0,0,0,0,4,0,1,4,0,0,6,7,0
+STEM-Heavy Crawl,Web pages,data/stem-heavy-crawl/science_math_and_technology.00000535.jsonl.zst,403,0,cap,249234,0,0,3,0,0,0,2,1,7,3,0,0,3,4,0
+STEM-Heavy Crawl,Web pages,data/stem-heavy-crawl/science_math_and_technology.00000233.jsonl.zst,407,0,cap,249819,0,0,1,1,0,0,2,1,2,2,0,0,3,0,0
+STEM-Heavy Crawl,Web pages,data/stem-heavy-crawl/software.00000205.jsonl.zst,747,0,cap,249901,0,0,2,3,0,0,0,0,3,0,0,0,2,4,1
+STEM-Heavy Crawl,Web pages,data/stem-heavy-crawl/software_development.00000174.jsonl.zst,381,0,cap,249547,0,0,7,0,3,0,1,0,1,12,0,0,26,9,0
+STEM-Heavy Crawl,Web pages,data/stem-heavy-crawl/science_math_and_technology.00000433.jsonl.zst,466,0,cap,249754,0,0,2,0,0,0,0,0,0,5,0,0,1,4,0
+STEM-Heavy Crawl,Web pages,data/stem-heavy-crawl/science_math_and_technology.00000564.jsonl.zst,382,0,cap,249413,1,0,2,0,1,0,9,0,3,5,0,0,42,19,0
+STEM-Heavy Crawl,Web pages,data/stem-heavy-crawl/science_math_and_technology.00000195.jsonl.zst,341,0,cap,249689,0,0,1,0,0,0,0,0,8,3,0,0,3,4,0
+STEM-Heavy Crawl,Web pages,data/stem-heavy-crawl/games.00000155.jsonl.zst,320,0,cap,247949,0,0,4,1,0,1,2,0,5,4,0,0,10,5,1
+STEM-Heavy Crawl,Web pages,data/stem-heavy-crawl/literature.00000080.jsonl.zst,336,0,cap,249339,0,0,2,1,0,0,0,0,0,2,0,0,4,4,0
+STEM-Heavy Crawl,Web pages,data/stem-heavy-crawl/health.00000023.jsonl.zst,296,0,cap,249579,0,0,4,1,0,1,0,1,3,5,0,0,7,5,0
+STEM-Heavy Crawl,Web pages,data/stem-heavy-crawl/science_math_and_technology.00000491.jsonl.zst,326,0,cap,249353,0,0,0,1,0,0,0,0,1,2,0,0,15,5,0
+STEM-Heavy Crawl,Web pages,data/stem-heavy-crawl/health.00000099.jsonl.zst,265,0,cap,249207,0,0,4,0,0,1,0,0,8,2,0,0,3,7,0
+STEM-Heavy Crawl,Web pages,data/stem-heavy-crawl/science_math_and_technology.00000111.jsonl.zst,660,0,cap,249861,0,0,2,1,0,0,0,0,4,3,0,0,6,9,0
+STEM-Heavy Crawl,Web pages,data/stem-heavy-crawl/software_development.00000542.jsonl.zst,260,0,cap,246597,0,0,5,1,0,1,2,0,1,2,0,0,6,10,1
+STEM-Heavy Crawl,Web pages,data/stem-heavy-crawl/science_math_and_technology.00000474.jsonl.zst,290,0,cap,248933,0,0,1,1,0,0,0,0,1,4,0,0,6,16,2
+STEM-Heavy Crawl,Web pages,data/stem-heavy-crawl/science_math_and_technology.00000164.jsonl.zst,214,0,cap,247708,0,0,0,1,1,0,7,0,2,8,0,0,60,30,0
+STEM-Heavy Crawl,Web pages,data/stem-heavy-crawl/software.00000138.jsonl.zst,656,0,end,240280,1,0,3,0,0,0,2,0,0,3,0,0,4,0,0
+STEM-Heavy Crawl,Web pages,data/stem-heavy-crawl/science_math_and_technology.00000184.jsonl.zst,449,0,cap,249074,0,0,1,0,0,0,2,0,0,1,0,0,6,6,0
+STEM-Heavy Crawl,Web pages,data/stem-heavy-crawl/education_and_jobs.00000178.jsonl.zst,303,0,cap,249771,0,0,1,0,0,0,10,0,0,0,0,0,1,0,0
+STEM-Heavy Crawl,Web pages,data/stem-heavy-crawl/software_development.00000171.jsonl.zst,386,0,cap,249752,0,0,3,1,0,0,0,0,0,4,0,0,5,2,0
+STEM-Heavy Crawl,Web pages,data/stem-heavy-crawl/literature.00000220.jsonl.zst,384,0,cap,249242,0,0,0,5,0,0,0,2,1,5,0,0,6,1,1
+STEM-Heavy Crawl,Web pages,data/stem-heavy-crawl/literature.00000130.jsonl.zst,344,0,cap,249470,0,0,2,0,0,0,5,2,0,7,0,0,9,4,0
+STEM-Heavy Crawl,Web pages,data/stem-heavy-crawl/literature.00000269.jsonl.zst,304,0,cap,249756,0,0,0,0,0,0,0,1,0,4,0,0,7,3,0
+STEM-Heavy Crawl,Web pages,data/stem-heavy-crawl/science_math_and_technology.00000524.jsonl.zst,307,0,cap,249380,0,0,3,1,0,0,2,0,1,3,0,0,3,5,0
+STEM-Heavy Crawl,Web pages,data/stem-heavy-crawl/entertainment.00000035.jsonl.zst,434,0,cap,249822,2,0,3,1,0,0,0,0,1,2,0,0,18,6,0
+STEM-Heavy Crawl,Web pages,data/stem-heavy-crawl/science_math_and_technology.00000135.jsonl.zst,335,0,cap,249828,0,0,1,0,0,0,0,0,0,3,0,0,6,16,0
+STEM-Heavy Crawl,Web pages,data/stem-heavy-crawl/science_math_and_technology.00000265.jsonl.zst,341,0,cap,249658,0,0,2,2,0,0,1,0,1,2,0,1,7,6,0
+STEM-Heavy Crawl,Web pages,data/stem-heavy-crawl/travel_and_tourism.00000014.jsonl.zst,428,0,end,220539,0,0,0,0,0,0,5,2,15,10,0,0,0,0,0
+STEM-Heavy Crawl,Web pages,data/stem-heavy-crawl/games.00000141.jsonl.zst,437,0,cap,249827,0,0,1,2,0,0,2,0,3,1,0,0,19,7,0
+STEM-Heavy Crawl,Web pages,data/stem-heavy-crawl/software_development.00000553.jsonl.zst,258,0,cap,245531,0,1,2,4,0,0,2,0,1,25,1,0,46,3,1
+STEM-Heavy Crawl,Web pages,data/stem-heavy-crawl/software_development.00000103.jsonl.zst,322,0,cap,249980,0,0,0,0,3,0,4,0,7,3,0,0,8,1,0
+STEM-Heavy Crawl,Web pages,data/stem-heavy-crawl/education_and_jobs.00000109.jsonl.zst,408,0,cap,249828,1,0,0,1,0,1,1,0,9,0,0,0,1,2,0
+STEM-Heavy Crawl,Web pages,data/stem-heavy-crawl/software_development.00000351.jsonl.zst,303,0,cap,249867,0,1,0,0,0,0,3,0,0,3,0,0,12,9,0
+STEM-Heavy Crawl,Web pages,data/stem-heavy-crawl/history_and_geography.00000128.jsonl.zst,396,0,cap,249907,0,0,0,0,0,0,0,1,5,15,0,0,0,3,0
+STEM-Heavy Crawl,Web pages,data/stem-heavy-crawl/science_math_and_technology.00000463.jsonl.zst,146,0,cap,248717,0,0,0,0,0,0,1,0,6,15,0,0,1,17,0
+STEM-Heavy Crawl,Web pages,data/stem-heavy-crawl/science_math_and_technology.00000339.jsonl.zst,380,0,cap,249313,1,0,0,0,0,0,9,1,1,5,0,0,5,3,0
+STEM-Heavy Crawl,Web pages,data/stem-heavy-crawl/science_math_and_technology.00000483.jsonl.zst,280,0,cap,249886,0,0,1,0,0,0,2,0,4,3,0,0,4,6,0
+STEM-Heavy Crawl,Web pages,data/stem-heavy-crawl/software.00000110.jsonl.zst,544,0,end,199362,0,0,0,0,0,1,3,1,3,0,0,0,6,0,0
+STEM-Heavy Crawl,Web pages,data/stem-heavy-crawl/software_development.00000544.jsonl.zst,194,0,cap,249918,0,0,2,3,0,0,6,0,0,4,0,0,14,6,0
+STEM-Heavy Crawl,Web pages,data/stem-heavy-crawl/software_development.00000139.jsonl.zst,394,0,cap,248928,0,0,4,0,0,0,1,2,0,3,0,0,5,2,0
+STEM-Heavy Crawl,Web pages,data/stem-heavy-crawl/art_and_design.00000046.jsonl.zst,557,0,cap,249973,0,0,2,0,0,2,5,0,0,1,0,0,4,2,1
+STEM-Heavy Crawl,Web pages,data/stem-heavy-crawl/electronics_and_hardware.00000085.jsonl.zst,418,0,cap,248711,0,0,2,3,0,0,1,0,1,2,0,0,5,0,0
+STEM-Heavy Crawl,Web pages,data/stem-heavy-crawl/literature.00000062.jsonl.zst,413,0,cap,249498,0,0,1,0,0,0,0,0,1,4,0,0,1,1,0
+STEM-Heavy Crawl,Web pages,data/stem-heavy-crawl/finance_and_business.00000026.jsonl.zst,358,0,cap,249081,0,1,4,4,0,0,5,5,6,4,1,0,18,3,0
+STEM-Heavy Crawl,Web pages,data/stem-heavy-crawl/science_math_and_technology.00000100.jsonl.zst,377,0,cap,249963,0,0,0,1,0,1,0,0,1,2,0,0,27,1,0
+STEM-Heavy Crawl,Web pages,data/stem-heavy-crawl/science_math_and_technology.00000266.jsonl.zst,19,0,allocation,116659,0,0,0,0,0,0,0,0,0,0,0,0,12,0,0
+Common Crawl (High Q.),Web pages,data/common_crawl-high-quality_20_science_math_and_technology/shard_00000039.jsonl.zst,200,0,cap,249910,0,0,0,0,1,0,1,2,3,3,0,0,4,6,0
+Common Crawl (High Q.),Web pages,data/common_crawl-high-quality_19_software_development/shard_00000353.jsonl.zst,182,0,cap,249819,0,0,2,2,0,0,5,0,3,5,0,0,9,7,0
+Common Crawl (High Q.),Web pages,data/common_crawl-high-quality_19_literature/shard_00000665.jsonl.zst,157,0,cap,242715,0,0,1,4,0,0,1,0,0,7,0,0,6,5,0
+Common Crawl (High Q.),Web pages,data/common_crawl-high-quality_20_software/shard_00000111.jsonl.zst,369,0,cap,249690,1,2,5,0,0,0,8,2,8,2,0,0,6,1,0
+Common Crawl (High Q.),Web pages,data/common_crawl-high-quality_19_social_life/shard_00000642.jsonl.zst,48,0,end,59433,0,0,0,0,0,0,2,0,6,1,0,0,5,2,0
+Common Crawl (High Q.),Web pages,data/common_crawl-high-quality_20_finance_and_business/shard_00000820.jsonl.zst,275,0,cap,249817,0,0,3,1,1,0,3,3,8,6,0,0,3,1,0
+Common Crawl (High Q.),Web pages,data/common_crawl-high-quality_19_education_and_jobs/shard_00000576.jsonl.zst,246,0,cap,249018,0,0,0,2,0,0,1,0,3,2,0,0,4,2,0
+Common Crawl (High Q.),Web pages,data/common_crawl-high-quality_20_finance_and_business/shard_00001293.jsonl.zst,295,0,cap,241303,2,0,6,3,0,0,3,1,7,4,0,0,14,0,0
+Common Crawl (High Q.),Web pages,data/common_crawl-high-quality_19_crime_and_law/shard_00000064.jsonl.zst,233,0,cap,249329,0,0,0,1,0,0,3,0,1,3,0,0,11,3,0
+Common Crawl (High Q.),Web pages,data/common_crawl-high-quality_20_science_math_and_technology/shard_00000085.jsonl.zst,213,0,cap,249162,1,0,0,1,0,0,4,1,2,8,0,0,13,6,0
+Common Crawl (High Q.),Web pages,data/common_crawl-high-quality_20_science_math_and_technology/shard_00000012.jsonl.zst,202,0,cap,249906,0,0,0,1,0,0,4,1,3,0,0,1,10,11,0
+Common Crawl (High Q.),Web pages,data/common_crawl-high-quality_20_electronics_and_hardware/shard_00000026.jsonl.zst,275,0,cap,249765,0,0,4,1,0,0,3,1,4,2,0,0,6,3,0
+Common Crawl (High Q.),Web pages,data/common_crawl-high-quality_19_entertainment/shard_00000900.jsonl.zst,211,0,cap,239090,0,0,1,2,0,0,0,3,3,4,0,0,23,18,0
+Common Crawl (High Q.),Web pages,data/common_crawl-high-quality_19_software_development/shard_00000347.jsonl.zst,221,0,cap,243213,0,0,6,3,0,0,4,0,2,5,0,0,9,2,0
+Common Crawl (High Q.),Web pages,data/common_crawl-high-quality_20_health/shard_00000555.jsonl.zst,270,0,cap,249530,1,0,4,3,0,0,11,2,7,5,0,0,7,5,0
+Common Crawl (High Q.),Web pages,data/common_crawl-high-quality_20_education_and_jobs/shard_00000622.jsonl.zst,326,0,cap,249759,0,0,2,1,0,0,4,2,2,1,1,0,1,0,0
+Common Crawl (High Q.),Web pages,data/common_crawl-high-quality_19_science_math_and_technology/shard_00000709.jsonl.zst,147,0,cap,249587,0,0,1,0,0,0,1,0,0,3,1,0,10,5,0
+Common Crawl (High Q.),Web pages,data/common_crawl-high-quality_20_entertainment/shard_00000241.jsonl.zst,216,0,cap,244903,0,0,1,1,0,0,2,1,1,6,0,0,14,10,0
+Common Crawl (High Q.),Web pages,data/common_crawl-high-quality_20_history_and_geography/shard_00000240.jsonl.zst,172,0,cap,249713,0,0,1,2,0,0,0,0,0,3,0,0,1,0,0
+Common Crawl (High Q.),Web pages,data/common_crawl-high-quality_19_software/shard_00000122.jsonl.zst,289,0,cap,249982,0,0,6,0,0,0,1,0,1,4,0,0,5,6,0
+Common Crawl (High Q.),Web pages,data/common_crawl-high-quality_20_finance_and_business/shard_00001257.jsonl.zst,243,0,cap,249780,0,1,3,1,0,0,9,2,13,2,0,0,11,1,1
+Common Crawl (High Q.),Web pages,data/common_crawl-high-quality_20_transportation/shard_00000168.jsonl.zst,233,0,end,209561,1,0,2,0,0,0,8,0,5,2,0,0,10,6,0
+Common Crawl (High Q.),Web pages,data/common_crawl-high-quality_19_entertainment/shard_00000136.jsonl.zst,204,0,cap,249576,1,0,1,2,0,1,2,2,1,1,0,0,22,17,0
+Common Crawl (High Q.),Web pages,data/common_crawl-high-quality_19_health/shard_00000176.jsonl.zst,218,0,cap,243743,0,0,2,0,0,0,4,1,6,5,0,0,3,3,0
+Common Crawl (High Q.),Web pages,data/common_crawl-high-quality_19_entertainment/shard_00000266.jsonl.zst,206,0,cap,248908,0,0,1,1,0,0,6,0,3,2,0,0,22,6,0
+Common Crawl (High Q.),Web pages,data/common_crawl-high-quality_19_science_math_and_technology/shard_00000065.jsonl.zst,204,0,cap,249537,0,0,1,0,0,0,0,0,1,4,0,0,1,8,1
+Common Crawl (High Q.),Web pages,data/common_crawl-high-quality_19_food_and_dining/shard_00000413.jsonl.zst,315,0,cap,248937,0,1,3,2,0,0,2,1,1,1,0,0,7,1,0
+Common Crawl (High Q.),Web pages,data/common_crawl-high-quality_20_entertainment/shard_00000676.jsonl.zst,221,0,cap,243580,1,0,2,4,0,0,5,1,3,2,0,0,22,2,0
+Common Crawl (High Q.),Web pages,data/common_crawl-high-quality_19_games/shard_00000437.jsonl.zst,155,0,cap,249311,1,0,1,2,0,0,4,0,0,8,0,0,18,6,0
+Common Crawl (High Q.),Web pages,data/common_crawl-high-quality_19_entertainment/shard_00001092.jsonl.zst,155,0,cap,223213,0,0,0,2,0,1,3,0,2,3,0,0,15,10,0
+Common Crawl (High Q.),Web pages,data/common_crawl-high-quality_19_science_math_and_technology/shard_00000699.jsonl.zst,110,0,cap,190173,0,0,0,1,0,0,1,0,1,3,0,0,8,8,0
+Common Crawl (High Q.),Web pages,data/common_crawl-high-quality_19_health/shard_00000238.jsonl.zst,204,0,cap,248153,0,1,2,0,0,0,2,0,1,2,0,0,11,4,0
+Common Crawl (High Q.),Web pages,data/common_crawl-high-quality_19_transportation/shard_00000366.jsonl.zst,239,0,end,239384,0,0,2,1,0,0,0,0,3,2,0,0,14,4,0
+Common Crawl (High Q.),Web pages,data/common_crawl-high-quality_20_education_and_jobs/shard_00000171.jsonl.zst,309,0,cap,249586,0,0,5,1,0,0,1,1,3,1,0,0,7,5,0
+Common Crawl (High Q.),Web pages,data/common_crawl-high-quality_19_literature/shard_00000070.jsonl.zst,89,0,cap,249771,0,0,0,0,0,0,1,0,0,3,0,0,9,4,0
+Common Crawl (High Q.),Web pages,data/common_crawl-high-quality_19_science_math_and_technology/shard_00000855.jsonl.zst,195,0,cap,249631,2,0,0,0,0,0,2,0,0,2,0,0,6,2,1
+Common Crawl (High Q.),Web pages,data/common_crawl-high-quality_20_software/shard_00000141.jsonl.zst,327,0,cap,249818,0,0,2,1,0,0,2,1,4,7,0,0,12,1,1
+Common Crawl (High Q.),Web pages,data/common_crawl-high-quality_20_software/shard_00000370.jsonl.zst,419,0,cap,249952,0,0,3,0,0,0,7,1,1,3,0,0,9,0,0
+Common Crawl (High Q.),Web pages,data/common_crawl-high-quality_19_science_math_and_technology/shard_00000311.jsonl.zst,177,0,cap,249556,0,0,0,0,0,0,2,0,2,3,0,0,2,4,0
+Common Crawl (High Q.),Web pages,data/common_crawl-high-quality_19_entertainment/shard_00000189.jsonl.zst,242,0,cap,249838,1,1,1,1,0,0,4,1,0,9,0,0,17,9,1
+Common Crawl (High Q.),Web pages,data/common_crawl-high-quality_20_education_and_jobs/shard_00000174.jsonl.zst,287,0,cap,249950,0,0,4,0,0,0,0,1,5,2,0,0,8,1,0
+Common Crawl (High Q.),Web pages,data/common_crawl-high-quality_19_social_life/shard_00000134.jsonl.zst,52,0,end,115597,0,0,4,0,0,0,0,0,1,3,0,0,5,8,0
+Common Crawl (High Q.),Web pages,data/common_crawl-high-quality_19_health/shard_00000783.jsonl.zst,220,0,cap,249152,0,0,0,0,1,0,3,1,0,6,0,0,9,4,0
+Common Crawl (High Q.),Web pages,data/common_crawl-high-quality_20_science_math_and_technology/shard_00000340.jsonl.zst,241,0,cap,249985,0,0,2,2,0,0,1,0,3,4,0,0,4,3,0
+Common Crawl (High Q.),Web pages,data/common_crawl-high-quality_19_science_math_and_technology/shard_00000220.jsonl.zst,153,0,cap,248888,0,0,0,0,0,0,0,0,1,2,0,0,1,6,0
+Common Crawl (High Q.),Web pages,data/common_crawl-high-quality_20_software/shard_00000149.jsonl.zst,357,0,cap,248112,0,0,0,0,0,0,2,0,5,2,0,0,8,5,1
+Common Crawl (High Q.),Web pages,data/common_crawl-high-quality_19_science_math_and_technology/shard_00000495.jsonl.zst,181,0,cap,249872,0,0,2,1,0,0,2,1,2,2,0,0,4,7,0
+Common Crawl (High Q.),Web pages,data/common_crawl-high-quality_19_religion/shard_00000294.jsonl.zst,153,0,cap,246421,0,0,0,1,0,0,4,1,1,11,0,0,7,3,0
+Common Crawl (High Q.),Web pages,data/common_crawl-high-quality_20_science_math_and_technology/shard_00000199.jsonl.zst,255,0,cap,249942,0,0,1,0,0,0,1,1,2,3,0,0,7,6,0
+Common Crawl (High Q.),Web pages,data/common_crawl-high-quality_19_entertainment/shard_00000061.jsonl.zst,156,0,cap,249827,2,0,1,0,0,1,5,0,5,5,0,0,30,10,0
+Common Crawl (High Q.),Web pages,data/common_crawl-high-quality_20_health/shard_00000274.jsonl.zst,232,0,cap,247262,1,0,3,0,0,0,3,1,6,3,0,0,8,3,0
+Common Crawl (High Q.),Web pages,data/common_crawl-high-quality_19_literature/shard_00000350.jsonl.zst,78,0,cap,246442,0,0,3,2,0,0,2,0,1,15,0,0,4,6,0
+Common Crawl (High Q.),Web pages,data/common_crawl-high-quality_19_health/shard_00001067.jsonl.zst,200,0,cap,248562,0,0,3,1,0,0,5,0,1,6,0,0,21,8,0
+Common Crawl (High Q.),Web pages,data/common_crawl-high-quality_19_home_and_hobbies/shard_00000148.jsonl.zst,89,0,end,75586,0,0,1,0,0,0,1,0,0,1,0,0,3,1,0
+Common Crawl (High Q.),Web pages,data/common_crawl-high-quality_19_software_development/shard_00000345.jsonl.zst,228,0,cap,244333,0,0,4,3,0,0,0,0,0,4,1,0,10,4,2
+Common Crawl (High Q.),Web pages,data/common_crawl-high-quality_20_history_and_geography/shard_00000201.jsonl.zst,136,0,cap,218834,0,0,0,0,0,0,1,0,0,3,0,0,4,3,0
+Common Crawl (High Q.),Web pages,data/common_crawl-high-quality_20_home_and_hobbies/shard_00000598.jsonl.zst,91,0,end,60052,0,0,0,0,0,0,3,2,1,0,0,0,3,0,0
+Common Crawl (High Q.),Web pages,data/common_crawl-high-quality_20_entertainment/shard_00000541.jsonl.zst,273,0,cap,249611,1,1,1,2,0,1,6,1,1,5,0,0,27,5,0
+Common Crawl (High Q.),Web pages,data/common_crawl-high-quality_19_history_and_geography/shard_00000216.jsonl.zst,146,0,cap,247877,0,0,1,0,0,0,1,0,0,2,0,0,1,1,0
+Common Crawl (High Q.),Web pages,data/common_crawl-high-quality_20_finance_and_business/shard_00000768.jsonl.zst,292,0,cap,247058,0,0,3,0,0,0,6,1,12,1,1,0,14,4,0
+Common Crawl (High Q.),Web pages,data/common_crawl-high-quality_19_electronics_and_hardware/shard_00000117.jsonl.zst,260,0,cap,246423,1,0,6,3,0,0,1,0,1,8,0,0,13,7,0
+Common Crawl (High Q.),Web pages,data/common_crawl-high-quality_19_health/shard_00001200.jsonl.zst,173,0,cap,247225,0,0,0,0,0,0,3,0,1,5,0,0,1,5,0
+Common Crawl (High Q.),Web pages,data/common_crawl-high-quality_20_software/shard_00000107.jsonl.zst,361,0,cap,249886,0,0,8,0,0,0,5,0,3,2,0,0,8,3,0
+Common Crawl (High Q.),Web pages,data/common_crawl-high-quality_19_software/shard_00000167.jsonl.zst,245,0,cap,239642,0,0,3,0,0,0,2,2,2,4,0,0,7,2,0
+Common Crawl (High Q.),Web pages,data/common_crawl-high-quality_19_software/shard_00000340.jsonl.zst,277,0,cap,249651,0,0,12,2,0,0,3,0,4,3,0,0,12,3,0
+Common Crawl (High Q.),Web pages,data/common_crawl-high-quality_19_crime_and_law/shard_00000034.jsonl.zst,241,0,cap,247982,0,0,1,0,0,0,3,0,1,5,0,0,5,6,0
+Common Crawl (High Q.),Web pages,data/common_crawl-high-quality_19_science_math_and_technology/shard_00000693.jsonl.zst,177,0,cap,244076,0,0,1,1,0,0,0,2,1,0,0,0,13,12,0
+Common Crawl (High Q.),Web pages,data/common_crawl-high-quality_19_science_math_and_technology/shard_00000090.jsonl.zst,97,0,cap,245174,0,0,0,1,0,0,0,1,3,3,0,0,2,2,0
+Common Crawl (High Q.),Web pages,data/common_crawl-high-quality_20_science_math_and_technology/shard_00000239.jsonl.zst,204,0,cap,249847,0,0,0,0,0,0,2,0,0,3,0,0,6,8,0
+Common Crawl (High Q.),Web pages,data/common_crawl-high-quality_19_electronics_and_hardware/shard_00000346.jsonl.zst,228,0,cap,248724,0,0,1,2,0,0,4,0,3,6,0,0,9,10,0
+Common Crawl (High Q.),Web pages,data/common_crawl-high-quality_19_literature/shard_00000085.jsonl.zst,116,0,cap,196734,0,0,0,0,0,0,1,0,0,4,0,0,2,5,0
+Common Crawl (High Q.),Web pages,data/common_crawl-high-quality_20_health/shard_00000839.jsonl.zst,247,0,cap,249743,0,1,1,0,0,0,3,1,2,3,0,0,17,2,0
+Common Crawl (High Q.),Web pages,data/common_crawl-high-quality_19_crime_and_law/shard_00000140.jsonl.zst,190,0,cap,248894,0,0,2,0,0,1,1,0,1,2,0,0,10,25,0
+Common Crawl (High Q.),Web pages,data/common_crawl-high-quality_19_software/shard_00000214.jsonl.zst,283,0,cap,247525,1,0,6,1,0,0,4,0,1,1,0,0,7,1,0
+Common Crawl (High Q.),Web pages,data/common_crawl-high-quality_19_science_math_and_technology/shard_00000142.jsonl.zst,181,0,cap,249961,0,0,1,1,0,0,1,0,2,6,1,0,3,3,0
+Common Crawl (High Q.),Web pages,data/common_crawl-high-quality_19_health/shard_00000003.jsonl.zst,208,0,cap,249888,0,0,3,1,0,1,1,1,0,3,0,0,3,2,0
+Common Crawl (High Q.),Web pages,data/common_crawl-high-quality_19_finance_and_business/shard_00000186.jsonl.zst,237,0,cap,233336,0,0,6,3,1,0,7,1,1,0,0,0,8,1,1
+Common Crawl (High Q.),Web pages,data/common_crawl-high-quality_19_science_math_and_technology/shard_00000498.jsonl.zst,155,0,cap,242416,1,0,0,1,0,0,1,0,1,4,1,0,2,8,0
+Common Crawl (High Q.),Web pages,data/common_crawl-high-quality_19_software/shard_00000254.jsonl.zst,252,0,cap,249100,0,0,6,2,0,0,0,0,2,7,0,0,13,2,0
+Common Crawl (High Q.),Web pages,data/common_crawl-high-quality_20_entertainment/shard_00000987.jsonl.zst,191,0,cap,245486,3,0,0,1,0,0,11,1,3,5,0,0,25,9,0
+Common Crawl (High Q.),Web pages,data/common_crawl-high-quality_20_health/shard_00000548.jsonl.zst,264,0,cap,246780,0,0,1,0,0,2,5,0,7,5,0,0,6,4,0
+Common Crawl (High Q.),Web pages,data/common_crawl-high-quality_19_software_development/shard_00000368.jsonl.zst,233,0,cap,249731,0,0,1,3,0,0,2,2,1,6,0,0,24,4,1
+Common Crawl (High Q.),Web pages,data/common_crawl-high-quality_20_health/shard_00000501.jsonl.zst,296,0,cap,249019,0,0,4,0,0,0,5,1,3,5,0,0,5,3,0
+Common Crawl (High Q.),Web pages,data/common_crawl-high-quality_20_electronics_and_hardware/shard_00000125.jsonl.zst,271,0,cap,249940,1,0,0,2,0,0,3,2,8,5,0,0,9,9,1
+Common Crawl (High Q.),Web pages,data/common_crawl-high-quality_19_science_math_and_technology/shard_00000043.jsonl.zst,202,0,cap,247225,1,0,2,0,0,0,0,1,1,2,1,0,6,5,0
+Common Crawl (High Q.),Web pages,data/common_crawl-high-quality_20_literature/shard_00000180.jsonl.zst,110,0,cap,248607,0,0,1,0,0,0,2,1,1,16,0,0,3,9,0
+Common Crawl (High Q.),Web pages,data/common_crawl-high-quality_20_games/shard_00000263.jsonl.zst,231,0,cap,248712,1,0,3,0,0,0,1,0,5,1,0,0,6,4,0
+Common Crawl (High Q.),Web pages,data/common_crawl-high-quality_19_software/shard_00000265.jsonl.zst,317,0,cap,249953,0,0,2,4,0,0,0,0,3,2,0,0,16,5,0
+Common Crawl (High Q.),Web pages,data/common_crawl-high-quality_20_software_development/shard_00000047.jsonl.zst,235,0,cap,248343,0,1,4,4,0,0,1,0,1,1,0,0,19,7,0
+Common Crawl (High Q.),Web pages,data/common_crawl-high-quality_19_software_development/shard_00000191.jsonl.zst,234,0,cap,246024,1,0,2,2,0,0,3,1,0,5,0,0,17,8,0
+Common Crawl (High Q.),Web pages,data/common_crawl-high-quality_20_entertainment/shard_00000740.jsonl.zst,247,0,cap,244661,0,0,1,3,0,0,3,1,5,3,0,0,11,25,0
+Common Crawl (High Q.),Web pages,data/common_crawl-high-quality_20_entertainment/shard_00001201.jsonl.zst,246,0,cap,248502,0,0,0,2,0,0,4,0,2,0,0,0,28,10,0
+Common Crawl (High Q.),Web pages,data/common_crawl-high-quality_20_transportation/shard_00000032.jsonl.zst,240,0,end,184287,0,0,2,1,0,0,1,0,2,2,0,0,6,4,0
+Common Crawl (High Q.),Web pages,data/common_crawl-high-quality_19_education_and_jobs/shard_00000501.jsonl.zst,285,0,cap,249852,1,0,0,0,0,0,1,0,2,5,0,0,3,1,0
+Common Crawl (High Q.),Web pages,data/common_crawl-high-quality_20_software/shard_00000369.jsonl.zst,371,0,cap,249823,0,0,0,2,0,0,5,1,2,2,0,0,4,2,0
+Common Crawl (High Q.),Web pages,data/common_crawl-high-quality_20_finance_and_business/shard_00001309.jsonl.zst,265,0,cap,249815,1,1,7,1,0,0,9,1,18,2,0,0,11,1,0
+Common Crawl (High Q.),Web pages,data/common_crawl-high-quality_20_software/shard_00000102.jsonl.zst,394,0,cap,249409,0,0,2,0,0,0,0,1,5,2,0,0,2,8,0
+Common Crawl (High Q.),Web pages,data/common_crawl-high-quality_20_software_development/shard_00000048.jsonl.zst,306,0,cap,245087,2,0,2,1,0,2,1,1,4,3,0,0,13,5,0
+Common Crawl (High Q.),Web pages,data/common_crawl-high-quality_20_entertainment/shard_00000329.jsonl.zst,243,0,cap,249463,1,0,0,1,0,0,1,0,2,12,0,0,24,9,0
+Common Crawl (High Q.),Web pages,data/common_crawl-high-quality_20_software/shard_00000357.jsonl.zst,368,0,cap,248956,0,0,3,0,0,0,6,2,7,1,0,0,6,2,0
+Common Crawl (High Q.),Web pages,data/common_crawl-high-quality_19_health/shard_00000879.jsonl.zst,194,0,cap,249861,1,0,2,2,0,0,1,0,2,7,0,0,5,12,0
+Common Crawl (High Q.),Web pages,data/common_crawl-high-quality_19_history_and_geography/shard_00000125.jsonl.zst,174,0,cap,248793,0,0,0,0,0,0,0,0,0,0,0,0,1,4,0
+Common Crawl (High Q.),Web pages,data/common_crawl-high-quality_20_education_and_jobs/shard_00000539.jsonl.zst,343,0,cap,249121,0,0,2,1,0,1,2,2,4,3,0,0,8,2,0
+Common Crawl (High Q.),Web pages,data/common_crawl-high-quality_19_adult_content/shard_00000129.jsonl.zst,93,0,end,78364,0,0,0,0,0,0,0,0,1,2,0,0,1,0,0
+Common Crawl (High Q.),Web pages,data/common_crawl-high-quality_19_science_math_and_technology/shard_00000899.jsonl.zst,191,0,cap,249286,0,0,1,1,0,0,5,0,0,3,0,0,8,8,0
+Common Crawl (High Q.),Web pages,data/common_crawl-high-quality_19_entertainment/shard_00000412.jsonl.zst,211,0,cap,249289,2,0,1,3,0,0,7,3,4,5,0,0,25,8,0
+Common Crawl (High Q.),Web pages,data/common_crawl-high-quality_20_entertainment/shard_00000757.jsonl.zst,215,0,cap,249092,0,0,0,0,0,0,3,1,1,3,0,0,19,13,1
+Common Crawl (High Q.),Web pages,data/common_crawl-high-quality_20_science_math_and_technology/shard_00000548.jsonl.zst,263,0,cap,249917,0,0,0,0,0,0,4,1,4,1,0,0,3,7,0
+Common Crawl (High Q.),Web pages,data/common_crawl-high-quality_19_literature/shard_00000282.jsonl.zst,130,0,cap,248663,0,0,0,1,0,0,0,2,0,7,0,0,14,6,0
+Common Crawl (High Q.),Web pages,data/common_crawl-high-quality_20_food_and_dining/shard_00000299.jsonl.zst,314,0,cap,248902,3,0,1,0,0,0,5,1,4,3,0,0,7,6,0
+Common Crawl (High Q.),Web pages,data/common_crawl-high-quality_19_history_and_geography/shard_00000309.jsonl.zst,189,0,cap,249164,0,0,0,0,0,0,0,0,0,3,0,0,2,3,0
+Common Crawl (High Q.),Web pages,data/common_crawl-high-quality_19_games/shard_00000065.jsonl.zst,184,0,cap,249639,0,0,2,2,1,0,4,0,1,5,0,0,11,6,0
+Common Crawl (High Q.),Web pages,data/common_crawl-high-quality_20_food_and_dining/shard_00000189.jsonl.zst,359,0,end,236103,1,0,8,0,0,0,5,1,2,3,0,0,10,7,0
+Common Crawl (High Q.),Web pages,data/common_crawl-high-quality_19_health/shard_00000049.jsonl.zst,178,0,cap,249860,0,0,0,1,0,0,5,0,0,5,0,0,10,4,0
+Common Crawl (High Q.),Web pages,data/common_crawl-high-quality_19_software/shard_00000333.jsonl.zst,267,0,cap,249899,0,0,6,0,0,0,3,0,2,3,0,0,15,3,0
+Common Crawl (High Q.),Web pages,data/common_crawl-high-quality_19_entertainment/shard_00000756.jsonl.zst,206,0,cap,249486,0,0,3,0,0,0,2,0,5,6,0,0,13,13,0
+Common Crawl (High Q.),Web pages,data/common_crawl-high-quality_19_software_development/shard_00000203.jsonl.zst,226,0,cap,249609,0,0,4,2,0,0,2,0,1,2,0,0,7,5,0
+Common Crawl (High Q.),Web pages,data/common_crawl-high-quality_20_games/shard_00000014.jsonl.zst,133,0,cap,247268,1,0,2,0,0,0,2,0,1,6,0,0,4,2,0
+Common Crawl (High Q.),Web pages,data/common_crawl-high-quality_20_science_math_and_technology/shard_00000446.jsonl.zst,182,0,cap,248642,0,0,2,0,0,1,0,2,0,1,0,0,9,16,2
+Common Crawl (High Q.),Web pages,data/common_crawl-high-quality_20_health/shard_00000420.jsonl.zst,216,0,cap,245610,0,0,4,1,0,0,4,0,3,3,0,0,3,1,0
+Common Crawl (High Q.),Web pages,data/common_crawl-high-quality_19_entertainment/shard_00001163.jsonl.zst,225,0,cap,248492,1,1,1,1,0,0,1,0,2,5,0,0,21,20,1
+Common Crawl (High Q.),Web pages,data/common_crawl-high-quality_20_science_math_and_technology/shard_00000573.jsonl.zst,192,0,cap,234047,0,0,2,0,0,0,2,2,1,2,0,0,4,4,0
+Common Crawl (High Q.),Web pages,data/common_crawl-high-quality_19_software/shard_00000146.jsonl.zst,283,0,cap,249866,0,0,1,2,0,0,5,0,2,4,0,0,10,4,0
+Common Crawl (High Q.),Web pages,data/common_crawl-high-quality_19_health/shard_00000156.jsonl.zst,177,0,cap,249025,0,0,1,0,1,1,1,1,0,5,0,0,7,4,0
+Common Crawl (High Q.),Web pages,data/common_crawl-high-quality_20_science_math_and_technology/shard_00000244.jsonl.zst,241,0,cap,249896,0,0,1,0,0,0,2,0,3,3,0,0,4,4,0
+Common Crawl (High Q.),Web pages,data/common_crawl-high-quality_19_software_development/shard_00000321.jsonl.zst,219,0,cap,249698,0,0,5,0,0,0,2,1,3,5,0,0,10,7,0
+Common Crawl (High Q.),Web pages,data/common_crawl-high-quality_19_software_development/shard_00000247.jsonl.zst,209,0,cap,249889,0,0,3,0,0,0,1,0,2,4,0,0,11,12,0
+Common Crawl (High Q.),Web pages,data/common_crawl-high-quality_20_science_math_and_technology/shard_00000401.jsonl.zst,265,0,cap,248588,0,0,0,0,0,0,0,1,1,1,0,0,3,8,0
+Common Crawl (High Q.),Web pages,data/common_crawl-high-quality_19_education_and_jobs/shard_00000578.jsonl.zst,236,0,cap,242272,0,0,2,1,0,0,1,0,4,1,0,0,6,4,1
+Common Crawl (High Q.),Web pages,data/common_crawl-high-quality_20_literature/shard_00000225.jsonl.zst,177,0,cap,246240,1,0,1,0,0,0,1,0,1,5,0,0,6,4,1
+Common Crawl (High Q.),Web pages,data/common_crawl-high-quality_20_politics/shard_00000938.jsonl.zst,121,0,cap,225376,2,0,1,1,1,1,9,0,2,4,0,0,19,4,1
+Common Crawl (High Q.),Web pages,data/common_crawl-high-quality_19_science_math_and_technology/shard_00000184.jsonl.zst,164,0,cap,249565,0,0,1,3,0,0,1,0,3,0,0,0,10,4,0
+Common Crawl (High Q.),Web pages,data/common_crawl-high-quality_19_religion/shard_00000401.jsonl.zst,91,0,cap,244739,0,0,1,3,1,0,3,0,0,15,0,0,26,5,0
+Common Crawl (High Q.),Web pages,data/common_crawl-high-quality_20_science_math_and_technology/shard_00000320.jsonl.zst,260,0,cap,247352,0,0,1,1,0,0,2,2,0,3,0,0,9,8,1
+Common Crawl (High Q.),Web pages,data/common_crawl-high-quality_20_software/shard_00000155.jsonl.zst,429,0,cap,249986,1,0,4,1,0,1,2,4,1,1,0,0,5,4,0
+Common Crawl (High Q.),Web pages,data/common_crawl-high-quality_20_finance_and_business/shard_00000626.jsonl.zst,259,0,cap,249683,0,0,1,0,0,0,2,0,1,0,0,0,19,0,0
+Common Crawl (High Q.),Web pages,data/common_crawl-high-quality_20_science_math_and_technology/shard_00000155.jsonl.zst,251,0,cap,249976,0,0,1,0,0,0,6,1,3,3,0,0,5,9,1
+Common Crawl (High Q.),Web pages,data/common_crawl-high-quality_20_politics/shard_00000737.jsonl.zst,142,0,end,191549,0,0,1,3,0,0,1,0,1,7,0,0,8,6,0
+Common Crawl (High Q.),Web pages,data/common_crawl-high-quality_19_electronics_and_hardware/shard_00000084.jsonl.zst,257,0,cap,249936,0,0,0,1,0,0,6,0,0,6,0,0,7,4,0
+Common Crawl (High Q.),Web pages,data/common_crawl-high-quality_19_science_math_and_technology/shard_00000687.jsonl.zst,203,0,cap,249931,0,0,0,0,0,0,1,0,1,3,0,0,1,8,0
+Common Crawl (High Q.),Web pages,data/common_crawl-high-quality_19_industrial/shard_00000027.jsonl.zst,329,0,cap,249951,0,0,0,0,0,0,0,0,0,2,0,0,8,0,0
+Common Crawl (High Q.),Web pages,data/common_crawl-high-quality_20_software/shard_00000342.jsonl.zst,414,0,cap,249001,0,0,3,1,0,0,2,1,1,1,0,0,29,5,0
+Common Crawl (High Q.),Web pages,data/common_crawl-high-quality_19_science_math_and_technology/shard_00000696.jsonl.zst,175,0,cap,248409,0,0,1,1,0,0,1,0,0,6,0,0,6,6,0
+Common Crawl (High Q.),Web pages,data/common_crawl-high-quality_19_industrial/shard_00000013.jsonl.zst,304,0,cap,249904,0,0,1,0,0,0,3,0,1,0,0,0,5,1,0
+Common Crawl (High Q.),Web pages,data/common_crawl-high-quality_19_science_math_and_technology/shard_00000189.jsonl.zst,186,0,cap,249550,0,0,1,0,0,0,2,0,1,3,0,0,1,3,0
+Common Crawl (High Q.),Web pages,data/common_crawl-high-quality_19_software/shard_00000234.jsonl.zst,281,0,cap,249498,1,0,2,1,0,0,1,1,2,7,0,0,12,2,0
+Common Crawl (High Q.),Web pages,data/common_crawl-high-quality_20_entertainment/shard_00001073.jsonl.zst,241,0,cap,242750,0,0,1,0,1,0,3,3,9,5,0,0,24,7,0
+Common Crawl (High Q.),Web pages,data/common_crawl-high-quality_19_education_and_jobs/shard_00000299.jsonl.zst,196,0,cap,249356,1,0,1,1,0,0,3,0,1,2,0,0,3,3,0
+Common Crawl (High Q.),Web pages,data/common_crawl-high-quality_19_education_and_jobs/shard_00000071.jsonl.zst,221,0,cap,249227,0,0,4,2,0,0,4,0,0,3,0,0,11,1,0
+Common Crawl (High Q.),Web pages,data/common_crawl-high-quality_20_education_and_jobs/shard_00000382.jsonl.zst,298,0,cap,249791,0,0,0,3,0,0,5,2,1,0,0,0,3,3,0
+Common Crawl (High Q.),Web pages,data/common_crawl-high-quality_19_sports_and_fitness/shard_00000825.jsonl.zst,119,0,end,167285,1,0,3,0,0,0,2,0,1,5,0,0,12,2,0
+Common Crawl (High Q.),Web pages,data/common_crawl-high-quality_19_industrial/shard_00000140.jsonl.zst,367,0,cap,244677,0,0,0,0,0,0,1,0,1,2,0,0,3,1,0
+Common Crawl (High Q.),Web pages,data/common_crawl-high-quality_19_science_math_and_technology/shard_00000868.jsonl.zst,192,0,cap,249735,0,0,2,0,0,0,0,0,0,1,0,0,3,9,0
+Common Crawl (High Q.),Web pages,data/common_crawl-high-quality_20_software/shard_00000263.jsonl.zst,437,0,cap,249476,0,1,4,0,0,0,6,1,3,4,0,0,8,2,0
+Common Crawl (High Q.),Web pages,data/common_crawl-high-quality_19_history_and_geography/shard_00000081.jsonl.zst,133,0,cap,249395,0,0,1,0,0,0,0,0,0,1,0,0,1,0,0
+Common Crawl (High Q.),Web pages,data/common_crawl-high-quality_20_transportation/shard_00000158.jsonl.zst,261,0,end,202121,0,0,0,0,0,0,2,3,1,0,0,0,8,4,0
+Common Crawl (High Q.),Web pages,data/common_crawl-high-quality_19_software/shard_00000080.jsonl.zst,308,0,cap,249331,0,0,4,3,0,0,2,1,0,7,0,0,15,4,0
+Common Crawl (High Q.),Web pages,data/common_crawl-high-quality_19_finance_and_business/shard_00001097.jsonl.zst,221,0,cap,249803,0,0,1,2,0,0,3,0,1,3,0,0,25,2,1
+Common Crawl (High Q.),Web pages,data/common_crawl-high-quality_20_games/shard_00000491.jsonl.zst,200,0,cap,249805,0,0,2,0,0,0,2,2,5,7,0,0,5,6,0
+Common Crawl (High Q.),Web pages,data/common_crawl-high-quality_19_literature/shard_00000584.jsonl.zst,93,0,cap,249470,0,0,2,1,0,0,0,1,0,16,0,0,3,3,0
+Common Crawl (High Q.),Web pages,data/common_crawl-high-quality_19_software/shard_00000329.jsonl.zst,308,0,cap,248543,0,0,2,1,0,0,2,0,1,3,0,0,9,4,0
+Common Crawl (High Q.),Web pages,data/common_crawl-high-quality_19_sports_and_fitness/shard_00000951.jsonl.zst,127,0,end,112932,1,0,2,0,0,1,3,0,0,3,0,0,3,2,0
+Common Crawl (High Q.),Web pages,data/common_crawl-high-quality_19_software/shard_00000102.jsonl.zst,310,0,cap,249684,0,0,9,2,0,0,1,0,2,3,0,0,7,2,0
+Common Crawl (High Q.),Web pages,data/common_crawl-high-quality_20_science_math_and_technology/shard_00000520.jsonl.zst,248,0,cap,247133,0,0,0,1,0,0,0,1,2,3,0,0,6,14,0
+Common Crawl (High Q.),Web pages,data/common_crawl-high-quality_20_literature/shard_00000290.jsonl.zst,173,0,cap,249219,0,0,2,1,0,1,2,0,3,6,0,0,7,1,0
+Common Crawl (High Q.),Web pages,data/common_crawl-high-quality_19_software/shard_00000136.jsonl.zst,278,0,cap,249344,0,0,4,0,0,0,1,1,2,2,0,0,10,2,0
+Common Crawl (High Q.),Web pages,data/common_crawl-high-quality_20_science_math_and_technology/shard_00000147.jsonl.zst,269,0,cap,249633,0,0,2,0,0,0,4,2,2,1,1,0,3,4,0
+Common Crawl (High Q.),Web pages,data/common_crawl-high-quality_20_crime_and_law/shard_00000358.jsonl.zst,261,0,cap,249961,0,0,1,0,0,0,2,0,0,3,0,0,7,3,0
+Common Crawl (High Q.),Web pages,data/common_crawl-high-quality_19_science_math_and_technology/shard_00000316.jsonl.zst,178,0,cap,248792,0,0,3,2,0,0,1,0,1,0,0,0,0,5,0
+Common Crawl (High Q.),Web pages,data/common_crawl-high-quality_19_entertainment/shard_00000378.jsonl.zst,229,0,cap,249470,1,0,2,1,1,1,5,0,1,7,0,0,29,9,0
+Common Crawl (High Q.),Web pages,data/common_crawl-high-quality_20_literature/shard_00000538.jsonl.zst,147,0,cap,218198,0,0,1,0,1,0,0,1,0,10,0,0,10,4,0
+Common Crawl (High Q.),Web pages,data/common_crawl-high-quality_20_software/shard_00000358.jsonl.zst,335,0,cap,236799,0,0,5,0,0,0,1,0,3,1,0,0,4,2,0
+Common Crawl (High Q.),Web pages,data/common_crawl-high-quality_19_health/shard_00000113.jsonl.zst,225,0,cap,249722,0,0,26,0,0,0,3,0,2,6,0,0,7,0,0
+Common Crawl (High Q.),Web pages,data/common_crawl-high-quality_19_industrial/shard_00000134.jsonl.zst,344,0,cap,247738,0,0,1,0,0,0,0,0,2,1,0,0,8,1,0
+Common Crawl (High Q.),Web pages,data/common_crawl-high-quality_19_software/shard_00000418.jsonl.zst,317,0,cap,249881,0,0,7,2,0,0,5,0,4,1,0,0,6,1,1
+Common Crawl (High Q.),Web pages,data/common_crawl-high-quality_20_science_math_and_technology/shard_00000286.jsonl.zst,166,0,cap,249756,0,0,3,0,0,0,3,0,3,7,0,0,16,8,0
+Common Crawl (High Q.),Web pages,data/common_crawl-high-quality_20_industrial/shard_00000219.jsonl.zst,391,0,cap,249529,0,0,1,0,0,0,1,1,3,2,0,0,3,0,0
+Common Crawl (High Q.),Web pages,data/common_crawl-high-quality_19_health/shard_00001126.jsonl.zst,168,0,cap,247698,0,0,0,2,0,0,1,1,1,4,0,0,5,3,0
+Common Crawl (High Q.),Web pages,data/common_crawl-high-quality_19_literature/shard_00000841.jsonl.zst,134,0,cap,245159,0,0,0,1,0,0,0,0,0,6,0,0,6,8,0
+Common Crawl (High Q.),Web pages,data/common_crawl-high-quality_19_education_and_jobs/shard_00000516.jsonl.zst,186,0,cap,239676,0,0,2,3,0,1,1,2,0,7,0,0,8,2,0
+Common Crawl (High Q.),Web pages,data/common_crawl-high-quality_20_science_math_and_technology/shard_00000129.jsonl.zst,216,0,cap,249351,0,0,0,0,0,0,4,1,1,3,0,0,9,4,0
+Common Crawl (High Q.),Web pages,data/common_crawl-high-quality_20_literature/shard_00000252.jsonl.zst,149,0,cap,241415,0,0,0,3,0,0,3,2,6,6,0,0,11,3,0
+Common Crawl (High Q.),Web pages,data/common_crawl-high-quality_20_literature/shard_00000004.jsonl.zst,109,0,cap,213804,0,0,0,0,0,0,3,0,0,9,0,0,5,3,0
+Common Crawl (High Q.),Web pages,data/common_crawl-high-quality_20_science_math_and_technology/shard_00000186.jsonl.zst,226,0,cap,247470,0,0,0,0,0,0,4,1,3,5,0,0,7,6,0
+Common Crawl (High Q.),Web pages,data/common_crawl-high-quality_19_health/shard_00000368.jsonl.zst,143,0,cap,248405,1,0,3,1,0,0,1,0,0,3,0,0,6,4,0
+Common Crawl (High Q.),Web pages,data/common_crawl-high-quality_19_electronics_and_hardware/shard_00000044.jsonl.zst,238,0,cap,249764,0,0,4,3,0,0,2,1,1,6,0,0,10,7,0
+Common Crawl (High Q.),Web pages,data/common_crawl-high-quality_19_home_and_hobbies/shard_00000157.jsonl.zst,103,0,end,104192,0,0,1,0,0,0,0,0,0,0,0,0,6,3,0
+Common Crawl (High Q.),Web pages,data/common_crawl-high-quality_19_health/shard_00000609.jsonl.zst,222,0,cap,248062,1,0,2,0,0,0,3,0,2,9,0,0,11,5,0
+Common Crawl (High Q.),Web pages,data/common_crawl-high-quality_19_software/shard_00000117.jsonl.zst,300,0,cap,248305,0,0,4,0,0,1,3,1,2,4,0,1,6,2,0
+Common Crawl (High Q.),Web pages,data/common_crawl-high-quality_19_politics/shard_00001129.jsonl.zst,140,0,end,216682,0,0,1,2,1,1,0,0,3,2,0,0,18,5,0
+Common Crawl (High Q.),Web pages,data/common_crawl-high-quality_20_crime_and_law/shard_00000321.jsonl.zst,272,0,cap,245615,0,0,1,0,0,0,0,1,3,4,0,0,6,1,0
+Common Crawl (High Q.),Web pages,data/common_crawl-high-quality_19_entertainment/shard_00000979.jsonl.zst,186,0,cap,248267,2,0,3,5,0,0,2,1,5,4,0,0,25,20,0
+Common Crawl (High Q.),Web pages,data/common_crawl-high-quality_19_software/shard_00000053.jsonl.zst,295,0,cap,249423,0,0,6,5,0,0,2,1,3,6,0,0,8,2,0
+Common Crawl (High Q.),Web pages,data/common_crawl-high-quality_20_finance_and_business/shard_00000712.jsonl.zst,297,0,cap,249072,0,0,2,2,0,0,5,2,8,3,0,0,7,6,0
+Common Crawl (High Q.),Web pages,data/common_crawl-high-quality_20_science_math_and_technology/shard_00000055.jsonl.zst,258,0,cap,249969,0,0,1,0,1,0,3,2,4,5,1,0,9,6,0
+Common Crawl (High Q.),Web pages,data/common_crawl-high-quality_20_entertainment/shard_00001016.jsonl.zst,255,0,cap,249796,0,0,4,0,0,0,2,0,5,1,0,0,19,26,0
+Common Crawl (High Q.),Web pages,data/common_crawl-high-quality_19_science_math_and_technology/shard_00000642.jsonl.zst,153,0,cap,249566,0,0,0,1,0,1,3,0,3,1,0,0,8,10,0
+Common Crawl (High Q.),Web pages,data/common_crawl-high-quality_19_entertainment/shard_00001158.jsonl.zst,219,0,cap,248342,0,0,1,1,2,1,4,1,2,5,0,0,16,3,0
+Common Crawl (High Q.),Web pages,data/common_crawl-high-quality_19_education_and_jobs/shard_00000448.jsonl.zst,168,0,cap,195818,1,0,3,3,0,1,2,1,3,5,0,0,7,6,0
+Common Crawl (High Q.),Web pages,data/common_crawl-high-quality_20_literature/shard_00000119.jsonl.zst,144,0,cap,249741,0,0,0,1,0,0,1,0,1,6,0,0,6,7,0
+Common Crawl (High Q.),Web pages,data/common_crawl-high-quality_19_finance_and_business/shard_00000338.jsonl.zst,231,0,cap,249509,0,0,2,0,0,0,3,0,2,2,0,0,8,4,0
+Common Crawl (High Q.),Web pages,data/common_crawl-high-quality_19_industrial/shard_00000042.jsonl.zst,324,0,cap,249296,0,0,2,0,0,0,1,0,0,0,0,0,5,0,0
+Common Crawl (High Q.),Web pages,data/common_crawl-high-quality_20_politics/shard_00000595.jsonl.zst,124,0,end,182174,0,0,1,2,0,0,0,1,2,2,0,0,6,5,0
+Common Crawl (High Q.),Web pages,data/common_crawl-high-quality_20_science_math_and_technology/shard_00000323.jsonl.zst,272,0,cap,248946,0,0,1,0,0,0,6,2,0,2,0,1,15,6,0
+Common Crawl (High Q.),Web pages,data/common_crawl-high-quality_19_health/shard_00000428.jsonl.zst,226,0,cap,244265,0,0,4,2,0,1,3,0,1,3,0,0,13,5,0
+Common Crawl (High Q.),Web pages,data/common_crawl-high-quality_19_games/shard_00000299.jsonl.zst,189,0,cap,249232,1,0,3,2,0,0,2,0,0,2,0,0,16,6,1
+Common Crawl (High Q.),Web pages,data/common_crawl-high-quality_20_entertainment/shard_00000044.jsonl.zst,270,0,cap,246133,0,0,3,3,0,0,1,2,1,4,0,0,24,17,0
+Common Crawl (High Q.),Web pages,data/common_crawl-high-quality_19_sports_and_fitness/shard_00000506.jsonl.zst,127,0,end,114842,0,0,2,0,0,0,0,0,1,4,0,0,8,1,0
+Common Crawl (High Q.),Web pages,data/common_crawl-high-quality_20_software/shard_00000093.jsonl.zst,320,0,cap,249999,2,0,6,0,0,0,5,0,2,2,0,0,14,4,0
+Common Crawl (High Q.),Web pages,data/common_crawl-high-quality_20_education_and_jobs/shard_00000399.jsonl.zst,316,0,cap,249725,0,0,0,0,0,0,4,3,7,1,0,0,4,1,0
+Common Crawl (High Q.),Web pages,data/common_crawl-high-quality_19_science_math_and_technology/shard_00000320.jsonl.zst,184,0,cap,246460,1,0,1,0,0,0,0,0,4,4,0,0,6,1,1
+Common Crawl (High Q.),Web pages,data/common_crawl-high-quality_19_finance_and_business/shard_00001153.jsonl.zst,216,0,cap,249746,0,0,1,0,0,1,4,1,2,3,0,0,34,6,0
+Common Crawl (High Q.),Web pages,data/common_crawl-high-quality_19_literature/shard_00000745.jsonl.zst,70,0,cap,246961,0,0,0,0,0,0,0,0,1,9,0,0,2,2,0
+Common Crawl (High Q.),Web pages,data/common_crawl-high-quality_19_entertainment/shard_00001097.jsonl.zst,234,0,cap,248654,1,0,1,3,0,0,2,0,1,5,0,0,25,13,0
+Common Crawl (High Q.),Web pages,data/common_crawl-high-quality_19_education_and_jobs/shard_00000582.jsonl.zst,261,0,cap,249883,0,0,2,2,0,0,4,0,1,1,0,0,7,3,0
+Common Crawl (High Q.),Web pages,data/common_crawl-high-quality_19_education_and_jobs/shard_00000189.jsonl.zst,242,0,cap,247834,0,0,2,0,0,2,3,1,3,2,0,0,8,5,0
+Common Crawl (High Q.),Web pages,data/common_crawl-high-quality_20_science_math_and_technology/shard_00000322.jsonl.zst,272,0,cap,249736,1,0,3,0,1,0,1,0,1,1,0,0,4,8,0
+Common Crawl (High Q.),Web pages,data/common_crawl-high-quality_19_literature/shard_00000391.jsonl.zst,121,0,cap,248929,0,0,1,0,0,0,1,0,2,9,0,0,5,6,0
+Common Crawl (High Q.),Web pages,data/common_crawl-high-quality_19_literature/shard_00000719.jsonl.zst,81,0,cap,233017,0,0,1,1,0,0,0,0,1,6,0,0,3,3,0
+Common Crawl (High Q.),Web pages,data/common_crawl-high-quality_19_literature/shard_00000511.jsonl.zst,100,0,cap,228003,0,0,0,0,0,0,0,0,0,3,0,0,3,5,0
+Common Crawl (High Q.),Web pages,data/common_crawl-high-quality_19_electronics_and_hardware/shard_00000165.jsonl.zst,236,0,cap,244398,0,0,2,0,0,0,4,0,2,8,0,0,12,17,2
+Common Crawl (High Q.),Web pages,data/common_crawl-high-quality_20_politics/shard_00000532.jsonl.zst,142,0,end,135860,0,0,1,0,0,0,2,0,2,1,0,0,3,1,0
+Common Crawl (High Q.),Web pages,data/common_crawl-high-quality_20_entertainment/shard_00000016.jsonl.zst,295,0,cap,242334,0,0,0,0,0,0,5,0,2,3,0,0,33,19,0
+Common Crawl (High Q.),Web pages,data/common_crawl-high-quality_20_food_and_dining/shard_00000141.jsonl.zst,354,0,cap,249386,1,0,2,1,0,0,3,3,8,4,0,0,9,5,0
+Common Crawl (High Q.),Web pages,data/common_crawl-high-quality_20_industrial/shard_00000122.jsonl.zst,386,0,cap,249849,0,0,1,0,0,0,0,0,4,1,0,0,1,0,0
+Common Crawl (High Q.),Web pages,data/common_crawl-high-quality_20_entertainment/shard_00000364.jsonl.zst,88,0,allocation,109393,0,0,0,0,0,0,2,1,0,2,0,0,7,4,0

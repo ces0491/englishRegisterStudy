@@ -539,8 +539,9 @@ with
 
 ## Study 4
 
-Every departure from the registration at <https://osf.io/d79u4>, recorded
-before any of the study's text was generated or any frame counted in its data.
+Every departure from the registration at <https://osf.io/d79u4> and the
+protocol it specifies the study through, each recorded before the analysis was
+run.
 
 ### S4-D1. One directory pattern in the protocol matches nothing
 
@@ -568,11 +569,84 @@ no files and the sample could not be drawn as registered.
 **When:** 29 September 2026, after registration and before any Study 4 text
 was generated or any frame counted in its data.
 
+### S4-D2. The DPO set holds 259,922 pairs
+
+**Registered:** in Study design, "all 260,000 pairs", and in Sample size, "DPO:
+260,000 pairs". The protocol gives the same figure.
+
+**What happened:** the count read every row of the set's four parquet files at
+the pinned commit and found 259,922 pairs: 64,981, 64,981, 64,980 and 64,980.
+The dataset card at that commit records the same number in its metadata
+(`num_examples: 259922`). Its prose gives 260,000, the sum of 125,000, 125,000
+and 10,000 pairs from its three components, and the registration and protocol
+quoted that.
+
+**What is done instead:** nothing. The registered rule is every pair at the
+pinned commit, and every pair was counted. The write-up gives 259,922.
+
+**Effect on the analysis:** none.
+
+**When:** 29 September 2026, from the check of the count's totals, after the
+count and before the analysis was run.
+
+### S4-D3. SFT conversations are identified by file and row
+
+**Registered:** the protocol records, per SFT conversation, "`id`,
+`source_dataset`, words and hits per frame".
+
+**What happened:** the counting code identifies each conversation by its
+parquet file and row number, as in `train-00000-of-00015:52`, the way the
+protocol identifies DPO pairs, and does not record the `id` field.
+
+**What is done instead:** the file and row stand as the identifier. At the
+pinned commit they locate each conversation exactly.
+
+**Effect on the analysis:** none. The analysis uses each conversation's words,
+hits and `source_dataset`, all recorded as registered. No registration answer
+mentions the identifier, so this is recorded here and not filed on OSF.
+
+**When:** 29 September 2026, after the count and before the analysis was run.
+
+### S4-D4. Redacted documents in the midtraining olmOCR source
+
+**Registered:** the midtraining draw reads whole documents, allocated so that
+"the pooled sample is the mix as the model saw it". Neither the registration
+nor the protocol mentions redaction.
+
+**What happened:** as Study 3 found in stage 1 (S3-D2), Ai2 has replaced the
+text of some olmOCR documents with `[REMOVED]` since the model was trained. Of
+the 2,446 documents the draw read from OLMOCR Science PDFs (High Q.), 353 were
+redacted. The model saw those documents and this study cannot.
+
+**What is done instead:** redacted documents are counted as they stand, as
+Study 3 counted them. `[REMOVED]` is one word and matches no frame, and every
+file's record gives its number of redacted documents.
+
+**Effect on the analysis:** the source reached its allocation from its
+unredacted documents, so its rate describes those only. What the redacted
+documents would have contributed is unknown. The source holds 5.0% of the
+midtraining sample's words, and the placeholders add 353 words to the sample's
+240 million.
+
+**When:** the counting code set this handling before the count, at commit
+`1d0bd82`. The count found how many documents it covers, and this entry was
+recorded on 29 September 2026, before the analysis was run.
+
 ### Study 4's OSF update
 
 Drafted on 29 September 2026, to be submitted as one update to the
-registration, citing this file at the commit that first holds this section.
-It makes one change. Answers not listed are unchanged.
+registration, citing this file at the commit that records S4-D4. It changes
+three answers. Answers not listed are unchanged.
+
+#### Research Design: Study design
+
+**S4-D2.** In the list of input sources, replace
+
+> all 260,000 pairs
+
+with
+
+> all 259,922 pairs
 
 #### Sampling: Data collection procedures
 
@@ -585,8 +659,33 @@ It makes one change. Answers not listed are unchanged.
 > stack_edu-fim_*. No other reading is possible, and nothing else changes. This
 > is deviation S4-D1 in docs/deviations.md.
 
+**S4-D4.** After that, add
+
+> As in Study 3, Ai2 has redacted some olmOCR documents since the model was
+> trained, replacing their text with [REMOVED]. They are counted as they
+> stand, adding one word each and no hits, and each file's record gives their
+> number. The draw read 2,446 documents from OLMOCR Science PDFs (High Q.), of
+> which 353 were redacted, so that source's rate describes its unredacted
+> documents only. This is deviation S4-D4 in docs/deviations.md.
+
+#### Sampling: Sample size
+
+**S4-D2.** Replace
+
+> DPO: 260,000 pairs.
+
+with
+
+> DPO: 259,922 pairs, which the dataset card's description rounds to 260,000.
+
 The justification OSF asks for:
 
-> Corrects a clerical error in the protocol's directory pattern for one
-> midtraining source, found while writing the counting code, before any of the
-> study's text was generated or any frame counted in its data.
+> Corrects two clerical errors and records one counting rule. The protocol's
+> directory pattern for one midtraining source matched no directory; this was
+> found while writing the counting code, before any of the study's text was
+> generated or any frame counted in its data. The registration gave the DPO
+> set as 260,000 pairs, the dataset card's rounded description; the set holds
+> 259,922, and every pair was counted as registered. Redacted olmOCR documents
+> in the midtraining sample are counted as they stand, as in Study 3; the
+> counting code set this before the count, and the count found 353. The last
+> two were recorded after the count and before the analysis was run.

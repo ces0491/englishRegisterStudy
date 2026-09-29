@@ -189,7 +189,10 @@ Rscript R/analyse-study4.R
 importing them, and its tests check that the two agree. The collect step writes
 `data/study4/counts.csv`, which the composite's model reads, and one row per
 unit of text in `data/study4/units-*`, which the family's ratio estimator in
-`R/ratio.R` reads. The generated text stays out of git, as Study 2's does.
+`R/ratio.R` reads. The generated text stays out of git, as Study 2's does, and
+`data/study4/generated-sha256.txt` identifies the files that were counted.
+`data/study4/midtraining/` holds one record per midtraining file read, and is
+committed so the draw can be checked, as `data/dolma/` is for Study 3.
 
 The script refuses a partial grid, in either file. Every countable frame needs a
 combined count in all 5 varieties, every splittable frame needs both sections,
@@ -227,7 +230,8 @@ Study 1's analysis is registered at <https://osf.io/48wjn>, and the text as
 submitted is in
 [docs/osf-study1-registration.md](docs/osf-study1-registration.md). Study 2 is
 registered at <https://osf.io/qjgtc>, Study 3 at <https://osf.io/ngt3m>, and
-Study 4, which has not yet run, at <https://osf.io/d79u4>.
+Study 4 at <https://osf.io/d79u4>. Study 4's data were collected on 29
+September 2026, and its analysis has not yet run.
 Departures from them are recorded in [docs/deviations.md](docs/deviations.md),
 and what each query session did, refusals included, in
 [docs/collection-log.md](docs/collection-log.md).

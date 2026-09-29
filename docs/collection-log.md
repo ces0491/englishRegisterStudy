@@ -269,3 +269,85 @@ of the study's text was generated or any frame counted in its data.
   and no frames. The SFT conversations are user and assistant turns, and all
   of the DPO set's first 500 pairs end on an assistant turn, as the protocol's
   rule for the response assumes.
+
+**29 September 2026, the run.** Commit `1d0bd82`, which holds the code that
+ran, was pushed at 11:33 UTC, and both scripts were launched with `modal run
+--detach` straight after.
+
+*Generation.* The nine arms ran in parallel on one L40S each. Their engines
+were ready between 11:35 and 11:39 UTC, each arm took 24 to 40 minutes, and the
+last finished at 12:18 UTC.
+
+| Arm | Checkpoint | Words | Words a text | Reached 1,024 tokens | Empty |
+|---|---|---:|---:|---:|---:|
+| `B1` | end of stage 1 | 1,873,609 | 468 | 1,596 | 38 |
+| `B2` | end of midtraining | 1,836,634 | 459 | 1,384 | 71 |
+| `B3` | final base | 2,408,514 | 602 | 1,479 | 3 |
+| `N1` | Gen-QA mix from 2T | 1,891,439 | 473 | 1,396 | 66 |
+| `N2` | math-code-thinking mix from 2T | 2,014,023 | 504 | 1,652 | 2 |
+| `N3` | Round 5 mix from 2T | 1,862,425 | 466 | 1,414 | 63 |
+| `P1` | SFT | 2,256,676 | 564 | 503 | 0 |
+| `P2` | DPO | 2,733,114 | 683 | 1,947 | 0 |
+| `P3` | final instruct | 2,675,367 | 669 | 1,320 | 0 |
+
+- Each arm holds the 4,000 topics once, in `topic_id` order, each with the
+  seed `seed_for` gives on pass 1 in the arm's own namespace, and none from the
+  trial's. No arm was interrupted or resumed.
+- Every generation records its arm's pinned commit, and the three runs from 2T
+  loaded through the Olmo 3 configuration, as in the trial. The library
+  versions and sampler are Study 2's.
+- Base prompts are the raw template. Every prompt in the three chat arms is the
+  same rendered template around it, carrying the default system prompt S2-D1
+  describes.
+- Every empty text is the model ending at once, and each is kept with zero
+  words, as registered. `B1`, `B2`, `N1` and `N3` did this 38 to 71 times
+  each, against 3 in `B3` and 2 in `N2`. A further 52 texts, all in the base
+  arms, hold no word character and also count as zero words.
+- No text contains one of the tokenizer's special tokens. Two `P1` texts carry
+  tags: `T2194` ends on `<|extra_id_1|>`, a token the tokenizer adds without
+  marking it special, and `T2935` ends in garbled text containing an invented
+  `<|start_of_file|>`. Four texts, two each in `N2` and `N3`, write an
+  exchange with both a user and an assistant label. All are counted as
+  generated.
+- Each manifest's word count matches a recount of its text.
+- `B1`, `B2`, `N1` and `N3` averaged 459 to 473 words a text, about
+  three-quarters of `B3`'s 602, where the trial's eight texts suggested about
+  half. Their intervals will still be somewhat wider than the sample-size
+  rationale's, which resampled Study 2's texts.
+- `B3` and `P3` are the checkpoints and settings of Study 2's `base-1.0` and
+  `instruct-1.0`, with new seeds, and came to 2,408,514 and 2,675,367 words
+  against Study 2's 2,426,034 and 2,680,977.
+
+*Midtraining.* The 24 counters finished between 11:34 and 11:48 UTC, and every
+source reached its allocation: 1,015 files, 837,761 documents and 240,035,190
+words, against the registration's minimum of 973 files. 912 files stopped at
+the 250,000-word cap and 79 ran out before it. The other 24, one per source,
+stopped at the document that brought the source to its allocation, and the
+rest of that document takes a source past its allocation by between 2 words
+(Wiki To RCQA) and 9,710 (Dolmino Math).
+
+Recomputed afterwards from a fresh listing at the pinned commit, with NumPy
+2.2.1 against the run's 2.3.3, each source's files are the head of its
+registered draw order, in order and at the listed sizes, and each of the
+listing's 71,090 files belongs to exactly one source. Of the 2,446 documents
+read from OLMOCR Science PDFs (High Q.), 353 are redacted (deviation S4-D4). No
+other source has any.
+
+*SFT.* The 15 files finished between 11:39 and 11:49 UTC: all 2,152,112
+conversations and 411,272,812 words. 12,037 conversations have no assistant
+words and count as zero, as the protocol specifies: 10,986 from Dolci Instruct
+Tool Use, 714 from WildGuardMix, 155 from Wildchat and 182 from nine other
+datasets. Three read back from the dataset were a tool-use turn holding a
+function call and no content, an empty reply from WildGuardMix, and a Wildchat
+reply of punctuation alone.
+
+*DPO.* The 4 files finished at 11:46 and 11:47 UTC: all 259,922 pairs
+(deviation S4-D2), with 84,142,359 words in the chosen responses and 77,939,812
+in the rejected. 689 pairs have a response with no words: the chosen side alone
+in 124, the rejected side alone in 393 and both in 172. In the four read back
+from the dataset, the empty response was `[]` or had no content.
+
+Both post-training datasets now sit under new names on Hugging Face,
+`allenai/Dolci-Instruct-SFT` and `allenai/Dolci-Instruct-DPO`. The registered
+names redirect, and both repositories' main branches are still at the pinned
+commits.

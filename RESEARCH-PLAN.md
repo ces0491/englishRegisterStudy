@@ -175,8 +175,9 @@ publishing. Equality would be a real result too, and a duller one.
 
 ### Study 4 — where the excess enters
 
-*Designed 29 September 2026. Not registered: nothing below has been generated
-or counted.*
+*Designed 29 September 2026, with its choices settled the same day. The
+specification is `docs/study4-protocol.md` and the registration text
+`docs/osf-study4-registration.md`. Nothing has been generated or counted.*
 
 The exploratory results of Studies 2 and 3 raise a narrower question. On the
 contrastive frames, Olmo 3's base model runs at about five times the rate of
@@ -216,59 +217,53 @@ each checkpoint:
 | SFT | `allenai/Olmo-3-7B-Instruct-SFT` | chat template |
 | DPO | `allenai/Olmo-3-7B-Instruct-DPO` | chat template |
 | Final instruct | `6e5971d9`, Study 2's revision | chat template |
+| Gen-QA mix from 2T | `stage2-step47684-mix-gen-mc-only-from-2T-ckpt` (`45786899`) | raw |
+| Math-code-thinking mix from 2T | `stage2-step47684-mix-math-code-reasoning-web-from-2T-ckpt` (`ab9f4b07`) | raw |
+| Round 5 mix from 2T | `stage2-step47684-mix-round5-from-2T-ckpt` (`34e13d5f`) | raw |
 
 The final base and final instruct are regenerated so that every arm is new
 data, and Study 2's text for them becomes a replication check. The three chat
-templates differ only in how they treat an empty tool list, so with no tools
-they should render the same default system prompt; the pre-flight confirms the
-renders.
+templates differ only in how they treat an empty tool list, and with no tools
+the pre-flight rendered them byte-identical, matching the prompts Study 2
+recorded.
 
 **Input side.**
 
 - Stage 1: Study 3's counts, reused as registered.
-- Midtraining, `allenai/dolma3_dolmino_mix-100B-1025`: each source directory
-  sampled the way Study 3 sampled Dolma 3, the synthetic categories (reasoning
-  traces, instruction data, QA rewrites) reported separately, and a mix rate
-  weighted by the card's token shares.
-- SFT, `allenai/dolci-instruct-sft`: the assistant turns of its 2,152,112
-  conversations, by `source_dataset`, with the GPT-4.1 WildChat responses
-  reported separately.
-- DPO, `allenai/dolci-3-instruct-dpo-with-metadata`: chosen and rejected
-  responses from its 260,000 pairs. The paired difference is the direction
-  preference tuning pushes, broken down by `chosen_model` and
-  `rejected_model`.
-- Not counted: the long-context mix, two-thirds of which is midtraining data,
-  and the RLVR set, `allenai/Dolci-Instruct-RL-7B`, which holds 169,964
-  prompts with reference answers and none of the model's responses. RLVR is
-  measured on the output side only.
+- Midtraining, `allenai/dolma3_dolmino_mix-100B-1025`: 240 million words,
+  allocated across its 24 sources by their token shares, so the pooled sample
+  is the mix as the model saw it, with the synthetic categories (reasoning
+  traces, instruction data, QA rewrites) also reported separately.
 
-**Outcome.** The contrastive family, F06 to F09, with the partial F10 added in
-a sensitivity run and the fifteen-frame composite reported alongside. The
-family is chosen because Studies 2 and 3 found the excess there, and the
-registration will say so: the hypotheses come from their exploratory results
-and are tested on data that did not exist when those results were seen.
+**Outcome.** Two, co-primary and Holm-corrected together: the contrastive
+family, F06 to F09, as a summed rate, and the fifteen-frame composite as the
+source effect in the model Studies 2 and 3 used, so that it means what it
+meant in Studies 1 to 3. The partial F10 is added to the family in a
+sensitivity run. The family is chosen because Studies 2 and 3 found the
+excess there, and the registration says so: the hypotheses come from their
+exploratory results and are tested on data that did not exist, or had not
+been counted, when those results were seen.
 
 **Analysis.** A family of four frames is too few to serve as the unit of
-replication the way frames did in Studies 1 to 3. Texts and documents can. The
-proposal is a negative binomial model of each text's or document's contrastive
-hits, offset by log(words), with one contrast per explanation and Holm across
-them. Its interval coverage is checked by simulation before registration, as
-`R/calibrate-composite.R` did for Study 1's model. That check matters here:
-in Study 1's calibration a negative binomial model covered the true ratio only
-77-79% of the time. There the unit was the frame-by-variety cell and the model
-ignored frames' shared preferences; with texts as the unit the failure may not
-carry over, and the simulation is how to find out.
+replication the way frames did in Studies 1 to 3. Texts and documents can,
+so the family's rates are ratio estimators, total hits over total words, with
+a variance from the variation between units (`R/ratio.R`), compared as log
+ratios with Wald intervals and paired for the DPO data. Before registration
+`R/calibrate-ratio.R` resampled Study 2's texts and Study 3's files: across
+30 scenarios matching the contrasts, 95% intervals covered the true ratio
+93.5% to 95.6% of the time. The composite uses `R/model.R` over all fourteen
+sources, with frames as the replication unit and a t reference. All eighteen
+tests are Holm-corrected together.
 
-**A natural experiment, if the compositions support it.** Ai2 also released
-three midtraining runs started from the same stage-1 checkpoint at 2T tokens,
-each on a different mix, as branches `stage2-step47684-mix-gen-mc-only-from-2T-ckpt`,
-`stage2-step47684-mix-math-code-reasoning-web-from-2T-ckpt` and
-`stage2-step47684-mix-round5-from-2T-ckpt`. The base model's card describes
-them as a Gen-QA mix, a math-code-thinking mix and the final Round 5 mix. With
-the same start and the same budget, generating from all three would isolate
-what the midtraining mix does, provided their synthetic prose content differs.
-Their compositions need confirming from Table 7 of the Olmo 3 paper
-([arXiv 2512.13961](https://arxiv.org/abs/2512.13961)) first.
+**A natural experiment.** Ai2 also released three midtraining runs started
+from the same stage-1 checkpoint at 2T tokens, each on a different mix. Table
+7 of the Olmo 3 paper ([arXiv 2512.13961](https://arxiv.org/abs/2512.13961))
+describes them: the Gen-QA mix keeps web, QA and instruction data and omits
+reasoning traces, and the math-code-thinking mix keeps reasoning traces and
+omits QA and instruction data. With the same start and budget, the pair
+separates instruction data from reasoning traces. Their checkpoints declare
+a pre-release architecture, `olmo2-retrofit`, and are loaded as Olmo 3,
+whose configuration they otherwise match; the protocol gives the details.
 
 **Threats.**
 
@@ -294,11 +289,11 @@ compresses stylistic variation, measuring outputs only. What Study 4 adds is
 the input side at every stage, the three pretraining stages, and the
 constructions readers flag.
 
-**Order of work.** The choices under *Open decisions* are settled first. Then
-the code (generation by revision, counters for the three datasets), then a
-listing and pre-flight that count no frames, then the registration, pinned to
-that commit, then the runs. Study 4 is optional, and the article on Studies 1
-to 3 does not wait for it.
+**Order of work.** Design, then a pre-flight that counts no frames, then the
+registration, pinned to the commit holding the protocol, the estimator and
+its calibration. The generation and counting code implementing the protocol
+follows, and any departure from the protocol is a declared deviation. Study
+4 is optional, and the article on Studies 1 to 3 does not wait for it.
 
 ### Deliberately out of scope
 
@@ -376,7 +371,7 @@ What ships:
 | Dolma frame counting | Modal, CPU fan-out over shards; cheap enough to be noise |
 | OLMo inference for Study 2 and 3 | Modal GPU, batch, a few hours at most |
 | Closed-model generation | the only line that scales; optional |
-| Study 4 generation and counting | Modal: six generation runs the size of Study 2's conditions, and CPU counting of three public datasets; optional |
+| Study 4 generation and counting | Modal: nine generation runs the size of Study 2's conditions, and CPU counting of three public datasets; optional |
 | OSF pre-registration, preprint | free |
 
 Modal's monthly free credits cover the compute comfortably, and it suits this
@@ -434,20 +429,8 @@ The remaining cost is time, and the literature review is the largest item.
 Studies 1 to 3 ship, decided 4 September 2026, and are reported in one
 article, decided 29 September. `SCOPE.md` sequences the work as gated phases:
 Study 1 alone, then the counting layer, then Studies 2 and 3 together on OLMo,
-then two optional additions, the closed models and Study 4.
+then two optional additions, the closed models and Study 4, whose design
+choices were settled on 29 September.
 
-- Study 4, before its registration is drafted:
-  - Whether to generate from the checkpoints at all. Counting the midtraining
-    and fine-tuning data was the part first agreed, but without each stage's
-    output those counts cannot say whether a stage amplifies what it was
-    given. Recommended: include them.
-  - The outcome: the contrastive family (F06 to F09) as proposed, or the
-    fifteen-frame composite as in Studies 1 to 3.
-  - The unit and model: texts and documents under a negative binomial model,
-    subject to the simulation check.
-  - Regenerating the final base and instruct arms (recommended) or reusing
-    Study 2's text.
-  - The SFT count: all 2,152,112 conversations, or a sample per source.
-  - The natural experiment, in or out, once Table 7's compositions are read.
 - Whether a preprint follows the article. Free, and worth it only if the result
   is one people will want to cite. Decided after there is a result.

@@ -105,8 +105,8 @@ excess found in Studies 2 and 3 enters, by setting each stage's training data
 against the output of the checkpoint it produced. The design is in
 `RESEARCH-PLAN.md`.
 
-- [ ] Design settled: the Study 4 items under *Open decisions* in
-      `RESEARCH-PLAN.md`
+- [x] Design settled on 29 September 2026: `docs/study4-protocol.md`, the
+      estimator in `R/ratio.R` and its calibration in `R/calibrate-ratio.R`
 - [ ] OSF registration submitted before any of its text is generated or any of
       its data counted
 - [ ] Generation from the checkpoints and counts of the midtraining,

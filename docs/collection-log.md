@@ -191,3 +191,47 @@ the subset's bytes between them, drew no file, so neither the olmOCR rate nor
 its byte-reweighted version covers them. olmOCR carries 4.7% of the whole-mix
 rate, so halving or doubling its rate would move that figure by between -2.3%
 and +4.7%.
+
+## Study 4
+
+The follow-up designed on 29 September 2026 and specified in
+`docs/study4-protocol.md`.
+
+**29 September 2026, pre-flight.** Before registration. Nothing was generated
+from the study's prompts and no frame was counted.
+
+- Every checkpoint and dataset was pinned to a commit, listed in the protocol.
+- The chat templates of the SFT, DPO and final instruct checkpoints rendered
+  byte-identical prompts with no tools passed, matching the prompts Study 2
+  recorded.
+- At its pinned commit the midtraining mix holds 71,090 files in 24 sources,
+  all JSON Lines compressed with zstd. The SFT set is 15 parquet files and the
+  DPO set 4.
+- The three midtraining runs from the 2T checkpoint declare a pre-release
+  architecture, `olmo2-retrofit`. Each branch carries two sets of weight
+  shards, and its index lists the six-shard set, 29.2 GB of float32 weights.
+- `python/preflight_study4.py` loaded the five new base-model checkpoints on
+  L40S GPUs, the three runs from 2T through a configuration naming Olmo 3, and
+  each scored the opening of *Pride and Prejudice*:
+
+| Checkpoint | Loaded | Perplexity |
+|---|---|---:|
+| End of stage 1 | natively | 1.19 |
+| End of midtraining | natively | 1.26 |
+| Gen-QA mix from 2T | as Olmo 3 | 1.17 |
+| Math-code-thinking mix from 2T | as Olmo 3 | 1.23 |
+| Round 5 mix from 2T | as Olmo 3 | 1.22 |
+
+The passage is famous enough that every checkpoint predicts it almost exactly,
+so the check shows the weights load and compute correctly and says nothing
+about fluency. The run above is the second. The first run's output was cut
+short by a display filter, and its two surviving results, 1.24 and 1.22 for
+the last two checkpoints, agree with the second run's to within vLLM's
+run-to-run variation.
+
+`R/calibrate-ratio.R` checked the family outcome's estimator on Studies 2 and
+3's data: across 30 scenarios, 95% intervals covered the true ratio 93.5% to
+95.6% of the time. An earlier version of the design weighted 24 midtraining
+sources of 40 files each and checked 28 scenarios, covering 93.5% to 95.7%;
+the design now draws the midtraining sample in proportion to token shares,
+and the composite uses the model Studies 2 and 3 used.

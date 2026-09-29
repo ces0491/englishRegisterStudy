@@ -12,6 +12,12 @@ Australian or South African ear before it reads as machine-written.
 Neither the hypothesis nor its opposite had any evidence behind it when this
 started. That was the point of measuring.
 
+The three results write-ups are published at
+<https://ces0491.github.io/englishRegisterStudy/>, rendered from the sources
+here by running the committed analysis over the committed counts on every push
+(`.github/workflows/pages.yml`). Nothing rendered is committed, so the
+published copy cannot fall behind the analysis.
+
 The design is in [RESEARCH-PLAN.md](RESEARCH-PLAN.md) and the completion
 criteria in [SCOPE.md](SCOPE.md). The output is this repository and an article,
 not a journal submission. The frames were pre-registered and the analysis fixed

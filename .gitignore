@@ -48,6 +48,10 @@ __pycache__/
 readings/
 docs/*.pdf
 
-# Quarto
+# Quarto. The HTML is what GitHub Pages serves, rendered by
+# .github/workflows/pages.yml on every push, so a copy of it here would be the
+# stale artifact that workflow exists to avoid.
 /.quarto/
 docs/*_files/
+docs/*.html
+/_site/

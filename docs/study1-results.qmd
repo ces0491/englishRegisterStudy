@@ -25,6 +25,17 @@ format:
         \usepackage{float}
         \usepackage{booktabs}
         \floatplacement{table}{H}
+  html:
+    toc: true
+    toc-depth: 2
+    number-sections: true
+    date-format: "DD MMMM, YYYY"
+    embed-resources: true
+    theme: cosmo
+    fig-width: 7
+    bibliography: ../references.bib
+    csl: ../harvard-cite-them-right.csl
+    link-citations: true
 ---
 
 ```{r}

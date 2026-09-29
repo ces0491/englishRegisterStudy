@@ -1,0 +1,146 @@
+name: Publish the write-ups
+
+# The three results documents are Quarto sources, and the rendered copies are
+# gitignored so that nothing in the repository can drift from the analysis.
+# That leaves a reader on GitHub with source they cannot read without R,
+# Quarto and a run of the analysis. This renders them on every push and serves
+# the HTML from Pages, so the published copy is always the committed analysis
+# run against the committed counts, and still nothing rendered is committed.
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "R/**"
+      - "docs/*.qmd"
+      - "data/**"
+      - "references.bib"
+      - "harvard-cite-them-right.csl"
+      - ".github/workflows/pages.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# One deployment at a time, and a newer push wins.
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  build:
+    name: Render
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out the repository
+        uses: actions/checkout@v5
+
+      - name: Set up R
+        uses: r-lib/actions/setup-r@v2
+        with:
+          use-public-rspm: true
+
+      # The write-ups' own dependencies plus the four analysis scripts'.
+      # knitr and rmarkdown are what Quarto runs the R chunks through.
+      - name: Install the R packages
+        uses: r-lib/actions/setup-r-dependencies@v2
+        with:
+          packages: |
+            any::dplyr
+            any::ggplot2
+            any::jsonlite
+            any::knitr
+            any::lme4
+            any::MASS
+            any::readr
+            any::rmarkdown
+            any::tibble
+            any::tidyr
+
+      - name: Set up Quarto
+        uses: quarto-dev/quarto-actions/setup@v2
+
+      # The write-ups read the files these write. They are gitignored, so the
+      # site cannot be built without running them, which is the point.
+      - name: Run the analysis
+        run: |
+          Rscript R/analyse.R
+          Rscript R/analyse-generated.R
+          Rscript R/analyse-training.R
+          Rscript R/analyse-study4.R
+
+      # HTML rather than the PDF the documents declare first, because a reader
+      # should not have to download anything. The documents are tables and
+      # prose with no figures, and the html format sets embed-resources, so
+      # each page is one self-contained file.
+      - name: Render the write-ups
+        run: |
+          for doc in study1-results study2-3-results study4-results; do
+            quarto render "docs/$doc.qmd" --to html
+          done
+
+      - name: Assemble the site
+        run: |
+          mkdir -p _site
+          for doc in study1-results study2-3-results study4-results; do
+            cp "docs/$doc.html" _site/
+          done
+          cat > _site/index.html <<'HTML'
+          <!DOCTYPE html>
+          <html lang="en">
+          <head>
+          <meta charset="utf-8">
+          <meta name="viewport" content="width=device-width, initial-scale=1">
+          <title>englishRegisterStudy — results</title>
+          <style>
+            :root { color-scheme: light dark; }
+            body { font-family: system-ui, sans-serif; line-height: 1.5;
+                   max-width: 42rem; margin: 0 auto; padding: 2rem 1rem; }
+            li { margin-bottom: 0.75rem; }
+          </style>
+          </head>
+          <body>
+          <h1>englishRegisterStudy</h1>
+          <p>Do the rhetorical frames that make short-form writing "punchy"
+          occur more often in American English than in other national
+          varieties, and does a language model produce them at a rate its
+          training data does not explain? Four pre-registered studies.</p>
+          <ul>
+            <li><a href="study1-results.html">Study 1</a> — the frames across
+            five national varieties of web English, collected in 2012.</li>
+            <li><a href="study2-3-results.html">Studies 2 and 3</a> — Olmo 3's
+            output against those varieties, and against its own training
+            data.</li>
+            <li><a href="study4-results.html">Study 4</a> — which stage of
+            Olmo 3's training the excess enters at.</li>
+          </ul>
+          <p>Each page is rendered from the sources in the
+          <a href="https://github.com/ces0491/englishRegisterStudy">repository</a>
+          by running the committed analysis over the committed counts. The
+          registrations are on OSF:
+          <a href="https://osf.io/48wjn">Study 1</a>,
+          <a href="https://osf.io/qjgtc">Study 2</a>,
+          <a href="https://osf.io/ngt3m">Study 3</a>,
+          <a href="https://osf.io/d79u4">Study 4</a>.</p>
+          </body>
+          </html>
+          HTML
+
+      - name: Upload the site
+        uses: actions/upload-pages-artifact@v4
+        with:
+          path: _site
+
+  deploy:
+    name: Deploy
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

@@ -160,7 +160,8 @@ and output comparable without anyone having to classify a single document.
   sampling frame, and the study cannot be registered on it.
 - **Secondary: the closed models.** GPT, Claude and Gemini output can be
   measured; their inputs cannot. For those the volume confound stays open and
-  the write-up says so rather than implying otherwise.
+  the write-up says so rather than implying otherwise. Deferred beyond this
+  project on 29 September 2026 (`SCOPE.md`, phase D).
 
 The prediction that distinguishes the two explanations:
 
@@ -179,7 +180,8 @@ publishing. Equality would be a real result too, and a duller one.
 
 *Designed and registered on 29 September 2026, at <https://osf.io/d79u4>. The
 specification is `docs/study4-protocol.md` and the registration text
-`docs/osf-study4-registration.md`. Nothing has been generated or counted.*
+`docs/osf-study4-registration.md`. It was run and analysed the same day: the
+run is in `docs/collection-log.md` and the result in `docs/study4-results.qmd`.*
 
 The exploratory results of Studies 2 and 3 raise a narrower question. On the
 contrastive frames, Olmo 3's base model runs at about five times the rate of
@@ -410,31 +412,31 @@ The remaining cost is time, and the literature review is the largest item.
    that study's own data exists, so three registrations serve it better than
    one. Study 1 registered on 21 September 2026 at <https://osf.io/48wjn>, on
    the Secondary Data template — GloWbE was collected in 2012 and no count
-   from it had been looked at. Study 2 registers
-   before any text is generated, carrying the generation protocol and the
-   frame-to-raw-text mapping. Study 3 registers before the Dolma sample is
-   drawn, carrying the sampling frame.
+   from it had been looked at. Study 2 registered on 25 September before any
+   text was generated, carrying the generation protocol and the
+   frame-to-raw-text mapping. Study 3 registered the same day, before the Dolma
+   sample was drawn, carrying the sampling frame, and Study 4 on 29 September,
+   before any of its text was generated or data counted.
 
    Combining them would hold Study 1 behind decisions only the later studies
    need, and the mapping in particular is better written after the grid has
    been collected by hand, because that is how the interface's matching
    behaviour is learned.
 3. **Confirm the blog/general split** is queryable per variety. Answered: it is,
-   and Westphal (2024) reports section word counts for nine components. What
-   remains is one live session to check the click path for holding a section
-   constant across all twenty countries, and to read the limit off the account.
-   The limit is unlikely to bind either way: the grid is fifteen searches, or
-   thirty if the two sections need separate passes. The free-tier figure is not
-   published anywhere reachable — english-corpora.org blocks automated access —
-   so it has to come from the account itself.
+   and Westphal (2024) reports section word counts for nine components.
+   Collection then found the limits a free account sets: the interface splits
+   only 8 of the frames by section and cannot count F06 at all, which
+   deviation D2 records and `docs/collection-log.md` details.
 
 ## Open decisions
 
 Studies 1 to 3 ship, decided 4 September 2026, and are reported in one
-article, decided 29 September. `SCOPE.md` sequences the work as gated phases:
-Study 1 alone, then the counting layer, then Studies 2 and 3 together on OLMo,
-then two optional additions, the closed models and Study 4, whose design
-choices were settled on 29 September.
+article, decided 29 September. Study 4 finished before that article was
+published and is reported in it too. `SCOPE.md` sequences the work as gated
+phases: Study 1 alone, then the counting layer, then Studies 2 and 3 together
+on OLMo, then two optional additions: the closed models, deferred beyond this
+project on 29 September, and Study 4, registered, run and written up the same
+day.
 
 - Whether a preprint follows the article. Free, and worth it only if the result
   is one people will want to cite. Decided after there is a result.

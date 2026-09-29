@@ -8,9 +8,10 @@ model produces them at a rate its training data does not explain.
 
 ## What this covers
 
-Studies 1 to 3 in `RESEARCH-PLAN.md`, through to a published article, and two
-optional additions that do not hold it: the closed models (phase D) and Study 4
-(phase E).
+Studies 1 to 4 in `RESEARCH-PLAN.md`, through to a published article. Study 4
+(phase E) was an optional addition that did not hold the article; it finished
+first and is reported in it. The other optional addition, the closed models
+(phase D), is deferred beyond this project.
 
 They are sequenced rather than run together, because they are not independent
 and the dependencies run one way. The stop condition is the phase gates below:
@@ -96,6 +97,10 @@ counts it. Everything else is already required by Study 2.
 Study 2 only: GPT, Claude and Gemini output can be measured and their inputs
 cannot, so the volume confound stays open for them by construction.
 
+Deferred beyond this project on 29 September 2026. It needs API spend and a
+registration of its own, and the article states that it measures one open
+model. The criteria below stand for a later project that takes it up.
+
 - [ ] Generation protocol as registered, run per model and per version
 - [ ] Rates reported per model and per version, never pooled across them
 
@@ -113,18 +118,22 @@ against the output of the checkpoint it produced. The design is in
 - [x] Generation from the checkpoints and counts of the midtraining,
       fine-tuning and preference data, logged in `docs/collection-log.md`.
       Run on 29 September 2026 from commit 1d0bd82
-- [ ] Analysed and written up, reported as a follow-up to the article
+- [x] Analysed and written up: `docs/study4-results.qmd`, 29 September 2026.
+      It finished before the article was published, so the article reports
+      it (see below)
 
-**Article.** One piece reporting Studies 1 to 3, published on
+**Article.** One piece reporting Studies 1 to 4, published on
 blog.sheetsolved.com. It states the lexicalisation ceiling, the December 2012
 collection date, what the genre control does and does not do, that Study 2 has
-no ground truth for "American-like" beyond Study 1 itself, and — if phase D
-ships — that the volume confound is unanswered for the closed models. It
-answers claim by claim to *The Average Human Problem* (4 May 2026), whose
-averaging argument Study 3 was built to test; the plan is
-`notes/register-study-article.md` in the `tech-perspectives` repo.
+no ground truth for "American-like" beyond Study 1 itself, and that one open
+model was measured. It answers claim by claim to *The Average Human Problem*
+(4 May 2026), whose averaging argument Study 3 was built to test; the plan is
+`notes/register-study-article.md` in the `tech-perspectives` repo. The
+article is `_posts/2026-09-29-too-much-of-a-good-thing.md` there, committed
+locally on 29 September 2026 and awaiting Ces's read before it is pushed.
 
-- [ ] `README.md` and `RESEARCH-PLAN.md` describe what was actually done
+- [x] `README.md` and `RESEARCH-PLAN.md` describe what was actually done,
+      checked on 29 September 2026
 - [ ] *The Average Human Problem* carries a dated correction note linking to
       the article, under the house style's rule for corrections
 
@@ -167,6 +176,10 @@ Raise it rather than making it.
 Ces, when the article is published and the analysis reproduces from a clean
 clone.
 
+The second half was checked on 29 September 2026 on a fresh clone of commit
+a3137f8: the four analysis scripts reproduced every derived file byte for byte,
+all 78 tests passed, and the three write-ups rendered.
+
 ## Revision history
 
 - 2026-09-04: initial scope, Study 1 only.
@@ -183,3 +196,6 @@ clone.
 - 2026-09-29: the article reports Studies 1 to 3 together rather than Study 1
   first, since Study 1 alone would publish a claim the later studies qualify.
   Study 4 added as an optional phase that does not hold the article.
+- 2026-09-29: Study 4 finished before the article was published and is
+  reported in it, so the article covers Studies 1 to 4. Phase D deferred
+  beyond this project.

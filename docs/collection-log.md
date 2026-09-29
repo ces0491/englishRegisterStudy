@@ -351,3 +351,8 @@ Both post-training datasets now sit under new names on Hugging Face,
 `allenai/Dolci-Instruct-SFT` and `allenai/Dolci-Instruct-DPO`. The registered
 names redirect, and both repositories' main branches are still at the pinned
 commits.
+
+**29 September 2026, OSF update.** The update filing S4-D1, S4-D2 and S4-D4
+was submitted at 13:04 UTC and approved the same day, and its three answers
+match `docs/deviations.md` word for word, checked against OSF's API. No frame
+count or rate from the run had been looked at when it was filed.

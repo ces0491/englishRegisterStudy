@@ -541,7 +541,7 @@ with
 
 Every departure from the registration at <https://osf.io/d79u4> and the
 protocol it specifies the study through, each recorded before the analysis was
-run.
+run. All but S4-D3 are also filed as an update on the OSF registration.
 
 ### S4-D1. One directory pattern in the protocol matches nothing
 
@@ -634,9 +634,12 @@ recorded on 29 September 2026, before the analysis was run.
 
 ### Study 4's OSF update
 
-Drafted on 29 September 2026, to be submitted as one update to the
-registration, citing this file at the commit that records S4-D4. It changes
-three answers. Answers not listed are unchanged.
+S4-D1, S4-D2 and S4-D4 were submitted as one update to the registration on 29
+September 2026 at 13:04 UTC, and the update was approved the same day, before
+the analysis was run. It changes three answers, filed word for word as below,
+checked against OSF's API. Its justification names this file but no commit;
+GitHub then held `0f2b6b2`, the first commit to hold S4-D2 to S4-D4. Answers
+not listed are unchanged.
 
 #### Research Design: Study design
 

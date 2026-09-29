@@ -3,7 +3,8 @@
 Registered at <https://osf.io/d79u4> on 29 September 2026 at 10:16 UTC,
 public from filing, with no embargo. This is the text as submitted: every
 answer below matches OSF's record word for word, checked against `api.osf.io`
-the same day.
+the same day. An update approved on 29 September 2026 revises three answers;
+`docs/deviations.md` gives each change against the text here.
 
 Text for OSF's **OSF Preregistration** template (version 4), in the template's
 order. The answers are plain text because OSF does not render Markdown, and

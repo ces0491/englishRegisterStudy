@@ -112,15 +112,53 @@ second trial ran 8 topics in each of the four conditions, in parallel on four
 L40S GPUs, with trial seeds as before. It ran cleanly on the rebuilt image,
 including the two 0.7 settings, which the first trial had not tried.
 
+**28 September 2026, the run.** `modal run --detach python/generate.py` was
+launched after commit `454e557`, and the four conditions ran in parallel on one
+L40S each. Generation began at about 17:55 UTC, and the conditions finished
+between 18:17 and 18:32 UTC. The text was downloaded and checked on 29
+September before any frame was counted.
+
+| Condition | Generations | Words | Reached 1,024 tokens | Empty |
+|---|---:|---:|---:|---:|
+| `base-1.0` | 4,000 | 2,426,034 | 1,503 | 2 |
+| `base-0.7` | 4,000 | 2,327,984 | 1,050 | 0 |
+| `instruct-1.0` | 4,000 | 2,680,977 | 1,284 | 0 |
+| `instruct-0.7` | 4,000 | 2,614,894 | 918 | 0 |
+
+- Each condition passed two million words on its first pass, so no topic was
+  reused. Each file holds the 4,000 topics once, in `topic_id` order, with the
+  seed `seed_for` gives the condition on pass 1 and none from the trial's
+  namespace. No run was interrupted or resumed.
+- Every generation records the checkpoint revisions the trial used: base
+  `a81bae42db3975be1671e27b9c9a56da1a9f980f` and instruct
+  `6e5971d9eba42665f5bd5a0fcf047f299ce1dccc`, under vLLM 0.30.0, torch 2.13.0,
+  transformers 5.17.0 and huggingface_hub 1.33.0 with the PyTorch sampler.
+- Base prompts are the raw template. Every instruct prompt is the same
+  rendered template around it, carrying the default system prompt S2-D1
+  describes.
+- The two empty generations, `T0940` and `T3516` in `base-1.0`, are texts the
+  model ended at once. They are kept with zero words, as registered.
+- Two `base-1.0` texts, `T2413` and `T2937`, contain `<|im_start|>` or
+  `<|im_end|>` among invented markup such as `<|im_title|>` and `<|eot_id|>`.
+  Base prompts carry no template, so this is the model writing chat markup it
+  has seen, and it is counted as generated. No other condition's text contains
+  a special token or an invented chat turn.
+- Each manifest's word count and finish reasons match a recount of its text.
+
+The text is in `data/generated/`, which git ignores. The counts taken from it
+are in `data/counts-generated.csv` and the run's totals in
+`data/generated-run.csv`.
+
 ## Study 3
 
 The Dolma 3 draw, run on Modal against the sampling frame registered at
 <https://osf.io/ngt3m> and the update described in `docs/deviations.md`.
 
 **Study 2's text when Study 3 was registered.** None had been generated, and
-none has been since: the Modal volume the generation run writes to held no
-`generated/` folder on 28 September 2026. The trial described under Study 2
-wrote only to `trial/`.
+none was until after the draw: the Modal volume the generation run writes to
+held no `generated/` folder until Study 2's run began at about 17:55 UTC on 28
+September 2026, eleven hours after the last subset finished. The trial
+described under Study 2 wrote only to `trial/`.
 
 **25 September 2026.** The first `count_dolma.py --list-only` run found the
 corpus stored as JSON Lines, where the registration said parquet. Settling the

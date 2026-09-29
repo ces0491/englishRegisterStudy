@@ -5,8 +5,9 @@ Status: Study 1 is collected and analysed. It was registered on OSF at
 with two declared deviations since; the result is in `docs/study1-results.qmd`.
 Study 2 is registered at <https://osf.io/qjgtc> with its generation protocol
 and counting layer, and Study 3 at <https://osf.io/ngt3m> with its Dolma 3
-sampling frame. Nothing has been generated and no corpus sample has been
-drawn. The literature
+sampling frame. The Dolma 3 sample was drawn on 27 and 28 September and Study
+2's text generated on 28 September, and both are counted; the runs are in
+`docs/collection-log.md`. The literature
 review is as complete as it will get — two of the cited papers cannot be
 obtained, and the wording that depended on them is settled by decision rather
 than by reading. Completion criteria are in `SCOPE.md`.

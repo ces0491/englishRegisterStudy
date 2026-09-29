@@ -78,11 +78,14 @@ counts it. Everything else is already required by Study 2.
 - [x] OSF registration for Study 3 submitted before the sample is drawn.
       <https://osf.io/ngt3m>, 25 September 2026, pinned to commit 381703b,
       with the sampling frame and the counting layer attached
-- [ ] Olmo generation run: prompts, parameters and seeds committed, and enough
-      text that the frames carry usable intervals. `python/generate.py` runs
-      the four registered conditions on Modal; it has not been run
-- [ ] Frame rates counted in the Dolma sample and in OLMo's output with the
-      layer from phase B, both with intervals
+- [x] Olmo generation run: prompts, parameters and seeds committed, and enough
+      text that the frames carry usable intervals. `python/generate.py` ran
+      the four registered conditions on Modal on 28 September 2026, 4,000
+      generations and 2.3 to 2.7 million words each, logged in
+      `docs/collection-log.md`
+- [x] Frame rates counted in the Dolma sample and in OLMo's output with the
+      layer from phase B, both with intervals. `data/counts-dolma.csv` and
+      `data/counts-generated.csv`
 - [ ] The two set against each other, and against the Study 1 variety rates
 
 **D — closed models.** Optional, and the article stands without it. It widens

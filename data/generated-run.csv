@@ -1,0 +1,5 @@
+source,generations,empty_generations,passes,words
+base-0.7,4000,0,1,2327984
+base-1.0,4000,2,1,2426034
+instruct-0.7,4000,0,1,2614894
+instruct-1.0,4000,0,1,2680977

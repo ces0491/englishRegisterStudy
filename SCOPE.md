@@ -8,7 +8,9 @@ model produces them at a rate its training data does not explain.
 
 ## What this covers
 
-All three studies in `RESEARCH-PLAN.md`, through to a published article.
+Studies 1 to 3 in `RESEARCH-PLAN.md`, through to a published article, and two
+optional additions that do not hold it: the closed models (phase D) and Study 4
+(phase E).
 
 They are sequenced rather than run together, because they are not independent
 and the dependencies run one way. The stop condition is the phase gates below:
@@ -17,8 +19,9 @@ no phase starts before the one it depends on is finished and frozen.
 ## Phases
 
 Each study registers before its own data exists, which is what pre-registration
-protects. That is three registrations rather than one, and it is what lets
-Study 1 start now instead of waiting on decisions only Studies 2 and 3 need.
+protects. That is one registration per study rather than one for all, and it
+is what let Study 1 start instead of waiting on decisions only Studies 2 and 3
+needed.
 
 **A — Study 1, the baseline.** Self-contained. No compute, no infrastructure,
 nothing downstream depends on its results.
@@ -96,13 +99,32 @@ cannot, so the volume confound stays open for them by construction.
 - [ ] Generation protocol as registered, run per model and per version
 - [ ] Rates reported per model and per version, never pooled across them
 
-**Article.** Published on blog.sheetsolved.com, stating the lexicalisation
-ceiling, the December 2012 collection date, what the genre control does and does
-not do, that Study 2 has no ground truth for "American-like" beyond Study 1
-itself, and — if phase D ships — that the volume confound is unanswered for the
-closed models.
+**E — Study 4, where the excess enters.** Optional, and the article does not
+wait for it. It locates the stage of Olmo 3's training where the contrastive
+excess found in Studies 2 and 3 enters, by setting each stage's training data
+against the output of the checkpoint it produced. The design is in
+`RESEARCH-PLAN.md`.
+
+- [ ] Design settled: the Study 4 items under *Open decisions* in
+      `RESEARCH-PLAN.md`
+- [ ] OSF registration submitted before any of its text is generated or any of
+      its data counted
+- [ ] Generation from the checkpoints and counts of the midtraining,
+      fine-tuning and preference data, logged in `docs/collection-log.md`
+- [ ] Analysed and written up, reported as a follow-up to the article
+
+**Article.** One piece reporting Studies 1 to 3, published on
+blog.sheetsolved.com. It states the lexicalisation ceiling, the December 2012
+collection date, what the genre control does and does not do, that Study 2 has
+no ground truth for "American-like" beyond Study 1 itself, and — if phase D
+ships — that the volume confound is unanswered for the closed models. It
+answers claim by claim to *The Average Human Problem* (4 May 2026), whose
+averaging argument Study 3 was built to test; the plan is
+`notes/register-study-article.md` in the `tech-perspectives` repo.
 
 - [ ] `README.md` and `RESEARCH-PLAN.md` describe what was actually done
+- [ ] *The Average Human Problem* carries a dated correction note linking to
+      the article, under the house style's rule for corrections
 
 ## Out of scope
 
@@ -156,3 +178,6 @@ clone.
 - 2026-09-22 to 09-23: collection found that the interface splits only 8 of the
   frames by section and cannot count F06 at all. Phase A's grid criterion now
   matches what D2 registers rather than the 150 cells originally planned.
+- 2026-09-29: the article reports Studies 1 to 3 together rather than Study 1
+  first, since Study 1 alone would publish a claim the later studies qualify.
+  Study 4 added as an optional phase that does not hold the article.

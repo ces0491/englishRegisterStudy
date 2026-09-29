@@ -181,6 +181,15 @@ def dolma_to_csv(dolma_dir: Path) -> list[Path]:
                     "hits": value,
                     "words": totals["words"],
                 })
+    # Both files below are committed and both are written from this one pass,
+    # so an empty read has to stop before the first write rather than truncate
+    # counts-dolma.csv and then fail on the topic rows.
+    if not rows or not topic_rows:
+        raise SystemExit(
+            f"no per-subset JSON read from {dolma_dir}; nothing written. "
+            "data/counts-dolma.csv and data/counts-dolma-topic.csv are "
+            "committed, and this would have replaced them with an empty "
+            "table. Check the path given to --dolma.")
     out = REPO / "data" / "counts-dolma.csv"
     with open(out, "w", encoding="utf-8", newline="") as handle:
         writer = csv.DictWriter(

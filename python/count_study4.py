@@ -341,9 +341,11 @@ def collect(study4: Path, repo: Path) -> list[Path]:
     if mid_units:
         add("midtraining", mid_totals)
 
+    have = {"generated": bool(generated), "midtraining": bool(mid_units)}
     for part, sides in (("sft", ("sft",)), ("dpo", ("chosen", "rejected"))):
         combined = {side: {"words": 0, **{f: 0 for f in FRAME_IDS}} for side in sides}
         shard_files = sorted((study4 / part).glob("*.totals.json"))
+        have[part] = bool(shard_files)
         for path in shard_files:
             totals = json.loads(path.read_text(encoding="utf-8"))
             for side in sides:
@@ -353,6 +355,21 @@ def collect(study4: Path, repo: Path) -> list[Path]:
         if shard_files:
             for side in sides:
                 add("sft" if part == "sft" else f"dpo_{side}", combined[side])
+
+    # counts.csv and the units files are committed, and the per-part counts
+    # they are built from are not. A partial run that overwrites them leaves a
+    # table that looks complete: on a clean clone the documented command cut
+    # counts.csv from 211 rows to 31 and still exited 0. Assembling a fresh
+    # set from whatever is present is fine, so this refuses only when it would
+    # replace a table that is already there.
+    missing = sorted(name for name, present in have.items() if not present)
+    if missing and (study4 / "counts.csv").exists():
+        raise SystemExit(
+            f"no counts found for: {', '.join(missing)}.\n"
+            f"Nothing written: {study4 / 'counts.csv'} already exists, and "
+            "replacing it with part of a run would leave a table that looks "
+            "complete. Download or recount the missing parts first, or check "
+            "the path given to --collect.")
 
     def write(name: str, table: list[dict]) -> None:
         if not table:

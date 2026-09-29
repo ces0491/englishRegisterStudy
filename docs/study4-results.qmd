@@ -465,7 +465,8 @@ conf %>%
   kable(caption = paste("The family outcome: the first source's rate of F06",
                         "to F09 over the second's, with unadjusted 95%",
                         "intervals. H4 is two-sided; a ratio above 1 favours",
-                        "the QA and instruction data in N1's mix."))
+                        "N1's mix, which raises web, QA and instruction data",
+                        "together."))
 ```
 
 The end-of-stage-1 checkpoint uses the family less than its training text: B1's
@@ -475,9 +476,11 @@ The midtraining text also carries less of it than the stage-1 text,
 rate: B2 is `r ci_of(cf("H3"))` times B1, which supports H3. Of the two
 midtraining mixes run from the same checkpoint, the one with more web, QA and
 instruction data and no math, code or reasoning traces gives the higher rate:
-N1 is `r ci_of(cf("H4"))` times N2, which favours the QA and instruction data.
-The mixes differ in several categories at once, so the attribution to QA and
-instruction data is an interpretation.
+N1 is `r ci_of(cf("H4"))` times N2, which the registration reads as favouring
+the QA and instruction data. The mixes differ in several categories at once,
+and the third of them is web text, which carries the family at a higher rate
+than either (@tbl-midtraining), so which category drives the
+difference is an interpretation and not one this contrast can settle.
 
 The SFT responses use the family at `r ci_of(cf("H5"))` times the final base
 model's rate, evidence against H5, yet the SFT checkpoint uses it
@@ -618,8 +621,11 @@ group and the instruction data at `r fmt_rate(cat_rate("Instruction (synth)"))`,
 with one QA source, Nemotron Synth QA, the highest of the 24 at
 `r fmt_rate(src_rate("Nemotron Synth QA"))`. Code, mathematics, reasoning
 traces and PDFs carry little. A mix that trades mathematics, code and reasoning
-traces for QA and instruction data, as the Gen-QA mix does, therefore holds
-more of the family per word, which may account for part of N1's higher rate.
+traces for web, QA and instruction data, as the Gen-QA mix does, therefore
+holds more of the family per word, which may account for part of N1's higher
+rate. Web text is the largest part of that: it is the highest-rate category
+here and supplies most of the family's hits, so the web share N1 raises is at
+least as good a candidate as the QA and instruction data.
 The two experimental mixes' own text was not measured, and the released mix,
 which was, differs from both.
 

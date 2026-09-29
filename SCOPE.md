@@ -180,6 +180,12 @@ The second half was checked on 29 September 2026 on a fresh clone of commit
 a3137f8: the four analysis scripts reproduced every derived file byte for byte,
 all 78 tests passed, and the three write-ups rendered.
 
+Rechecked the same day after a review pass over the repository: the four
+scripts still reproduce every derived file byte for byte, the 80 tests pass
+(two added for the two scripts that used to overwrite a committed table from a
+partial run), and the Study 1 and Study 4 write-ups render. The review's
+findings and what was done about them are in `docs/review-2026-09-29.md`.
+
 ## Revision history
 
 - 2026-09-04: initial scope, Study 1 only.

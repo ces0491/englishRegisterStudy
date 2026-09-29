@@ -20,7 +20,9 @@
 # Intervals and p-values use a t reference with one degree of freedom per frame
 # less one, because a source effect is replicated across frames rather than
 # across cells. On synthetic grids the normal reference covered a known ratio
-# 88-90% of the time against a nominal 95%; the t reference covered it 92%.
+# 89-93% of the time against a nominal 95%; the t reference covered it 92-96%.
+# `R/calibrate-composite.R` reruns it; the figures filed with D2 came from
+# running its combined block alone and are corrected in docs/deviations.md.
 #
 # `R/analyse.R` deliberately does not source this file. It is Study 1's
 # registered analysis, it ran and produced results, and leaving it untouched

@@ -70,8 +70,8 @@ carries the frame preference and the overdispersion together; adding a separate
 cell-level effect would be the same grouping twice. Its intervals use a t
 reference with one degree of freedom per frame less one, because the variety
 effect is replicated across fourteen frames rather than across seventy cells:
-on synthetic grids the normal reference covered a known ratio 88–90% of the
-time and the t reference 92%. The secondary analysis is the registered form,
+on synthetic grids the normal reference covered a known ratio 89–93% of the
+time and the t reference 92–96%, across three cell-SD conditions. The secondary analysis is the registered form,
 `hits ~ frame_id + variety + section + (1 | frame:variety) + (1 | cell)`, on
 the eight frames that split, with the normal reference as registered, and it
 carries the genre control.
@@ -130,9 +130,11 @@ decision is recorded here.
    whatever section is chosen, so it cannot be used.
    `Rscript R/check-corpus-sizes.R path/to/glowbe_sources.txt` recomputes the
    section sizes from the metadata download on the same page, and fails if
-   `data/corpus-sizes.csv` disagrees. Raw counts rather than the
-   interface's per-million figure, so the normalisation can be recomputed and
-   checked.
+   `data/corpus-sizes.csv` disagrees. The Total column the `all` rows come
+   from is not in the metadata, so those rows are checked against the section
+   total and the 0.055-0.088% excess D1 records instead. Raw counts rather
+   than the interface's per-million figure, so the normalisation can be
+   recomputed and checked.
 3. `Rscript R/analyse.R`, which needs the R packages dplyr, ggplot2, readr,
    tidyr and lme4.
 
@@ -281,8 +283,10 @@ between 9.5 and 25.2. Midtraining raises the model's rate 6.07 [3.63, 10.14]
 times, SFT 2.20 [1.94, 2.50], DPO 1.24 [1.14, 1.36] and RLVR 1.14 [1.05, 1.23],
 each supported after Holm's correction, and long-context training 3.22
 [2.56, 4.05] in a secondary contrast. Of two midtraining mixes run from the same
-checkpoint, the one with QA and instruction data gives 2.82 [2.11, 3.76] times
-the rate of the one with math, code and reasoning traces.
+checkpoint, the one with more web, QA and instruction data gives 2.82
+[2.11, 3.76] times the rate of the one with math, code and reasoning traces.
+Which of those three carries it is open: web text has the highest rate of the
+family in the midtraining sample measured, and the two mixes' own text was not.
 
 The end-of-stage-1 model uses the family less than its web text, 0.43
 [0.27, 0.70], and neither the midtraining text nor the SFT responses carry more

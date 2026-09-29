@@ -140,7 +140,10 @@ confirmatory <- run_contrasts(CONFIRMATORY) %>%
          verdict = case_when(
            is.na(ratio) ~ "no hits on one side",
            p_holm >= 0.05 ~ "not supported",
-           predicted == "either" & ratio > 1 ~ "favours QA and instruction data (N1)",
+           # N1's mix raises web, QA and instruction data together, and web
+           # carries the family at the highest rate of the three, so the
+           # verdict names the mix rather than one category in it.
+           predicted == "either" & ratio > 1 ~ "favours the web, QA and instruction mix (N1)",
            predicted == "either" & ratio < 1 ~ "favours reasoning traces, math and code (N2)",
            ratio > 1 ~ "supported",
            TRUE ~ "evidence against"),

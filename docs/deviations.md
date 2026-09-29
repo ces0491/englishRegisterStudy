@@ -128,6 +128,23 @@ because neither partial frame can be split by section. Both are recorded here
 rather than in a further update, and will be corrected if another deviation
 needs filing.
 
+The coverage figures in the justification above are a third. They were taken
+from a run of the combined-sections block on its own, and do not come back from
+`R/calibrate-composite.R` as committed: the four model-comparison conditions
+draw from the random number stream first, so the block starts at a different
+position. Running the committed script end to end on 29 September 2026 gives
+coverage of 0.90, 0.89 and 0.93 with the normal reference against 0.93, 0.92
+and 0.96 with the t reference, across the three cell-SD conditions — 89-93%
+and 92-96% rather than the 88-90% and 92% filed. The choice of the t reference
+is unaffected: it covers at least as well as the normal in every condition in
+both runs. The false-positive claim is weaker than filed. The t reference
+lowers the rate at which a variety whose true ratio is 1 is called significant
+in all three conditions (0.053, 0.060, 0.053 against 0.040, 0.033, 0.027), but
+"halved" is not resolvable at 150 replicates, where the Monte Carlo error on a
+5% rate is about 1.8 points. The direction holds; the magnitude should not be
+quoted without more replicates. Recorded here rather than in a further update,
+on the same rule as the two above.
+
 ## Study 2
 
 Every departure from the registration at <https://osf.io/qjgtc>, recorded

@@ -287,3 +287,19 @@ def test_collect_writes_the_analysis_tables(tmp_path):
     assert len(counts) - 1 == 5 * 15
     with gzip.open(study4 / "units-sft.csv.gz", "rt", encoding="utf-8") as handle:
         assert handle.read().splitlines()[1].startswith("s0:0,a,")
+
+
+def test_collect_refuses_to_replace_a_table_from_a_partial_run(tmp_path):
+    """The per-part counts are gitignored and counts.csv is committed, so a
+    clean clone running --collect finds only stage1 and would otherwise
+    rewrite the committed table with what it found."""
+    study4 = tmp_path / "study4"
+    study4.mkdir(parents=True)
+    committed = "source,frame_id,hits,words\nsft,F01,1,10\n"
+    (study4 / "counts.csv").write_text(committed, encoding="utf-8")
+
+    with pytest.raises(SystemExit) as raised:
+        c4.collect(study4, REPO)
+
+    assert "generated" in str(raised.value)
+    assert (study4 / "counts.csv").read_text(encoding="utf-8") == committed

@@ -277,8 +277,9 @@ variety_ratios <- function(model, by_section, df = NULL) {
   # model uses a t reference with one degree of freedom per frame less one,
   # because the variety effect is replicated across frames rather than across
   # cells, and there are only fourteen frames. On synthetic data the normal
-  # reference covered a known ratio 88-90% of the time; the t reference covered
-  # it 92%. See R/calibrate-composite.R, which reruns both.
+  # reference covered a known ratio 89-93% of the time; the t reference covered
+  # it 92-96%. See R/calibrate-composite.R, which reruns both, and the
+  # correction to D2's filed figures in docs/deviations.md.
   q <- if (is.null(df)) stats::qnorm(0.975) else stats::qt(0.975, df)
   p <- if (is.null(df)) 2 * stats::pnorm(-abs(est / se)) else
     2 * stats::pt(-abs(est / se), df)
@@ -431,6 +432,16 @@ write_csv(bind_rows(common = secondary$common,
                     by_section = secondary$by_section, .id = "model"),
           "data/composite-ratios-by-section.csv")
 
+# The registration makes this test the rule for which secondary set is
+# confirmatory, so it goes in a file rather than only to the console: the
+# write-up quotes the p from here and selects its table on `model` below,
+# which is the same decision this script acts on.
+write_csv(tibble(chisq = genre_test$Chisq[2],
+                 df = genre_test$Df[2],
+                 p_value = genre_test$`Pr(>Chisq)`[2],
+                 model = if (split_by_section) "by_section" else "common"),
+          "data/genre-test.csv")
+
 message(sprintf("primary: %d frames x %d varieties, both sections combined",
                 n_distinct(dat_all$frame_id), n_distinct(dat_all$variety)))
 message(sprintf("secondary: %d frames x %d varieties x %d sections",
@@ -470,4 +481,4 @@ message(sprintf(
 ))
 print(secondary_set, width = Inf)
 
-message("\nwrote figures/frame-rates.png, figures/frame-rates-by-section.png,\n  data/rates-combined.csv, data/rates.csv, data/composite-combined.csv,\n  data/composite.csv, data/ratios-vs-us.csv, data/ratios-vs-us-by-section.csv,\n  data/composite-ratios.csv, data/composite-ratios-sensitivity.csv,\n  data/composite-ratios-by-section.csv")
+message("\nwrote figures/frame-rates.png, figures/frame-rates-by-section.png,\n  data/rates-combined.csv, data/rates.csv, data/composite-combined.csv,\n  data/composite.csv, data/ratios-vs-us.csv, data/ratios-vs-us-by-section.csv,\n  data/composite-ratios.csv, data/composite-ratios-sensitivity.csv,\n  data/composite-ratios-by-section.csv, data/genre-test.csv")

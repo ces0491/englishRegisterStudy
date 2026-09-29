@@ -44,7 +44,7 @@ suppressPackageStartupMessages({
 root <- ".."
 need <- c("composite-ratios", "composite-ratios-sensitivity",
           "composite-ratios-by-section", "composite-combined",
-          "ratios-vs-us")
+          "ratios-vs-us", "genre-test")
 paths <- file.path(root, "data", paste0(need, ".csv"))
 if (!all(file.exists(paths))) {
   stop("run Rscript R/analyse.R from the repository root first; missing: ",
@@ -62,6 +62,24 @@ ratio_ci <- function(ratio, lower, upper) {
 }
 n_countable <- sum(frames$interface != "uncountable")
 n_split <- sum(frames$interface == "split")
+
+# The prose below states these in words; stop rather than let it drift.
+per_frame <- d$`ratios-vs-us`
+stopifnot(
+  # The genre test's verdict, which decides which secondary set is reported.
+  d$`genre-test`$p_value >= 0.05,
+  d$`genre-test`$model == "common",
+  # Every variety below US, in the primary and without the partial frames.
+  all(d$`composite-ratios`$ratio < 1),
+  all(d$`composite-ratios-sensitivity`$ratio < 1),
+  # Dropping the partial frames moves every ratio further from 1.
+  all(d$`composite-ratios-sensitivity`$ratio <
+        d$`composite-ratios`$ratio[match(d$`composite-ratios-sensitivity`$variety,
+                                         d$`composite-ratios`$variety)]),
+  # The per-frame exceptions the text names as British and Australian.
+  all(per_frame$variety[!is.na(per_frame$ratio) & per_frame$ratio > 1] %in%
+        c("GB", "AU"))
+)
 ```
 
 # What this measures
@@ -177,7 +195,7 @@ inner_join(
 #| label: tbl-secondary
 #| echo: false
 d$`composite-ratios-by-section` %>%
-  filter(model == "common") %>%
+  filter(model == d$`genre-test`$model) %>%
   transmute(Variety = variety,
             `Ratio against US` = ratio_ci(ratio, ratio_lower, ratio_upper),
             `Holm p` = fmt_p(p_holm)) %>%
@@ -186,7 +204,11 @@ d$`composite-ratios-by-section` %>%
 ```
 
 The variety × section interaction test finds no evidence that the gap differs
-between the corpus's blog and general sections. That is the weak form of
+between the corpus's blog and general sections: likelihood ratio
+`r sprintf("%.2f", d$"genre-test"$chisq)` on `r d$"genre-test"$df` degrees of
+freedom, p = `r fmt_p(d$"genre-test"$p_value)`. The registration makes that
+test the rule for which set is confirmatory, and at a p of 0.05 or above it is
+the ratios common to both sections, which is what @tbl-secondary reports. That is the weak form of
 evidence against a pure genre explanation: if the difference between varieties
 were really a difference between blogs and broadsheets, holding the section
 constant should have shrunk it, and it does not.

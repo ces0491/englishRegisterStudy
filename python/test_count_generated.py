@@ -7,7 +7,9 @@ olmOCR's drawn words by topic against each topic's share of the subset's bytes.
 
 import json
 
-from count_generated import count_file, dolma_topic_rows
+import pytest
+
+from count_generated import REPO, count_file, dolma_to_csv, dolma_topic_rows
 
 FRAMES = {"F01": ["here", "'s", "the", "thing"], "F09": ["is", "n't", "just"]}
 
@@ -96,3 +98,12 @@ def test_topics_add_back_up_to_the_subset():
     for frame_id in ("F01", "F02"):
         assert sum(r["hits"] for r in rows if r["frame_id"] == frame_id) == \
             RESULT["totals"][frame_id]
+
+
+def test_dolma_to_csv_refuses_an_empty_directory(tmp_path):
+    """counts-dolma.csv is written before the topic table is built, so an
+    empty read used to truncate it and only then fail."""
+    before = (REPO / "data" / "counts-dolma.csv").read_text(encoding="utf-8")
+    with pytest.raises(SystemExit):
+        dolma_to_csv(tmp_path)
+    assert (REPO / "data" / "counts-dolma.csv").read_text(encoding="utf-8") == before
